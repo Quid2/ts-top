@@ -1,0 +1,25 @@
+{
+  "name": "ts",
+  "version": "1.0.1",
+  "description": "TypeScript API and ADTs for Quid2",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "release": "standard-version"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Quid2/ts.git"
+  },
+  "keywords": [],
+  "author": "Pasqualino Titto Assini <tittoassini@gmail.com> (http://quid2.org)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Quid2/ts/issues"
+  },
+  "homepage": "https://github.com/Quid2/ts#readme",
+  "devDependencies": {
+    "standard-version": "^4.3.0",
+    "typescript": "^2.6.2"
+  }
+}
