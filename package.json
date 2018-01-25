@@ -1,11 +1,11 @@
 {
   "name": "quid2",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "TypeScript API and ADTs for Quid2",
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "release": "standard-version"
+    "release": "standard-version;git push --follow-tags origin master"
   },
   "repository": {
     "type": "git",
