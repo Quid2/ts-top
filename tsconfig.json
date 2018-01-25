@@ -16,7 +16,7 @@
     "removeComments": true,
     "downlevelIteration": true,
     "moduleResolution": "node",
-    "rootDir": ".",
+    "rootDir": "./lib",
     "outDir": "dist",
   },
   "include": [
