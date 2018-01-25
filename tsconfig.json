@@ -16,12 +16,10 @@
     "removeComments": true,
     "downlevelIteration": true,
     "moduleResolution": "node",
-    "rootDir": "./lib",
-    "outDir": "dist",
+    "rootDir": "."
   },
   "include": [
-    "index.ts",
-    "lib/**/*",
+    "*.ts",
     "spec/**/*"
   ]
 }
