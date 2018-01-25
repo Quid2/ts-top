@@ -1,5 +1,5 @@
 {
-  "name": "ts",
+  "name": "quid2",
   "version": "1.0.1",
   "description": "TypeScript API and ADTs for Quid2",
   "main": "dist/index.js",
