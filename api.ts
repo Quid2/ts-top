@@ -6,7 +6,7 @@ import {AbsRef} from  './ADT/AbsRef/K4bbd38587b9e'
 import {SHAKE128_48} from  './ADT/SHAKE128_48/K9f214799149b'
 import {Word8 as W} from  './ADT/Word8/Kb1f46a49c8f8'
 
-export {flat,zmType,zmId,zmFold,unflat,flatDecoder,Decoder};
+export {flat,zmType,zmId,zmFold,unflat,Decoder};
 
 // Flat encode a value
 //function flat(v:any implements Flat) {
@@ -29,9 +29,6 @@ function zmType(t:zmTypeInfo ,ts:Type<AbsRef>[]) : Type<AbsRef> {
     return ts.reduce((f, a) => new TypeApp(f, a), typeId(t.zid));
 };
 
-function flatDecoder (t:zmTypeInfo,decoders:Decoder[]) {
-    return t.decoder(decoders);
-};
 
 function unflat(dec:Decoder,buf:Uint8Array) {
     //console.log("unflat",buf);

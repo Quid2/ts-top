@@ -11,7 +11,9 @@ export const $III:Q.zmFold<III> = function (f) {return f(___,[])}
 const ___ : Q.zmTypeInfo = {
   zid : [0x4c,0xf5,0xdd,0x97,0x3a,0xe4],
   decoder : function (decoders) {
-    return function(st) { return new III (decoders[0](st),decoders[1](st),decoders[2](st),decoders[3](st),decoders[4](st),decoders[5](st),decoders[6](st),decoders[7](st)) }
+    const decs = {"III":[Kb3a2642b4a84.$Int8(Q.flatDecoder),K3dac6bd4fa9c.$Int16(Q.flatDecoder),Kfb94cb4d4ede.$Int64(Q.flatDecoder),Kb3a2642b4a84.$Int8(Q.flatDecoder),Kfb94cb4d4ede.$Int64(Q.flatDecoder),Kb53bec846608.$IEEE_754_binary32(Q.flatDecoder),Kcba9596b4657.$IEEE_754_binary64(Q.flatDecoder),K102a3bb904e3.$Int(Q.flatDecoder)]} ;
+    return function(st) { const d=decs["III"]; return new III(d[0](st),d[1](st),d[2](st),d[3](st),d[4](st),d[5](st),d[6](st),d[7](st)) }
+
   }
 }
 

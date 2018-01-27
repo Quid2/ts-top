@@ -1,10 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var Q = require("../../core");
+var K64f93d94a73d = require("../HostAddress/K64f93d94a73d");
+var K0ab5ac6303b9 = require("../HostPort/K0ab5ac6303b9");
 exports.$SocketAddress = function (t1) { return function (f) { return f(___, [t1(f)]); }; };
 var ___ = {
     zid: [0xe5, 0xd0, 0x25, 0x71, 0xce, 0x7b],
     decoder: function (decoders) {
-        return function (st) { return new SocketAddress(decoders[0](st), decoders[1](st)); };
+        var decs = { "SocketAddress": [K64f93d94a73d.$HostAddress(Q.zmConst(decoders[0]))(Q.flatDecoder), K0ab5ac6303b9.$HostPort(Q.flatDecoder)] };
+        return function (st) { var d = decs["SocketAddress"]; return new SocketAddress(d[0](st), d[1](st)); };
     }
 };
 var SocketAddress = (function () {

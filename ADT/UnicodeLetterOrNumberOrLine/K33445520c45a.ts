@@ -6,7 +6,9 @@ export const $UnicodeLetterOrNumberOrLine:Q.zmFold<UnicodeLetterOrNumberOrLine> 
 const ___ : Q.zmTypeInfo = {
   zid : [0x33,0x44,0x55,0x20,0xc4,0x5a],
   decoder : function (decoders) {
-    return function(st) { return new UnicodeLetterOrNumberOrLine (decoders[0](st)) }
+    const decs = {"UnicodeLetterOrNumberOrLine":[K066db52af145.$Char(Q.flatDecoder)]} ;
+    return function(st) { const d=decs["UnicodeLetterOrNumberOrLine"]; return new UnicodeLetterOrNumberOrLine(d[0](st)) }
+
   }
 }
 

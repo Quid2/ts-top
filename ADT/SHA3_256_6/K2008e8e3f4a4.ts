@@ -6,7 +6,9 @@ export const $SHA3_256_6:<A extends Q.Flat>(t0:Q.zmFold<A>) => Q.zmFold<SHA3_256
 const ___ : Q.zmTypeInfo = {
   zid : [0x20,0x08,0xe8,0xe3,0xf4,0xa4],
   decoder : function (decoders) {
-    return function(st) { return new SHA3_256_6 (decoders[0](st),decoders[1](st),decoders[2](st),decoders[3](st),decoders[4](st),decoders[5](st)) }
+    const decs = {"SHA3_256_6":[Kb1f46a49c8f8.$Word8(Q.flatDecoder),Kb1f46a49c8f8.$Word8(Q.flatDecoder),Kb1f46a49c8f8.$Word8(Q.flatDecoder),Kb1f46a49c8f8.$Word8(Q.flatDecoder),Kb1f46a49c8f8.$Word8(Q.flatDecoder),Kb1f46a49c8f8.$Word8(Q.flatDecoder)]} ;
+    return function(st) { const d=decs["SHA3_256_6"]; return new SHA3_256_6(d[0](st),d[1](st),d[2](st),d[3](st),d[4](st),d[5](st)) }
+
   }
 }
 

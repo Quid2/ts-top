@@ -6,7 +6,9 @@ export const $Bits8:Q.zmFold<Bits8> = function (f) {return f(___,[])}
 const ___ : Q.zmTypeInfo = {
   zid : [0x9e,0x3b,0x8c,0x83,0x5f,0xe9],
   decoder : function (decoders) {
-    return function(st) { return new Bits8 (decoders[0](st),decoders[1](st),decoders[2](st),decoders[3](st),decoders[4](st),decoders[5](st),decoders[6](st),decoders[7](st)) }
+    const decs = {"Bits8":[K65149ce3b366.$Bit(Q.flatDecoder),K65149ce3b366.$Bit(Q.flatDecoder),K65149ce3b366.$Bit(Q.flatDecoder),K65149ce3b366.$Bit(Q.flatDecoder),K65149ce3b366.$Bit(Q.flatDecoder),K65149ce3b366.$Bit(Q.flatDecoder),K65149ce3b366.$Bit(Q.flatDecoder),K65149ce3b366.$Bit(Q.flatDecoder)]} ;
+    return function(st) { const d=decs["Bits8"]; return new Bits8(d[0](st),d[1](st),d[2](st),d[3](st),d[4](st),d[5](st),d[6](st),d[7](st)) }
+
   }
 }
 

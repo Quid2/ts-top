@@ -6,7 +6,9 @@ export const $Word16:Q.zmFold<Word16> = function (f) {return f(___,[])}
 const ___ : Q.zmTypeInfo = {
   zid : [0x29,0x5e,0x24,0xd6,0x2f,0xac],
   decoder : function (decoders) {
-    return function(st) { return new Word16 (decoders[0](st)) }
+    const decs = {"Word16":[Kf92e8339908a.$Word(Q.flatDecoder)]} ;
+    return function(st) { const d=decs["Word16"]; return new Word16(d[0](st)) }
+
   }
 }
 

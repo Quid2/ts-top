@@ -7,7 +7,9 @@ export const $Time:Q.zmFold<Time> = function (f) {return f(___,[])}
 const ___ : Q.zmTypeInfo = {
   zid : [0xf3,0xf0,0xf3,0xc4,0x53,0xf7],
   decoder : function (decoders) {
-    return function(st) { return new Time (decoders[0](st),decoders[1](st)) }
+    const decs = {"Time":[K102a3bb904e3.$Int(Q.flatDecoder),K2412799c99f1.$Word32(Q.flatDecoder)]} ;
+    return function(st) { const d=decs["Time"]; return new Time(d[0](st),d[1](st)) }
+
   }
 }
 

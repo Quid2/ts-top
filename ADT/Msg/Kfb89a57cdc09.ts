@@ -9,7 +9,9 @@ export const $Msg:Q.zmFold<Msg> = function (f) {return f(___,[])}
 const ___ : Q.zmTypeInfo = {
   zid : [0xfb,0x89,0xa5,0x7c,0xdc,0x09],
   decoder : function (decoders) {
-    return function(st) { return new Msg (decoders[0](st),decoders[1](st),decoders[2](st)) }
+    const decs = {"Msg":[Kb8cd13187198.$List(K066db52af145.$Char)(Q.flatDecoder),Kfced5b0f3c1f.$Subject(Q.flatDecoder),K1ba230d92eb8.$Content(Q.flatDecoder)]} ;
+    return function(st) { const d=decs["Msg"]; return new Msg(d[0](st),d[1](st),d[2](st)) }
+
   }
 }
 

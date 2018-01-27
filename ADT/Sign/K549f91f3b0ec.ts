@@ -5,7 +5,9 @@ export const $Sign:Q.zmFold<Sign> = function (f) {return f(___,[])}
 const ___ : Q.zmTypeInfo = {
   zid : [0x54,0x9f,0x91,0xf3,0xb0,0xec],
   decoder : function (decoders) {
-    return function(st) { if (st.zero()) { return new Positive () } else { return new Negative () } }
+    const decs = {} ;
+    return function(st) { if (st.zero()) { return new Positive() } else { return new Negative() } }
+
   }
 }
 

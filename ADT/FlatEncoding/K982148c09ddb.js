@@ -4,6 +4,7 @@ exports.$FlatEncoding = function (f) { return f(___, []); };
 var ___ = {
     zid: [0x98, 0x21, 0x48, 0xc0, 0x9d, 0xdb],
     decoder: function (decoders) {
+        var decs = {};
         return function (st) { return new FlatEncoding(); };
     }
 };

@@ -5,7 +5,9 @@ export const $Unit:Q.zmFold<Unit> = function (f) {return f(___,[])}
 const ___ : Q.zmTypeInfo = {
   zid : [0x79,0x4a,0xef,0x6e,0x21,0xaa],
   decoder : function (decoders) {
-    return function(st) { return new Unit () }
+    const decs = {} ;
+    return function(st) { return new Unit() }
+
   }
 }
 

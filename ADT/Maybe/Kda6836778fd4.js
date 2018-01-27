@@ -1,14 +1,17 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var Q = require("../../core");
 exports.$Maybe = function (t1) { return function (f) { return f(___, [t1(f)]); }; };
 var ___ = {
     zid: [0xda, 0x68, 0x36, 0x77, 0x8f, 0xd4],
     decoder: function (decoders) {
+        var decs = { "Just": [Q.zmConst(decoders[0])(Q.flatDecoder)] };
         return function (st) { if (st.zero()) {
             return new Nothing();
         }
         else {
-            return new Just(decoders[0](st));
+            var d = decs["Just"];
+            return new Just(d[0](st));
         } };
     }
 };

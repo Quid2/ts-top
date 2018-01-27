@@ -5,7 +5,9 @@ export const $Maybe:<A extends Q.Flat>(t0:Q.zmFold<A>) => Q.zmFold<Maybe<A>> = f
 const ___ : Q.zmTypeInfo = {
   zid : [0xda,0x68,0x36,0x77,0x8f,0xd4],
   decoder : function (decoders) {
-    return function(st) { if (st.zero()) { return new Nothing () } else { return new Just (decoders[0](st)) } }
+    const decs = {"Just":[Q.zmConst(decoders[0])(Q.flatDecoder)]} ;
+    return function(st) { if (st.zero()) { return new Nothing() } else { const d=decs["Just"]; return new Just(d[0](st)) } }
+
   }
 }
 

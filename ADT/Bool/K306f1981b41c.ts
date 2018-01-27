@@ -5,7 +5,9 @@ export const $Bool:Q.zmFold<Bool> = function (f) {return f(___,[])}
 const ___ : Q.zmTypeInfo = {
   zid : [0x30,0x6f,0x19,0x81,0xb4,0x1c],
   decoder : function (decoders) {
-    return function(st) { if (st.zero()) { return new False () } else { return new True () } }
+    const decs = {} ;
+    return function(st) { if (st.zero()) { return new False() } else { return new True() } }
+
   }
 }
 

@@ -1,10 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var Q = require("../../core");
 exports.$Tuple2 = function (t1, t2) { return function (f) { return f(___, [t1(f), t2(f)]); }; };
 var ___ = {
     zid: [0xa5, 0x58, 0x3b, 0xf3, 0xad, 0x34],
     decoder: function (decoders) {
-        return function (st) { return new Tuple2(decoders[0](st), decoders[1](st)); };
+        var decs = { "Tuple2": [Q.zmConst(decoders[0])(Q.flatDecoder), Q.zmConst(decoders[1])(Q.flatDecoder)] };
+        return function (st) { var d = decs["Tuple2"]; return new Tuple2(d[0](st), d[1](st)); };
     }
 };
 var Tuple2 = (function () {

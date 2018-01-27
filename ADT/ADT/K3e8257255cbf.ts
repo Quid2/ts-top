@@ -8,7 +8,9 @@ export const $ADT:<A extends Q.Flat,B extends Q.Flat,C extends Q.Flat>(t0:Q.zmFo
 const ___ : Q.zmTypeInfo = {
   zid : [0x3e,0x82,0x57,0x25,0x5c,0xbf],
   decoder : function (decoders) {
-    return function(st) { return new ADT (decoders[0](st),decoders[1](st),decoders[2](st)) }
+    const decs = {"ADT":[Q.zmConst(decoders[0])(Q.flatDecoder),Kb1f46a49c8f8.$Word8(Q.flatDecoder),Kda6836778fd4.$Maybe(K86653e040025.$ConTree(Q.zmConst(decoders[1]),Q.zmConst(decoders[2])))(Q.flatDecoder)]} ;
+    return function(st) { const d=decs["ADT"]; return new ADT(d[0](st),d[1](st),d[2](st)) }
+
   }
 }
 

@@ -4,6 +4,7 @@ exports.$Bool = function (f) { return f(___, []); };
 var ___ = {
     zid: [0x30, 0x6f, 0x19, 0x81, 0xb4, 0x1c],
     decoder: function (decoders) {
+        var decs = {};
         return function (st) { if (st.zero()) {
             return new False();
         }

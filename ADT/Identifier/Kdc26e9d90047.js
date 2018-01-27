@@ -1,14 +1,23 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var Q = require("../../core");
+var K3878b3580fc5 = require("../UnicodeLetter/K3878b3580fc5");
+var Kb8cd13187198 = require("../List/Kb8cd13187198");
+var K33445520c45a = require("../UnicodeLetterOrNumberOrLine/K33445520c45a");
+var Kbf2d1c86eb20 = require("../NonEmptyList/Kbf2d1c86eb20");
+var K801030ef543c = require("../UnicodeSymbol/K801030ef543c");
 exports.$Identifier = function (f) { return f(___, []); };
 var ___ = {
     zid: [0xdc, 0x26, 0xe9, 0xd9, 0x00, 0x47],
     decoder: function (decoders) {
+        var decs = { "Name": [K3878b3580fc5.$UnicodeLetter(Q.flatDecoder), Kb8cd13187198.$List(K33445520c45a.$UnicodeLetterOrNumberOrLine)(Q.flatDecoder)], "Symbol": [Kbf2d1c86eb20.$NonEmptyList(K801030ef543c.$UnicodeSymbol)(Q.flatDecoder)] };
         return function (st) { if (st.zero()) {
-            return new Name(decoders[0](st), decoders[1](st));
+            var d = decs["Name"];
+            return new Name(d[0](st), d[1](st));
         }
         else {
-            return new Symbol(decoders[0](st));
+            var d = decs["Symbol"];
+            return new Symbol(d[0](st));
         } };
     }
 };

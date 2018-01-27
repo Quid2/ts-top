@@ -1,18 +1,24 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var Q = require("../../core");
+var Kb8cd13187198 = require("../List/Kb8cd13187198");
+var K066db52af145 = require("../Char/K066db52af145");
 exports.$ChannelSelectionResult = function (t1) { return function (f) { return f(___, [t1(f)]); }; };
 var ___ = {
     zid: [0xc6, 0x62, 0x7a, 0x31, 0x7d, 0xbc],
     decoder: function (decoders) {
+        var decs = { "Failure": [Kb8cd13187198.$List(K066db52af145.$Char)(Q.flatDecoder)], "RetryAt": [Q.zmConst(decoders[0])(Q.flatDecoder)] };
         return function (st) { if (st.zero()) {
             return new Success();
         }
         else {
             if (st.zero()) {
-                return new Failure(decoders[0](st));
+                var d = decs["Failure"];
+                return new Failure(d[0](st));
             }
             else {
-                return new RetryAt(decoders[0](st));
+                var d = decs["RetryAt"];
+                return new RetryAt(d[0](st));
             }
         } };
     }

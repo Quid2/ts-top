@@ -5,6 +5,8 @@
 // Saturated ZM Type Fold
 export type zmFold<T> = <A> (f: (tId: zmTypeInfo, pars: A[]) => A) => A
 
+export function zmConst (v:any) {return function(f:any) {return v;}} 
+
 // ZM type contructor unique code
 export type zmId = [number, number, number, number, number, number]
 
@@ -19,6 +21,10 @@ export interface Flat {
 //export type Decoder<T> = (s:DecoderState) => T
 
 export type Decoder = (s: DecoderState) => any
+
+export function flatDecoder (t:zmTypeInfo,decoders:Decoder[]) {
+  return t.decoder(decoders);
+};
 
 export class DecoderState {
   buffer: Uint8Array; //Flat-encoded value

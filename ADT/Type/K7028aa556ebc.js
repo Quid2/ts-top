@@ -1,14 +1,18 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var Q = require("../../core");
 exports.$Type = function (t1) { return function (f) { return f(___, [t1(f)]); }; };
 var ___ = {
     zid: [0x70, 0x28, 0xaa, 0x55, 0x6e, 0xbc],
     decoder: function (decoders) {
+        var decs = { "TypeCon": [Q.zmConst(decoders[0])(Q.flatDecoder)], "TypeApp": [exports.$Type(Q.zmConst(decoders[0]))(Q.flatDecoder), exports.$Type(Q.zmConst(decoders[0]))(Q.flatDecoder)] };
         return function (st) { if (st.zero()) {
-            return new TypeCon(decoders[0](st));
+            var d = decs["TypeCon"];
+            return new TypeCon(d[0](st));
         }
         else {
-            return new TypeApp(decoders[0](st), decoders[1](st));
+            var d = decs["TypeApp"];
+            return new TypeApp(d[0](st), d[1](st));
         } };
     }
 };

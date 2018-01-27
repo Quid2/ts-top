@@ -6,7 +6,9 @@ export const $Bits23:Q.zmFold<Bits23> = function (f) {return f(___,[])}
 const ___ : Q.zmTypeInfo = {
   zid : [0x33,0x88,0x88,0x22,0x23,0x64],
   decoder : function (decoders) {
-    return function(st) { return new Bits23 (decoders[0](st),decoders[1](st),decoders[2](st),decoders[3](st),decoders[4](st),decoders[5](st),decoders[6](st),decoders[7](st),decoders[8](st),decoders[9](st),decoders[10](st),decoders[11](st),decoders[12](st),decoders[13](st),decoders[14](st),decoders[15](st),decoders[16](st),decoders[17](st),decoders[18](st),decoders[19](st),decoders[20](st),decoders[21](st),decoders[22](st)) }
+    const decs = {"Bits23":[K65149ce3b366.$Bit(Q.flatDecoder),K65149ce3b366.$Bit(Q.flatDecoder),K65149ce3b366.$Bit(Q.flatDecoder),K65149ce3b366.$Bit(Q.flatDecoder),K65149ce3b366.$Bit(Q.flatDecoder),K65149ce3b366.$Bit(Q.flatDecoder),K65149ce3b366.$Bit(Q.flatDecoder),K65149ce3b366.$Bit(Q.flatDecoder),K65149ce3b366.$Bit(Q.flatDecoder),K65149ce3b366.$Bit(Q.flatDecoder),K65149ce3b366.$Bit(Q.flatDecoder),K65149ce3b366.$Bit(Q.flatDecoder),K65149ce3b366.$Bit(Q.flatDecoder),K65149ce3b366.$Bit(Q.flatDecoder),K65149ce3b366.$Bit(Q.flatDecoder),K65149ce3b366.$Bit(Q.flatDecoder),K65149ce3b366.$Bit(Q.flatDecoder),K65149ce3b366.$Bit(Q.flatDecoder),K65149ce3b366.$Bit(Q.flatDecoder),K65149ce3b366.$Bit(Q.flatDecoder),K65149ce3b366.$Bit(Q.flatDecoder),K65149ce3b366.$Bit(Q.flatDecoder),K65149ce3b366.$Bit(Q.flatDecoder)]} ;
+    return function(st) { const d=decs["Bits23"]; return new Bits23(d[0](st),d[1](st),d[2](st),d[3](st),d[4](st),d[5](st),d[6](st),d[7](st),d[8](st),d[9](st),d[10](st),d[11](st),d[12](st),d[13](st),d[14](st),d[15](st),d[16](st),d[17](st),d[18](st),d[19](st),d[20](st),d[21](st),d[22](st)) }
+
   }
 }
 

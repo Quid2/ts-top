@@ -7,7 +7,9 @@ export const $Match:<A extends Q.Flat>(t0:Q.zmFold<A>) => Q.zmFold<Match<A>> = f
 const ___ : Q.zmTypeInfo = {
   zid : [0xc2,0x3b,0x20,0x38,0x91,0x14],
   decoder : function (decoders) {
-    return function(st) { if (st.zero()) { return new MatchValue (decoders[0](st)) } else { return new MatchAny (decoders[0](st)) } }
+    const decs = {"MatchValue":[Q.zmConst(decoders[0])(Q.flatDecoder)],"MatchAny":[K7028aa556ebc.$Type(K4bbd38587b9e.$AbsRef)(Q.flatDecoder)]} ;
+    return function(st) { if (st.zero()) { const d=decs["MatchValue"]; return new MatchValue(d[0](st)) } else { const d=decs["MatchAny"]; return new MatchAny(d[0](st)) } }
+
   }
 }
 

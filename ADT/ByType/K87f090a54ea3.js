@@ -4,6 +4,7 @@ exports.$ByType = function (t1) { return function (f) { return f(___, [t1(f)]); 
 var ___ = {
     zid: [0x87, 0xf0, 0x90, 0xa5, 0x4e, 0xa3],
     decoder: function (decoders) {
+        var decs = {};
         return function (st) { return new ByType(); };
     }
 };

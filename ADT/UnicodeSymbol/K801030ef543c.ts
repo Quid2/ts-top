@@ -6,7 +6,9 @@ export const $UnicodeSymbol:Q.zmFold<UnicodeSymbol> = function (f) {return f(___
 const ___ : Q.zmTypeInfo = {
   zid : [0x80,0x10,0x30,0xef,0x54,0x3c],
   decoder : function (decoders) {
-    return function(st) { return new UnicodeSymbol (decoders[0](st)) }
+    const decs = {"UnicodeSymbol":[K066db52af145.$Char(Q.flatDecoder)]} ;
+    return function(st) { const d=decs["UnicodeSymbol"]; return new UnicodeSymbol(d[0](st)) }
+
   }
 }
 

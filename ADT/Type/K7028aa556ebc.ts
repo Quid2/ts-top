@@ -5,7 +5,9 @@ export const $Type:<A extends Q.Flat>(t0:Q.zmFold<A>) => Q.zmFold<Type<A>> = fun
 const ___ : Q.zmTypeInfo = {
   zid : [0x70,0x28,0xaa,0x55,0x6e,0xbc],
   decoder : function (decoders) {
-    return function(st) { if (st.zero()) { return new TypeCon (decoders[0](st)) } else { return new TypeApp (decoders[0](st),decoders[1](st)) } }
+    const decs = {"TypeCon":[Q.zmConst(decoders[0])(Q.flatDecoder)],"TypeApp":[$Type(Q.zmConst(decoders[0]))(Q.flatDecoder),$Type(Q.zmConst(decoders[0]))(Q.flatDecoder)]} ;
+    return function(st) { if (st.zero()) { const d=decs["TypeCon"]; return new TypeCon(d[0](st)) } else { const d=decs["TypeApp"]; return new TypeApp(d[0](st),d[1](st)) } }
+
   }
 }
 

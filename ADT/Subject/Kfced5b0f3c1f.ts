@@ -7,7 +7,9 @@ export const $Subject:Q.zmFold<Subject> = function (f) {return f(___,[])}
 const ___ : Q.zmTypeInfo = {
   zid : [0xfc,0xed,0x5b,0x0f,0x3c,0x1f],
   decoder : function (decoders) {
-    return function(st) { return new Subject (decoders[0](st)) }
+    const decs = {"Subject":[Kb8cd13187198.$List(Kb8cd13187198.$List(K066db52af145.$Char))(Q.flatDecoder)]} ;
+    return function(st) { const d=decs["Subject"]; return new Subject(d[0](st)) }
+
   }
 }
 

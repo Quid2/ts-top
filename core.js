@@ -1,5 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+function zmConst(v) { return function (f) { return v; }; }
+exports.zmConst = zmConst;
+function flatDecoder(t, decoders) {
+    return t.decoder(decoders);
+}
+exports.flatDecoder = flatDecoder;
+;
 var DecoderState = (function () {
     function DecoderState(buffer) {
         this.buffer = buffer;

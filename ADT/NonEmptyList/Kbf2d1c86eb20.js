@@ -1,14 +1,18 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var Q = require("../../core");
 exports.$NonEmptyList = function (t1) { return function (f) { return f(___, [t1(f)]); }; };
 var ___ = {
     zid: [0xbf, 0x2d, 0x1c, 0x86, 0xeb, 0x20],
     decoder: function (decoders) {
+        var decs = { "Elem": [Q.zmConst(decoders[0])(Q.flatDecoder)], "Cons": [Q.zmConst(decoders[0])(Q.flatDecoder), exports.$NonEmptyList(Q.zmConst(decoders[0]))(Q.flatDecoder)] };
         return function (st) { if (st.zero()) {
-            return new Elem(decoders[0](st));
+            var d = decs["Elem"];
+            return new Elem(d[0](st));
         }
         else {
-            return new Cons(decoders[0](st), decoders[1](st));
+            var d = decs["Cons"];
+            return new Cons(d[0](st), d[1](st));
         } };
     }
 };

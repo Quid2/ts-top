@@ -6,7 +6,9 @@ export const $StoreProtocol:<A extends Q.Flat>(t0:Q.zmFold<A>) => Q.zmFold<Store
 const ___ : Q.zmTypeInfo = {
   zid : [0xe8,0x38,0x59,0xe5,0x2e,0x9a],
   decoder : function (decoders) {
-    return function(st) { if (st.zero()) { return new Save (decoders[0](st)) } else { if (st.zero()) { return new Solve (decoders[0](st)) } else { return new Solved (decoders[0](st),decoders[1](st)) } } }
+    const decs = {"Save":[Q.zmConst(decoders[0])(Q.flatDecoder)],"Solve":[K9f214799149b.$SHAKE128_48(Q.zmConst(decoders[0]))(Q.flatDecoder)],"Solved":[K9f214799149b.$SHAKE128_48(Q.zmConst(decoders[0]))(Q.flatDecoder),Q.zmConst(decoders[0])(Q.flatDecoder)]} ;
+    return function(st) { if (st.zero()) { const d=decs["Save"]; return new Save(d[0](st)) } else { if (st.zero()) { const d=decs["Solve"]; return new Solve(d[0](st)) } else { const d=decs["Solved"]; return new Solved(d[0](st),d[1](st)) } } }
+
   }
 }
 

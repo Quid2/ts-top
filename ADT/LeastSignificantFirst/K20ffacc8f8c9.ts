@@ -5,7 +5,9 @@ export const $LeastSignificantFirst:<A extends Q.Flat>(t0:Q.zmFold<A>) => Q.zmFo
 const ___ : Q.zmTypeInfo = {
   zid : [0x20,0xff,0xac,0xc8,0xf8,0xc9],
   decoder : function (decoders) {
-    return function(st) { return new LeastSignificantFirst (decoders[0](st)) }
+    const decs = {"LeastSignificantFirst":[Q.zmConst(decoders[0])(Q.flatDecoder)]} ;
+    return function(st) { const d=decs["LeastSignificantFirst"]; return new LeastSignificantFirst(d[0](st)) }
+
   }
 }
 

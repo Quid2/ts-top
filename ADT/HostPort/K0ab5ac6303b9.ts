@@ -6,7 +6,9 @@ export const $HostPort:Q.zmFold<HostPort> = function (f) {return f(___,[])}
 const ___ : Q.zmTypeInfo = {
   zid : [0x0a,0xb5,0xac,0x63,0x03,0xb9],
   decoder : function (decoders) {
-    return function(st) { return new HostPort (decoders[0](st)) }
+    const decs = {"HostPort":[K295e24d62fac.$Word16(Q.flatDecoder)]} ;
+    return function(st) { const d=decs["HostPort"]; return new HostPort(d[0](st)) }
+
   }
 }
 

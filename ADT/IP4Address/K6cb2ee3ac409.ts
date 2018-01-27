@@ -6,7 +6,9 @@ export const $IP4Address:Q.zmFold<IP4Address> = function (f) {return f(___,[])}
 const ___ : Q.zmTypeInfo = {
   zid : [0x6c,0xb2,0xee,0x3a,0xc4,0x09],
   decoder : function (decoders) {
-    return function(st) { return new IP4Address (decoders[0](st),decoders[1](st),decoders[2](st),decoders[3](st)) }
+    const decs = {"IP4Address":[Kb1f46a49c8f8.$Word8(Q.flatDecoder),Kb1f46a49c8f8.$Word8(Q.flatDecoder),Kb1f46a49c8f8.$Word8(Q.flatDecoder),Kb1f46a49c8f8.$Word8(Q.flatDecoder)]} ;
+    return function(st) { const d=decs["IP4Address"]; return new IP4Address(d[0](st),d[1](st),d[2](st),d[3](st)) }
+
   }
 }
 

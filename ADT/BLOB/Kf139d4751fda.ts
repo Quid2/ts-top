@@ -6,7 +6,9 @@ export const $BLOB:<A extends Q.Flat>(t0:Q.zmFold<A>) => Q.zmFold<BLOB<A>> = fun
 const ___ : Q.zmTypeInfo = {
   zid : [0xf1,0x39,0xd4,0x75,0x1f,0xda],
   decoder : function (decoders) {
-    return function(st) { return new BLOB (decoders[0](st),decoders[1](st)) }
+    const decs = {"BLOB":[Q.zmConst(decoders[0])(Q.flatDecoder),Kf8844385a443.$Bytes(Q.flatDecoder)]} ;
+    return function(st) { const d=decs["BLOB"]; return new BLOB(d[0](st),d[1](st)) }
+
   }
 }
 

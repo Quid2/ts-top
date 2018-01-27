@@ -5,7 +5,9 @@ export const $ZigZag:<A extends Q.Flat>(t0:Q.zmFold<A>) => Q.zmFold<ZigZag<A>> =
 const ___ : Q.zmTypeInfo = {
   zid : [0x03,0x22,0x67,0x96,0xed,0xe4],
   decoder : function (decoders) {
-    return function(st) { return new ZigZag (decoders[0](st)) }
+    const decs = {"ZigZag":[Q.zmConst(decoders[0])(Q.flatDecoder)]} ;
+    return function(st) { const d=decs["ZigZag"]; return new ZigZag(d[0](st)) }
+
   }
 }
 

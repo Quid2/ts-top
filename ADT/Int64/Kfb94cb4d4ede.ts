@@ -7,7 +7,9 @@ export const $Int64:Q.zmFold<Int64> = function (f) {return f(___,[])}
 const ___ : Q.zmTypeInfo = {
   zid : [0xfb,0x94,0xcb,0x4d,0x4e,0xde],
   decoder : function (decoders) {
-    return function(st) { return new Int64 (decoders[0](st)) }
+    const decs = {"Int64":[K03226796ede4.$ZigZag(K50d018f7593a.$Word64)(Q.flatDecoder)]} ;
+    return function(st) { const d=decs["Int64"]; return new Int64(d[0](st)) }
+
   }
 }
 

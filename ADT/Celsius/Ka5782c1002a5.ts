@@ -6,7 +6,9 @@ export const $Celsius:Q.zmFold<Celsius> = function (f) {return f(___,[])}
 const ___ : Q.zmTypeInfo = {
   zid : [0xa5,0x78,0x2c,0x10,0x02,0xa5],
   decoder : function (decoders) {
-    return function(st) { return new Celsius (decoders[0](st)) }
+    const decs = {"Celsius":[Kb53bec846608.$IEEE_754_binary32(Q.flatDecoder)]} ;
+    return function(st) { const d=decs["Celsius"]; return new Celsius(d[0](st)) }
+
   }
 }
 

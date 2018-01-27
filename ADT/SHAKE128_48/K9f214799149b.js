@@ -1,10 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var Q = require("../../core");
+var Kb1f46a49c8f8 = require("../Word8/Kb1f46a49c8f8");
 exports.$SHAKE128_48 = function (t1) { return function (f) { return f(___, [t1(f)]); }; };
 var ___ = {
     zid: [0x9f, 0x21, 0x47, 0x99, 0x14, 0x9b],
     decoder: function (decoders) {
-        return function (st) { return new SHAKE128_48(decoders[0](st), decoders[1](st), decoders[2](st), decoders[3](st), decoders[4](st), decoders[5](st)); };
+        var decs = { "SHAKE128_48": [Kb1f46a49c8f8.$Word8(Q.flatDecoder), Kb1f46a49c8f8.$Word8(Q.flatDecoder), Kb1f46a49c8f8.$Word8(Q.flatDecoder), Kb1f46a49c8f8.$Word8(Q.flatDecoder), Kb1f46a49c8f8.$Word8(Q.flatDecoder), Kb1f46a49c8f8.$Word8(Q.flatDecoder)] };
+        return function (st) { var d = decs["SHAKE128_48"]; return new SHAKE128_48(d[0](st), d[1](st), d[2](st), d[3](st), d[4](st), d[5](st)); };
     }
 };
 var SHAKE128_48 = (function () {

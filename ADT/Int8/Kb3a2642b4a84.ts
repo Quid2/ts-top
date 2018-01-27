@@ -7,7 +7,9 @@ export const $Int8:Q.zmFold<Int8> = function (f) {return f(___,[])}
 const ___ : Q.zmTypeInfo = {
   zid : [0xb3,0xa2,0x64,0x2b,0x4a,0x84],
   decoder : function (decoders) {
-    return function(st) { return new Int8 (decoders[0](st)) }
+    const decs = {"Int8":[K03226796ede4.$ZigZag(Kb1f46a49c8f8.$Word8)(Q.flatDecoder)]} ;
+    return function(st) { const d=decs["Int8"]; return new Int8(d[0](st)) }
+
   }
 }
 

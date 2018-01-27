@@ -1,10 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var Q = require("../../core");
+var K066db52af145 = require("../Char/K066db52af145");
 exports.$UnicodeSymbol = function (f) { return f(___, []); };
 var ___ = {
     zid: [0x80, 0x10, 0x30, 0xef, 0x54, 0x3c],
     decoder: function (decoders) {
-        return function (st) { return new UnicodeSymbol(decoders[0](st)); };
+        var decs = { "UnicodeSymbol": [K066db52af145.$Char(Q.flatDecoder)] };
+        return function (st) { var d = decs["UnicodeSymbol"]; return new UnicodeSymbol(d[0](st)); };
     }
 };
 var UnicodeSymbol = (function () {

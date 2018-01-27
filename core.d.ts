@@ -1,4 +1,5 @@
 export declare type zmFold<T> = <A>(f: (tId: zmTypeInfo, pars: A[]) => A) => A;
+export declare function zmConst(v: any): (f: any) => any;
 export declare type zmId = [number, number, number, number, number, number];
 export declare type zmTypeInfo = {
     zid: zmId;
@@ -9,6 +10,7 @@ export interface Flat {
     flatEncode: Encoder;
 }
 export declare type Decoder = (s: DecoderState) => any;
+export declare function flatDecoder(t: zmTypeInfo, decoders: Decoder[]): Decoder;
 export declare class DecoderState {
     buffer: Uint8Array;
     currPtr: number;

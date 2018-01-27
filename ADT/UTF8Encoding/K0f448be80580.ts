@@ -5,7 +5,9 @@ export const $UTF8Encoding:Q.zmFold<UTF8Encoding> = function (f) {return f(___,[
 const ___ : Q.zmTypeInfo = {
   zid : [0x0f,0x44,0x8b,0xe8,0x05,0x80],
   decoder : function (decoders) {
-    return function(st) { return new UTF8Encoding () }
+    const decs = {} ;
+    return function(st) { return new UTF8Encoding() }
+
   }
 }
 

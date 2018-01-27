@@ -7,7 +7,9 @@ export const $Content:<A extends Q.Flat,B extends Q.Flat>(t0:Q.zmFold<A>,t1:Q.zm
 const ___ : Q.zmTypeInfo = {
   zid : [0x95,0x73,0x57,0x18,0x39,0x35],
   decoder : function (decoders) {
-    return function(st) { if (st.zero()) { if (st.zero()) { if (st.zero()) { return new TextMessage (decoders[0](st)) } else { return new AskSubSubjects () } } else { if (st.zero()) { return new Join () } else { return new Leave () } } } else { if (st.zero()) { if (st.zero()) { return new Ping () } else { return new AskUsers () } } else { if (st.zero()) { return new Users (decoders[0](st)) } else { if (st.zero()) { return new AskHistory () } else { return new History (decoders[0](st)) } } } } }
+    const decs = {"TextMessage":[Kb8cd13187198.$List(K066db52af145.$Char)(Q.flatDecoder)],"Users":[Kb8cd13187198.$List(Q.zmConst(decoders[0]))(Q.flatDecoder)],"History":[Kb8cd13187198.$List(Q.zmConst(decoders[1]))(Q.flatDecoder)]} ;
+    return function(st) { if (st.zero()) { if (st.zero()) { if (st.zero()) { const d=decs["TextMessage"]; return new TextMessage(d[0](st)) } else { return new AskSubSubjects() } } else { if (st.zero()) { return new Join() } else { return new Leave() } } } else { if (st.zero()) { if (st.zero()) { return new Ping() } else { return new AskUsers() } } else { if (st.zero()) { const d=decs["Users"]; return new Users(d[0](st)) } else { if (st.zero()) { return new AskHistory() } else { const d=decs["History"]; return new History(d[0](st)) } } } } }
+
   }
 }
 

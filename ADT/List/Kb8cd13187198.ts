@@ -5,7 +5,9 @@ export const $List:<A extends Q.Flat>(t0:Q.zmFold<A>) => Q.zmFold<List<A>> = fun
 const ___ : Q.zmTypeInfo = {
   zid : [0xb8,0xcd,0x13,0x18,0x71,0x98],
   decoder : function (decoders) {
-    return function(st) { if (st.zero()) { return new Nil () } else { return new Cons (decoders[0](st),decoders[1](st)) } }
+    const decs = {"Cons":[Q.zmConst(decoders[0])(Q.flatDecoder),$List(Q.zmConst(decoders[0]))(Q.flatDecoder)]} ;
+    return function(st) { if (st.zero()) { return new Nil() } else { const d=decs["Cons"]; return new Cons(d[0](st),d[1](st)) } }
+
   }
 }
 

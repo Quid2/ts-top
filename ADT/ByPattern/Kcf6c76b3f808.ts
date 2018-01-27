@@ -8,7 +8,9 @@ export const $ByPattern:<A extends Q.Flat>(t0:Q.zmFold<A>) => Q.zmFold<ByPattern
 const ___ : Q.zmTypeInfo = {
   zid : [0xcf,0x6c,0x76,0xb3,0xf8,0x08],
   decoder : function (decoders) {
-    return function(st) { return new ByPattern (decoders[0](st)) }
+    const decs = {"ByPattern":[Kb8cd13187198.$List(Kc23b20389114.$Match(Kb8cd13187198.$List(K65149ce3b366.$Bit)))(Q.flatDecoder)]} ;
+    return function(st) { const d=decs["ByPattern"]; return new ByPattern(d[0](st)) }
+
   }
 }
 

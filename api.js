@@ -24,11 +24,6 @@ function zmType(t, ts) {
 }
 exports.zmType = zmType;
 ;
-function flatDecoder(t, decoders) {
-    return t.decoder(decoders);
-}
-exports.flatDecoder = flatDecoder;
-;
 function unflat(dec, buf) {
     var st = new core_1.DecoderState(buf);
     var v = dec(st);

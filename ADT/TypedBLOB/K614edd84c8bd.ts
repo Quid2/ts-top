@@ -9,7 +9,9 @@ export const $TypedBLOB:Q.zmFold<TypedBLOB> = function (f) {return f(___,[])}
 const ___ : Q.zmTypeInfo = {
   zid : [0x61,0x4e,0xdd,0x84,0xc8,0xbd],
   decoder : function (decoders) {
-    return function(st) { return new TypedBLOB (decoders[0](st),decoders[1](st)) }
+    const decs = {"TypedBLOB":[K7028aa556ebc.$Type(K4bbd38587b9e.$AbsRef)(Q.flatDecoder),Kf139d4751fda.$BLOB(K982148c09ddb.$FlatEncoding)(Q.flatDecoder)]} ;
+    return function(st) { const d=decs["TypedBLOB"]; return new TypedBLOB(d[0](st),d[1](st)) }
+
   }
 }
 

@@ -1,14 +1,22 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var Q = require("../../core");
+var K6260e465ae74 = require("../Either/K6260e465ae74");
+var Kb8cd13187198 = require("../List/Kb8cd13187198");
+var K7028aa556ebc = require("../Type/K7028aa556ebc");
+var Ka5583bf3ad34 = require("../Tuple2/Ka5583bf3ad34");
 exports.$ConTree = function (t1, t2) { return function (f) { return f(___, [t1(f), t2(f)]); }; };
 var ___ = {
     zid: [0x86, 0x65, 0x3e, 0x04, 0x00, 0x25],
     decoder: function (decoders) {
+        var decs = { "Con": [Q.zmConst(decoders[0])(Q.flatDecoder), K6260e465ae74.$Either(Kb8cd13187198.$List(K7028aa556ebc.$Type(Q.zmConst(decoders[1]))), Kb8cd13187198.$List(Ka5583bf3ad34.$Tuple2(Q.zmConst(decoders[0]), K7028aa556ebc.$Type(Q.zmConst(decoders[1])))))(Q.flatDecoder)], "_ConTree": [exports.$ConTree(Q.zmConst(decoders[0]), Q.zmConst(decoders[1]))(Q.flatDecoder), exports.$ConTree(Q.zmConst(decoders[0]), Q.zmConst(decoders[1]))(Q.flatDecoder)] };
         return function (st) { if (st.zero()) {
-            return new Con(decoders[0](st), decoders[1](st));
+            var d = decs["Con"];
+            return new Con(d[0](st), d[1](st));
         }
         else {
-            return new _ConTree(decoders[0](st), decoders[1](st));
+            var d = decs["_ConTree"];
+            return new _ConTree(d[0](st), d[1](st));
         } };
     }
 };

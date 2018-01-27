@@ -7,7 +7,9 @@ export const $SocketAddress:<A extends Q.Flat>(t0:Q.zmFold<A>) => Q.zmFold<Socke
 const ___ : Q.zmTypeInfo = {
   zid : [0xe5,0xd0,0x25,0x71,0xce,0x7b],
   decoder : function (decoders) {
-    return function(st) { return new SocketAddress (decoders[0](st),decoders[1](st)) }
+    const decs = {"SocketAddress":[K64f93d94a73d.$HostAddress(Q.zmConst(decoders[0]))(Q.flatDecoder),K0ab5ac6303b9.$HostPort(Q.flatDecoder)]} ;
+    return function(st) { const d=decs["SocketAddress"]; return new SocketAddress(d[0](st),d[1](st)) }
+
   }
 }
 

@@ -7,7 +7,9 @@ export const $User:Q.zmFold<User> = function (f) {return f(___,[])}
 const ___ : Q.zmTypeInfo = {
   zid : [0x0e,0x1d,0xf2,0x5d,0xc4,0x80],
   decoder : function (decoders) {
-    return function(st) { return new User (decoders[0](st)) }
+    const decs = {"User":[Kb8cd13187198.$List(K066db52af145.$Char)(Q.flatDecoder)]} ;
+    return function(st) { const d=decs["User"]; return new User(d[0](st)) }
+
   }
 }
 

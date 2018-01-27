@@ -5,7 +5,9 @@ export const $Either:<A extends Q.Flat,B extends Q.Flat>(t0:Q.zmFold<A>,t1:Q.zmF
 const ___ : Q.zmTypeInfo = {
   zid : [0x62,0x60,0xe4,0x65,0xae,0x74],
   decoder : function (decoders) {
-    return function(st) { if (st.zero()) { return new Left (decoders[0](st)) } else { return new Right (decoders[0](st)) } }
+    const decs = {"Left":[Q.zmConst(decoders[0])(Q.flatDecoder)],"Right":[Q.zmConst(decoders[1])(Q.flatDecoder)]} ;
+    return function(st) { if (st.zero()) { const d=decs["Left"]; return new Left(d[0](st)) } else { const d=decs["Right"]; return new Right(d[0](st)) } }
+
   }
 }
 

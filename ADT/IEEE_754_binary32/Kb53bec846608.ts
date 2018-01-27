@@ -9,7 +9,9 @@ export const $IEEE_754_binary32:Q.zmFold<IEEE_754_binary32> = function (f) {retu
 const ___ : Q.zmTypeInfo = {
   zid : [0xb5,0x3b,0xec,0x84,0x66,0x08],
   decoder : function (decoders) {
-    return function(st) { return new IEEE_754_binary32 (decoders[0](st),decoders[1](st),decoders[2](st)) }
+    const decs = {"IEEE_754_binary32":[K549f91f3b0ec.$Sign(Q.flatDecoder),K74e2b3b89941.$MostSignificantFirst(K9e3b8c835fe9.$Bits8)(Q.flatDecoder),K74e2b3b89941.$MostSignificantFirst(K338888222364.$Bits23)(Q.flatDecoder)]} ;
+    return function(st) { const d=decs["IEEE_754_binary32"]; return new IEEE_754_binary32(d[0](st),d[1](st),d[2](st)) }
+
   }
 }
 
