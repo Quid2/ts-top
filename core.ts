@@ -5,7 +5,14 @@
 // Saturated ZM Type Fold
 export type zmFold<T> = <A> (f: (tId: zmTypeInfo, pars: A[]) => A) => A
 
-export function zmConst (v:any) {return function(f:any) {return v;}} 
+//export function zmConst (v:any) {return function(f:any) {return v;}} 
+
+//export const zmConst : string = ""
+
+//export type zmFold0 = <A> (v:A) => ((f: (tId: zmTypeInfo,pars: A[]) => A) => A)
+//export const zmConst : zmFold0 = function (v) {return function(f) {return v;}} 
+
+export const zmConst : <A> (v:A) => ((f: (tId: zmTypeInfo,pars: A[]) => A) => A) = function (v) {return function(f) {return v;}} 
 
 // ZM type contructor unique code
 export type zmId = [number, number, number, number, number, number]

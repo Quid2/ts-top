@@ -1,5 +1,5 @@
 export declare type zmFold<T> = <A>(f: (tId: zmTypeInfo, pars: A[]) => A) => A;
-export declare function zmConst(v: any): (f: any) => any;
+export declare const zmConst: <A>(v: A) => ((f: (tId: zmTypeInfo, pars: A[]) => A) => A);
 export declare type zmId = [number, number, number, number, number, number];
 export declare type zmTypeInfo = {
     zid: zmId;
