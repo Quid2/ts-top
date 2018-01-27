@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("./core");
+exports.flatDecoder = core_1.flatDecoder;
 var Ka5583bf3ad34_1 = require("./ADT/Tuple2/Ka5583bf3ad34");
 var Kae1dfeece189_1 = require("./ADT/Filler/Kae1dfeece189");
 var K7028aa556ebc_1 = require("./ADT/Type/K7028aa556ebc");
