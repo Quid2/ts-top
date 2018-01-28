@@ -4,16 +4,18 @@ var index_1 = require("../index");
 var K87f090a54ea3_1 = require("../ADT/ByType/K87f090a54ea3");
 var K65149ce3b366_1 = require("../ADT/Bit/K65149ce3b366");
 var Kb1f46a49c8f8_1 = require("../ADT/Word8/Kb1f46a49c8f8");
+var Kf4c946334a7e_1 = require("../ADT/Word7/Kf4c946334a7e");
+var Kbf2d1c86eb20_1 = require("../ADT/NonEmptyList/Kbf2d1c86eb20");
 var Ka5583bf3ad34_1 = require("../ADT/Tuple2/Ka5583bf3ad34");
 var K6260e465ae74_1 = require("../ADT/Either/K6260e465ae74");
 var Kda6836778fd4_1 = require("../ADT/Maybe/Kda6836778fd4");
 var K306f1981b41c_1 = require("../ADT/Bool/K306f1981b41c");
-var Kf8844385a443_1 = require("../ADT/Bytes/Kf8844385a443");
 var Kc6627a317dbc_1 = require("../ADT/ChannelSelectionResult/Kc6627a317dbc");
 var Kc802c6aae1af_1 = require("../ADT/WebSocketAddress/Kc802c6aae1af");
 var K6cb2ee3ac409_1 = require("../ADT/IP4Address/K6cb2ee3ac409");
 var Kb8cd13187198_1 = require("../ADT/List/Kb8cd13187198");
 var K2e8b4519aeaa_1 = require("../ADT/Array/K2e8b4519aeaa");
+var Kf8844385a443_1 = require("../ADT/Bytes/Kf8844385a443");
 function flatS(v, exp) {
     console.log("");
     console.log("Val:");
@@ -51,6 +53,10 @@ function testFlat() {
     flatT(Kc6627a317dbc_1.$ChannelSelectionResult(Kc802c6aae1af_1.$WebSocketAddress(K6cb2ee3ac409_1.$IP4Address)), new Kc6627a317dbc_1.Success);
     flatT(Kb8cd13187198_1.$List(K65149ce3b366_1.$Bit), new Kb8cd13187198_1.Cons(new K65149ce3b366_1.V0, new Kb8cd13187198_1.Cons(new K65149ce3b366_1.V1, new Kb8cd13187198_1.Nil)));
     flatT(K2e8b4519aeaa_1.$Array(K65149ce3b366_1.$Bit), new K2e8b4519aeaa_1.Array([new K65149ce3b366_1.V0, new K65149ce3b366_1.V1, new K65149ce3b366_1.V0]));
+    flatT(Kf8844385a443_1.$Bytes, new Kf8844385a443_1.Bytes(new Uint8Array([11, 22, 33])));
+    flatT(Kb1f46a49c8f8_1.$Word8, new Kb1f46a49c8f8_1.Word8(111));
+    flatT(Kf4c946334a7e_1.$Word7, new Kf4c946334a7e_1.Word7(111));
+    flatT(Kbf2d1c86eb20_1.$NonEmptyList(K65149ce3b366_1.$Bit), new Kbf2d1c86eb20_1.Cons(new K65149ce3b366_1.V0, new Kbf2d1c86eb20_1.Cons(new K65149ce3b366_1.V1, new Kbf2d1c86eb20_1.Elem(new K65149ce3b366_1.V0))));
 }
 testFlat();
 //# sourceMappingURL=test-flat.js.map

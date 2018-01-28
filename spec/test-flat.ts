@@ -2,9 +2,11 @@ import {flat,zmType,typedBLOB,zmFold,Flat, flatDecoder,unflat} from '../index'
 import { ByType, $ByType } from '../ADT/ByType/K87f090a54ea3'
 import { Bit, V0, V1, $Bit } from '../ADT/Bit/K65149ce3b366'
 // import { TypedBLOB } from '../ADT/TypedBLOB/K614edd84c8bd'
-import { Word8 } from '../ADT/Word8/Kb1f46a49c8f8'
+import {$Word8, Word8 } from '../ADT/Word8/Kb1f46a49c8f8'
+import {$Word7, Word7 } from  '../ADT/Word7/Kf4c946334a7e'
 // import { BLOB } from '../ADT/BLOB/Kf139d4751fda'
 // import { FlatEncoding } from '../ADT/FlatEncoding/K982148c09ddb'
+import {$NonEmptyList,NonEmptyList,Elem,Cons as NECons} from  '../ADT/NonEmptyList/Kbf2d1c86eb20'
 
 //import {Array,A1,A0} from  '../ADT/Array/K2e8b4519aeaa'
 //import {Array} from  '../ADT/Array/K2e8b4519aeaa'
@@ -14,13 +16,13 @@ import { $Maybe } from '../ADT/Maybe/Kda6836778fd4'
 import { $Bool, Bool,True ,False} from '../ADT/Bool/K306f1981b41c'
 import { PreAligned } from "../ADT/PreAligned/Kb2f28cf37d12";
 import { FillerEnd } from "../ADT/Filler/Kae1dfeece189";
-import { Bytes } from '../ADT/Bytes/Kf8844385a443'
 import { FlatEncoding } from '../ADT/FlatEncoding/K982148c09ddb';
 import { ChannelSelectionResult, $ChannelSelectionResult, RetryAt, Success } from '../ADT/ChannelSelectionResult/Kc6627a317dbc'
 import { $WebSocketAddress, WebSocketAddress } from '../ADT/WebSocketAddress/Kc802c6aae1af'
 import { $IP4Address, IP4Address } from '../ADT/IP4Address/K6cb2ee3ac409'
 import {$List,Cons,Nil}  from '../ADT/List/Kb8cd13187198'
 import {$Array,Array} from  '../ADT/Array/K2e8b4519aeaa'
+import {$Bytes,Bytes} from '../ADT/Bytes/Kf8844385a443'
 
 function flatS(v: any, exp: any) {
     console.log("");
@@ -73,6 +75,10 @@ function testFlat() {
     flatT($ChannelSelectionResult($WebSocketAddress($IP4Address)),new Success);
     flatT($List($Bit),new Cons(new V0,new Cons(new V1,new Nil)));
     flatT($Array($Bit),new Array([new V0,new V1,new V0]));
+    flatT($Bytes,new Bytes(new Uint8Array([11,22,33])));
+    flatT($Word8,new Word8(111));
+    flatT($Word7,new Word7(111));
+    flatT($NonEmptyList($Bit),new NECons(new V0,new NECons(new V1,new Elem(new V0))));
 }
 
 testFlat();
