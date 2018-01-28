@@ -13,7 +13,7 @@ import { FlatEncoding } from './ADT/FlatEncoding/K982148c09ddb'
 import { Tuple2 } from './ADT/Tuple2/Ka5583bf3ad34'
 import { $Either } from './ADT/Either/K6260e465ae74'
 import { $Maybe } from './ADT/Maybe/Kda6836778fd4'
-import { $Bool, Bool,True } from './ADT/Bool/K306f1981b41c'
+import { $Bool, Bool, True } from './ADT/Bool/K306f1981b41c'
 import { PreAligned } from "./ADT/PreAligned/Kb2f28cf37d12";
 import { FillerEnd } from "./ADT/Filler/Kae1dfeece189";
 import { Bytes } from './ADT/Bytes/Kf8844385a443'
@@ -21,6 +21,9 @@ import { ChannelSelectionResult, $ChannelSelectionResult, RetryAt } from './ADT/
 import { $WebSocketAddress, WebSocketAddress } from './ADT/WebSocketAddress/Kc802c6aae1af'
 import { $IP4Address, IP4Address } from './ADT/IP4Address/K6cb2ee3ac409'
 
+import { QueueingSubject } from 'queueing-subject'
+import { Observable, Subscribable } from 'rxjs/Observable'
+import { AnonymousSubscription } from 'rxjs/Subscription'
 
 export function flatBLOB(v: any): BLOB<FlatEncoding> {
     //return new BLOB(new FlatEncoding,new Bytes(new PreAligned(new FillerEnd(),flat (new ByType))));
@@ -31,40 +34,21 @@ export function typedBLOB(v: any, t: zmFold<any>): TypedBLOB {
     return new TypedBLOB(t(zmType), flatBLOB(v));
 }
 
-
-
-//
-//flat (Success :: ChannelSelectionResult (WebSocketAddress IP4Address))
-//[1]
-
-//let chType : ByType<Bit> = new ByType();
-//console.log(chType,JSON.stringify (typeof chType));
-
-//let f = Flat.flat (<ByType<Bit>>:new ByType());
-//console.log(new Uint8Array(f));
-//console.log(new (f));
-
 export interface Client<A> {
-    onOpen: (send: (v: A) => void,close:() => void) => void // channel successfully established, we can now start sending and eventually close the channel
+    onOpen: (send: (v: A) => void, close: () => void) => void // channel successfully established, we can now start sending and eventually close the channel
     onError: () => void                    // channel opening failed 
     onValue: (v: A) => void                // vaulue received from the channel
 }
 
 export class Channel<A> {
-    //private socket: WebSocket;
-    //private dec: Decoder;
-
     constructor(t: zmFold<A>, client: Client<A>) {
 
-        //this.socket = new WebSocket("ws://quid2.net:80/ws", "chats");
-        //var skt = this.socket;
-        
         const skt = new WebSocket("ws://quid2.net:80/ws", "chats");
         skt.binaryType = "arraybuffer";
-    
-        const dec = t(flatDecoder);        
+
+        const dec = t(flatDecoder);
         var firstTime = true;
-        
+
         skt.onopen = function (event) {
             //conn.addEventListener('open', function (event) {
             //console.log("Channel:OPENED");
@@ -81,15 +65,15 @@ export class Channel<A> {
                 const ansDecoder = $ChannelSelectionResult($WebSocketAddress($IP4Address))(flatDecoder);
                 const answer: ChannelSelectionResult<WebSocketAddress<IP4Address>> = unflat(ansDecoder, new Uint8Array(event.data));
                 answer.match({
-                    Success: client.onOpen(function (v: A) { skt.send(flat(v))},function (){skt.close();})
+                    Success: client.onOpen(function (v: A) { skt.send(flat(v)) }, function () { skt.close(); })
                     , Failure: function (err) { throw Error(JSON.stringify(err)) }
                     , RetryAt: function (addr) { throw Error("Retry is unsupported") }
                 })
             } else {
-                client.onValue(unflat(dec,new Uint8Array(event.data)));
+                client.onValue(unflat(dec, new Uint8Array(event.data)));
             }
         };
-    
+
         skt.onerror = function (event) {
             console.log("Channel:ERROR, now what?");
             client.onError();
@@ -98,5 +82,101 @@ export class Channel<A> {
     }
 }
 
+
+// NOTE: code adapted from https://github.com/ohjames/rxjs-websockets
+
+export function channel<A>(t: zmFold<A>) {
+
+    const outChan = new QueueingSubject<A>();
+
+    //const inChan = Observable.create(observer => {    
+    const inChan = new Observable<A>(observer => {
+        var firstTime = true;
+        const dec = t(flatDecoder);
+        let outSubscription: AnonymousSubscription;
+
+        const socket = new WebSocket("ws://quid2.net:80/ws", "chats");
+        socket.binaryType = "arraybuffer";
+
+        socket.onopen = function () {
+            console.log('socket.onopen');
+            // Send CHATS channel opening request
+            socket.send(flat(typedBLOB(new ByType, $ByType(t))));
+        };
+
+        socket.onmessage = function (event) {
+            console.log('socket.onmessage', event.data, firstTime);
+
+            if (firstTime) {
+                // Receive CHATS answer
+                firstTime = false;
+                const ansDecoder = $ChannelSelectionResult($WebSocketAddress($IP4Address))(flatDecoder);
+                const answer: ChannelSelectionResult<WebSocketAddress<IP4Address>> = unflat(ansDecoder, new Uint8Array(event.data));
+
+                //console.log('CHATS:answer from server ', answer);
+                answer.match({
+                    Success:
+                        outSubscription = outChan.subscribe(value => {
+                            console.log('Channel:sending value', value);
+                            socket.send(flat(value));
+                        })
+                    , Failure: (err) => { throw Error(JSON.stringify(err)) }
+                    , RetryAt: (addr) => { throw Error("Retry is unsupported") }
+                })
+
+            } else {
+                console.log('Channel:got data', event.data);
+                observer.next(unflat(dec, new Uint8Array(event.data)));
+            }
+        };
+
+        socket.onerror = function (error) {
+            console.error("socket.onerror", event);
+            // TODO: reconnect on error
+            observer.error(error);
+        }
+
+        socket.onclose = (event: CloseEvent) => {
+            console.error("socket.onclose", event);
+            if (event.wasClean)
+                observer.complete()
+            else
+                observer.error(new Error(event.reason))
+        }
+
+        return () => {
+            console.log("COMPLETED",outSubscription,socket);
+            if (outSubscription) outSubscription.unsubscribe()
+            socket.close()
+        }
+    })
+
+
+    return { inChan, outChan };
+}
+
+
+function testRX() {
+    var observable : Observable<number> = Observable.create(function (observer) {
+        observer.next(1);
+        observer.next(2);
+        observer.next(3);
+        setTimeout(() => {
+            observer.next(4);
+            observer.complete();
+            observer.next(5); //Won't be sent
+        }, 1000);
+    });
+
+    console.log('just before subscribe');
+    observable.subscribe({
+        next: x => console.log('got value ' + x),
+        error: err => console.error('something wrong occurred: ' + err),
+        complete: () => console.log('done'),
+    });
+    console.log('just after subscribe');
+}
+
+//testRX()
 
 
