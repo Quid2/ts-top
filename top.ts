@@ -74,8 +74,9 @@ export class Channel<A> {
         };
 
         skt.onmessage = function (event) {
-            //console.log('Channel:message from server ', event.data);
+            console.log('Channel:message from server ', event.data);
             if (firstTime) {
+                //console.log('Channel:message first answfrom server ', event.data);
                 firstTime = false;
                 const ansDecoder = $ChannelSelectionResult($WebSocketAddress($IP4Address))(flatDecoder);
                 const answer: ChannelSelectionResult<WebSocketAddress<IP4Address>> = unflat(ansDecoder, new Uint8Array(event.data));

@@ -12,7 +12,8 @@ exports.___ = {
             while (blkLen = st.bits8(8))
                 for (var i = 0; i < blkLen; i++)
                     arr.push(dec(st));
-            return arr;
+            console.log(arr);
+            return new Array(arr);
         };
     }
 };
@@ -22,7 +23,7 @@ var Array = (function () {
     }
     Array.prototype.flatMaxSize = function () {
         var len = this.values.length;
-        var size = Q.arrayBlocks(len);
+        var size = Q.arrayBlocks(len) * 8;
         for (var i = 0; i < len; i++)
             size += this.values[i].flatMaxSize();
         return size;

@@ -12,6 +12,8 @@ var Kf8844385a443_1 = require("../ADT/Bytes/Kf8844385a443");
 var Kc6627a317dbc_1 = require("../ADT/ChannelSelectionResult/Kc6627a317dbc");
 var Kc802c6aae1af_1 = require("../ADT/WebSocketAddress/Kc802c6aae1af");
 var K6cb2ee3ac409_1 = require("../ADT/IP4Address/K6cb2ee3ac409");
+var Kb8cd13187198_1 = require("../ADT/List/Kb8cd13187198");
+var K2e8b4519aeaa_1 = require("../ADT/Array/K2e8b4519aeaa");
 function flatS(v, exp) {
     console.log("");
     console.log("Val:");
@@ -47,6 +49,8 @@ function testFlat() {
     flatS(new Kf8844385a443_1.Bytes(new Uint8Array([])), [1, 0, 1]);
     flatT(K65149ce3b366_1.$Bit, new K65149ce3b366_1.V0);
     flatT(Kc6627a317dbc_1.$ChannelSelectionResult(Kc802c6aae1af_1.$WebSocketAddress(K6cb2ee3ac409_1.$IP4Address)), new Kc6627a317dbc_1.Success);
+    flatT(Kb8cd13187198_1.$List(K65149ce3b366_1.$Bit), new Kb8cd13187198_1.Cons(new K65149ce3b366_1.V0, new Kb8cd13187198_1.Cons(new K65149ce3b366_1.V1, new Kb8cd13187198_1.Nil)));
+    flatT(K2e8b4519aeaa_1.$Array(K65149ce3b366_1.$Bit), new K2e8b4519aeaa_1.Array([new K65149ce3b366_1.V0, new K65149ce3b366_1.V1, new K65149ce3b366_1.V0]));
 }
 testFlat();
 //# sourceMappingURL=test-flat.js.map

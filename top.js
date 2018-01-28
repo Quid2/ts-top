@@ -27,6 +27,7 @@ var Channel = (function () {
             skt.send(api_1.flat(typedBLOB(new K87f090a54ea3_1.ByType, K87f090a54ea3_1.$ByType(t))));
         };
         skt.onmessage = function (event) {
+            console.log('Channel:message from server ', event.data);
             if (firstTime) {
                 firstTime = false;
                 var ansDecoder = Kc6627a317dbc_1.$ChannelSelectionResult(Kc802c6aae1af_1.$WebSocketAddress(K6cb2ee3ac409_1.$IP4Address))(api_1.flatDecoder);

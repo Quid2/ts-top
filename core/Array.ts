@@ -11,7 +11,8 @@ export const ___: Q.zmTypeInfo = {
       var blkLen;
       while (blkLen = st.bits8(8))
         for (var i = 0; i < blkLen; i++) arr.push(dec(st));
-      return arr;
+      console.log(arr);
+      return new Array(arr);
     }
   }
 }
@@ -23,7 +24,7 @@ export class Array<A extends Q.Flat> implements Q.Flat {
 
   flatMaxSize() { 
     const len = this.values.length;
-    var size = Q.arrayBlocks(len);
+    var size = Q.arrayBlocks(len)*8;
     for (var i =0;i<len;i++) size += this.values[i].flatMaxSize();
     return size;
   }

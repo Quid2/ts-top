@@ -19,7 +19,8 @@ import { FlatEncoding } from '../ADT/FlatEncoding/K982148c09ddb';
 import { ChannelSelectionResult, $ChannelSelectionResult, RetryAt, Success } from '../ADT/ChannelSelectionResult/Kc6627a317dbc'
 import { $WebSocketAddress, WebSocketAddress } from '../ADT/WebSocketAddress/Kc802c6aae1af'
 import { $IP4Address, IP4Address } from '../ADT/IP4Address/K6cb2ee3ac409'
-
+import {$List,Cons,Nil}  from '../ADT/List/Kb8cd13187198'
+import {$Array,Array} from  '../ADT/Array/K2e8b4519aeaa'
 
 function flatS(v: any, exp: any) {
     console.log("");
@@ -70,6 +71,8 @@ function testFlat() {
 
     flatT($Bit,new V0);
     flatT($ChannelSelectionResult($WebSocketAddress($IP4Address)),new Success);
+    flatT($List($Bit),new Cons(new V0,new Cons(new V1,new Nil)));
+    flatT($Array($Bit),new Array([new V0,new V1,new V0]));
 }
 
 testFlat();

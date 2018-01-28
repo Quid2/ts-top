@@ -127,7 +127,7 @@ export class DecoderState {
   dropBits(numBits: number): void {
     const totUsed = numBits + this.usedBits;
     this.usedBits = totUsed % 8;
-    this.currPtr + Math.floor(totUsed / 8);
+    this.currPtr += Math.floor(totUsed / 8);
   }
 
   seal(): void {
@@ -218,7 +218,7 @@ export function byteArraySize(arr: Uint8Array): number {
   return 8 * numBytes;
 }
 
-// Exact numbe of bytes needed to store the array blocks lengths
+// Exact number of bytes needed to store the array blocks lengths
 export function arrayBlocks(len: number): number {return Math.ceil(len / 255) + 1;}
 
 

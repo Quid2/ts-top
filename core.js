@@ -80,7 +80,7 @@ var DecoderState = (function () {
     DecoderState.prototype.dropBits = function (numBits) {
         var totUsed = numBits + this.usedBits;
         this.usedBits = totUsed % 8;
-        this.currPtr + Math.floor(totUsed / 8);
+        this.currPtr += Math.floor(totUsed / 8);
     };
     DecoderState.prototype.seal = function () {
         if (this.availableBits() > 0) {
