@@ -1,12 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Q = require("../../core");
-exports.$ZigZag = function (t1) { return function (f) { return f(___, [t1(f)]); }; };
-var ___ = {
+exports.$ZigZag = function (t1) { return function (f) { return f(exports.___, [t1(f)]); }; };
+exports.___ = {
     zid: [0x03, 0x22, 0x67, 0x96, 0xed, 0xe4],
     decoder: function (decoders) {
-        var decs = { "ZigZag": [Q.zmConst(decoders[0])(Q.flatDecoder)] };
-        return function (st) { var d = decs["ZigZag"]; return new ZigZag(d[0](st)); };
+        return function (st) { return new ZigZag(decoders[0](st)); };
     }
 };
 var ZigZag = (function () {

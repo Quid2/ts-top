@@ -2,6 +2,7 @@ import * as Q from '../../core';
 import * as Kb8cd13187198 from '../List/Kb8cd13187198';
 import * as K066db52af145 from '../Char/K066db52af145';
 export declare const $HostAddress: <A extends Q.Flat>(t0: Q.zmFold<A>) => Q.zmFold<HostAddress<A>>;
+export declare const ___: Q.zmTypeInfo;
 export declare type HostAddress<A extends Q.Flat> = IPAddress<A> | DNSAddress<A>;
 export declare class IPAddress<A extends Q.Flat> implements Q.Flat {
     _0: A;

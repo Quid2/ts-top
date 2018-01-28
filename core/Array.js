@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var Q = require("../core");
-exports.$Array = function (t1) { return function (f) { return f(___, [t1(f)]); }; };
-var ___ = {
+exports.$Array = function (t1) { return function (f) { return f(exports.___, [t1(f)]); }; };
+exports.___ = {
     zid: [0x2e, 0x8b, 0x45, 0x19, 0xae, 0xaa],
     decoder: function (decoders) {
         var dec = decoders[0];

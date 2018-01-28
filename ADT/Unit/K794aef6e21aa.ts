@@ -2,12 +2,10 @@ import * as Q from '../../core'
 
 export const $Unit:Q.zmFold<Unit> = function (f) {return f(___,[])}
 
-const ___ : Q.zmTypeInfo = {
+export const ___ : Q.zmTypeInfo = {
   zid : [0x79,0x4a,0xef,0x6e,0x21,0xaa],
   decoder : function (decoders) {
-    const decs = {} ;
-    return function(st) { return new Unit() }
-
+        return function(st) { return new Unit() }
   }
 }
 

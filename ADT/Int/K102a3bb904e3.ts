@@ -4,12 +4,10 @@ import * as Kf92e8339908a from  '../Word/Kf92e8339908a'
 
 export const $Int:Q.zmFold<Int> = function (f) {return f(___,[])}
 
-const ___ : Q.zmTypeInfo = {
+export const ___ : Q.zmTypeInfo = {
   zid : [0x10,0x2a,0x3b,0xb9,0x04,0xe3],
   decoder : function (decoders) {
-    const decs = {"Int":[K03226796ede4.$ZigZag(Kf92e8339908a.$Word)(Q.flatDecoder)]} ;
-    return function(st) { const d=decs["Int"]; return new Int(d[0](st)) }
-
+        return function(st) { return new Int(K03226796ede4.___.decoder([Kf92e8339908a.___.decoder([])])(st)) }
   }
 }
 

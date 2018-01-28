@@ -2,12 +2,10 @@ import * as Q from '../../core'
 
 export const $List:<A extends Q.Flat>(t0:Q.zmFold<A>) => Q.zmFold<List<A>> = function (t1) {return function (f) {return f(___,[t1(f)])}}
 
-const ___ : Q.zmTypeInfo = {
+export const ___ : Q.zmTypeInfo = {
   zid : [0xb8,0xcd,0x13,0x18,0x71,0x98],
   decoder : function (decoders) {
-    const decs = {"Cons":[Q.zmConst(decoders[0])(Q.flatDecoder),$List(Q.zmConst(decoders[0]))(Q.flatDecoder)]} ;
-    return function(st) { if (st.zero()) { return new Nil() } else { const d=decs["Cons"]; return new Cons(d[0](st),d[1](st)) } }
-
+        return function(st) { if (st.zero()) { return new Nil() } else { return new Cons(decoders[0](st),___.decoder([decoders[0]])(st)) } }
   }
 }
 

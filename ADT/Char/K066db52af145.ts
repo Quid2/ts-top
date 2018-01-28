@@ -3,12 +3,10 @@ import * as K2412799c99f1 from  '../Word32/K2412799c99f1'
 
 export const $Char:Q.zmFold<Char> = function (f) {return f(___,[])}
 
-const ___ : Q.zmTypeInfo = {
+export const ___ : Q.zmTypeInfo = {
   zid : [0x06,0x6d,0xb5,0x2a,0xf1,0x45],
   decoder : function (decoders) {
-    const decs = {"Char":[K2412799c99f1.$Word32(Q.flatDecoder)]} ;
-    return function(st) { const d=decs["Char"]; return new Char(d[0](st)) }
-
+        return function(st) { return new Char(K2412799c99f1.___.decoder([])(st)) }
   }
 }
 

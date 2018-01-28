@@ -1,13 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Q = require("../../core");
 var Kf8844385a443 = require("../Bytes/Kf8844385a443");
-exports.$BLOB = function (t1) { return function (f) { return f(___, [t1(f)]); }; };
-var ___ = {
+exports.$BLOB = function (t1) { return function (f) { return f(exports.___, [t1(f)]); }; };
+exports.___ = {
     zid: [0xf1, 0x39, 0xd4, 0x75, 0x1f, 0xda],
     decoder: function (decoders) {
-        var decs = { "BLOB": [Q.zmConst(decoders[0])(Q.flatDecoder), Kf8844385a443.$Bytes(Q.flatDecoder)] };
-        return function (st) { var d = decs["BLOB"]; return new BLOB(d[0](st), d[1](st)); };
+        return function (st) { return new BLOB(decoders[0](st), Kf8844385a443.___.decoder([])(st)); };
     }
 };
 var BLOB = (function () {

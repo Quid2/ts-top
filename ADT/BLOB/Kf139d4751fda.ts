@@ -3,12 +3,10 @@ import * as Kf8844385a443 from  '../Bytes/Kf8844385a443'
 
 export const $BLOB:<A extends Q.Flat>(t0:Q.zmFold<A>) => Q.zmFold<BLOB<A>> = function (t1) {return function (f) {return f(___,[t1(f)])}}
 
-const ___ : Q.zmTypeInfo = {
+export const ___ : Q.zmTypeInfo = {
   zid : [0xf1,0x39,0xd4,0x75,0x1f,0xda],
   decoder : function (decoders) {
-    const decs = {"BLOB":[Q.zmConst(decoders[0])(Q.flatDecoder),Kf8844385a443.$Bytes(Q.flatDecoder)]} ;
-    return function(st) { const d=decs["BLOB"]; return new BLOB(d[0](st),d[1](st)) }
-
+        return function(st) { return new BLOB(decoders[0](st),Kf8844385a443.___.decoder([])(st)) }
   }
 }
 

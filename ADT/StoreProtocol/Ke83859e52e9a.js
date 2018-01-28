@@ -1,24 +1,19 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Q = require("../../core");
 var K9f214799149b = require("../SHAKE128_48/K9f214799149b");
-exports.$StoreProtocol = function (t1) { return function (f) { return f(___, [t1(f)]); }; };
-var ___ = {
+exports.$StoreProtocol = function (t1) { return function (f) { return f(exports.___, [t1(f)]); }; };
+exports.___ = {
     zid: [0xe8, 0x38, 0x59, 0xe5, 0x2e, 0x9a],
     decoder: function (decoders) {
-        var decs = { "Save": [Q.zmConst(decoders[0])(Q.flatDecoder)], "Solve": [K9f214799149b.$SHAKE128_48(Q.zmConst(decoders[0]))(Q.flatDecoder)], "Solved": [K9f214799149b.$SHAKE128_48(Q.zmConst(decoders[0]))(Q.flatDecoder), Q.zmConst(decoders[0])(Q.flatDecoder)] };
         return function (st) { if (st.zero()) {
-            var d = decs["Save"];
-            return new Save(d[0](st));
+            return new Save(decoders[0](st));
         }
         else {
             if (st.zero()) {
-                var d = decs["Solve"];
-                return new Solve(d[0](st));
+                return new Solve(K9f214799149b.___.decoder([decoders[0]])(st));
             }
             else {
-                var d = decs["Solved"];
-                return new Solved(d[0](st), d[1](st));
+                return new Solved(K9f214799149b.___.decoder([decoders[0]])(st), decoders[0](st));
             }
         } };
     }

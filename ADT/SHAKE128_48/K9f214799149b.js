@@ -1,13 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Q = require("../../core");
 var Kb1f46a49c8f8 = require("../Word8/Kb1f46a49c8f8");
-exports.$SHAKE128_48 = function (t1) { return function (f) { return f(___, [t1(f)]); }; };
-var ___ = {
+exports.$SHAKE128_48 = function (t1) { return function (f) { return f(exports.___, [t1(f)]); }; };
+exports.___ = {
     zid: [0x9f, 0x21, 0x47, 0x99, 0x14, 0x9b],
     decoder: function (decoders) {
-        var decs = { "SHAKE128_48": [Kb1f46a49c8f8.$Word8(Q.flatDecoder), Kb1f46a49c8f8.$Word8(Q.flatDecoder), Kb1f46a49c8f8.$Word8(Q.flatDecoder), Kb1f46a49c8f8.$Word8(Q.flatDecoder), Kb1f46a49c8f8.$Word8(Q.flatDecoder), Kb1f46a49c8f8.$Word8(Q.flatDecoder)] };
-        return function (st) { var d = decs["SHAKE128_48"]; return new SHAKE128_48(d[0](st), d[1](st), d[2](st), d[3](st), d[4](st), d[5](st)); };
+        return function (st) { return new SHAKE128_48(Kb1f46a49c8f8.___.decoder([])(st), Kb1f46a49c8f8.___.decoder([])(st), Kb1f46a49c8f8.___.decoder([])(st), Kb1f46a49c8f8.___.decoder([])(st), Kb1f46a49c8f8.___.decoder([])(st), Kb1f46a49c8f8.___.decoder([])(st)); };
     }
 };
 var SHAKE128_48 = (function () {

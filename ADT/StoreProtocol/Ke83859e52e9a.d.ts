@@ -1,6 +1,7 @@
 import * as Q from '../../core';
 import * as K9f214799149b from '../SHAKE128_48/K9f214799149b';
 export declare const $StoreProtocol: <A extends Q.Flat>(t0: Q.zmFold<A>) => Q.zmFold<StoreProtocol<A>>;
+export declare const ___: Q.zmTypeInfo;
 export declare type StoreProtocol<A extends Q.Flat> = Save<A> | Solve<A> | Solved<A>;
 export declare class Save<A extends Q.Flat> implements Q.Flat {
     _0: A;

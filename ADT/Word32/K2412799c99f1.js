@@ -1,13 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Q = require("../../core");
 var Kf92e8339908a = require("../Word/Kf92e8339908a");
-exports.$Word32 = function (f) { return f(___, []); };
-var ___ = {
+exports.$Word32 = function (f) { return f(exports.___, []); };
+exports.___ = {
     zid: [0x24, 0x12, 0x79, 0x9c, 0x99, 0xf1],
     decoder: function (decoders) {
-        var decs = { "Word32": [Kf92e8339908a.$Word(Q.flatDecoder)] };
-        return function (st) { var d = decs["Word32"]; return new Word32(d[0](st)); };
+        return function (st) { return new Word32(Kf92e8339908a.___.decoder([])(st)); };
     }
 };
 var Word32 = (function () {

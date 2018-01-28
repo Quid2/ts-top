@@ -8,12 +8,10 @@ import * as K102a3bb904e3 from  '../Int/K102a3bb904e3'
 
 export const $III:Q.zmFold<III> = function (f) {return f(___,[])}
 
-const ___ : Q.zmTypeInfo = {
+export const ___ : Q.zmTypeInfo = {
   zid : [0x4c,0xf5,0xdd,0x97,0x3a,0xe4],
   decoder : function (decoders) {
-    const decs = {"III":[Kb3a2642b4a84.$Int8(Q.flatDecoder),K3dac6bd4fa9c.$Int16(Q.flatDecoder),Kfb94cb4d4ede.$Int64(Q.flatDecoder),Kb3a2642b4a84.$Int8(Q.flatDecoder),Kfb94cb4d4ede.$Int64(Q.flatDecoder),Kb53bec846608.$IEEE_754_binary32(Q.flatDecoder),Kcba9596b4657.$IEEE_754_binary64(Q.flatDecoder),K102a3bb904e3.$Int(Q.flatDecoder)]} ;
-    return function(st) { const d=decs["III"]; return new III(d[0](st),d[1](st),d[2](st),d[3](st),d[4](st),d[5](st),d[6](st),d[7](st)) }
-
+        return function(st) { return new III(Kb3a2642b4a84.___.decoder([])(st),K3dac6bd4fa9c.___.decoder([])(st),Kfb94cb4d4ede.___.decoder([])(st),Kb3a2642b4a84.___.decoder([])(st),Kfb94cb4d4ede.___.decoder([])(st),Kb53bec846608.___.decoder([])(st),Kcba9596b4657.___.decoder([])(st),K102a3bb904e3.___.decoder([])(st)) }
   }
 }
 

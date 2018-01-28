@@ -1,13 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Q = require("../../core");
 var K65149ce3b366 = require("../Bit/K65149ce3b366");
-exports.$Bits23 = function (f) { return f(___, []); };
-var ___ = {
+exports.$Bits23 = function (f) { return f(exports.___, []); };
+exports.___ = {
     zid: [0x33, 0x88, 0x88, 0x22, 0x23, 0x64],
     decoder: function (decoders) {
-        var decs = { "Bits23": [K65149ce3b366.$Bit(Q.flatDecoder), K65149ce3b366.$Bit(Q.flatDecoder), K65149ce3b366.$Bit(Q.flatDecoder), K65149ce3b366.$Bit(Q.flatDecoder), K65149ce3b366.$Bit(Q.flatDecoder), K65149ce3b366.$Bit(Q.flatDecoder), K65149ce3b366.$Bit(Q.flatDecoder), K65149ce3b366.$Bit(Q.flatDecoder), K65149ce3b366.$Bit(Q.flatDecoder), K65149ce3b366.$Bit(Q.flatDecoder), K65149ce3b366.$Bit(Q.flatDecoder), K65149ce3b366.$Bit(Q.flatDecoder), K65149ce3b366.$Bit(Q.flatDecoder), K65149ce3b366.$Bit(Q.flatDecoder), K65149ce3b366.$Bit(Q.flatDecoder), K65149ce3b366.$Bit(Q.flatDecoder), K65149ce3b366.$Bit(Q.flatDecoder), K65149ce3b366.$Bit(Q.flatDecoder), K65149ce3b366.$Bit(Q.flatDecoder), K65149ce3b366.$Bit(Q.flatDecoder), K65149ce3b366.$Bit(Q.flatDecoder), K65149ce3b366.$Bit(Q.flatDecoder), K65149ce3b366.$Bit(Q.flatDecoder)] };
-        return function (st) { var d = decs["Bits23"]; return new Bits23(d[0](st), d[1](st), d[2](st), d[3](st), d[4](st), d[5](st), d[6](st), d[7](st), d[8](st), d[9](st), d[10](st), d[11](st), d[12](st), d[13](st), d[14](st), d[15](st), d[16](st), d[17](st), d[18](st), d[19](st), d[20](st), d[21](st), d[22](st)); };
+        return function (st) { return new Bits23(K65149ce3b366.___.decoder([])(st), K65149ce3b366.___.decoder([])(st), K65149ce3b366.___.decoder([])(st), K65149ce3b366.___.decoder([])(st), K65149ce3b366.___.decoder([])(st), K65149ce3b366.___.decoder([])(st), K65149ce3b366.___.decoder([])(st), K65149ce3b366.___.decoder([])(st), K65149ce3b366.___.decoder([])(st), K65149ce3b366.___.decoder([])(st), K65149ce3b366.___.decoder([])(st), K65149ce3b366.___.decoder([])(st), K65149ce3b366.___.decoder([])(st), K65149ce3b366.___.decoder([])(st), K65149ce3b366.___.decoder([])(st), K65149ce3b366.___.decoder([])(st), K65149ce3b366.___.decoder([])(st), K65149ce3b366.___.decoder([])(st), K65149ce3b366.___.decoder([])(st), K65149ce3b366.___.decoder([])(st), K65149ce3b366.___.decoder([])(st), K65149ce3b366.___.decoder([])(st), K65149ce3b366.___.decoder([])(st)); };
     }
 };
 var Bits23 = (function () {

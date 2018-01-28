@@ -4,6 +4,7 @@ import * as K066db52af145 from '../Char/K066db52af145';
 import * as Kfced5b0f3c1f from '../Subject/Kfced5b0f3c1f';
 import * as K1ba230d92eb8 from '../Content/K1ba230d92eb8';
 export declare const $Msg: Q.zmFold<Msg>;
+export declare const ___: Q.zmTypeInfo;
 export declare class Msg implements Q.Flat {
     fromUser: Kb8cd13187198.List<K066db52af145.Char>;
     subject: Kfced5b0f3c1f.Subject;

@@ -1,14 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Q = require("../../core");
 var K03226796ede4 = require("../ZigZag/K03226796ede4");
 var K50d018f7593a = require("../Word64/K50d018f7593a");
-exports.$Int64 = function (f) { return f(___, []); };
-var ___ = {
+exports.$Int64 = function (f) { return f(exports.___, []); };
+exports.___ = {
     zid: [0xfb, 0x94, 0xcb, 0x4d, 0x4e, 0xde],
     decoder: function (decoders) {
-        var decs = { "Int64": [K03226796ede4.$ZigZag(K50d018f7593a.$Word64)(Q.flatDecoder)] };
-        return function (st) { var d = decs["Int64"]; return new Int64(d[0](st)); };
+        return function (st) { return new Int64(K03226796ede4.___.decoder([K50d018f7593a.___.decoder([])])(st)); };
     }
 };
 var Int64 = (function () {

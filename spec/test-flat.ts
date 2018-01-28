@@ -1,4 +1,4 @@
-import {flat,zmType,typedBLOB} from '../index'
+import {flat,zmType,typedBLOB,zmFold,Flat, flatDecoder,unflat} from '../index'
 import { ByType, $ByType } from '../ADT/ByType/K87f090a54ea3'
 import { Bit, V0, V1, $Bit } from '../ADT/Bit/K65149ce3b366'
 // import { TypedBLOB } from '../ADT/TypedBLOB/K614edd84c8bd'
@@ -11,10 +11,14 @@ import { Word8 } from '../ADT/Word8/Kb1f46a49c8f8'
 import { Tuple2 } from '../ADT/Tuple2/Ka5583bf3ad34'
 import { $Either } from '../ADT/Either/K6260e465ae74'
 import { $Maybe } from '../ADT/Maybe/Kda6836778fd4'
-import { $Bool, Bool,True } from '../ADT/Bool/K306f1981b41c'
+import { $Bool, Bool,True ,False} from '../ADT/Bool/K306f1981b41c'
 import { PreAligned } from "../ADT/PreAligned/Kb2f28cf37d12";
 import { FillerEnd } from "../ADT/Filler/Kae1dfeece189";
 import { Bytes } from '../ADT/Bytes/Kf8844385a443'
+import { FlatEncoding } from '../ADT/FlatEncoding/K982148c09ddb';
+import { ChannelSelectionResult, $ChannelSelectionResult, RetryAt, Success } from '../ADT/ChannelSelectionResult/Kc6627a317dbc'
+import { $WebSocketAddress, WebSocketAddress } from '../ADT/WebSocketAddress/Kc802c6aae1af'
+import { $IP4Address, IP4Address } from '../ADT/IP4Address/K6cb2ee3ac409'
 
 
 function flatS(v: any, exp: any) {
@@ -28,6 +32,19 @@ function flatS(v: any, exp: any) {
     console.log("Expected:");
     console.log(exp.toString());
 }
+
+function flatT <A extends Flat>(typ:zmFold<A>,v:A) {
+    console.log("");
+    console.log("Val:");
+    console.log(v);
+    console.log("Max Size in Bits:");
+    console.log(v.flatMaxSize());
+    console.log("Flat:");
+    console.log(flat(v).toString());
+    console.log("Unflat:");
+    console.log (unflat(typ(flatDecoder),flat(v)));
+}
+
 
 function testFlat() {
     flatS(new Word8(233), [233, 1]);
@@ -50,6 +67,9 @@ function testFlat() {
     flatS(new Bytes(new Uint8Array([11, 22, 33])), [1, 3, 11, 22, 33, 0, 1]);
 
     flatS(new Bytes(new Uint8Array([])), [1, 0, 1]);
+
+    flatT($Bit,new V0);
+    flatT($ChannelSelectionResult($WebSocketAddress($IP4Address)),new Success);
 }
 
 testFlat();

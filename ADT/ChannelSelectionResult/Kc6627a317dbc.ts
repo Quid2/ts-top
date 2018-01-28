@@ -4,12 +4,10 @@ import * as K066db52af145 from  '../Char/K066db52af145'
 
 export const $ChannelSelectionResult:<A extends Q.Flat>(t0:Q.zmFold<A>) => Q.zmFold<ChannelSelectionResult<A>> = function (t1) {return function (f) {return f(___,[t1(f)])}}
 
-const ___ : Q.zmTypeInfo = {
+export const ___ : Q.zmTypeInfo = {
   zid : [0xc6,0x62,0x7a,0x31,0x7d,0xbc],
   decoder : function (decoders) {
-    const decs = {"Failure":[Kb8cd13187198.$List(K066db52af145.$Char)(Q.flatDecoder)],"RetryAt":[Q.zmConst(decoders[0])(Q.flatDecoder)]} ;
-    return function(st) { if (st.zero()) { return new Success() } else { if (st.zero()) { const d=decs["Failure"]; return new Failure(d[0](st)) } else { const d=decs["RetryAt"]; return new RetryAt(d[0](st)) } } }
-
+        return function(st) { if (st.zero()) { return new Success() } else { if (st.zero()) { return new Failure(Kb8cd13187198.___.decoder([K066db52af145.___.decoder([])])(st)) } else { return new RetryAt(decoders[0](st)) } } }
   }
 }
 

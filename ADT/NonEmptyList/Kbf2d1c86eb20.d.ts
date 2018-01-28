@@ -1,5 +1,6 @@
 import * as Q from '../../core';
 export declare const $NonEmptyList: <A extends Q.Flat>(t0: Q.zmFold<A>) => Q.zmFold<NonEmptyList<A>>;
+export declare const ___: Q.zmTypeInfo;
 export declare type NonEmptyList<A extends Q.Flat> = Elem<A> | Cons<A>;
 export declare class Elem<A extends Q.Flat> implements Q.Flat {
     _0: A;

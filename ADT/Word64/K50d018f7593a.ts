@@ -3,12 +3,10 @@ import * as Kf92e8339908a from  '../Word/Kf92e8339908a'
 
 export const $Word64:Q.zmFold<Word64> = function (f) {return f(___,[])}
 
-const ___ : Q.zmTypeInfo = {
+export const ___ : Q.zmTypeInfo = {
   zid : [0x50,0xd0,0x18,0xf7,0x59,0x3a],
   decoder : function (decoders) {
-    const decs = {"Word64":[Kf92e8339908a.$Word(Q.flatDecoder)]} ;
-    return function(st) { const d=decs["Word64"]; return new Word64(d[0](st)) }
-
+        return function(st) { return new Word64(Kf92e8339908a.___.decoder([])(st)) }
   }
 }
 

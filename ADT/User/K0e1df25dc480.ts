@@ -4,12 +4,10 @@ import * as K066db52af145 from  '../Char/K066db52af145'
 
 export const $User:Q.zmFold<User> = function (f) {return f(___,[])}
 
-const ___ : Q.zmTypeInfo = {
+export const ___ : Q.zmTypeInfo = {
   zid : [0x0e,0x1d,0xf2,0x5d,0xc4,0x80],
   decoder : function (decoders) {
-    const decs = {"User":[Kb8cd13187198.$List(K066db52af145.$Char)(Q.flatDecoder)]} ;
-    return function(st) { const d=decs["User"]; return new User(d[0](st)) }
-
+        return function(st) { return new User(Kb8cd13187198.___.decoder([K066db52af145.___.decoder([])])(st)) }
   }
 }
 

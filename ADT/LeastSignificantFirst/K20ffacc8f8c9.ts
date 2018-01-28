@@ -2,12 +2,10 @@ import * as Q from '../../core'
 
 export const $LeastSignificantFirst:<A extends Q.Flat>(t0:Q.zmFold<A>) => Q.zmFold<LeastSignificantFirst<A>> = function (t1) {return function (f) {return f(___,[t1(f)])}}
 
-const ___ : Q.zmTypeInfo = {
+export const ___ : Q.zmTypeInfo = {
   zid : [0x20,0xff,0xac,0xc8,0xf8,0xc9],
   decoder : function (decoders) {
-    const decs = {"LeastSignificantFirst":[Q.zmConst(decoders[0])(Q.flatDecoder)]} ;
-    return function(st) { const d=decs["LeastSignificantFirst"]; return new LeastSignificantFirst(d[0](st)) }
-
+        return function(st) { return new LeastSignificantFirst(decoders[0](st)) }
   }
 }
 

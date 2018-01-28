@@ -6,6 +6,7 @@ import * as Kb53bec846608 from '../IEEE_754_binary32/Kb53bec846608';
 import * as Kcba9596b4657 from '../IEEE_754_binary64/Kcba9596b4657';
 import * as K102a3bb904e3 from '../Int/K102a3bb904e3';
 export declare const $III: Q.zmFold<III>;
+export declare const ___: Q.zmTypeInfo;
 export declare class III implements Q.Flat {
     w8: Kb3a2642b4a84.Int8;
     w16: K3dac6bd4fa9c.Int16;

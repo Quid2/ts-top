@@ -2,7 +2,7 @@ import * as Q from "../core";
 
 export const $Word8 : Q.zmFold<Word8> = function (f) { return f(___, []) }
 
-const ___ : Q.zmTypeInfo = {
+export const ___ : Q.zmTypeInfo = {
     zid : [0xb1, 0xf4, 0x6a, 0x49, 0xc8, 0xf8],
     decoder : function (decoders) {
       return function(st) {return new Word8(st.bits8(8));}

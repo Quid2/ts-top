@@ -1,10 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.$ByAny = function (t1) { return function (f) { return f(___, [t1(f)]); }; };
-var ___ = {
+exports.$ByAny = function (t1) { return function (f) { return f(exports.___, [t1(f)]); }; };
+exports.___ = {
     zid: [0xa4, 0xd0, 0xbf, 0x8f, 0x6f, 0xb5],
     decoder: function (decoders) {
-        var decs = {};
         return function (st) { return new ByAny(); };
     }
 };

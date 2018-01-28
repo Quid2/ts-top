@@ -1,16 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Q = require("../../core");
 var K549f91f3b0ec = require("../Sign/K549f91f3b0ec");
 var K74e2b3b89941 = require("../MostSignificantFirst/K74e2b3b89941");
 var K8ae75e67a616 = require("../Bits11/K8ae75e67a616");
 var Kf727da8aa8ad = require("../Bits52/Kf727da8aa8ad");
-exports.$IEEE_754_binary64 = function (f) { return f(___, []); };
-var ___ = {
+exports.$IEEE_754_binary64 = function (f) { return f(exports.___, []); };
+exports.___ = {
     zid: [0xcb, 0xa9, 0x59, 0x6b, 0x46, 0x57],
     decoder: function (decoders) {
-        var decs = { "IEEE_754_binary64": [K549f91f3b0ec.$Sign(Q.flatDecoder), K74e2b3b89941.$MostSignificantFirst(K8ae75e67a616.$Bits11)(Q.flatDecoder), K74e2b3b89941.$MostSignificantFirst(Kf727da8aa8ad.$Bits52)(Q.flatDecoder)] };
-        return function (st) { var d = decs["IEEE_754_binary64"]; return new IEEE_754_binary64(d[0](st), d[1](st), d[2](st)); };
+        return function (st) { return new IEEE_754_binary64(K549f91f3b0ec.___.decoder([])(st), K74e2b3b89941.___.decoder([K8ae75e67a616.___.decoder([])])(st), K74e2b3b89941.___.decoder([Kf727da8aa8ad.___.decoder([])])(st)); };
     }
 };
 var IEEE_754_binary64 = (function () {

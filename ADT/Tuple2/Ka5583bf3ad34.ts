@@ -2,12 +2,10 @@ import * as Q from '../../core'
 
 export const $Tuple2:<A extends Q.Flat,B extends Q.Flat>(t0:Q.zmFold<A>,t1:Q.zmFold<B>) => Q.zmFold<Tuple2<A,B>> = function (t1,t2) {return function (f) {return f(___,[t1(f),t2(f)])}}
 
-const ___ : Q.zmTypeInfo = {
+export const ___ : Q.zmTypeInfo = {
   zid : [0xa5,0x58,0x3b,0xf3,0xad,0x34],
   decoder : function (decoders) {
-    const decs = {"Tuple2":[Q.zmConst(decoders[0])(Q.flatDecoder),Q.zmConst(decoders[1])(Q.flatDecoder)]} ;
-    return function(st) { const d=decs["Tuple2"]; return new Tuple2(d[0](st),d[1](st)) }
-
+        return function(st) { return new Tuple2(decoders[0](st),decoders[1](st)) }
   }
 }
 

@@ -3,12 +3,10 @@ import * as Kb53bec846608 from  '../IEEE_754_binary32/Kb53bec846608'
 
 export const $Celsius:Q.zmFold<Celsius> = function (f) {return f(___,[])}
 
-const ___ : Q.zmTypeInfo = {
+export const ___ : Q.zmTypeInfo = {
   zid : [0xa5,0x78,0x2c,0x10,0x02,0xa5],
   decoder : function (decoders) {
-    const decs = {"Celsius":[Kb53bec846608.$IEEE_754_binary32(Q.flatDecoder)]} ;
-    return function(st) { const d=decs["Celsius"]; return new Celsius(d[0](st)) }
-
+        return function(st) { return new Celsius(Kb53bec846608.___.decoder([])(st)) }
   }
 }
 

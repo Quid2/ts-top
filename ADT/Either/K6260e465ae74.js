@@ -1,18 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Q = require("../../core");
-exports.$Either = function (t1, t2) { return function (f) { return f(___, [t1(f), t2(f)]); }; };
-var ___ = {
+exports.$Either = function (t1, t2) { return function (f) { return f(exports.___, [t1(f), t2(f)]); }; };
+exports.___ = {
     zid: [0x62, 0x60, 0xe4, 0x65, 0xae, 0x74],
     decoder: function (decoders) {
-        var decs = { "Left": [Q.zmConst(decoders[0])(Q.flatDecoder)], "Right": [Q.zmConst(decoders[1])(Q.flatDecoder)] };
         return function (st) { if (st.zero()) {
-            var d = decs["Left"];
-            return new Left(d[0](st));
+            return new Left(decoders[0](st));
         }
         else {
-            var d = decs["Right"];
-            return new Right(d[0](st));
+            return new Right(decoders[1](st));
         } };
     }
 };

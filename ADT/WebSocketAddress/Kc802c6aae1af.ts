@@ -6,12 +6,10 @@ import * as K066db52af145 from  '../Char/K066db52af145'
 
 export const $WebSocketAddress:<A extends Q.Flat>(t0:Q.zmFold<A>) => Q.zmFold<WebSocketAddress<A>> = function (t1) {return function (f) {return f(___,[t1(f)])}}
 
-const ___ : Q.zmTypeInfo = {
+export const ___ : Q.zmTypeInfo = {
   zid : [0xc8,0x02,0xc6,0xaa,0xe1,0xaf],
   decoder : function (decoders) {
-    const decs = {"WebSocketAddress":[K306f1981b41c.$Bool(Q.flatDecoder),Ke5d02571ce7b.$SocketAddress(Q.zmConst(decoders[0]))(Q.flatDecoder),Kb8cd13187198.$List(K066db52af145.$Char)(Q.flatDecoder)]} ;
-    return function(st) { const d=decs["WebSocketAddress"]; return new WebSocketAddress(d[0](st),d[1](st),d[2](st)) }
-
+        return function(st) { return new WebSocketAddress(K306f1981b41c.___.decoder([])(st),Ke5d02571ce7b.___.decoder([decoders[0]])(st),Kb8cd13187198.___.decoder([K066db52af145.___.decoder([])])(st)) }
   }
 }
 

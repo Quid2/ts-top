@@ -1,13 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Q = require("../../core");
 var K65149ce3b366 = require("../Bit/K65149ce3b366");
-exports.$Bits8 = function (f) { return f(___, []); };
-var ___ = {
+exports.$Bits8 = function (f) { return f(exports.___, []); };
+exports.___ = {
     zid: [0x9e, 0x3b, 0x8c, 0x83, 0x5f, 0xe9],
     decoder: function (decoders) {
-        var decs = { "Bits8": [K65149ce3b366.$Bit(Q.flatDecoder), K65149ce3b366.$Bit(Q.flatDecoder), K65149ce3b366.$Bit(Q.flatDecoder), K65149ce3b366.$Bit(Q.flatDecoder), K65149ce3b366.$Bit(Q.flatDecoder), K65149ce3b366.$Bit(Q.flatDecoder), K65149ce3b366.$Bit(Q.flatDecoder), K65149ce3b366.$Bit(Q.flatDecoder)] };
-        return function (st) { var d = decs["Bits8"]; return new Bits8(d[0](st), d[1](st), d[2](st), d[3](st), d[4](st), d[5](st), d[6](st), d[7](st)); };
+        return function (st) { return new Bits8(K65149ce3b366.___.decoder([])(st), K65149ce3b366.___.decoder([])(st), K65149ce3b366.___.decoder([])(st), K65149ce3b366.___.decoder([])(st), K65149ce3b366.___.decoder([])(st), K65149ce3b366.___.decoder([])(st), K65149ce3b366.___.decoder([])(st), K65149ce3b366.___.decoder([])(st)); };
     }
 };
 var Bits8 = (function () {

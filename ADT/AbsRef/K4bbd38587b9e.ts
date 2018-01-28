@@ -6,12 +6,10 @@ import * as K07b1b045ac3c from  '../ADTRef/K07b1b045ac3c'
 
 export const $AbsRef:Q.zmFold<AbsRef> = function (f) {return f(___,[])}
 
-const ___ : Q.zmTypeInfo = {
+export const ___ : Q.zmTypeInfo = {
   zid : [0x4b,0xbd,0x38,0x58,0x7b,0x9e],
   decoder : function (decoders) {
-    const decs = {"AbsRef":[K9f214799149b.$SHAKE128_48(K3e8257255cbf.$ADT(Kdc26e9d90047.$Identifier,Kdc26e9d90047.$Identifier,K07b1b045ac3c.$ADTRef($AbsRef)))(Q.flatDecoder)]} ;
-    return function(st) { const d=decs["AbsRef"]; return new AbsRef(d[0](st)) }
-
+        return function(st) { return new AbsRef(K9f214799149b.___.decoder([K3e8257255cbf.___.decoder([Kdc26e9d90047.___.decoder([]),Kdc26e9d90047.___.decoder([]),K07b1b045ac3c.___.decoder([___.decoder([])])])])(st)) }
   }
 }
 

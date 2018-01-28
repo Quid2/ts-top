@@ -1,14 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Q = require("../../core");
 var Kb8cd13187198 = require("../List/Kb8cd13187198");
 var K066db52af145 = require("../Char/K066db52af145");
-exports.$Subject = function (f) { return f(___, []); };
-var ___ = {
+exports.$Subject = function (f) { return f(exports.___, []); };
+exports.___ = {
     zid: [0xfc, 0xed, 0x5b, 0x0f, 0x3c, 0x1f],
     decoder: function (decoders) {
-        var decs = { "Subject": [Kb8cd13187198.$List(Kb8cd13187198.$List(K066db52af145.$Char))(Q.flatDecoder)] };
-        return function (st) { var d = decs["Subject"]; return new Subject(d[0](st)); };
+        return function (st) { return new Subject(Kb8cd13187198.___.decoder([Kb8cd13187198.___.decoder([K066db52af145.___.decoder([])])])(st)); };
     }
 };
 var Subject = (function () {

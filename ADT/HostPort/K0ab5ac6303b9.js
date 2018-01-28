@@ -1,13 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Q = require("../../core");
 var K295e24d62fac = require("../Word16/K295e24d62fac");
-exports.$HostPort = function (f) { return f(___, []); };
-var ___ = {
+exports.$HostPort = function (f) { return f(exports.___, []); };
+exports.___ = {
     zid: [0x0a, 0xb5, 0xac, 0x63, 0x03, 0xb9],
     decoder: function (decoders) {
-        var decs = { "HostPort": [K295e24d62fac.$Word16(Q.flatDecoder)] };
-        return function (st) { var d = decs["HostPort"]; return new HostPort(d[0](st)); };
+        return function (st) { return new HostPort(K295e24d62fac.___.decoder([])(st)); };
     }
 };
 var HostPort = (function () {

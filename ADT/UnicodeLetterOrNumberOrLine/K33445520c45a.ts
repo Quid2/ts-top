@@ -3,12 +3,10 @@ import * as K066db52af145 from  '../Char/K066db52af145'
 
 export const $UnicodeLetterOrNumberOrLine:Q.zmFold<UnicodeLetterOrNumberOrLine> = function (f) {return f(___,[])}
 
-const ___ : Q.zmTypeInfo = {
+export const ___ : Q.zmTypeInfo = {
   zid : [0x33,0x44,0x55,0x20,0xc4,0x5a],
   decoder : function (decoders) {
-    const decs = {"UnicodeLetterOrNumberOrLine":[K066db52af145.$Char(Q.flatDecoder)]} ;
-    return function(st) { const d=decs["UnicodeLetterOrNumberOrLine"]; return new UnicodeLetterOrNumberOrLine(d[0](st)) }
-
+        return function(st) { return new UnicodeLetterOrNumberOrLine(K066db52af145.___.decoder([])(st)) }
   }
 }
 

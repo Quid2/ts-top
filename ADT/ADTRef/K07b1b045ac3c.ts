@@ -3,12 +3,10 @@ import * as Kb1f46a49c8f8 from  '../Word8/Kb1f46a49c8f8'
 
 export const $ADTRef:<A extends Q.Flat>(t0:Q.zmFold<A>) => Q.zmFold<ADTRef<A>> = function (t1) {return function (f) {return f(___,[t1(f)])}}
 
-const ___ : Q.zmTypeInfo = {
+export const ___ : Q.zmTypeInfo = {
   zid : [0x07,0xb1,0xb0,0x45,0xac,0x3c],
   decoder : function (decoders) {
-    const decs = {"Var":[Kb1f46a49c8f8.$Word8(Q.flatDecoder)],"Ext":[Q.zmConst(decoders[0])(Q.flatDecoder)]} ;
-    return function(st) { if (st.zero()) { const d=decs["Var"]; return new Var(d[0](st)) } else { if (st.zero()) { return new Rec() } else { const d=decs["Ext"]; return new Ext(d[0](st)) } } }
-
+        return function(st) { if (st.zero()) { return new Var(Kb1f46a49c8f8.___.decoder([])(st)) } else { if (st.zero()) { return new Rec() } else { return new Ext(decoders[0](st)) } } }
   }
 }
 

@@ -1,12 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Q = require("../../core");
-exports.$SensorReading = function (t1, t2) { return function (f) { return f(___, [t1(f), t2(f)]); }; };
-var ___ = {
+exports.$SensorReading = function (t1, t2) { return function (f) { return f(exports.___, [t1(f), t2(f)]); }; };
+exports.___ = {
     zid: [0xe4, 0x56, 0x82, 0xc1, 0x1f, 0x7b],
     decoder: function (decoders) {
-        var decs = { "SensorReading": [Q.zmConst(decoders[0])(Q.flatDecoder), Q.zmConst(decoders[1])(Q.flatDecoder)] };
-        return function (st) { var d = decs["SensorReading"]; return new SensorReading(d[0](st), d[1](st)); };
+        return function (st) { return new SensorReading(decoders[0](st), decoders[1](st)); };
     }
 };
 var SensorReading = (function () {

@@ -9,6 +9,9 @@ var K6260e465ae74_1 = require("../ADT/Either/K6260e465ae74");
 var Kda6836778fd4_1 = require("../ADT/Maybe/Kda6836778fd4");
 var K306f1981b41c_1 = require("../ADT/Bool/K306f1981b41c");
 var Kf8844385a443_1 = require("../ADT/Bytes/Kf8844385a443");
+var Kc6627a317dbc_1 = require("../ADT/ChannelSelectionResult/Kc6627a317dbc");
+var Kc802c6aae1af_1 = require("../ADT/WebSocketAddress/Kc802c6aae1af");
+var K6cb2ee3ac409_1 = require("../ADT/IP4Address/K6cb2ee3ac409");
 function flatS(v, exp) {
     console.log("");
     console.log("Val:");
@@ -19,6 +22,17 @@ function flatS(v, exp) {
     console.log(index_1.flat(v).toString());
     console.log("Expected:");
     console.log(exp.toString());
+}
+function flatT(typ, v) {
+    console.log("");
+    console.log("Val:");
+    console.log(v);
+    console.log("Max Size in Bits:");
+    console.log(v.flatMaxSize());
+    console.log("Flat:");
+    console.log(index_1.flat(v).toString());
+    console.log("Unflat:");
+    console.log(index_1.unflat(typ(index_1.flatDecoder), index_1.flat(v)));
 }
 function testFlat() {
     flatS(new Kb1f46a49c8f8_1.Word8(233), [233, 1]);
@@ -31,6 +45,8 @@ function testFlat() {
     flatS(index_1.typedBLOB(new K306f1981b41c_1.True, K306f1981b41c_1.$Bool), [24, 55, 140, 192, 218, 14, 1, 1, 129, 0, 1]);
     flatS(new Kf8844385a443_1.Bytes(new Uint8Array([11, 22, 33])), [1, 3, 11, 22, 33, 0, 1]);
     flatS(new Kf8844385a443_1.Bytes(new Uint8Array([])), [1, 0, 1]);
+    flatT(K65149ce3b366_1.$Bit, new K65149ce3b366_1.V0);
+    flatT(Kc6627a317dbc_1.$ChannelSelectionResult(Kc802c6aae1af_1.$WebSocketAddress(K6cb2ee3ac409_1.$IP4Address)), new Kc6627a317dbc_1.Success);
 }
 testFlat();
 //# sourceMappingURL=test-flat.js.map

@@ -1,5 +1,6 @@
 import * as Q from '../../core';
 export declare const $Type: <A extends Q.Flat>(t0: Q.zmFold<A>) => Q.zmFold<Type<A>>;
+export declare const ___: Q.zmTypeInfo;
 export declare type Type<A extends Q.Flat> = TypeCon<A> | TypeApp<A>;
 export declare class TypeCon<A extends Q.Flat> implements Q.Flat {
     _0: A;

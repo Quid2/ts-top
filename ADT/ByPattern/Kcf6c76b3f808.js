@@ -1,15 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Q = require("../../core");
 var Kb8cd13187198 = require("../List/Kb8cd13187198");
 var Kc23b20389114 = require("../Match/Kc23b20389114");
 var K65149ce3b366 = require("../Bit/K65149ce3b366");
-exports.$ByPattern = function (t1) { return function (f) { return f(___, [t1(f)]); }; };
-var ___ = {
+exports.$ByPattern = function (t1) { return function (f) { return f(exports.___, [t1(f)]); }; };
+exports.___ = {
     zid: [0xcf, 0x6c, 0x76, 0xb3, 0xf8, 0x08],
     decoder: function (decoders) {
-        var decs = { "ByPattern": [Kb8cd13187198.$List(Kc23b20389114.$Match(Kb8cd13187198.$List(K65149ce3b366.$Bit)))(Q.flatDecoder)] };
-        return function (st) { var d = decs["ByPattern"]; return new ByPattern(d[0](st)); };
+        return function (st) { return new ByPattern(Kb8cd13187198.___.decoder([Kc23b20389114.___.decoder([Kb8cd13187198.___.decoder([K65149ce3b366.___.decoder([])])])])(st)); };
     }
 };
 var ByPattern = (function () {

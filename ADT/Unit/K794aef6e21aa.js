@@ -1,10 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.$Unit = function (f) { return f(___, []); };
-var ___ = {
+exports.$Unit = function (f) { return f(exports.___, []); };
+exports.___ = {
     zid: [0x79, 0x4a, 0xef, 0x6e, 0x21, 0xaa],
     decoder: function (decoders) {
-        var decs = {};
         return function (st) { return new Unit(); };
     }
 };

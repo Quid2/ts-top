@@ -2,7 +2,7 @@ import * as Q from "../core";
 
 export const $Filler: Q.zmFold<Filler> = function (f) { return f(___, []) }
 
-const ___ : Q.zmTypeInfo = {
+export const ___ : Q.zmTypeInfo = {
     zid : [0xae, 0x1d, 0xfe, 0xec, 0xe1, 0x89],
     decoder : function (decoders) {
       return function(st) {st.filler();return new FillerEnd();}

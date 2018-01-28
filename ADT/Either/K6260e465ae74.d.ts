@@ -1,5 +1,6 @@
 import * as Q from '../../core';
 export declare const $Either: <A extends Q.Flat, B extends Q.Flat>(t0: Q.zmFold<A>, t1: Q.zmFold<B>) => Q.zmFold<Either<A, B>>;
+export declare const ___: Q.zmTypeInfo;
 export declare type Either<A extends Q.Flat, B extends Q.Flat> = Left<A, B> | Right<A, B>;
 export declare class Left<A extends Q.Flat, B extends Q.Flat> implements Q.Flat {
     _0: A;

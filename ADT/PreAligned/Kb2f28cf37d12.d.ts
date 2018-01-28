@@ -1,6 +1,7 @@
 import * as Q from '../../core';
 import * as Kae1dfeece189 from '../Filler/Kae1dfeece189';
 export declare const $PreAligned: <A extends Q.Flat>(t0: Q.zmFold<A>) => Q.zmFold<PreAligned<A>>;
+export declare const ___: Q.zmTypeInfo;
 export declare class PreAligned<A extends Q.Flat> implements Q.Flat {
     preFiller: Kae1dfeece189.Filler;
     preValue: A;

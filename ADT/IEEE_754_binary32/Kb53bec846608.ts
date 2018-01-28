@@ -6,12 +6,10 @@ import * as K338888222364 from  '../Bits23/K338888222364'
 
 export const $IEEE_754_binary32:Q.zmFold<IEEE_754_binary32> = function (f) {return f(___,[])}
 
-const ___ : Q.zmTypeInfo = {
+export const ___ : Q.zmTypeInfo = {
   zid : [0xb5,0x3b,0xec,0x84,0x66,0x08],
   decoder : function (decoders) {
-    const decs = {"IEEE_754_binary32":[K549f91f3b0ec.$Sign(Q.flatDecoder),K74e2b3b89941.$MostSignificantFirst(K9e3b8c835fe9.$Bits8)(Q.flatDecoder),K74e2b3b89941.$MostSignificantFirst(K338888222364.$Bits23)(Q.flatDecoder)]} ;
-    return function(st) { const d=decs["IEEE_754_binary32"]; return new IEEE_754_binary32(d[0](st),d[1](st),d[2](st)) }
-
+        return function(st) { return new IEEE_754_binary32(K549f91f3b0ec.___.decoder([])(st),K74e2b3b89941.___.decoder([K9e3b8c835fe9.___.decoder([])])(st),K74e2b3b89941.___.decoder([K338888222364.___.decoder([])])(st)) }
   }
 }
 

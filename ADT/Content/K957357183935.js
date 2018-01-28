@@ -1,18 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Q = require("../../core");
 var Kb8cd13187198 = require("../List/Kb8cd13187198");
 var K066db52af145 = require("../Char/K066db52af145");
-exports.$Content = function (t1, t2) { return function (f) { return f(___, [t1(f), t2(f)]); }; };
-var ___ = {
+exports.$Content = function (t1, t2) { return function (f) { return f(exports.___, [t1(f), t2(f)]); }; };
+exports.___ = {
     zid: [0x95, 0x73, 0x57, 0x18, 0x39, 0x35],
     decoder: function (decoders) {
-        var decs = { "TextMessage": [Kb8cd13187198.$List(K066db52af145.$Char)(Q.flatDecoder)], "Users": [Kb8cd13187198.$List(Q.zmConst(decoders[0]))(Q.flatDecoder)], "History": [Kb8cd13187198.$List(Q.zmConst(decoders[1]))(Q.flatDecoder)] };
         return function (st) { if (st.zero()) {
             if (st.zero()) {
                 if (st.zero()) {
-                    var d = decs["TextMessage"];
-                    return new TextMessage(d[0](st));
+                    return new TextMessage(Kb8cd13187198.___.decoder([K066db52af145.___.decoder([])])(st));
                 }
                 else {
                     return new AskSubSubjects();
@@ -38,16 +35,14 @@ var ___ = {
             }
             else {
                 if (st.zero()) {
-                    var d = decs["Users"];
-                    return new Users(d[0](st));
+                    return new Users(Kb8cd13187198.___.decoder([decoders[0]])(st));
                 }
                 else {
                     if (st.zero()) {
                         return new AskHistory();
                     }
                     else {
-                        var d = decs["History"];
-                        return new History(d[0](st));
+                        return new History(Kb8cd13187198.___.decoder([decoders[1]])(st));
                     }
                 }
             }

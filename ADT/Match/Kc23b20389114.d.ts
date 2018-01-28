@@ -2,6 +2,7 @@ import * as Q from '../../core';
 import * as K7028aa556ebc from '../Type/K7028aa556ebc';
 import * as K4bbd38587b9e from '../AbsRef/K4bbd38587b9e';
 export declare const $Match: <A extends Q.Flat>(t0: Q.zmFold<A>) => Q.zmFold<Match<A>>;
+export declare const ___: Q.zmTypeInfo;
 export declare type Match<A extends Q.Flat> = MatchValue<A> | MatchAny<A>;
 export declare class MatchValue<A extends Q.Flat> implements Q.Flat {
     _0: A;

@@ -2,7 +2,7 @@ import * as Q from "../core";
 
 export const $Bytes : Q.zmFold<Bytes> = function (f) {return f(___,[])}
 
-const ___ : Q.zmTypeInfo = {
+export const ___ : Q.zmTypeInfo = {
   zid : [0xf8,0x84,0x43,0x85,0xa4,0x43],
   decoder : function (decoders) {
     return function(st) {st.filler();return new Bytes(st.byteArray());}

@@ -3,12 +3,10 @@ import * as Kae1dfeece189 from  '../Filler/Kae1dfeece189'
 
 export const $PreAligned:<A extends Q.Flat>(t0:Q.zmFold<A>) => Q.zmFold<PreAligned<A>> = function (t1) {return function (f) {return f(___,[t1(f)])}}
 
-const ___ : Q.zmTypeInfo = {
+export const ___ : Q.zmTypeInfo = {
   zid : [0xb2,0xf2,0x8c,0xf3,0x7d,0x12],
   decoder : function (decoders) {
-    const decs = {"PreAligned":[Kae1dfeece189.$Filler(Q.flatDecoder),Q.zmConst(decoders[0])(Q.flatDecoder)]} ;
-    return function(st) { const d=decs["PreAligned"]; return new PreAligned(d[0](st),d[1](st)) }
-
+        return function(st) { return new PreAligned(Kae1dfeece189.___.decoder([])(st),decoders[0](st)) }
   }
 }
 

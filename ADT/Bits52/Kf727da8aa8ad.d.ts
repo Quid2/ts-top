@@ -1,6 +1,7 @@
 import * as Q from '../../core';
 import * as K65149ce3b366 from '../Bit/K65149ce3b366';
 export declare const $Bits52: Q.zmFold<Bits52>;
+export declare const ___: Q.zmTypeInfo;
 export declare class Bits52 implements Q.Flat {
     bit0: K65149ce3b366.Bit;
     bit1: K65149ce3b366.Bit;

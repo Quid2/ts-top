@@ -1,14 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Q = require("../../core");
 var K03226796ede4 = require("../ZigZag/K03226796ede4");
 var Kb1f46a49c8f8 = require("../Word8/Kb1f46a49c8f8");
-exports.$Int8 = function (f) { return f(___, []); };
-var ___ = {
+exports.$Int8 = function (f) { return f(exports.___, []); };
+exports.___ = {
     zid: [0xb3, 0xa2, 0x64, 0x2b, 0x4a, 0x84],
     decoder: function (decoders) {
-        var decs = { "Int8": [K03226796ede4.$ZigZag(Kb1f46a49c8f8.$Word8)(Q.flatDecoder)] };
-        return function (st) { var d = decs["Int8"]; return new Int8(d[0](st)); };
+        return function (st) { return new Int8(K03226796ede4.___.decoder([Kb1f46a49c8f8.___.decoder([])])(st)); };
     }
 };
 var Int8 = (function () {

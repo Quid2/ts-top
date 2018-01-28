@@ -1,16 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Q = require("../../core");
 var K306f1981b41c = require("../Bool/K306f1981b41c");
 var Ke5d02571ce7b = require("../SocketAddress/Ke5d02571ce7b");
 var Kb8cd13187198 = require("../List/Kb8cd13187198");
 var K066db52af145 = require("../Char/K066db52af145");
-exports.$WebSocketAddress = function (t1) { return function (f) { return f(___, [t1(f)]); }; };
-var ___ = {
+exports.$WebSocketAddress = function (t1) { return function (f) { return f(exports.___, [t1(f)]); }; };
+exports.___ = {
     zid: [0xc8, 0x02, 0xc6, 0xaa, 0xe1, 0xaf],
     decoder: function (decoders) {
-        var decs = { "WebSocketAddress": [K306f1981b41c.$Bool(Q.flatDecoder), Ke5d02571ce7b.$SocketAddress(Q.zmConst(decoders[0]))(Q.flatDecoder), Kb8cd13187198.$List(K066db52af145.$Char)(Q.flatDecoder)] };
-        return function (st) { var d = decs["WebSocketAddress"]; return new WebSocketAddress(d[0](st), d[1](st), d[2](st)); };
+        return function (st) { return new WebSocketAddress(K306f1981b41c.___.decoder([])(st), Ke5d02571ce7b.___.decoder([decoders[0]])(st), Kb8cd13187198.___.decoder([K066db52af145.___.decoder([])])(st)); };
     }
 };
 var WebSocketAddress = (function () {

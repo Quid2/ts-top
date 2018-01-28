@@ -4,12 +4,10 @@ import * as K295e24d62fac from  '../Word16/K295e24d62fac'
 
 export const $Int16:Q.zmFold<Int16> = function (f) {return f(___,[])}
 
-const ___ : Q.zmTypeInfo = {
+export const ___ : Q.zmTypeInfo = {
   zid : [0x3d,0xac,0x6b,0xd4,0xfa,0x9c],
   decoder : function (decoders) {
-    const decs = {"Int16":[K03226796ede4.$ZigZag(K295e24d62fac.$Word16)(Q.flatDecoder)]} ;
-    return function(st) { const d=decs["Int16"]; return new Int16(d[0](st)) }
-
+        return function(st) { return new Int16(K03226796ede4.___.decoder([K295e24d62fac.___.decoder([])])(st)) }
   }
 }
 

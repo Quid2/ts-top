@@ -1,5 +1,6 @@
 import * as Q from "../core";
 export declare const $Filler: Q.zmFold<Filler>;
+export declare const ___: Q.zmTypeInfo;
 export declare type Filler = FillerBit | FillerEnd;
 export declare class FillerBit implements Q.Flat {
     _0: Filler;

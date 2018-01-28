@@ -6,12 +6,10 @@ import * as K982148c09ddb from  '../FlatEncoding/K982148c09ddb'
 
 export const $TypedBLOB:Q.zmFold<TypedBLOB> = function (f) {return f(___,[])}
 
-const ___ : Q.zmTypeInfo = {
+export const ___ : Q.zmTypeInfo = {
   zid : [0x61,0x4e,0xdd,0x84,0xc8,0xbd],
   decoder : function (decoders) {
-    const decs = {"TypedBLOB":[K7028aa556ebc.$Type(K4bbd38587b9e.$AbsRef)(Q.flatDecoder),Kf139d4751fda.$BLOB(K982148c09ddb.$FlatEncoding)(Q.flatDecoder)]} ;
-    return function(st) { const d=decs["TypedBLOB"]; return new TypedBLOB(d[0](st),d[1](st)) }
-
+        return function(st) { return new TypedBLOB(K7028aa556ebc.___.decoder([K4bbd38587b9e.___.decoder([])])(st),Kf139d4751fda.___.decoder([K982148c09ddb.___.decoder([])])(st)) }
   }
 }
 

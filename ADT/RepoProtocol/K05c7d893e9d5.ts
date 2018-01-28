@@ -8,12 +8,10 @@ import * as Ka5583bf3ad34 from  '../Tuple2/Ka5583bf3ad34'
 
 export const $RepoProtocol:Q.zmFold<RepoProtocol> = function (f) {return f(___,[])}
 
-const ___ : Q.zmTypeInfo = {
+export const ___ : Q.zmTypeInfo = {
   zid : [0x05,0xc7,0xd8,0x93,0xe9,0xd5],
   decoder : function (decoders) {
-    const decs = {"Record":[K3e8257255cbf.$ADT(Kdc26e9d90047.$Identifier,Kdc26e9d90047.$Identifier,K07b1b045ac3c.$ADTRef(K4bbd38587b9e.$AbsRef))(Q.flatDecoder)],"Solve":[K4bbd38587b9e.$AbsRef(Q.flatDecoder)],"Solved":[K4bbd38587b9e.$AbsRef(Q.flatDecoder),K3e8257255cbf.$ADT(Kdc26e9d90047.$Identifier,Kdc26e9d90047.$Identifier,K07b1b045ac3c.$ADTRef(K4bbd38587b9e.$AbsRef))(Q.flatDecoder)],"KnownDataTypes":[Kb8cd13187198.$List(Ka5583bf3ad34.$Tuple2(K4bbd38587b9e.$AbsRef,K3e8257255cbf.$ADT(Kdc26e9d90047.$Identifier,Kdc26e9d90047.$Identifier,K07b1b045ac3c.$ADTRef(K4bbd38587b9e.$AbsRef))))(Q.flatDecoder)]} ;
-    return function(st) { if (st.zero()) { if (st.zero()) { const d=decs["Record"]; return new Record(d[0](st)) } else { const d=decs["Solve"]; return new Solve(d[0](st)) } } else { if (st.zero()) { const d=decs["Solved"]; return new Solved(d[0](st),d[1](st)) } else { if (st.zero()) { return new AskDataTypes() } else { const d=decs["KnownDataTypes"]; return new KnownDataTypes(d[0](st)) } } } }
-
+        return function(st) { if (st.zero()) { if (st.zero()) { return new Record(K3e8257255cbf.___.decoder([Kdc26e9d90047.___.decoder([]),Kdc26e9d90047.___.decoder([]),K07b1b045ac3c.___.decoder([K4bbd38587b9e.___.decoder([])])])(st)) } else { return new Solve(K4bbd38587b9e.___.decoder([])(st)) } } else { if (st.zero()) { return new Solved(K4bbd38587b9e.___.decoder([])(st),K3e8257255cbf.___.decoder([Kdc26e9d90047.___.decoder([]),Kdc26e9d90047.___.decoder([]),K07b1b045ac3c.___.decoder([K4bbd38587b9e.___.decoder([])])])(st)) } else { if (st.zero()) { return new AskDataTypes() } else { return new KnownDataTypes(Kb8cd13187198.___.decoder([Ka5583bf3ad34.___.decoder([K4bbd38587b9e.___.decoder([]),K3e8257255cbf.___.decoder([Kdc26e9d90047.___.decoder([]),Kdc26e9d90047.___.decoder([]),K07b1b045ac3c.___.decoder([K4bbd38587b9e.___.decoder([])])])])])(st)) } } } }
   }
 }
 

@@ -3,12 +3,10 @@ import * as K65149ce3b366 from  '../Bit/K65149ce3b366'
 
 export const $Bits11:Q.zmFold<Bits11> = function (f) {return f(___,[])}
 
-const ___ : Q.zmTypeInfo = {
+export const ___ : Q.zmTypeInfo = {
   zid : [0x8a,0xe7,0x5e,0x67,0xa6,0x16],
   decoder : function (decoders) {
-    const decs = {"Bits11":[K65149ce3b366.$Bit(Q.flatDecoder),K65149ce3b366.$Bit(Q.flatDecoder),K65149ce3b366.$Bit(Q.flatDecoder),K65149ce3b366.$Bit(Q.flatDecoder),K65149ce3b366.$Bit(Q.flatDecoder),K65149ce3b366.$Bit(Q.flatDecoder),K65149ce3b366.$Bit(Q.flatDecoder),K65149ce3b366.$Bit(Q.flatDecoder),K65149ce3b366.$Bit(Q.flatDecoder),K65149ce3b366.$Bit(Q.flatDecoder),K65149ce3b366.$Bit(Q.flatDecoder)]} ;
-    return function(st) { const d=decs["Bits11"]; return new Bits11(d[0](st),d[1](st),d[2](st),d[3](st),d[4](st),d[5](st),d[6](st),d[7](st),d[8](st),d[9](st),d[10](st)) }
-
+        return function(st) { return new Bits11(K65149ce3b366.___.decoder([])(st),K65149ce3b366.___.decoder([])(st),K65149ce3b366.___.decoder([])(st),K65149ce3b366.___.decoder([])(st),K65149ce3b366.___.decoder([])(st),K65149ce3b366.___.decoder([])(st),K65149ce3b366.___.decoder([])(st),K65149ce3b366.___.decoder([])(st),K65149ce3b366.___.decoder([])(st),K65149ce3b366.___.decoder([])(st),K65149ce3b366.___.decoder([])(st)) }
   }
 }
 

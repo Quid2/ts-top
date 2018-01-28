@@ -1,10 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.$Bit = function (f) { return f(___, []); };
-var ___ = {
+exports.$Bit = function (f) { return f(exports.___, []); };
+exports.___ = {
     zid: [0x65, 0x14, 0x9c, 0xe3, 0xb3, 0x66],
     decoder: function (decoders) {
-        var decs = {};
         return function (st) { if (st.zero()) {
             return new V0();
         }

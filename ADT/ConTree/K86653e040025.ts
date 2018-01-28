@@ -6,12 +6,10 @@ import * as Ka5583bf3ad34 from  '../Tuple2/Ka5583bf3ad34'
 
 export const $ConTree:<A extends Q.Flat,B extends Q.Flat>(t0:Q.zmFold<A>,t1:Q.zmFold<B>) => Q.zmFold<ConTree<A,B>> = function (t1,t2) {return function (f) {return f(___,[t1(f),t2(f)])}}
 
-const ___ : Q.zmTypeInfo = {
+export const ___ : Q.zmTypeInfo = {
   zid : [0x86,0x65,0x3e,0x04,0x00,0x25],
   decoder : function (decoders) {
-    const decs = {"Con":[Q.zmConst(decoders[0])(Q.flatDecoder),K6260e465ae74.$Either(Kb8cd13187198.$List(K7028aa556ebc.$Type(Q.zmConst(decoders[1]))),Kb8cd13187198.$List(Ka5583bf3ad34.$Tuple2(Q.zmConst(decoders[0]),K7028aa556ebc.$Type(Q.zmConst(decoders[1])))))(Q.flatDecoder)],"_ConTree":[$ConTree(Q.zmConst(decoders[0]),Q.zmConst(decoders[1]))(Q.flatDecoder),$ConTree(Q.zmConst(decoders[0]),Q.zmConst(decoders[1]))(Q.flatDecoder)]} ;
-    return function(st) { if (st.zero()) { const d=decs["Con"]; return new Con(d[0](st),d[1](st)) } else { const d=decs["_ConTree"]; return new _ConTree(d[0](st),d[1](st)) } }
-
+        return function(st) { if (st.zero()) { return new Con(decoders[0](st),K6260e465ae74.___.decoder([Kb8cd13187198.___.decoder([K7028aa556ebc.___.decoder([decoders[1]])]),Kb8cd13187198.___.decoder([Ka5583bf3ad34.___.decoder([decoders[0],K7028aa556ebc.___.decoder([decoders[1]])])])])(st)) } else { return new _ConTree(___.decoder([decoders[0],decoders[1]])(st),___.decoder([decoders[0],decoders[1]])(st)) } }
   }
 }
 

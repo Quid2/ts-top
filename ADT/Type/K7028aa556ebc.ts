@@ -2,12 +2,10 @@ import * as Q from '../../core'
 
 export const $Type:<A extends Q.Flat>(t0:Q.zmFold<A>) => Q.zmFold<Type<A>> = function (t1) {return function (f) {return f(___,[t1(f)])}}
 
-const ___ : Q.zmTypeInfo = {
+export const ___ : Q.zmTypeInfo = {
   zid : [0x70,0x28,0xaa,0x55,0x6e,0xbc],
   decoder : function (decoders) {
-    const decs = {"TypeCon":[Q.zmConst(decoders[0])(Q.flatDecoder)],"TypeApp":[$Type(Q.zmConst(decoders[0]))(Q.flatDecoder),$Type(Q.zmConst(decoders[0]))(Q.flatDecoder)]} ;
-    return function(st) { if (st.zero()) { const d=decs["TypeCon"]; return new TypeCon(d[0](st)) } else { const d=decs["TypeApp"]; return new TypeApp(d[0](st),d[1](st)) } }
-
+        return function(st) { if (st.zero()) { return new TypeCon(decoders[0](st)) } else { return new TypeApp(___.decoder([decoders[0]])(st),___.decoder([decoders[0]])(st)) } }
   }
 }
 

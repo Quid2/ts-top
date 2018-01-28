@@ -1,12 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Q = require("../../core");
-exports.$LeastSignificantFirst = function (t1) { return function (f) { return f(___, [t1(f)]); }; };
-var ___ = {
+exports.$LeastSignificantFirst = function (t1) { return function (f) { return f(exports.___, [t1(f)]); }; };
+exports.___ = {
     zid: [0x20, 0xff, 0xac, 0xc8, 0xf8, 0xc9],
     decoder: function (decoders) {
-        var decs = { "LeastSignificantFirst": [Q.zmConst(decoders[0])(Q.flatDecoder)] };
-        return function (st) { var d = decs["LeastSignificantFirst"]; return new LeastSignificantFirst(d[0](st)); };
+        return function (st) { return new LeastSignificantFirst(decoders[0](st)); };
     }
 };
 var LeastSignificantFirst = (function () {

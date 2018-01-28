@@ -2,6 +2,7 @@ import * as Q from '../../core';
 import * as Kb8cd13187198 from '../List/Kb8cd13187198';
 import * as K066db52af145 from '../Char/K066db52af145';
 export declare const $Content: <A extends Q.Flat, B extends Q.Flat>(t0: Q.zmFold<A>, t1: Q.zmFold<B>) => Q.zmFold<Content<A, B>>;
+export declare const ___: Q.zmTypeInfo;
 export declare type Content<A extends Q.Flat, B extends Q.Flat> = TextMessage<A, B> | AskSubSubjects<A, B> | Join<A, B> | Leave<A, B> | Ping<A, B> | AskUsers<A, B> | Users<A, B> | AskHistory<A, B> | History<A, B>;
 export declare class TextMessage<A extends Q.Flat, B extends Q.Flat> implements Q.Flat {
     _0: Kb8cd13187198.List<K066db52af145.Char>;

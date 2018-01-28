@@ -5,6 +5,7 @@ import * as K33445520c45a from '../UnicodeLetterOrNumberOrLine/K33445520c45a';
 import * as Kbf2d1c86eb20 from '../NonEmptyList/Kbf2d1c86eb20';
 import * as K801030ef543c from '../UnicodeSymbol/K801030ef543c';
 export declare const $Identifier: Q.zmFold<Identifier>;
+export declare const ___: Q.zmTypeInfo;
 export declare type Identifier = Name | Symbol;
 export declare class Name implements Q.Flat {
     _0: K3878b3580fc5.UnicodeLetter;

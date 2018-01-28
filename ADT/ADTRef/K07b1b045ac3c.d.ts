@@ -1,6 +1,7 @@
 import * as Q from '../../core';
 import * as Kb1f46a49c8f8 from '../Word8/Kb1f46a49c8f8';
 export declare const $ADTRef: <A extends Q.Flat>(t0: Q.zmFold<A>) => Q.zmFold<ADTRef<A>>;
+export declare const ___: Q.zmTypeInfo;
 export declare type ADTRef<A extends Q.Flat> = Var<A> | Rec<A> | Ext<A>;
 export declare class Var<A extends Q.Flat> implements Q.Flat {
     _0: Kb1f46a49c8f8.Word8;

@@ -2,7 +2,7 @@ import * as Q from "../core";
 
 export const $Array: <A extends Q.Flat>(t1: Q.zmFold<A>) => Q.zmFold<Array<A>> = function (t1) { return function (f) { return f(___, [t1(f)]) } }
 
-const ___: Q.zmTypeInfo = {
+export const ___: Q.zmTypeInfo = {
   zid: [0x2e, 0x8b, 0x45, 0x19, 0xae, 0xaa],
   decoder: function (decoders) {
     const dec = decoders[0];

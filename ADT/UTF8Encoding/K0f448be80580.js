@@ -1,10 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.$UTF8Encoding = function (f) { return f(___, []); };
-var ___ = {
+exports.$UTF8Encoding = function (f) { return f(exports.___, []); };
+exports.___ = {
     zid: [0x0f, 0x44, 0x8b, 0xe8, 0x05, 0x80],
     decoder: function (decoders) {
-        var decs = {};
         return function (st) { return new UTF8Encoding(); };
     }
 };

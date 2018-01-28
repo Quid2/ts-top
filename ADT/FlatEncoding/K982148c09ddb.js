@@ -1,10 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.$FlatEncoding = function (f) { return f(___, []); };
-var ___ = {
+exports.$FlatEncoding = function (f) { return f(exports.___, []); };
+exports.___ = {
     zid: [0x98, 0x21, 0x48, 0xc0, 0x9d, 0xdb],
     decoder: function (decoders) {
-        var decs = {};
         return function (st) { return new FlatEncoding(); };
     }
 };

@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.$Filler = function (f) { return f(___, []); };
-var ___ = {
+exports.$Filler = function (f) { return f(exports.___, []); };
+exports.___ = {
     zid: [0xae, 0x1d, 0xfe, 0xec, 0xe1, 0x89],
     decoder: function (decoders) {
         return function (st) { st.filler(); return new FillerEnd(); };

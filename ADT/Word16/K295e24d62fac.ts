@@ -3,12 +3,10 @@ import * as Kf92e8339908a from  '../Word/Kf92e8339908a'
 
 export const $Word16:Q.zmFold<Word16> = function (f) {return f(___,[])}
 
-const ___ : Q.zmTypeInfo = {
+export const ___ : Q.zmTypeInfo = {
   zid : [0x29,0x5e,0x24,0xd6,0x2f,0xac],
   decoder : function (decoders) {
-    const decs = {"Word16":[Kf92e8339908a.$Word(Q.flatDecoder)]} ;
-    return function(st) { const d=decs["Word16"]; return new Word16(d[0](st)) }
-
+        return function(st) { return new Word16(Kf92e8339908a.___.decoder([])(st)) }
   }
 }
 

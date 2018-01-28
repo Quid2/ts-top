@@ -1,10 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.$Sign = function (f) { return f(___, []); };
-var ___ = {
+exports.$Sign = function (f) { return f(exports.___, []); };
+exports.___ = {
     zid: [0x54, 0x9f, 0x91, 0xf3, 0xb0, 0xec],
     decoder: function (decoders) {
-        var decs = {};
         return function (st) { if (st.zero()) {
             return new Positive();
         }

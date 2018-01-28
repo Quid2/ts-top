@@ -1,6 +1,7 @@
 import * as Q from '../../core';
 import * as Kf8844385a443 from '../Bytes/Kf8844385a443';
 export declare const $BLOB: <A extends Q.Flat>(t0: Q.zmFold<A>) => Q.zmFold<BLOB<A>>;
+export declare const ___: Q.zmTypeInfo;
 export declare class BLOB<A extends Q.Flat> implements Q.Flat {
     encoding: A;
     content: Kf8844385a443.Bytes;

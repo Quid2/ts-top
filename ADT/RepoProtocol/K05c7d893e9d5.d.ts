@@ -6,6 +6,7 @@ import * as K4bbd38587b9e from '../AbsRef/K4bbd38587b9e';
 import * as Kb8cd13187198 from '../List/Kb8cd13187198';
 import * as Ka5583bf3ad34 from '../Tuple2/Ka5583bf3ad34';
 export declare const $RepoProtocol: Q.zmFold<RepoProtocol>;
+export declare const ___: Q.zmTypeInfo;
 export declare type RepoProtocol = Record | Solve | Solved | AskDataTypes | KnownDataTypes;
 export declare class Record implements Q.Flat {
     _0: K3e8257255cbf.ADT<Kdc26e9d90047.Identifier, Kdc26e9d90047.Identifier, K07b1b045ac3c.ADTRef<K4bbd38587b9e.AbsRef>>;

@@ -1,5 +1,6 @@
 import * as Q from '../../core';
 export declare const $List: <A extends Q.Flat>(t0: Q.zmFold<A>) => Q.zmFold<List<A>>;
+export declare const ___: Q.zmTypeInfo;
 export declare type List<A extends Q.Flat> = Nil<A> | Cons<A>;
 export declare class Nil<A extends Q.Flat> implements Q.Flat {
     match<R>(m: {

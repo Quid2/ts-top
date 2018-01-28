@@ -3,12 +3,10 @@ import * as Kb1f46a49c8f8 from  '../Word8/Kb1f46a49c8f8'
 
 export const $SHA3_256_6:<A extends Q.Flat>(t0:Q.zmFold<A>) => Q.zmFold<SHA3_256_6<A>> = function (t1) {return function (f) {return f(___,[t1(f)])}}
 
-const ___ : Q.zmTypeInfo = {
+export const ___ : Q.zmTypeInfo = {
   zid : [0x20,0x08,0xe8,0xe3,0xf4,0xa4],
   decoder : function (decoders) {
-    const decs = {"SHA3_256_6":[Kb1f46a49c8f8.$Word8(Q.flatDecoder),Kb1f46a49c8f8.$Word8(Q.flatDecoder),Kb1f46a49c8f8.$Word8(Q.flatDecoder),Kb1f46a49c8f8.$Word8(Q.flatDecoder),Kb1f46a49c8f8.$Word8(Q.flatDecoder),Kb1f46a49c8f8.$Word8(Q.flatDecoder)]} ;
-    return function(st) { const d=decs["SHA3_256_6"]; return new SHA3_256_6(d[0](st),d[1](st),d[2](st),d[3](st),d[4](st),d[5](st)) }
-
+        return function(st) { return new SHA3_256_6(Kb1f46a49c8f8.___.decoder([])(st),Kb1f46a49c8f8.___.decoder([])(st),Kb1f46a49c8f8.___.decoder([])(st),Kb1f46a49c8f8.___.decoder([])(st),Kb1f46a49c8f8.___.decoder([])(st),Kb1f46a49c8f8.___.decoder([])(st)) }
   }
 }
 

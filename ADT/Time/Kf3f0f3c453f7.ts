@@ -4,12 +4,10 @@ import * as K2412799c99f1 from  '../Word32/K2412799c99f1'
 
 export const $Time:Q.zmFold<Time> = function (f) {return f(___,[])}
 
-const ___ : Q.zmTypeInfo = {
+export const ___ : Q.zmTypeInfo = {
   zid : [0xf3,0xf0,0xf3,0xc4,0x53,0xf7],
   decoder : function (decoders) {
-    const decs = {"Time":[K102a3bb904e3.$Int(Q.flatDecoder),K2412799c99f1.$Word32(Q.flatDecoder)]} ;
-    return function(st) { const d=decs["Time"]; return new Time(d[0](st),d[1](st)) }
-
+        return function(st) { return new Time(K102a3bb904e3.___.decoder([])(st),K2412799c99f1.___.decoder([])(st)) }
   }
 }
 

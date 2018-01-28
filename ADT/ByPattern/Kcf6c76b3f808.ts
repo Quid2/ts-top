@@ -5,12 +5,10 @@ import * as K65149ce3b366 from  '../Bit/K65149ce3b366'
 
 export const $ByPattern:<A extends Q.Flat>(t0:Q.zmFold<A>) => Q.zmFold<ByPattern<A>> = function (t1) {return function (f) {return f(___,[t1(f)])}}
 
-const ___ : Q.zmTypeInfo = {
+export const ___ : Q.zmTypeInfo = {
   zid : [0xcf,0x6c,0x76,0xb3,0xf8,0x08],
   decoder : function (decoders) {
-    const decs = {"ByPattern":[Kb8cd13187198.$List(Kc23b20389114.$Match(Kb8cd13187198.$List(K65149ce3b366.$Bit)))(Q.flatDecoder)]} ;
-    return function(st) { const d=decs["ByPattern"]; return new ByPattern(d[0](st)) }
-
+        return function(st) { return new ByPattern(Kb8cd13187198.___.decoder([Kc23b20389114.___.decoder([Kb8cd13187198.___.decoder([K65149ce3b366.___.decoder([])])])])(st)) }
   }
 }
 

@@ -7,12 +7,10 @@ import * as K801030ef543c from  '../UnicodeSymbol/K801030ef543c'
 
 export const $Identifier:Q.zmFold<Identifier> = function (f) {return f(___,[])}
 
-const ___ : Q.zmTypeInfo = {
+export const ___ : Q.zmTypeInfo = {
   zid : [0xdc,0x26,0xe9,0xd9,0x00,0x47],
   decoder : function (decoders) {
-    const decs = {"Name":[K3878b3580fc5.$UnicodeLetter(Q.flatDecoder),Kb8cd13187198.$List(K33445520c45a.$UnicodeLetterOrNumberOrLine)(Q.flatDecoder)],"Symbol":[Kbf2d1c86eb20.$NonEmptyList(K801030ef543c.$UnicodeSymbol)(Q.flatDecoder)]} ;
-    return function(st) { if (st.zero()) { const d=decs["Name"]; return new Name(d[0](st),d[1](st)) } else { const d=decs["Symbol"]; return new Symbol(d[0](st)) } }
-
+        return function(st) { if (st.zero()) { return new Name(K3878b3580fc5.___.decoder([])(st),Kb8cd13187198.___.decoder([K33445520c45a.___.decoder([])])(st)) } else { return new Symbol(Kbf2d1c86eb20.___.decoder([K801030ef543c.___.decoder([])])(st)) } }
   }
 }
 

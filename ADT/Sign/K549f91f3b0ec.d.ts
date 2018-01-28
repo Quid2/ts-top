@@ -1,5 +1,6 @@
 import * as Q from '../../core';
 export declare const $Sign: Q.zmFold<Sign>;
+export declare const ___: Q.zmTypeInfo;
 export declare type Sign = Positive | Negative;
 export declare class Positive implements Q.Flat {
     match<R>(m: {

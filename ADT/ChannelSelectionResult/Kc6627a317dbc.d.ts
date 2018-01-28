@@ -2,6 +2,7 @@ import * as Q from '../../core';
 import * as Kb8cd13187198 from '../List/Kb8cd13187198';
 import * as K066db52af145 from '../Char/K066db52af145';
 export declare const $ChannelSelectionResult: <A extends Q.Flat>(t0: Q.zmFold<A>) => Q.zmFold<ChannelSelectionResult<A>>;
+export declare const ___: Q.zmTypeInfo;
 export declare type ChannelSelectionResult<A extends Q.Flat> = Success<A> | Failure<A> | RetryAt<A>;
 export declare class Success<A extends Q.Flat> implements Q.Flat {
     match<R>(m: {

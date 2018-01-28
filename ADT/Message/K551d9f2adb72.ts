@@ -5,12 +5,10 @@ import * as K957357183935 from  '../Content/K957357183935'
 
 export const $Message:Q.zmFold<Message> = function (f) {return f(___,[])}
 
-const ___ : Q.zmTypeInfo = {
+export const ___ : Q.zmTypeInfo = {
   zid : [0x55,0x1d,0x9f,0x2a,0xdb,0x72],
   decoder : function (decoders) {
-    const decs = {"Message":[K0e1df25dc480.$User(Q.flatDecoder),Kfced5b0f3c1f.$Subject(Q.flatDecoder),K957357183935.$Content(K0e1df25dc480.$User,$Message)(Q.flatDecoder)]} ;
-    return function(st) { const d=decs["Message"]; return new Message(d[0](st),d[1](st),d[2](st)) }
-
+        return function(st) { return new Message(K0e1df25dc480.___.decoder([])(st),Kfced5b0f3c1f.___.decoder([])(st),K957357183935.___.decoder([K0e1df25dc480.___.decoder([]),___.decoder([])])(st)) }
   }
 }
 

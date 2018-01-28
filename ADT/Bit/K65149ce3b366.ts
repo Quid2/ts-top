@@ -2,12 +2,10 @@ import * as Q from '../../core'
 
 export const $Bit:Q.zmFold<Bit> = function (f) {return f(___,[])}
 
-const ___ : Q.zmTypeInfo = {
+export const ___ : Q.zmTypeInfo = {
   zid : [0x65,0x14,0x9c,0xe3,0xb3,0x66],
   decoder : function (decoders) {
-    const decs = {} ;
-    return function(st) { if (st.zero()) { return new V0() } else { return new V1() } }
-
+        return function(st) { if (st.zero()) { return new V0() } else { return new V1() } }
   }
 }
 

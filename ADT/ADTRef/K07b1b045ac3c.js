@@ -1,23 +1,19 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Q = require("../../core");
 var Kb1f46a49c8f8 = require("../Word8/Kb1f46a49c8f8");
-exports.$ADTRef = function (t1) { return function (f) { return f(___, [t1(f)]); }; };
-var ___ = {
+exports.$ADTRef = function (t1) { return function (f) { return f(exports.___, [t1(f)]); }; };
+exports.___ = {
     zid: [0x07, 0xb1, 0xb0, 0x45, 0xac, 0x3c],
     decoder: function (decoders) {
-        var decs = { "Var": [Kb1f46a49c8f8.$Word8(Q.flatDecoder)], "Ext": [Q.zmConst(decoders[0])(Q.flatDecoder)] };
         return function (st) { if (st.zero()) {
-            var d = decs["Var"];
-            return new Var(d[0](st));
+            return new Var(Kb1f46a49c8f8.___.decoder([])(st));
         }
         else {
             if (st.zero()) {
                 return new Rec();
             }
             else {
-                var d = decs["Ext"];
-                return new Ext(d[0](st));
+                return new Ext(decoders[0](st));
             }
         } };
     }

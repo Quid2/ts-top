@@ -6,12 +6,10 @@ import * as Kf4c946334a7e from  '../Word7/Kf4c946334a7e'
 
 export const $Word:Q.zmFold<Word> = function (f) {return f(___,[])}
 
-const ___ : Q.zmTypeInfo = {
+export const ___ : Q.zmTypeInfo = {
   zid : [0xf9,0x2e,0x83,0x39,0x90,0x8a],
   decoder : function (decoders) {
-    const decs = {"Word":[K20ffacc8f8c9.$LeastSignificantFirst(Kbf2d1c86eb20.$NonEmptyList(K74e2b3b89941.$MostSignificantFirst(Kf4c946334a7e.$Word7)))(Q.flatDecoder)]} ;
-    return function(st) { const d=decs["Word"]; return new Word(d[0](st)) }
-
+        return function(st) { return new Word(K20ffacc8f8c9.___.decoder([Kbf2d1c86eb20.___.decoder([K74e2b3b89941.___.decoder([Kf4c946334a7e.___.decoder([])])])])(st)) }
   }
 }
 

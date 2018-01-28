@@ -1,13 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Q = require("../../core");
 var Kb1f46a49c8f8 = require("../Word8/Kb1f46a49c8f8");
-exports.$SHA3_256_6 = function (t1) { return function (f) { return f(___, [t1(f)]); }; };
-var ___ = {
+exports.$SHA3_256_6 = function (t1) { return function (f) { return f(exports.___, [t1(f)]); }; };
+exports.___ = {
     zid: [0x20, 0x08, 0xe8, 0xe3, 0xf4, 0xa4],
     decoder: function (decoders) {
-        var decs = { "SHA3_256_6": [Kb1f46a49c8f8.$Word8(Q.flatDecoder), Kb1f46a49c8f8.$Word8(Q.flatDecoder), Kb1f46a49c8f8.$Word8(Q.flatDecoder), Kb1f46a49c8f8.$Word8(Q.flatDecoder), Kb1f46a49c8f8.$Word8(Q.flatDecoder), Kb1f46a49c8f8.$Word8(Q.flatDecoder)] };
-        return function (st) { var d = decs["SHA3_256_6"]; return new SHA3_256_6(d[0](st), d[1](st), d[2](st), d[3](st), d[4](st), d[5](st)); };
+        return function (st) { return new SHA3_256_6(Kb1f46a49c8f8.___.decoder([])(st), Kb1f46a49c8f8.___.decoder([])(st), Kb1f46a49c8f8.___.decoder([])(st), Kb1f46a49c8f8.___.decoder([])(st), Kb1f46a49c8f8.___.decoder([])(st), Kb1f46a49c8f8.___.decoder([])(st)); };
     }
 };
 var SHA3_256_6 = (function () {

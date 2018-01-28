@@ -1,20 +1,16 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Q = require("../../core");
 var Kb8cd13187198 = require("../List/Kb8cd13187198");
 var K066db52af145 = require("../Char/K066db52af145");
-exports.$HostAddress = function (t1) { return function (f) { return f(___, [t1(f)]); }; };
-var ___ = {
+exports.$HostAddress = function (t1) { return function (f) { return f(exports.___, [t1(f)]); }; };
+exports.___ = {
     zid: [0x64, 0xf9, 0x3d, 0x94, 0xa7, 0x3d],
     decoder: function (decoders) {
-        var decs = { "IPAddress": [Q.zmConst(decoders[0])(Q.flatDecoder)], "DNSAddress": [Kb8cd13187198.$List(K066db52af145.$Char)(Q.flatDecoder)] };
         return function (st) { if (st.zero()) {
-            var d = decs["IPAddress"];
-            return new IPAddress(d[0](st));
+            return new IPAddress(decoders[0](st));
         }
         else {
-            var d = decs["DNSAddress"];
-            return new DNSAddress(d[0](st));
+            return new DNSAddress(Kb8cd13187198.___.decoder([K066db52af145.___.decoder([])])(st));
         } };
     }
 };
