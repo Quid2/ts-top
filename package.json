@@ -1,12 +1,13 @@
 {
   "name": "quid2",
-  "version": "1.0.19",
+  "version": "1.0.20",
   "description": "TypeScript API and ADTs for Quid2",
   "main": "index.js",
   "scripts": {
     "build": "tsc",
     "release": "standard-version;git commit -am \"release\";git push --follow-tags origin master;git status",
-    "test": "node spec/test-flat"
+    "test": "node spec/test-flat",
+    "test-top": "parcel -p 2345 spec/index.html"
   },
   "repository": {
     "type": "git",
@@ -20,10 +21,13 @@
   },
   "homepage": "https://github.com/Quid2/ts#readme",
   "devDependencies": {
+    "babel-preset-env": "^1.6.1",
     "standard-version": "^4.3.0",
     "typescript": "^2.6.2"
   },
   "dependencies": {
+    "queueing-subject": "^0.2.0",
+    "rxjs": "^5.5.6",
     "ws": "^4.0.0"
   }
 }
