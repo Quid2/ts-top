@@ -98,6 +98,22 @@ export class DecoderState {
     return r;
   }
 
+  word():number {
+    var n = 0;
+    var shl = 0;
+    var w8;
+    var w7;
+    
+    do {
+      w8 = this.bits8(8)
+      w7 = w8 & 127
+      n |= w7 << shl
+      shl +=7
+    } while (w8!==w7);
+
+     return n;
+  }
+
   zero(): boolean {
     this.ensureBit();
     const b = !(this.buffer[this.currPtr] & (128 >>> this.usedBits));
@@ -154,6 +170,15 @@ export class EncoderState {
   filler(): void {
     this.currentByte |= 1;
     this.nextWord();
+  }
+
+  word(n:number): void {
+    do {
+      const w = n & 127;
+      n >>>= 7;
+      if (n!==0) n |= 1;
+      this.bits(8,w);
+    } while (n!==0);
   }
 
   // add indicated number of bits (up to ? bits)
