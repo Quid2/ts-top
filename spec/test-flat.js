@@ -17,6 +17,7 @@ var K2e8b4519aeaa_1 = require("../ADT/Array/K2e8b4519aeaa");
 var Kf8844385a443_1 = require("../ADT/Bytes/Kf8844385a443");
 var Ka5583bf3ad34_1 = require("../ADT/Tuple2/Ka5583bf3ad34");
 var K295e24d62fac_1 = require("../ADT/Word16/K295e24d62fac");
+var K066db52af145_1 = require("../ADT/Char/K066db52af145");
 function flatS(v, exp) {
     console.log("");
     console.log("Val:");
@@ -62,6 +63,7 @@ function testFlat() {
     flatT(Ka5583bf3ad34_1.$Tuple2(K65149ce3b366_1.$Bit, K295e24d62fac_1.$Word16), new Ka5583bf3ad34_1.Tuple2(new K65149ce3b366_1.V1, new K295e24d62fac_1.Word16(0)));
     flatT(Ka5583bf3ad34_1.$Tuple2(K65149ce3b366_1.$Bit, K295e24d62fac_1.$Word16), new Ka5583bf3ad34_1.Tuple2(new K65149ce3b366_1.V1, new K295e24d62fac_1.Word16(65535)));
     flatT(Kbf2d1c86eb20_1.$NonEmptyList(K65149ce3b366_1.$Bit), new Kbf2d1c86eb20_1.Cons(new K65149ce3b366_1.V0, new Kbf2d1c86eb20_1.Cons(new K65149ce3b366_1.V1, new Kbf2d1c86eb20_1.Elem(new K65149ce3b366_1.V0))));
+    flatT(K066db52af145_1.$Char, new K066db52af145_1.Char('a'));
 }
 testFlat();
 //# sourceMappingURL=test-flat.js.map
