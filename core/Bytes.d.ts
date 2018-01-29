@@ -6,4 +6,6 @@ export declare class Bytes implements Q.Flat {
     constructor(bytes: Uint8Array);
     flatMaxSize(): number;
     flatEncode(st: Q.EncoderState): void;
+    toString(): string;
+    toStr(nested?: boolean): string;
 }

@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var Q = require("../../core");
 var Kb8cd13187198 = require("../List/Kb8cd13187198");
 var K066db52af145 = require("../Char/K066db52af145");
 exports.$Content = function (t1, t2) { return function (f) { return f(exports.___, [t1(f), t2(f)]); }; };
@@ -53,6 +54,11 @@ var TextMessage = (function () {
     function TextMessage(_0) {
         this._0 = _0;
     }
+    TextMessage.prototype.toString = function () { return this.toStr(false); };
+    TextMessage.prototype.toStr = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return Q.nestedPars(nested, "TextMessage" + this._0.toStr(true));
+    };
     TextMessage.prototype.match = function (m) { return m.TextMessage(this._0); };
     TextMessage.prototype.flatMaxSize = function () { return 3 + this._0.flatMaxSize(); };
     TextMessage.prototype.flatEncode = function (st) { st.zero(); st.zero(); st.zero(); this._0.flatEncode(st); };
@@ -62,6 +68,11 @@ exports.TextMessage = TextMessage;
 var AskSubSubjects = (function () {
     function AskSubSubjects() {
     }
+    AskSubSubjects.prototype.toString = function () { return this.toStr(false); };
+    AskSubSubjects.prototype.toStr = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return "AskSubSubjects";
+    };
     AskSubSubjects.prototype.match = function (m) { return m.AskSubSubjects; };
     AskSubSubjects.prototype.flatMaxSize = function () { return 3 + 0; };
     AskSubSubjects.prototype.flatEncode = function (st) { st.zero(); st.zero(); st.one(); };
@@ -71,6 +82,11 @@ exports.AskSubSubjects = AskSubSubjects;
 var Join = (function () {
     function Join() {
     }
+    Join.prototype.toString = function () { return this.toStr(false); };
+    Join.prototype.toStr = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return "Join";
+    };
     Join.prototype.match = function (m) { return m.Join; };
     Join.prototype.flatMaxSize = function () { return 3 + 0; };
     Join.prototype.flatEncode = function (st) { st.zero(); st.one(); st.zero(); };
@@ -80,6 +96,11 @@ exports.Join = Join;
 var Leave = (function () {
     function Leave() {
     }
+    Leave.prototype.toString = function () { return this.toStr(false); };
+    Leave.prototype.toStr = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return "Leave";
+    };
     Leave.prototype.match = function (m) { return m.Leave; };
     Leave.prototype.flatMaxSize = function () { return 3 + 0; };
     Leave.prototype.flatEncode = function (st) { st.zero(); st.one(); st.one(); };
@@ -89,6 +110,11 @@ exports.Leave = Leave;
 var Ping = (function () {
     function Ping() {
     }
+    Ping.prototype.toString = function () { return this.toStr(false); };
+    Ping.prototype.toStr = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return "Ping";
+    };
     Ping.prototype.match = function (m) { return m.Ping; };
     Ping.prototype.flatMaxSize = function () { return 3 + 0; };
     Ping.prototype.flatEncode = function (st) { st.one(); st.zero(); st.zero(); };
@@ -98,6 +124,11 @@ exports.Ping = Ping;
 var AskUsers = (function () {
     function AskUsers() {
     }
+    AskUsers.prototype.toString = function () { return this.toStr(false); };
+    AskUsers.prototype.toStr = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return "AskUsers";
+    };
     AskUsers.prototype.match = function (m) { return m.AskUsers; };
     AskUsers.prototype.flatMaxSize = function () { return 3 + 0; };
     AskUsers.prototype.flatEncode = function (st) { st.one(); st.zero(); st.one(); };
@@ -108,6 +139,11 @@ var Users = (function () {
     function Users(_0) {
         this._0 = _0;
     }
+    Users.prototype.toString = function () { return this.toStr(false); };
+    Users.prototype.toStr = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return Q.nestedPars(nested, "Users" + this._0.toStr(true));
+    };
     Users.prototype.match = function (m) { return m.Users(this._0); };
     Users.prototype.flatMaxSize = function () { return 3 + this._0.flatMaxSize(); };
     Users.prototype.flatEncode = function (st) { st.one(); st.one(); st.zero(); this._0.flatEncode(st); };
@@ -117,6 +153,11 @@ exports.Users = Users;
 var AskHistory = (function () {
     function AskHistory() {
     }
+    AskHistory.prototype.toString = function () { return this.toStr(false); };
+    AskHistory.prototype.toStr = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return "AskHistory";
+    };
     AskHistory.prototype.match = function (m) { return m.AskHistory; };
     AskHistory.prototype.flatMaxSize = function () { return 4 + 0; };
     AskHistory.prototype.flatEncode = function (st) { st.one(); st.one(); st.one(); st.zero(); };
@@ -127,6 +168,11 @@ var History = (function () {
     function History(_0) {
         this._0 = _0;
     }
+    History.prototype.toString = function () { return this.toStr(false); };
+    History.prototype.toStr = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return Q.nestedPars(nested, "History" + this._0.toStr(true));
+    };
     History.prototype.match = function (m) { return m.History(this._0); };
     History.prototype.flatMaxSize = function () { return 4 + this._0.flatMaxSize(); };
     History.prototype.flatEncode = function (st) { st.one(); st.one(); st.one(); st.one(); this._0.flatEncode(st); };

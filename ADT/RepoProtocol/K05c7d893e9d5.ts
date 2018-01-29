@@ -23,6 +23,8 @@ export class Record  implements Q.Flat {
 
   ) { }
 
+  toString():string {return this.toStr(false)}
+  toStr(nested=false):string {return Q.nestedPars(nested,"Record"+this._0.toStr(true))}
   match <R>(m:{Record:(v0:K3e8257255cbf.ADT<Kdc26e9d90047.Identifier,Kdc26e9d90047.Identifier,K07b1b045ac3c.ADTRef<K4bbd38587b9e.AbsRef>>)=>R,Solve:(v0:K4bbd38587b9e.AbsRef)=>R,Solved:(v0:K4bbd38587b9e.AbsRef,v1:K3e8257255cbf.ADT<Kdc26e9d90047.Identifier,Kdc26e9d90047.Identifier,K07b1b045ac3c.ADTRef<K4bbd38587b9e.AbsRef>>)=>R,AskDataTypes:R,KnownDataTypes:(v0:Kb8cd13187198.List<Ka5583bf3ad34.Tuple2<K4bbd38587b9e.AbsRef,K3e8257255cbf.ADT<Kdc26e9d90047.Identifier,Kdc26e9d90047.Identifier,K07b1b045ac3c.ADTRef<K4bbd38587b9e.AbsRef>>>>)=>R}) : R {return m.Record(this._0);}
   flatMaxSize():number {return 2+this._0.flatMaxSize();}
   flatEncode(st:Q.EncoderState) {st.zero();st.zero();this._0.flatEncode(st);}
@@ -35,6 +37,8 @@ export class Solve  implements Q.Flat {
 
   ) { }
 
+  toString():string {return this.toStr(false)}
+  toStr(nested=false):string {return Q.nestedPars(nested,"Solve"+this._0.toStr(true))}
   match <R>(m:{Record:(v0:K3e8257255cbf.ADT<Kdc26e9d90047.Identifier,Kdc26e9d90047.Identifier,K07b1b045ac3c.ADTRef<K4bbd38587b9e.AbsRef>>)=>R,Solve:(v0:K4bbd38587b9e.AbsRef)=>R,Solved:(v0:K4bbd38587b9e.AbsRef,v1:K3e8257255cbf.ADT<Kdc26e9d90047.Identifier,Kdc26e9d90047.Identifier,K07b1b045ac3c.ADTRef<K4bbd38587b9e.AbsRef>>)=>R,AskDataTypes:R,KnownDataTypes:(v0:Kb8cd13187198.List<Ka5583bf3ad34.Tuple2<K4bbd38587b9e.AbsRef,K3e8257255cbf.ADT<Kdc26e9d90047.Identifier,Kdc26e9d90047.Identifier,K07b1b045ac3c.ADTRef<K4bbd38587b9e.AbsRef>>>>)=>R}) : R {return m.Solve(this._0);}
   flatMaxSize():number {return 2+this._0.flatMaxSize();}
   flatEncode(st:Q.EncoderState) {st.zero();st.one();this._0.flatEncode(st);}
@@ -48,6 +52,8 @@ export class Solved  implements Q.Flat {
 
   ) { }
 
+  toString():string {return this.toStr(false)}
+  toStr(nested=false):string {return Q.nestedPars(nested,"Solved"+this._0.toStr(true)+this._1.toStr(true))}
   match <R>(m:{Record:(v0:K3e8257255cbf.ADT<Kdc26e9d90047.Identifier,Kdc26e9d90047.Identifier,K07b1b045ac3c.ADTRef<K4bbd38587b9e.AbsRef>>)=>R,Solve:(v0:K4bbd38587b9e.AbsRef)=>R,Solved:(v0:K4bbd38587b9e.AbsRef,v1:K3e8257255cbf.ADT<Kdc26e9d90047.Identifier,Kdc26e9d90047.Identifier,K07b1b045ac3c.ADTRef<K4bbd38587b9e.AbsRef>>)=>R,AskDataTypes:R,KnownDataTypes:(v0:Kb8cd13187198.List<Ka5583bf3ad34.Tuple2<K4bbd38587b9e.AbsRef,K3e8257255cbf.ADT<Kdc26e9d90047.Identifier,Kdc26e9d90047.Identifier,K07b1b045ac3c.ADTRef<K4bbd38587b9e.AbsRef>>>>)=>R}) : R {return m.Solved(this._0,this._1);}
   flatMaxSize():number {return 2+this._0.flatMaxSize()+this._1.flatMaxSize();}
   flatEncode(st:Q.EncoderState) {st.one();st.zero();this._0.flatEncode(st);this._1.flatEncode(st);}
@@ -56,6 +62,8 @@ export class Solved  implements Q.Flat {
 
 export class AskDataTypes  implements Q.Flat {
 
+  toString():string {return this.toStr(false)}
+  toStr(nested=false):string {return "AskDataTypes"}
   match <R>(m:{Record:(v0:K3e8257255cbf.ADT<Kdc26e9d90047.Identifier,Kdc26e9d90047.Identifier,K07b1b045ac3c.ADTRef<K4bbd38587b9e.AbsRef>>)=>R,Solve:(v0:K4bbd38587b9e.AbsRef)=>R,Solved:(v0:K4bbd38587b9e.AbsRef,v1:K3e8257255cbf.ADT<Kdc26e9d90047.Identifier,Kdc26e9d90047.Identifier,K07b1b045ac3c.ADTRef<K4bbd38587b9e.AbsRef>>)=>R,AskDataTypes:R,KnownDataTypes:(v0:Kb8cd13187198.List<Ka5583bf3ad34.Tuple2<K4bbd38587b9e.AbsRef,K3e8257255cbf.ADT<Kdc26e9d90047.Identifier,Kdc26e9d90047.Identifier,K07b1b045ac3c.ADTRef<K4bbd38587b9e.AbsRef>>>>)=>R}) : R {return m.AskDataTypes;}
   flatMaxSize():number {return 3+0;}
   flatEncode(st:Q.EncoderState) {st.one();st.one();st.zero();}
@@ -68,6 +76,8 @@ export class KnownDataTypes  implements Q.Flat {
 
   ) { }
 
+  toString():string {return this.toStr(false)}
+  toStr(nested=false):string {return Q.nestedPars(nested,"KnownDataTypes"+this._0.toStr(true))}
   match <R>(m:{Record:(v0:K3e8257255cbf.ADT<Kdc26e9d90047.Identifier,Kdc26e9d90047.Identifier,K07b1b045ac3c.ADTRef<K4bbd38587b9e.AbsRef>>)=>R,Solve:(v0:K4bbd38587b9e.AbsRef)=>R,Solved:(v0:K4bbd38587b9e.AbsRef,v1:K3e8257255cbf.ADT<Kdc26e9d90047.Identifier,Kdc26e9d90047.Identifier,K07b1b045ac3c.ADTRef<K4bbd38587b9e.AbsRef>>)=>R,AskDataTypes:R,KnownDataTypes:(v0:Kb8cd13187198.List<Ka5583bf3ad34.Tuple2<K4bbd38587b9e.AbsRef,K3e8257255cbf.ADT<Kdc26e9d90047.Identifier,Kdc26e9d90047.Identifier,K07b1b045ac3c.ADTRef<K4bbd38587b9e.AbsRef>>>>)=>R}) : R {return m.KnownDataTypes(this._0);}
   flatMaxSize():number {return 3+this._0.flatMaxSize();}
   flatEncode(st:Q.EncoderState) {st.one();st.one();st.one();this._0.flatEncode(st);}

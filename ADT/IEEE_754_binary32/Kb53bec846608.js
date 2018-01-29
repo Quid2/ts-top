@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var Q = require("../../core");
 var K549f91f3b0ec = require("../Sign/K549f91f3b0ec");
 var K74e2b3b89941 = require("../MostSignificantFirst/K74e2b3b89941");
 var K9e3b8c835fe9 = require("../Bits8/K9e3b8c835fe9");
@@ -17,6 +18,11 @@ var IEEE_754_binary32 = (function () {
         this.exponent = exponent;
         this.fraction = fraction;
     }
+    IEEE_754_binary32.prototype.toString = function () { return this.toStr(false); };
+    IEEE_754_binary32.prototype.toStr = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return Q.nestedPars(nested, "IEEE_754_binary32" + this.sign.toStr(true) + this.exponent.toStr(true) + this.fraction.toStr(true));
+    };
     IEEE_754_binary32.prototype.match = function (m) { return m.IEEE_754_binary32(this.sign, this.exponent, this.fraction); };
     IEEE_754_binary32.prototype.flatMaxSize = function () { return this.sign.flatMaxSize() + this.exponent.flatMaxSize() + this.fraction.flatMaxSize(); };
     IEEE_754_binary32.prototype.flatEncode = function (st) { this.sign.flatEncode(st); this.exponent.flatEncode(st); this.fraction.flatEncode(st); };

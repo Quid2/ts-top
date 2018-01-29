@@ -13,6 +13,10 @@ var FillerBit = (function () {
     }
     FillerBit.prototype.flatMaxSize = function () { return 8; };
     FillerBit.prototype.flatEncode = function (st) { st.filler(); };
+    FillerBit.prototype.toStr = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return "Filler";
+    };
     return FillerBit;
 }());
 exports.FillerBit = FillerBit;
@@ -21,6 +25,11 @@ var FillerEnd = (function () {
     }
     FillerEnd.prototype.flatMaxSize = function () { return 8; };
     FillerEnd.prototype.flatEncode = function (st) { st.filler(); };
+    FillerEnd.prototype.toString = function () { return this.toStr(); };
+    FillerEnd.prototype.toStr = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return "Filler";
+    };
     return FillerEnd;
 }());
 exports.FillerEnd = FillerEnd;

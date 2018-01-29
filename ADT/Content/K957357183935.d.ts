@@ -7,6 +7,8 @@ export declare type Content<A extends Q.Flat, B extends Q.Flat> = TextMessage<A,
 export declare class TextMessage<A extends Q.Flat, B extends Q.Flat> implements Q.Flat {
     _0: Kb8cd13187198.List<K066db52af145.Char>;
     constructor(_0: Kb8cd13187198.List<K066db52af145.Char>);
+    toString(): string;
+    toStr(nested?: boolean): string;
     match<R>(m: {
         TextMessage: (v0: Kb8cd13187198.List<K066db52af145.Char>) => R;
         AskSubSubjects: R;
@@ -22,6 +24,8 @@ export declare class TextMessage<A extends Q.Flat, B extends Q.Flat> implements 
     flatEncode(st: Q.EncoderState): void;
 }
 export declare class AskSubSubjects<A extends Q.Flat, B extends Q.Flat> implements Q.Flat {
+    toString(): string;
+    toStr(nested?: boolean): string;
     match<R>(m: {
         TextMessage: (v0: Kb8cd13187198.List<K066db52af145.Char>) => R;
         AskSubSubjects: R;
@@ -37,6 +41,8 @@ export declare class AskSubSubjects<A extends Q.Flat, B extends Q.Flat> implemen
     flatEncode(st: Q.EncoderState): void;
 }
 export declare class Join<A extends Q.Flat, B extends Q.Flat> implements Q.Flat {
+    toString(): string;
+    toStr(nested?: boolean): string;
     match<R>(m: {
         TextMessage: (v0: Kb8cd13187198.List<K066db52af145.Char>) => R;
         AskSubSubjects: R;
@@ -52,6 +58,8 @@ export declare class Join<A extends Q.Flat, B extends Q.Flat> implements Q.Flat 
     flatEncode(st: Q.EncoderState): void;
 }
 export declare class Leave<A extends Q.Flat, B extends Q.Flat> implements Q.Flat {
+    toString(): string;
+    toStr(nested?: boolean): string;
     match<R>(m: {
         TextMessage: (v0: Kb8cd13187198.List<K066db52af145.Char>) => R;
         AskSubSubjects: R;
@@ -67,6 +75,8 @@ export declare class Leave<A extends Q.Flat, B extends Q.Flat> implements Q.Flat
     flatEncode(st: Q.EncoderState): void;
 }
 export declare class Ping<A extends Q.Flat, B extends Q.Flat> implements Q.Flat {
+    toString(): string;
+    toStr(nested?: boolean): string;
     match<R>(m: {
         TextMessage: (v0: Kb8cd13187198.List<K066db52af145.Char>) => R;
         AskSubSubjects: R;
@@ -82,6 +92,8 @@ export declare class Ping<A extends Q.Flat, B extends Q.Flat> implements Q.Flat 
     flatEncode(st: Q.EncoderState): void;
 }
 export declare class AskUsers<A extends Q.Flat, B extends Q.Flat> implements Q.Flat {
+    toString(): string;
+    toStr(nested?: boolean): string;
     match<R>(m: {
         TextMessage: (v0: Kb8cd13187198.List<K066db52af145.Char>) => R;
         AskSubSubjects: R;
@@ -99,6 +111,8 @@ export declare class AskUsers<A extends Q.Flat, B extends Q.Flat> implements Q.F
 export declare class Users<A extends Q.Flat, B extends Q.Flat> implements Q.Flat {
     _0: Kb8cd13187198.List<A>;
     constructor(_0: Kb8cd13187198.List<A>);
+    toString(): string;
+    toStr(nested?: boolean): string;
     match<R>(m: {
         TextMessage: (v0: Kb8cd13187198.List<K066db52af145.Char>) => R;
         AskSubSubjects: R;
@@ -114,6 +128,8 @@ export declare class Users<A extends Q.Flat, B extends Q.Flat> implements Q.Flat
     flatEncode(st: Q.EncoderState): void;
 }
 export declare class AskHistory<A extends Q.Flat, B extends Q.Flat> implements Q.Flat {
+    toString(): string;
+    toStr(nested?: boolean): string;
     match<R>(m: {
         TextMessage: (v0: Kb8cd13187198.List<K066db52af145.Char>) => R;
         AskSubSubjects: R;
@@ -131,6 +147,8 @@ export declare class AskHistory<A extends Q.Flat, B extends Q.Flat> implements Q
 export declare class History<A extends Q.Flat, B extends Q.Flat> implements Q.Flat {
     _0: Kb8cd13187198.List<B>;
     constructor(_0: Kb8cd13187198.List<B>);
+    toString(): string;
+    toStr(nested?: boolean): string;
     match<R>(m: {
         TextMessage: (v0: Kb8cd13187198.List<K066db52af145.Char>) => R;
         AskSubSubjects: R;

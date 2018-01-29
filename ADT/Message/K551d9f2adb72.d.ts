@@ -9,6 +9,8 @@ export declare class Message implements Q.Flat {
     subject: Kfced5b0f3c1f.Subject;
     content: K957357183935.Content<K0e1df25dc480.User, Message>;
     constructor(fromUser: K0e1df25dc480.User, subject: Kfced5b0f3c1f.Subject, content: K957357183935.Content<K0e1df25dc480.User, Message>);
+    toString(): string;
+    toStr(nested?: boolean): string;
     match<R>(m: {
         Message: (v0: K0e1df25dc480.User, v1: Kfced5b0f3c1f.Subject, v2: K957357183935.Content<K0e1df25dc480.User, Message>) => R;
     }): R;

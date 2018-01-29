@@ -7,6 +7,8 @@ export declare class Time implements Q.Flat {
     utcDay: K102a3bb904e3.Int;
     utcSecs: K2412799c99f1.Word32;
     constructor(utcDay: K102a3bb904e3.Int, utcSecs: K2412799c99f1.Word32);
+    toString(): string;
+    toStr(nested?: boolean): string;
     match<R>(m: {
         Time: (v0: K102a3bb904e3.Int, v1: K2412799c99f1.Word32) => R;
     }): R;

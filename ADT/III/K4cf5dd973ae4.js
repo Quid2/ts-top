@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var Q = require("../../core");
 var Kb3a2642b4a84 = require("../Int8/Kb3a2642b4a84");
 var K3dac6bd4fa9c = require("../Int16/K3dac6bd4fa9c");
 var Kfb94cb4d4ede = require("../Int64/Kfb94cb4d4ede");
@@ -24,6 +25,11 @@ var III = (function () {
         this.d = d;
         this.ii = ii;
     }
+    III.prototype.toString = function () { return this.toStr(false); };
+    III.prototype.toStr = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return Q.nestedPars(nested, "III" + this.w8.toStr(true) + this.w16.toStr(true) + this.w.toStr(true) + this.i8.toStr(true) + this.i.toStr(true) + this.f.toStr(true) + this.d.toStr(true) + this.ii.toStr(true));
+    };
     III.prototype.match = function (m) { return m.III(this.w8, this.w16, this.w, this.i8, this.i, this.f, this.d, this.ii); };
     III.prototype.flatMaxSize = function () { return this.w8.flatMaxSize() + this.w16.flatMaxSize() + this.w.flatMaxSize() + this.i8.flatMaxSize() + this.i.flatMaxSize() + this.f.flatMaxSize() + this.d.flatMaxSize() + this.ii.flatMaxSize(); };
     III.prototype.flatEncode = function (st) { this.w8.flatEncode(st); this.w16.flatEncode(st); this.w.flatEncode(st); this.i8.flatEncode(st); this.i.flatEncode(st); this.f.flatEncode(st); this.d.flatEncode(st); this.ii.flatEncode(st); };

@@ -6,6 +6,8 @@ export declare class PreAligned<A extends Q.Flat> implements Q.Flat {
     preFiller: Kae1dfeece189.Filler;
     preValue: A;
     constructor(preFiller: Kae1dfeece189.Filler, preValue: A);
+    toString(): string;
+    toStr(nested?: boolean): string;
     match<R>(m: {
         PreAligned: (v0: Kae1dfeece189.Filler, v1: A) => R;
     }): R;

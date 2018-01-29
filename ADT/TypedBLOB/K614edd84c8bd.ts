@@ -20,6 +20,8 @@ export class TypedBLOB  implements Q.Flat {
 
   ) { }
 
+  toString():string {return this.toStr(false)}
+  toStr(nested=false):string {return Q.nestedPars(nested,"TypedBLOB"+this._0.toStr(true)+this._1.toStr(true))}
   match <R>(m:{TypedBLOB:(v0:K7028aa556ebc.Type<K4bbd38587b9e.AbsRef>,v1:Kf139d4751fda.BLOB<K982148c09ddb.FlatEncoding>)=>R}) : R {return m.TypedBLOB(this._0,this._1);}
   flatMaxSize():number {return this._0.flatMaxSize()+this._1.flatMaxSize();}
   flatEncode(st:Q.EncoderState) {this._0.flatEncode(st);this._1.flatEncode(st);}

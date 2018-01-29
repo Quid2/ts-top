@@ -15,6 +15,8 @@ export class MostSignificantFirst <A extends Q.Flat> implements Q.Flat {
 
   ) { }
 
+  toString():string {return this.toStr(false)}
+  toStr(nested=false):string {return Q.nestedPars(nested,"MostSignificantFirst"+this._0.toStr(true))}
   match <R>(m:{MostSignificantFirst:(v0:A)=>R}) : R {return m.MostSignificantFirst(this._0);}
   flatMaxSize():number {return this._0.flatMaxSize();}
   flatEncode(st:Q.EncoderState) {this._0.flatEncode(st);}

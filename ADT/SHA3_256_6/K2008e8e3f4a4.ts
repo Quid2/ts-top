@@ -21,6 +21,8 @@ export class SHA3_256_6 <A extends Q.Flat> implements Q.Flat {
 
   ) { }
 
+  toString():string {return this.toStr(false)}
+  toStr(nested=false):string {return Q.nestedPars(nested,"SHA3_256_6"+this._0.toStr(true)+this._1.toStr(true)+this._2.toStr(true)+this._3.toStr(true)+this._4.toStr(true)+this._5.toStr(true))}
   match <R>(m:{SHA3_256_6:(v0:Kb1f46a49c8f8.Word8,v1:Kb1f46a49c8f8.Word8,v2:Kb1f46a49c8f8.Word8,v3:Kb1f46a49c8f8.Word8,v4:Kb1f46a49c8f8.Word8,v5:Kb1f46a49c8f8.Word8)=>R}) : R {return m.SHA3_256_6(this._0,this._1,this._2,this._3,this._4,this._5);}
   flatMaxSize():number {return this._0.flatMaxSize()+this._1.flatMaxSize()+this._2.flatMaxSize()+this._3.flatMaxSize()+this._4.flatMaxSize()+this._5.flatMaxSize();}
   flatEncode(st:Q.EncoderState) {this._0.flatEncode(st);this._1.flatEncode(st);this._2.flatEncode(st);this._3.flatEncode(st);this._4.flatEncode(st);this._5.flatEncode(st);}

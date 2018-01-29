@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var Q = require("../../core");
 var K295e24d62fac = require("../Word16/K295e24d62fac");
 exports.$HostPort = function (f) { return f(exports.___, []); };
 exports.___ = {
@@ -12,6 +13,11 @@ var HostPort = (function () {
     function HostPort(port) {
         this.port = port;
     }
+    HostPort.prototype.toString = function () { return this.toStr(false); };
+    HostPort.prototype.toStr = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return Q.nestedPars(nested, "HostPort" + this.port.toStr(true));
+    };
     HostPort.prototype.match = function (m) { return m.HostPort(this.port); };
     HostPort.prototype.flatMaxSize = function () { return this.port.flatMaxSize(); };
     HostPort.prototype.flatEncode = function (st) { this.port.flatEncode(st); };

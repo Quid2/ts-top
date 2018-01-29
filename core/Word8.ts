@@ -15,4 +15,7 @@ export class Word8 implements Q.Flat {
     ) { }
     flatMaxSize() { return 8 }
     flatEncode(st: Q.EncoderState) { st.bits(8, this.value); }
+    toString():string {return this.toStr()}
+    toStr(nested=false):string {return this.value.toString();}
+  
 }

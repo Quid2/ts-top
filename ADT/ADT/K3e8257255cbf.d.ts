@@ -9,6 +9,8 @@ export declare class ADT<A extends Q.Flat, B extends Q.Flat, C extends Q.Flat> i
     declNumParameters: Kb1f46a49c8f8.Word8;
     declCons: Kda6836778fd4.Maybe<K86653e040025.ConTree<B, C>>;
     constructor(declName: A, declNumParameters: Kb1f46a49c8f8.Word8, declCons: Kda6836778fd4.Maybe<K86653e040025.ConTree<B, C>>);
+    toString(): string;
+    toStr(nested?: boolean): string;
     match<R>(m: {
         ADT: (v0: A, v1: Kb1f46a49c8f8.Word8, v2: Kda6836778fd4.Maybe<K86653e040025.ConTree<B, C>>) => R;
     }): R;

@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var Q = require("../../core");
 var K0e1df25dc480 = require("../User/K0e1df25dc480");
 var Kfced5b0f3c1f = require("../Subject/Kfced5b0f3c1f");
 var K957357183935 = require("../Content/K957357183935");
@@ -16,6 +17,11 @@ var Message = (function () {
         this.subject = subject;
         this.content = content;
     }
+    Message.prototype.toString = function () { return this.toStr(false); };
+    Message.prototype.toStr = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return Q.nestedPars(nested, "Message" + this.fromUser.toStr(true) + this.subject.toStr(true) + this.content.toStr(true));
+    };
     Message.prototype.match = function (m) { return m.Message(this.fromUser, this.subject, this.content); };
     Message.prototype.flatMaxSize = function () { return this.fromUser.flatMaxSize() + this.subject.flatMaxSize() + this.content.flatMaxSize(); };
     Message.prototype.flatEncode = function (st) { this.fromUser.flatEncode(st); this.subject.flatEncode(st); this.content.flatEncode(st); };

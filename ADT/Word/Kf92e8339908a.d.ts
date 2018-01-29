@@ -8,6 +8,8 @@ export declare const ___: Q.zmTypeInfo;
 export declare class Word implements Q.Flat {
     _0: K20ffacc8f8c9.LeastSignificantFirst<Kbf2d1c86eb20.NonEmptyList<K74e2b3b89941.MostSignificantFirst<Kf4c946334a7e.Word7>>>;
     constructor(_0: K20ffacc8f8c9.LeastSignificantFirst<Kbf2d1c86eb20.NonEmptyList<K74e2b3b89941.MostSignificantFirst<Kf4c946334a7e.Word7>>>);
+    toString(): string;
+    toStr(nested?: boolean): string;
     match<R>(m: {
         Word: (v0: K20ffacc8f8c9.LeastSignificantFirst<Kbf2d1c86eb20.NonEmptyList<K74e2b3b89941.MostSignificantFirst<Kf4c946334a7e.Word7>>>) => R;
     }): R;

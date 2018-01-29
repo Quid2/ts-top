@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var Q = require("../../core");
 var K306f1981b41c = require("../Bool/K306f1981b41c");
 var Ke5d02571ce7b = require("../SocketAddress/Ke5d02571ce7b");
 var Kb8cd13187198 = require("../List/Kb8cd13187198");
@@ -17,6 +18,11 @@ var WebSocketAddress = (function () {
         this.host = host;
         this.path = path;
     }
+    WebSocketAddress.prototype.toString = function () { return this.toStr(false); };
+    WebSocketAddress.prototype.toStr = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return Q.nestedPars(nested, "WebSocketAddress" + this.secure.toStr(true) + this.host.toStr(true) + this.path.toStr(true));
+    };
     WebSocketAddress.prototype.match = function (m) { return m.WebSocketAddress(this.secure, this.host, this.path); };
     WebSocketAddress.prototype.flatMaxSize = function () { return this.secure.flatMaxSize() + this.host.flatMaxSize() + this.path.flatMaxSize(); };
     WebSocketAddress.prototype.flatEncode = function (st) { this.secure.flatEncode(st); this.host.flatEncode(st); this.path.flatEncode(st); };

@@ -27,6 +27,7 @@ export type zmTypeInfo = { zid: zmId, decoder: (decoders: Decoder[]) => Decoder 
 export interface Flat {
   flatMaxSize: () => number,
   flatEncode: Encoder,
+  toStr(nested:boolean):string // FIX: change interface name
 }
 
 //export type Decoder<T> = (s:DecoderState) => T
@@ -221,6 +222,6 @@ export function byteArraySize(arr: Uint8Array): number {
 // Exact number of bytes needed to store the array blocks lengths
 export function arrayBlocks(len: number): number {return Math.ceil(len / 255) + 1;}
 
-
+export function nestedPars(nested:boolean,s:string) : string {return nested ? "("+s+")" : s}
 
 

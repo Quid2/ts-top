@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var Q = require("../../core");
 var Kb1f46a49c8f8 = require("../Word8/Kb1f46a49c8f8");
 exports.$IP4Address = function (f) { return f(exports.___, []); };
 exports.___ = {
@@ -15,6 +16,11 @@ var IP4Address = (function () {
         this._2 = _2;
         this._3 = _3;
     }
+    IP4Address.prototype.toString = function () { return this.toStr(false); };
+    IP4Address.prototype.toStr = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return Q.nestedPars(nested, "IP4Address" + this._0.toStr(true) + this._1.toStr(true) + this._2.toStr(true) + this._3.toStr(true));
+    };
     IP4Address.prototype.match = function (m) { return m.IP4Address(this._0, this._1, this._2, this._3); };
     IP4Address.prototype.flatMaxSize = function () { return this._0.flatMaxSize() + this._1.flatMaxSize() + this._2.flatMaxSize() + this._3.flatMaxSize(); };
     IP4Address.prototype.flatEncode = function (st) { this._0.flatEncode(st); this._1.flatEncode(st); this._2.flatEncode(st); this._3.flatEncode(st); };

@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var Q = require("../../core");
 var K7028aa556ebc = require("../Type/K7028aa556ebc");
 var K4bbd38587b9e = require("../AbsRef/K4bbd38587b9e");
 exports.$Match = function (t1) { return function (f) { return f(exports.___, [t1(f)]); }; };
@@ -18,6 +19,11 @@ var MatchValue = (function () {
     function MatchValue(_0) {
         this._0 = _0;
     }
+    MatchValue.prototype.toString = function () { return this.toStr(false); };
+    MatchValue.prototype.toStr = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return Q.nestedPars(nested, "MatchValue" + this._0.toStr(true));
+    };
     MatchValue.prototype.match = function (m) { return m.MatchValue(this._0); };
     MatchValue.prototype.flatMaxSize = function () { return 1 + this._0.flatMaxSize(); };
     MatchValue.prototype.flatEncode = function (st) { st.zero(); this._0.flatEncode(st); };
@@ -28,6 +34,11 @@ var MatchAny = (function () {
     function MatchAny(_0) {
         this._0 = _0;
     }
+    MatchAny.prototype.toString = function () { return this.toStr(false); };
+    MatchAny.prototype.toStr = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return Q.nestedPars(nested, "MatchAny" + this._0.toStr(true));
+    };
     MatchAny.prototype.match = function (m) { return m.MatchAny(this._0); };
     MatchAny.prototype.flatMaxSize = function () { return 1 + this._0.flatMaxSize(); };
     MatchAny.prototype.flatEncode = function (st) { st.one(); this._0.flatEncode(st); };

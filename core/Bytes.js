@@ -16,6 +16,11 @@ var Bytes = (function () {
         return 8 + Q.byteArraySize(this.bytes);
     };
     Bytes.prototype.flatEncode = function (st) { st.filler(); st.byteArray(this.bytes); };
+    Bytes.prototype.toString = function () { return this.toStr(); };
+    Bytes.prototype.toStr = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return this.bytes.toString();
+    };
     return Bytes;
 }());
 exports.Bytes = Bytes;

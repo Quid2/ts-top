@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var Q = require("../../core");
 var Kb53bec846608 = require("../IEEE_754_binary32/Kb53bec846608");
 exports.$Celsius = function (f) { return f(exports.___, []); };
 exports.___ = {
@@ -12,6 +13,11 @@ var Celsius = (function () {
     function Celsius(_0) {
         this._0 = _0;
     }
+    Celsius.prototype.toString = function () { return this.toStr(false); };
+    Celsius.prototype.toStr = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return Q.nestedPars(nested, "Celsius" + this._0.toStr(true));
+    };
     Celsius.prototype.match = function (m) { return m.Celsius(this._0); };
     Celsius.prototype.flatMaxSize = function () { return this._0.flatMaxSize(); };
     Celsius.prototype.flatEncode = function (st) { this._0.flatEncode(st); };

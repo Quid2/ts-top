@@ -19,6 +19,8 @@ export class IPAddress <A extends Q.Flat> implements Q.Flat {
 
   ) { }
 
+  toString():string {return this.toStr(false)}
+  toStr(nested=false):string {return Q.nestedPars(nested,"IPAddress"+this._0.toStr(true))}
   match <R>(m:{IPAddress:(v0:A)=>R,DNSAddress:(v0:Kb8cd13187198.List<K066db52af145.Char>)=>R}) : R {return m.IPAddress(this._0);}
   flatMaxSize():number {return 1+this._0.flatMaxSize();}
   flatEncode(st:Q.EncoderState) {st.zero();this._0.flatEncode(st);}
@@ -31,6 +33,8 @@ export class DNSAddress <A extends Q.Flat> implements Q.Flat {
 
   ) { }
 
+  toString():string {return this.toStr(false)}
+  toStr(nested=false):string {return Q.nestedPars(nested,"DNSAddress"+this._0.toStr(true))}
   match <R>(m:{IPAddress:(v0:A)=>R,DNSAddress:(v0:Kb8cd13187198.List<K066db52af145.Char>)=>R}) : R {return m.DNSAddress(this._0);}
   flatMaxSize():number {return 1+this._0.flatMaxSize();}
   flatEncode(st:Q.EncoderState) {st.one();this._0.flatEncode(st);}

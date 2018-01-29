@@ -13,6 +13,8 @@ export type Bit  = V0  | V1
 
 export class V0  implements Q.Flat {
 
+  toString():string {return this.toStr(false)}
+  toStr(nested=false):string {return "V0"}
   match <R>(m:{V0:R,V1:R}) : R {return m.V0;}
   flatMaxSize():number {return 1+0;}
   flatEncode(st:Q.EncoderState) {st.zero();}
@@ -21,6 +23,8 @@ export class V0  implements Q.Flat {
 
 export class V1  implements Q.Flat {
 
+  toString():string {return this.toStr(false)}
+  toStr(nested=false):string {return "V1"}
   match <R>(m:{V0:R,V1:R}) : R {return m.V1;}
   flatMaxSize():number {return 1+0;}
   flatEncode(st:Q.EncoderState) {st.one();}

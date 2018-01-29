@@ -10,6 +10,8 @@ export declare class WebSocketAddress<A extends Q.Flat> implements Q.Flat {
     host: Ke5d02571ce7b.SocketAddress<A>;
     path: Kb8cd13187198.List<K066db52af145.Char>;
     constructor(secure: K306f1981b41c.Bool, host: Ke5d02571ce7b.SocketAddress<A>, path: Kb8cd13187198.List<K066db52af145.Char>);
+    toString(): string;
+    toStr(nested?: boolean): string;
     match<R>(m: {
         WebSocketAddress: (v0: K306f1981b41c.Bool, v1: Ke5d02571ce7b.SocketAddress<A>, v2: Kb8cd13187198.List<K066db52af145.Char>) => R;
     }): R;

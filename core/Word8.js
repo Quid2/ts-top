@@ -13,6 +13,11 @@ var Word8 = (function () {
     }
     Word8.prototype.flatMaxSize = function () { return 8; };
     Word8.prototype.flatEncode = function (st) { st.bits(8, this.value); };
+    Word8.prototype.toString = function () { return this.toStr(); };
+    Word8.prototype.toStr = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return this.value.toString();
+    };
     return Word8;
 }());
 exports.Word8 = Word8;

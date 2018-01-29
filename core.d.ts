@@ -8,6 +8,7 @@ export declare type zmTypeInfo = {
 export interface Flat {
     flatMaxSize: () => number;
     flatEncode: Encoder;
+    toStr(nested: boolean): string;
 }
 export declare type Decoder = (s: DecoderState) => any;
 export declare function flatDecoder(t: zmTypeInfo, decoders: Decoder[]): Decoder;
@@ -45,3 +46,4 @@ export declare class EncoderState {
 }
 export declare function byteArraySize(arr: Uint8Array): number;
 export declare function arrayBlocks(len: number): number;
+export declare function nestedPars(nested: boolean, s: string): string;

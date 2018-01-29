@@ -7,8 +7,11 @@ export declare class FillerBit implements Q.Flat {
     constructor(_0: Filler);
     flatMaxSize(): number;
     flatEncode(st: Q.EncoderState): void;
+    toStr(nested?: boolean): string;
 }
 export declare class FillerEnd implements Q.Flat {
     flatMaxSize(): number;
     flatEncode(st: Q.EncoderState): void;
+    toString(): string;
+    toStr(nested?: boolean): string;
 }

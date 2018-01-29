@@ -16,6 +16,8 @@ export class SensorReading <A extends Q.Flat,B extends Q.Flat> implements Q.Flat
 
   ) { }
 
+  toString():string {return this.toStr(false)}
+  toStr(nested=false):string {return Q.nestedPars(nested,"SensorReading"+this.reading.toStr(true)+this.location.toStr(true))}
   match <R>(m:{SensorReading:(v0:A,v1:B)=>R}) : R {return m.SensorReading(this.reading,this.location);}
   flatMaxSize():number {return this.reading.flatMaxSize()+this.location.flatMaxSize();}
   flatEncode(st:Q.EncoderState) {this.reading.flatEncode(st);this.location.flatEncode(st);}

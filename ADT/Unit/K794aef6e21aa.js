@@ -10,6 +10,11 @@ exports.___ = {
 var Unit = (function () {
     function Unit() {
     }
+    Unit.prototype.toString = function () { return this.toStr(false); };
+    Unit.prototype.toStr = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return "Unit";
+    };
     Unit.prototype.match = function (m) { return m.Unit; };
     Unit.prototype.flatMaxSize = function () { return 0; };
     Unit.prototype.flatEncode = function () { };

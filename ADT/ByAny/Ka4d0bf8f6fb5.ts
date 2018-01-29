@@ -11,6 +11,8 @@ export const ___ : Q.zmTypeInfo = {
 
 export class ByAny <A extends Q.Flat> implements Q.Flat {
 
+  toString():string {return this.toStr(false)}
+  toStr(nested=false):string {return "ByAny"}
   match <R>(m:{ByAny:R}) : R {return m.ByAny;}
   flatMaxSize():number {return 0;}
   flatEncode() {}

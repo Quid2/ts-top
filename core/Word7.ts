@@ -15,4 +15,7 @@ export class Word7 implements Q.Flat {
     ) { }
     flatMaxSize() { return 7 }
     flatEncode(st: Q.EncoderState) { st.bits(7, this.value); }
+    toString():string {return this.toStr()}
+    toStr(nested=false):string {return this.value.toString();}
+
 }

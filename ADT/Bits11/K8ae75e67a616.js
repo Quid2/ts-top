@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var Q = require("../../core");
 var K65149ce3b366 = require("../Bit/K65149ce3b366");
 exports.$Bits11 = function (f) { return f(exports.___, []); };
 exports.___ = {
@@ -22,6 +23,11 @@ var Bits11 = (function () {
         this.bit9 = bit9;
         this.bit10 = bit10;
     }
+    Bits11.prototype.toString = function () { return this.toStr(false); };
+    Bits11.prototype.toStr = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return Q.nestedPars(nested, "Bits11" + this.bit0.toStr(true) + this.bit1.toStr(true) + this.bit2.toStr(true) + this.bit3.toStr(true) + this.bit4.toStr(true) + this.bit5.toStr(true) + this.bit6.toStr(true) + this.bit7.toStr(true) + this.bit8.toStr(true) + this.bit9.toStr(true) + this.bit10.toStr(true));
+    };
     Bits11.prototype.match = function (m) { return m.Bits11(this.bit0, this.bit1, this.bit2, this.bit3, this.bit4, this.bit5, this.bit6, this.bit7, this.bit8, this.bit9, this.bit10); };
     Bits11.prototype.flatMaxSize = function () { return this.bit0.flatMaxSize() + this.bit1.flatMaxSize() + this.bit2.flatMaxSize() + this.bit3.flatMaxSize() + this.bit4.flatMaxSize() + this.bit5.flatMaxSize() + this.bit6.flatMaxSize() + this.bit7.flatMaxSize() + this.bit8.flatMaxSize() + this.bit9.flatMaxSize() + this.bit10.flatMaxSize(); };
     Bits11.prototype.flatEncode = function (st) { this.bit0.flatEncode(st); this.bit1.flatEncode(st); this.bit2.flatEncode(st); this.bit3.flatEncode(st); this.bit4.flatEncode(st); this.bit5.flatEncode(st); this.bit6.flatEncode(st); this.bit7.flatEncode(st); this.bit8.flatEncode(st); this.bit9.flatEncode(st); this.bit10.flatEncode(st); };

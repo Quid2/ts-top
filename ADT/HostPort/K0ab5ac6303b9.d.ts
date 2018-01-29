@@ -5,6 +5,8 @@ export declare const ___: Q.zmTypeInfo;
 export declare class HostPort implements Q.Flat {
     port: K295e24d62fac.Word16;
     constructor(port: K295e24d62fac.Word16);
+    toString(): string;
+    toStr(nested?: boolean): string;
     match<R>(m: {
         HostPort: (v0: K295e24d62fac.Word16) => R;
     }): R;

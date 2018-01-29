@@ -16,6 +16,8 @@ export class Char  implements Q.Flat {
 
   ) { }
 
+  toString():string {return this.toStr(false)}
+  toStr(nested=false):string {return Q.nestedPars(nested,"Char"+this._0.toStr(true))}
   match <R>(m:{Char:(v0:K2412799c99f1.Word32)=>R}) : R {return m.Char(this._0);}
   flatMaxSize():number {return this._0.flatMaxSize();}
   flatEncode(st:Q.EncoderState) {this._0.flatEncode(st);}

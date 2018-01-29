@@ -13,6 +13,8 @@ export type Bool  = False  | True
 
 export class False  implements Q.Flat {
 
+  toString():string {return this.toStr(false)}
+  toStr(nested=false):string {return "False"}
   match <R>(m:{False:R,True:R}) : R {return m.False;}
   flatMaxSize():number {return 1+0;}
   flatEncode(st:Q.EncoderState) {st.zero();}
@@ -21,6 +23,8 @@ export class False  implements Q.Flat {
 
 export class True  implements Q.Flat {
 
+  toString():string {return this.toStr(false)}
+  toStr(nested=false):string {return "True"}
   match <R>(m:{False:R,True:R}) : R {return m.True;}
   flatMaxSize():number {return 1+0;}
   flatEncode(st:Q.EncoderState) {st.one();}

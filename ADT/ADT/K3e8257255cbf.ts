@@ -20,6 +20,8 @@ export class ADT <A extends Q.Flat,B extends Q.Flat,C extends Q.Flat> implements
 
   ) { }
 
+  toString():string {return this.toStr(false)}
+  toStr(nested=false):string {return Q.nestedPars(nested,"ADT"+this.declName.toStr(true)+this.declNumParameters.toStr(true)+this.declCons.toStr(true))}
   match <R>(m:{ADT:(v0:A,v1:Kb1f46a49c8f8.Word8,v2:Kda6836778fd4.Maybe<K86653e040025.ConTree<B,C>>)=>R}) : R {return m.ADT(this.declName,this.declNumParameters,this.declCons);}
   flatMaxSize():number {return this.declName.flatMaxSize()+this.declNumParameters.flatMaxSize()+this.declCons.flatMaxSize();}
   flatEncode(st:Q.EncoderState) {this.declName.flatEncode(st);this.declNumParameters.flatEncode(st);this.declCons.flatEncode(st);}

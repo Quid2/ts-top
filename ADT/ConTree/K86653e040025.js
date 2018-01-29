@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var Q = require("../../core");
 var K6260e465ae74 = require("../Either/K6260e465ae74");
 var Kb8cd13187198 = require("../List/Kb8cd13187198");
 var K7028aa556ebc = require("../Type/K7028aa556ebc");
@@ -21,6 +22,11 @@ var Con = (function () {
         this.constrName = constrName;
         this.constrFields = constrFields;
     }
+    Con.prototype.toString = function () { return this.toStr(false); };
+    Con.prototype.toStr = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return Q.nestedPars(nested, "Con" + this.constrName.toStr(true) + this.constrFields.toStr(true));
+    };
     Con.prototype.match = function (m) { return m.Con(this.constrName, this.constrFields); };
     Con.prototype.flatMaxSize = function () { return 1 + this.constrName.flatMaxSize() + this.constrFields.flatMaxSize(); };
     Con.prototype.flatEncode = function (st) { st.zero(); this.constrName.flatEncode(st); this.constrFields.flatEncode(st); };
@@ -32,6 +38,11 @@ var _ConTree = (function () {
         this._0 = _0;
         this._1 = _1;
     }
+    _ConTree.prototype.toString = function () { return this.toStr(false); };
+    _ConTree.prototype.toStr = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return Q.nestedPars(nested, "ConTree" + this._0.toStr(true) + this._1.toStr(true));
+    };
     _ConTree.prototype.match = function (m) { return m.ConTree(this._0, this._1); };
     _ConTree.prototype.flatMaxSize = function () { return 1 + this._0.flatMaxSize() + this._1.flatMaxSize(); };
     _ConTree.prototype.flatEncode = function (st) { st.one(); this._0.flatEncode(st); this._1.flatEncode(st); };

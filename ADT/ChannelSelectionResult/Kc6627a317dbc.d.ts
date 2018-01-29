@@ -5,6 +5,8 @@ export declare const $ChannelSelectionResult: <A extends Q.Flat>(t0: Q.zmFold<A>
 export declare const ___: Q.zmTypeInfo;
 export declare type ChannelSelectionResult<A extends Q.Flat> = Success<A> | Failure<A> | RetryAt<A>;
 export declare class Success<A extends Q.Flat> implements Q.Flat {
+    toString(): string;
+    toStr(nested?: boolean): string;
     match<R>(m: {
         Success: R;
         Failure: (v0: Kb8cd13187198.List<K066db52af145.Char>) => R;
@@ -16,6 +18,8 @@ export declare class Success<A extends Q.Flat> implements Q.Flat {
 export declare class Failure<A extends Q.Flat> implements Q.Flat {
     reason: Kb8cd13187198.List<K066db52af145.Char>;
     constructor(reason: Kb8cd13187198.List<K066db52af145.Char>);
+    toString(): string;
+    toStr(nested?: boolean): string;
     match<R>(m: {
         Success: R;
         Failure: (v0: Kb8cd13187198.List<K066db52af145.Char>) => R;
@@ -27,6 +31,8 @@ export declare class Failure<A extends Q.Flat> implements Q.Flat {
 export declare class RetryAt<A extends Q.Flat> implements Q.Flat {
     _0: A;
     constructor(_0: A);
+    toString(): string;
+    toStr(nested?: boolean): string;
     match<R>(m: {
         Success: R;
         Failure: (v0: Kb8cd13187198.List<K066db52af145.Char>) => R;

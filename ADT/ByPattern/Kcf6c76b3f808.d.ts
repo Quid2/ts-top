@@ -7,6 +7,8 @@ export declare const ___: Q.zmTypeInfo;
 export declare class ByPattern<A extends Q.Flat> implements Q.Flat {
     _0: Kb8cd13187198.List<Kc23b20389114.Match<Kb8cd13187198.List<K65149ce3b366.Bit>>>;
     constructor(_0: Kb8cd13187198.List<Kc23b20389114.Match<Kb8cd13187198.List<K65149ce3b366.Bit>>>);
+    toString(): string;
+    toStr(nested?: boolean): string;
     match<R>(m: {
         ByPattern: (v0: Kb8cd13187198.List<Kc23b20389114.Match<Kb8cd13187198.List<K65149ce3b366.Bit>>>) => R;
     }): R;

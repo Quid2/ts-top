@@ -21,9 +21,12 @@ import { ChannelSelectionResult, $ChannelSelectionResult, RetryAt } from './ADT/
 import { $WebSocketAddress, WebSocketAddress } from './ADT/WebSocketAddress/Kc802c6aae1af'
 import { $IP4Address, IP4Address } from './ADT/IP4Address/K6cb2ee3ac409'
 
+//import Rx from 'rxjs/Rx';
 import { QueueingSubject } from 'queueing-subject'
 import { Observable, Subscribable } from 'rxjs/Observable'
 import { AnonymousSubscription } from 'rxjs/Subscription'
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/share';
 
 export function flatBLOB(v: any): BLOB<FlatEncoding> {
     //return new BLOB(new FlatEncoding,new Bytes(new PreAligned(new FillerEnd(),flat (new ByType))));
@@ -84,13 +87,19 @@ export class Channel<A> {
 
 
 // NOTE: code adapted from https://github.com/ohjames/rxjs-websockets
-
-export function channel<A>(t: zmFold<A>) {
+/*
+Each invocation causes a new connection to the specified Top channel to be established.
+Return a couple of input and output,  they are related as values queued on the outChan won't be observed on the inChan.
+The inChan is shared so that any subscription will work on the same underlying socket connection.
+*/
+export function channel<A>(t: zmFold<A>) : [Observable<A>,QueueingSubject<A>] {
 
     const outChan = new QueueingSubject<A>();
 
-    //const inChan = Observable.create(observer => {    
+    //const inChan = Observable.create(observer => {
+    // every subcription creates a new socket..        
     const inChan = new Observable<A>(observer => {
+        console.log("inChan SUBSCRIPTION")
         var firstTime = true;
         const dec = t(flatDecoder);
         let outSubscription: AnonymousSubscription;
@@ -144,15 +153,14 @@ export function channel<A>(t: zmFold<A>) {
                 observer.error(new Error(event.reason))
         }
 
-        return () => {
+        return function unsubscribe() {
             console.log("COMPLETED",outSubscription,socket);
             if (outSubscription) outSubscription.unsubscribe()
             socket.close()
         }
-    })
-
-
-    return { inChan, outChan };
+    }).share();
+    
+    return [inChan, outChan];
 }
 
 

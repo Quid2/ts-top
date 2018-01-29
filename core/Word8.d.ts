@@ -6,4 +6,6 @@ export declare class Word8 implements Q.Flat {
     constructor(value: number);
     flatMaxSize(): number;
     flatEncode(st: Q.EncoderState): void;
+    toString(): string;
+    toStr(nested?: boolean): string;
 }

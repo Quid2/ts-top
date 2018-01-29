@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var Q = require("../../core");
 var K7028aa556ebc = require("../Type/K7028aa556ebc");
 var K4bbd38587b9e = require("../AbsRef/K4bbd38587b9e");
 var Kf139d4751fda = require("../BLOB/Kf139d4751fda");
@@ -16,6 +17,11 @@ var TypedBLOB = (function () {
         this._0 = _0;
         this._1 = _1;
     }
+    TypedBLOB.prototype.toString = function () { return this.toStr(false); };
+    TypedBLOB.prototype.toStr = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return Q.nestedPars(nested, "TypedBLOB" + this._0.toStr(true) + this._1.toStr(true));
+    };
     TypedBLOB.prototype.match = function (m) { return m.TypedBLOB(this._0, this._1); };
     TypedBLOB.prototype.flatMaxSize = function () { return this._0.flatMaxSize() + this._1.flatMaxSize(); };
     TypedBLOB.prototype.flatEncode = function (st) { this._0.flatEncode(st); this._1.flatEncode(st); };

@@ -11,6 +11,8 @@ export const ___ : Q.zmTypeInfo = {
 
 export class UTF8Encoding  implements Q.Flat {
 
+  toString():string {return this.toStr(false)}
+  toStr(nested=false):string {return "UTF8Encoding"}
   match <R>(m:{UTF8Encoding:R}) : R {return m.UTF8Encoding;}
   flatMaxSize():number {return 0;}
   flatEncode() {}

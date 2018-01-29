@@ -4,6 +4,8 @@ export declare const ___: Q.zmTypeInfo;
 export declare class LeastSignificantFirst<A extends Q.Flat> implements Q.Flat {
     _0: A;
     constructor(_0: A);
+    toString(): string;
+    toStr(nested?: boolean): string;
     match<R>(m: {
         LeastSignificantFirst: (v0: A) => R;
     }): R;

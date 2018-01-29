@@ -3,6 +3,8 @@ export declare const $Maybe: <A extends Q.Flat>(t0: Q.zmFold<A>) => Q.zmFold<May
 export declare const ___: Q.zmTypeInfo;
 export declare type Maybe<A extends Q.Flat> = Nothing<A> | Just<A>;
 export declare class Nothing<A extends Q.Flat> implements Q.Flat {
+    toString(): string;
+    toStr(nested?: boolean): string;
     match<R>(m: {
         Nothing: R;
         Just: (v0: A) => R;
@@ -13,6 +15,8 @@ export declare class Nothing<A extends Q.Flat> implements Q.Flat {
 export declare class Just<A extends Q.Flat> implements Q.Flat {
     _0: A;
     constructor(_0: A);
+    toString(): string;
+    toStr(nested?: boolean): string;
     match<R>(m: {
         Nothing: R;
         Just: (v0: A) => R;

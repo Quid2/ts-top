@@ -7,6 +7,8 @@ export declare class SocketAddress<A extends Q.Flat> implements Q.Flat {
     socketAddress: K64f93d94a73d.HostAddress<A>;
     socketPort: K0ab5ac6303b9.HostPort;
     constructor(socketAddress: K64f93d94a73d.HostAddress<A>, socketPort: K0ab5ac6303b9.HostPort);
+    toString(): string;
+    toStr(nested?: boolean): string;
     match<R>(m: {
         SocketAddress: (v0: K64f93d94a73d.HostAddress<A>, v1: K0ab5ac6303b9.HostPort) => R;
     }): R;

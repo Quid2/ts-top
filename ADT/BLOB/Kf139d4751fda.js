@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var Q = require("../../core");
 var Kf8844385a443 = require("../Bytes/Kf8844385a443");
 exports.$BLOB = function (t1) { return function (f) { return f(exports.___, [t1(f)]); }; };
 exports.___ = {
@@ -13,6 +14,11 @@ var BLOB = (function () {
         this.encoding = encoding;
         this.content = content;
     }
+    BLOB.prototype.toString = function () { return this.toStr(false); };
+    BLOB.prototype.toStr = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return Q.nestedPars(nested, "BLOB" + this.encoding.toStr(true) + this.content.toStr(true));
+    };
     BLOB.prototype.match = function (m) { return m.BLOB(this.encoding, this.content); };
     BLOB.prototype.flatMaxSize = function () { return this.encoding.flatMaxSize() + this.content.flatMaxSize(); };
     BLOB.prototype.flatEncode = function (st) { this.encoding.flatEncode(st); this.content.flatEncode(st); };

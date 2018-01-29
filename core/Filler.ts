@@ -18,9 +18,13 @@ export class FillerBit implements Q.Flat {
 
     flatMaxSize(): number { return 8; }
     flatEncode(st: Q.EncoderState) { st.filler(); }
+    toStr(nested=false):string {return "Filler"}
 }
 
 export class FillerEnd implements Q.Flat {
     flatMaxSize(): number { return 8; }
     flatEncode(st: Q.EncoderState) { st.filler(); }
+    toString():string {return this.toStr()}
+    toStr(nested=false):string {return "Filler"}
+
 }

@@ -15,6 +15,11 @@ exports.___ = {
 var False = (function () {
     function False() {
     }
+    False.prototype.toString = function () { return this.toStr(false); };
+    False.prototype.toStr = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return "False";
+    };
     False.prototype.match = function (m) { return m.False; };
     False.prototype.flatMaxSize = function () { return 1 + 0; };
     False.prototype.flatEncode = function (st) { st.zero(); };
@@ -24,6 +29,11 @@ exports.False = False;
 var True = (function () {
     function True() {
     }
+    True.prototype.toString = function () { return this.toStr(false); };
+    True.prototype.toStr = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return "True";
+    };
     True.prototype.match = function (m) { return m.True; };
     True.prototype.flatMaxSize = function () { return 1 + 0; };
     True.prototype.flatEncode = function (st) { st.one(); };

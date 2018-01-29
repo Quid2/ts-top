@@ -5,6 +5,8 @@ export declare const ___: Q.zmTypeInfo;
 export declare class Celsius implements Q.Flat {
     _0: Kb53bec846608.IEEE_754_binary32;
     constructor(_0: Kb53bec846608.IEEE_754_binary32);
+    toString(): string;
+    toStr(nested?: boolean): string;
     match<R>(m: {
         Celsius: (v0: Kb53bec846608.IEEE_754_binary32) => R;
     }): R;

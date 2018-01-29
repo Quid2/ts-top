@@ -5,6 +5,8 @@ export declare type Either<A extends Q.Flat, B extends Q.Flat> = Left<A, B> | Ri
 export declare class Left<A extends Q.Flat, B extends Q.Flat> implements Q.Flat {
     _0: A;
     constructor(_0: A);
+    toString(): string;
+    toStr(nested?: boolean): string;
     match<R>(m: {
         Left: (v0: A) => R;
         Right: (v0: B) => R;
@@ -15,6 +17,8 @@ export declare class Left<A extends Q.Flat, B extends Q.Flat> implements Q.Flat 
 export declare class Right<A extends Q.Flat, B extends Q.Flat> implements Q.Flat {
     _0: B;
     constructor(_0: B);
+    toString(): string;
+    toStr(nested?: boolean): string;
     match<R>(m: {
         Left: (v0: A) => R;
         Right: (v0: B) => R;

@@ -8,4 +8,5 @@ exports.flatDecoder = api_1.flatDecoder;
 var top_1 = require("./top");
 exports.typedBLOB = top_1.typedBLOB;
 exports.Channel = top_1.Channel;
+exports.channel = top_1.channel;
 //# sourceMappingURL=index.js.map

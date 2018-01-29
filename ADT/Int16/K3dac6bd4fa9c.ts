@@ -17,6 +17,8 @@ export class Int16  implements Q.Flat {
 
   ) { }
 
+  toString():string {return this.toStr(false)}
+  toStr(nested=false):string {return Q.nestedPars(nested,"Int16"+this._0.toStr(true))}
   match <R>(m:{Int16:(v0:K03226796ede4.ZigZag<K295e24d62fac.Word16>)=>R}) : R {return m.Int16(this._0);}
   flatMaxSize():number {return this._0.flatMaxSize();}
   flatEncode(st:Q.EncoderState) {this._0.flatEncode(st);}

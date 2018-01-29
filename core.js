@@ -166,4 +166,6 @@ function byteArraySize(arr) {
 exports.byteArraySize = byteArraySize;
 function arrayBlocks(len) { return Math.ceil(len / 255) + 1; }
 exports.arrayBlocks = arrayBlocks;
+function nestedPars(nested, s) { return nested ? "(" + s + ")" : s; }
+exports.nestedPars = nestedPars;
 //# sourceMappingURL=core.js.map

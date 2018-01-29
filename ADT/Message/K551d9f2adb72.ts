@@ -20,6 +20,8 @@ export class Message  implements Q.Flat {
 
   ) { }
 
+  toString():string {return this.toStr(false)}
+  toStr(nested=false):string {return Q.nestedPars(nested,"Message"+this.fromUser.toStr(true)+this.subject.toStr(true)+this.content.toStr(true))}
   match <R>(m:{Message:(v0:K0e1df25dc480.User,v1:Kfced5b0f3c1f.Subject,v2:K957357183935.Content<K0e1df25dc480.User,Message>)=>R}) : R {return m.Message(this.fromUser,this.subject,this.content);}
   flatMaxSize():number {return this.fromUser.flatMaxSize()+this.subject.flatMaxSize()+this.content.flatMaxSize();}
   flatEncode(st:Q.EncoderState) {this.fromUser.flatEncode(st);this.subject.flatEncode(st);this.content.flatEncode(st);}

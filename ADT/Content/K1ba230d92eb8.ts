@@ -19,6 +19,8 @@ export class TextMsg  implements Q.Flat {
 
   ) { }
 
+  toString():string {return this.toStr(false)}
+  toStr(nested=false):string {return Q.nestedPars(nested,"TextMsg"+this._0.toStr(true))}
   match <R>(m:{TextMsg:(v0:Kb8cd13187198.List<K066db52af145.Char>)=>R,Join:R}) : R {return m.TextMsg(this._0);}
   flatMaxSize():number {return 1+this._0.flatMaxSize();}
   flatEncode(st:Q.EncoderState) {st.zero();this._0.flatEncode(st);}
@@ -27,6 +29,8 @@ export class TextMsg  implements Q.Flat {
 
 export class Join  implements Q.Flat {
 
+  toString():string {return this.toStr(false)}
+  toStr(nested=false):string {return "Join"}
   match <R>(m:{TextMsg:(v0:Kb8cd13187198.List<K066db52af145.Char>)=>R,Join:R}) : R {return m.Join;}
   flatMaxSize():number {return 1+0;}
   flatEncode(st:Q.EncoderState) {st.one();}

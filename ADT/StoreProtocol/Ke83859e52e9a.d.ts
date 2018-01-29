@@ -6,6 +6,8 @@ export declare type StoreProtocol<A extends Q.Flat> = Save<A> | Solve<A> | Solve
 export declare class Save<A extends Q.Flat> implements Q.Flat {
     _0: A;
     constructor(_0: A);
+    toString(): string;
+    toStr(nested?: boolean): string;
     match<R>(m: {
         Save: (v0: A) => R;
         Solve: (v0: K9f214799149b.SHAKE128_48<A>) => R;
@@ -17,6 +19,8 @@ export declare class Save<A extends Q.Flat> implements Q.Flat {
 export declare class Solve<A extends Q.Flat> implements Q.Flat {
     _0: K9f214799149b.SHAKE128_48<A>;
     constructor(_0: K9f214799149b.SHAKE128_48<A>);
+    toString(): string;
+    toStr(nested?: boolean): string;
     match<R>(m: {
         Save: (v0: A) => R;
         Solve: (v0: K9f214799149b.SHAKE128_48<A>) => R;
@@ -29,6 +33,8 @@ export declare class Solved<A extends Q.Flat> implements Q.Flat {
     _0: K9f214799149b.SHAKE128_48<A>;
     _1: A;
     constructor(_0: K9f214799149b.SHAKE128_48<A>, _1: A);
+    toString(): string;
+    toStr(nested?: boolean): string;
     match<R>(m: {
         Save: (v0: A) => R;
         Solve: (v0: K9f214799149b.SHAKE128_48<A>) => R;

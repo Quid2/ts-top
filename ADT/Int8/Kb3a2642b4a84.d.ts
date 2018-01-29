@@ -6,6 +6,8 @@ export declare const ___: Q.zmTypeInfo;
 export declare class Int8 implements Q.Flat {
     _0: K03226796ede4.ZigZag<Kb1f46a49c8f8.Word8>;
     constructor(_0: K03226796ede4.ZigZag<Kb1f46a49c8f8.Word8>);
+    toString(): string;
+    toStr(nested?: boolean): string;
     match<R>(m: {
         Int8: (v0: K03226796ede4.ZigZag<Kb1f46a49c8f8.Word8>) => R;
     }): R;

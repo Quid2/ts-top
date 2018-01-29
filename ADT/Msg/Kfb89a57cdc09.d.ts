@@ -10,6 +10,8 @@ export declare class Msg implements Q.Flat {
     subject: Kfced5b0f3c1f.Subject;
     content: K1ba230d92eb8.Content;
     constructor(fromUser: Kb8cd13187198.List<K066db52af145.Char>, subject: Kfced5b0f3c1f.Subject, content: K1ba230d92eb8.Content);
+    toString(): string;
+    toStr(nested?: boolean): string;
     match<R>(m: {
         Msg: (v0: Kb8cd13187198.List<K066db52af145.Char>, v1: Kfced5b0f3c1f.Subject, v2: K1ba230d92eb8.Content) => R;
     }): R;

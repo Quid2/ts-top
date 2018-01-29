@@ -9,6 +9,8 @@ export declare class TypedBLOB implements Q.Flat {
     _0: K7028aa556ebc.Type<K4bbd38587b9e.AbsRef>;
     _1: Kf139d4751fda.BLOB<K982148c09ddb.FlatEncoding>;
     constructor(_0: K7028aa556ebc.Type<K4bbd38587b9e.AbsRef>, _1: Kf139d4751fda.BLOB<K982148c09ddb.FlatEncoding>);
+    toString(): string;
+    toStr(nested?: boolean): string;
     match<R>(m: {
         TypedBLOB: (v0: K7028aa556ebc.Type<K4bbd38587b9e.AbsRef>, v1: Kf139d4751fda.BLOB<K982148c09ddb.FlatEncoding>) => R;
     }): R;

@@ -10,6 +10,11 @@ exports.___ = {
 var ByType = (function () {
     function ByType() {
     }
+    ByType.prototype.toString = function () { return this.toStr(false); };
+    ByType.prototype.toStr = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return "ByType";
+    };
     ByType.prototype.match = function (m) { return m.ByType; };
     ByType.prototype.flatMaxSize = function () { return 0; };
     ByType.prototype.flatEncode = function () { };

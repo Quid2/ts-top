@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var Q = require("../../core");
 var K102a3bb904e3 = require("../Int/K102a3bb904e3");
 var K2412799c99f1 = require("../Word32/K2412799c99f1");
 exports.$Time = function (f) { return f(exports.___, []); };
@@ -14,6 +15,11 @@ var Time = (function () {
         this.utcDay = utcDay;
         this.utcSecs = utcSecs;
     }
+    Time.prototype.toString = function () { return this.toStr(false); };
+    Time.prototype.toStr = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return Q.nestedPars(nested, "Time" + this.utcDay.toStr(true) + this.utcSecs.toStr(true));
+    };
     Time.prototype.match = function (m) { return m.Time(this.utcDay, this.utcSecs); };
     Time.prototype.flatMaxSize = function () { return this.utcDay.flatMaxSize() + this.utcSecs.flatMaxSize(); };
     Time.prototype.flatEncode = function (st) { this.utcDay.flatEncode(st); this.utcSecs.flatEncode(st); };

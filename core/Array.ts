@@ -43,4 +43,7 @@ export class Array<A extends Q.Flat> implements Q.Flat {
     st.bits(8,0);
 
   }
+  toString():string {return this.toStr()}
+  toStr(nested=false):string {return this.values.toString();}
+
 }

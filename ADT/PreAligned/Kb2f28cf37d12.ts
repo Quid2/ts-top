@@ -17,6 +17,8 @@ export class PreAligned <A extends Q.Flat> implements Q.Flat {
 
   ) { }
 
+  toString():string {return this.toStr(false)}
+  toStr(nested=false):string {return Q.nestedPars(nested,"PreAligned"+this.preFiller.toStr(true)+this.preValue.toStr(true))}
   match <R>(m:{PreAligned:(v0:Kae1dfeece189.Filler,v1:A)=>R}) : R {return m.PreAligned(this.preFiller,this.preValue);}
   flatMaxSize():number {return this.preFiller.flatMaxSize()+this.preValue.flatMaxSize();}
   flatEncode(st:Q.EncoderState) {this.preFiller.flatEncode(st);this.preValue.flatEncode(st);}

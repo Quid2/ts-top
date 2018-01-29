@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var Q = require("../../core");
 var K64f93d94a73d = require("../HostAddress/K64f93d94a73d");
 var K0ab5ac6303b9 = require("../HostPort/K0ab5ac6303b9");
 exports.$SocketAddress = function (t1) { return function (f) { return f(exports.___, [t1(f)]); }; };
@@ -14,6 +15,11 @@ var SocketAddress = (function () {
         this.socketAddress = socketAddress;
         this.socketPort = socketPort;
     }
+    SocketAddress.prototype.toString = function () { return this.toStr(false); };
+    SocketAddress.prototype.toStr = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return Q.nestedPars(nested, "SocketAddress" + this.socketAddress.toStr(true) + this.socketPort.toStr(true));
+    };
     SocketAddress.prototype.match = function (m) { return m.SocketAddress(this.socketAddress, this.socketPort); };
     SocketAddress.prototype.flatMaxSize = function () { return this.socketAddress.flatMaxSize() + this.socketPort.flatMaxSize(); };
     SocketAddress.prototype.flatEncode = function (st) { this.socketAddress.flatEncode(st); this.socketPort.flatEncode(st); };

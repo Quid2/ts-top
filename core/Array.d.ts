@@ -6,4 +6,6 @@ export declare class Array<A extends Q.Flat> implements Q.Flat {
     constructor(values: A[]);
     flatMaxSize(): number;
     flatEncode(st: Q.EncoderState): void;
+    toString(): string;
+    toStr(nested?: boolean): string;
 }

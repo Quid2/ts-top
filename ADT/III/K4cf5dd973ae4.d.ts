@@ -17,6 +17,8 @@ export declare class III implements Q.Flat {
     d: Kcba9596b4657.IEEE_754_binary64;
     ii: K102a3bb904e3.Int;
     constructor(w8: Kb3a2642b4a84.Int8, w16: K3dac6bd4fa9c.Int16, w: Kfb94cb4d4ede.Int64, i8: Kb3a2642b4a84.Int8, i: Kfb94cb4d4ede.Int64, f: Kb53bec846608.IEEE_754_binary32, d: Kcba9596b4657.IEEE_754_binary64, ii: K102a3bb904e3.Int);
+    toString(): string;
+    toStr(nested?: boolean): string;
     match<R>(m: {
         III: (v0: Kb3a2642b4a84.Int8, v1: K3dac6bd4fa9c.Int16, v2: Kfb94cb4d4ede.Int64, v3: Kb3a2642b4a84.Int8, v4: Kfb94cb4d4ede.Int64, v5: Kb53bec846608.IEEE_754_binary32, v6: Kcba9596b4657.IEEE_754_binary64, v7: K102a3bb904e3.Int) => R;
     }): R;

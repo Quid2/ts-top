@@ -18,6 +18,8 @@ export class SocketAddress <A extends Q.Flat> implements Q.Flat {
 
   ) { }
 
+  toString():string {return this.toStr(false)}
+  toStr(nested=false):string {return Q.nestedPars(nested,"SocketAddress"+this.socketAddress.toStr(true)+this.socketPort.toStr(true))}
   match <R>(m:{SocketAddress:(v0:K64f93d94a73d.HostAddress<A>,v1:K0ab5ac6303b9.HostPort)=>R}) : R {return m.SocketAddress(this.socketAddress,this.socketPort);}
   flatMaxSize():number {return this.socketAddress.flatMaxSize()+this.socketPort.flatMaxSize();}
   flatEncode(st:Q.EncoderState) {this.socketAddress.flatEncode(st);this.socketPort.flatEncode(st);}

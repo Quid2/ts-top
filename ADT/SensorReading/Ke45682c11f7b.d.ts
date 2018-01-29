@@ -5,6 +5,8 @@ export declare class SensorReading<A extends Q.Flat, B extends Q.Flat> implement
     reading: A;
     location: B;
     constructor(reading: A, location: B);
+    toString(): string;
+    toStr(nested?: boolean): string;
     match<R>(m: {
         SensorReading: (v0: A, v1: B) => R;
     }): R;

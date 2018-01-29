@@ -18,4 +18,8 @@ export class Bytes  implements Q.Flat {
       return 8+Q.byteArraySize(this.bytes); // Up to 8 bits for prefiller plus aligned byte array size
     }
   flatEncode(st:Q.EncoderState) {st.filler();st.byteArray(this.bytes);}
+
+  toString():string {return this.toStr()}
+  toStr(nested=false):string {return this.bytes.toString();}
+
 }

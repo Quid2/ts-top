@@ -15,6 +15,8 @@ export type ChannelSelectionResult <A extends Q.Flat> = Success <A> | Failure <A
 
 export class Success <A extends Q.Flat> implements Q.Flat {
 
+  toString():string {return this.toStr(false)}
+  toStr(nested=false):string {return "Success"}
   match <R>(m:{Success:R,Failure:(v0:Kb8cd13187198.List<K066db52af145.Char>)=>R,RetryAt:(v0:A)=>R}) : R {return m.Success;}
   flatMaxSize():number {return 1+0;}
   flatEncode(st:Q.EncoderState) {st.zero();}
@@ -27,6 +29,8 @@ export class Failure <A extends Q.Flat> implements Q.Flat {
 
   ) { }
 
+  toString():string {return this.toStr(false)}
+  toStr(nested=false):string {return Q.nestedPars(nested,"Failure"+this.reason.toStr(true))}
   match <R>(m:{Success:R,Failure:(v0:Kb8cd13187198.List<K066db52af145.Char>)=>R,RetryAt:(v0:A)=>R}) : R {return m.Failure(this.reason);}
   flatMaxSize():number {return 2+this.reason.flatMaxSize();}
   flatEncode(st:Q.EncoderState) {st.one();st.zero();this.reason.flatEncode(st);}
@@ -39,6 +43,8 @@ export class RetryAt <A extends Q.Flat> implements Q.Flat {
 
   ) { }
 
+  toString():string {return this.toStr(false)}
+  toStr(nested=false):string {return Q.nestedPars(nested,"RetryAt"+this._0.toStr(true))}
   match <R>(m:{Success:R,Failure:(v0:Kb8cd13187198.List<K066db52af145.Char>)=>R,RetryAt:(v0:A)=>R}) : R {return m.RetryAt(this._0);}
   flatMaxSize():number {return 2+this._0.flatMaxSize();}
   flatEncode(st:Q.EncoderState) {st.one();st.one();this._0.flatEncode(st);}

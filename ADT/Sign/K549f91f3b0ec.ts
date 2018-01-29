@@ -13,6 +13,8 @@ export type Sign  = Positive  | Negative
 
 export class Positive  implements Q.Flat {
 
+  toString():string {return this.toStr(false)}
+  toStr(nested=false):string {return "Positive"}
   match <R>(m:{Positive:R,Negative:R}) : R {return m.Positive;}
   flatMaxSize():number {return 1+0;}
   flatEncode(st:Q.EncoderState) {st.zero();}
@@ -21,6 +23,8 @@ export class Positive  implements Q.Flat {
 
 export class Negative  implements Q.Flat {
 
+  toString():string {return this.toStr(false)}
+  toStr(nested=false):string {return "Negative"}
   match <R>(m:{Positive:R,Negative:R}) : R {return m.Negative;}
   flatMaxSize():number {return 1+0;}
   flatEncode(st:Q.EncoderState) {st.one();}

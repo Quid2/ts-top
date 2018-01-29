@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var Q = require("../../core");
 var Kb8cd13187198 = require("../List/Kb8cd13187198");
 var Kc23b20389114 = require("../Match/Kc23b20389114");
 var K65149ce3b366 = require("../Bit/K65149ce3b366");
@@ -14,6 +15,11 @@ var ByPattern = (function () {
     function ByPattern(_0) {
         this._0 = _0;
     }
+    ByPattern.prototype.toString = function () { return this.toStr(false); };
+    ByPattern.prototype.toStr = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return Q.nestedPars(nested, "ByPattern" + this._0.toStr(true));
+    };
     ByPattern.prototype.match = function (m) { return m.ByPattern(this._0); };
     ByPattern.prototype.flatMaxSize = function () { return this._0.flatMaxSize(); };
     ByPattern.prototype.flatEncode = function (st) { this._0.flatEncode(st); };

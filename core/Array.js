@@ -41,6 +41,11 @@ var Array = (function () {
         }
         st.bits(8, 0);
     };
+    Array.prototype.toString = function () { return this.toStr(); };
+    Array.prototype.toStr = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return this.values.toString();
+    };
     return Array;
 }());
 exports.Array = Array;

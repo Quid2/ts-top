@@ -16,6 +16,8 @@ export class Celsius  implements Q.Flat {
 
   ) { }
 
+  toString():string {return this.toStr(false)}
+  toStr(nested=false):string {return Q.nestedPars(nested,"Celsius"+this._0.toStr(true))}
   match <R>(m:{Celsius:(v0:Kb53bec846608.IEEE_754_binary32)=>R}) : R {return m.Celsius(this._0);}
   flatMaxSize():number {return this._0.flatMaxSize();}
   flatEncode(st:Q.EncoderState) {this._0.flatEncode(st);}

@@ -10,6 +10,8 @@ export declare class IEEE_754_binary64 implements Q.Flat {
     exponent: K74e2b3b89941.MostSignificantFirst<K8ae75e67a616.Bits11>;
     fraction: K74e2b3b89941.MostSignificantFirst<Kf727da8aa8ad.Bits52>;
     constructor(sign: K549f91f3b0ec.Sign, exponent: K74e2b3b89941.MostSignificantFirst<K8ae75e67a616.Bits11>, fraction: K74e2b3b89941.MostSignificantFirst<Kf727da8aa8ad.Bits52>);
+    toString(): string;
+    toStr(nested?: boolean): string;
     match<R>(m: {
         IEEE_754_binary64: (v0: K549f91f3b0ec.Sign, v1: K74e2b3b89941.MostSignificantFirst<K8ae75e67a616.Bits11>, v2: K74e2b3b89941.MostSignificantFirst<Kf727da8aa8ad.Bits52>) => R;
     }): R;
