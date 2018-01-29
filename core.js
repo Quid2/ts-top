@@ -46,6 +46,19 @@ var DecoderState = (function () {
         this.dropBits(numBits);
         return r;
     };
+    DecoderState.prototype.word = function () {
+        var n = 0;
+        var shl = 0;
+        var w8;
+        var w7;
+        do {
+            w8 = this.bits8(8);
+            w7 = w8 & 127;
+            n |= w7 << shl;
+            shl += 7;
+        } while (w8 !== w7);
+        return n;
+    };
     DecoderState.prototype.zero = function () {
         this.ensureBit();
         var b = !(this.buffer[this.currPtr] & (128 >>> this.usedBits));
@@ -101,6 +114,15 @@ var EncoderState = (function () {
     EncoderState.prototype.filler = function () {
         this.currentByte |= 1;
         this.nextWord();
+    };
+    EncoderState.prototype.word = function (n) {
+        do {
+            var w = n & 127;
+            n >>>= 7;
+            if (n !== 0)
+                w |= 128;
+            this.bits(8, w);
+        } while (n !== 0);
     };
     EncoderState.prototype.bits = function (numBits, value) {
         this.usedBits += numBits;

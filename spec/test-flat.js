@@ -16,6 +16,7 @@ var Kb8cd13187198_1 = require("../ADT/List/Kb8cd13187198");
 var K2e8b4519aeaa_1 = require("../ADT/Array/K2e8b4519aeaa");
 var Kf8844385a443_1 = require("../ADT/Bytes/Kf8844385a443");
 var Ka5583bf3ad34_1 = require("../ADT/Tuple2/Ka5583bf3ad34");
+var K295e24d62fac_1 = require("../ADT/Word16/K295e24d62fac");
 function flatS(v, exp) {
     console.log("");
     console.log("Val:");
@@ -55,8 +56,11 @@ function testFlat() {
     flatT(K2e8b4519aeaa_1.$Array(K65149ce3b366_1.$Bit), new K2e8b4519aeaa_1.Array([new K65149ce3b366_1.V0, new K65149ce3b366_1.V1, new K65149ce3b366_1.V0]));
     flatT(Kf8844385a443_1.$Bytes, new Kf8844385a443_1.Bytes(new Uint8Array([11, 22, 33])));
     flatT(Kf4c946334a7e_1.$Word7, new Kf4c946334a7e_1.Word7(111));
+    flatT(K295e24d62fac_1.$Word16, new K295e24d62fac_1.Word16(65535));
     flatT(Ka5583bf3ad34_1.$Tuple2(K65149ce3b366_1.$Bit, Kb1f46a49c8f8_1.$Word8), new Ka5583bf3ad34_1.Tuple2(new K65149ce3b366_1.V1, new Kb1f46a49c8f8_1.Word8(222)));
     flatT(Ka5583bf3ad34_1.$Tuple2(K65149ce3b366_1.$Bit, Kf4c946334a7e_1.$Word7), new Ka5583bf3ad34_1.Tuple2(new K65149ce3b366_1.V1, new Kf4c946334a7e_1.Word7(127)));
+    flatT(Ka5583bf3ad34_1.$Tuple2(K65149ce3b366_1.$Bit, K295e24d62fac_1.$Word16), new Ka5583bf3ad34_1.Tuple2(new K65149ce3b366_1.V1, new K295e24d62fac_1.Word16(0)));
+    flatT(Ka5583bf3ad34_1.$Tuple2(K65149ce3b366_1.$Bit, K295e24d62fac_1.$Word16), new Ka5583bf3ad34_1.Tuple2(new K65149ce3b366_1.V1, new K295e24d62fac_1.Word16(65535)));
     flatT(Kbf2d1c86eb20_1.$NonEmptyList(K65149ce3b366_1.$Bit), new Kbf2d1c86eb20_1.Cons(new K65149ce3b366_1.V0, new Kbf2d1c86eb20_1.Cons(new K65149ce3b366_1.V1, new Kbf2d1c86eb20_1.Elem(new K65149ce3b366_1.V0))));
 }
 testFlat();

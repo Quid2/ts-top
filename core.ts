@@ -109,6 +109,7 @@ export class DecoderState {
       w7 = w8 & 127
       n |= w7 << shl
       shl +=7
+      //console.log("usedBits",this.usedBits,"w7",w7,"w8",w8,w8!==w7)
     } while (w8!==w7);
 
      return n;
@@ -174,9 +175,9 @@ export class EncoderState {
 
   word(n:number): void {
     do {
-      const w = n & 127;
+      var w = n & 127;
       n >>>= 7;
-      if (n!==0) n |= 1;
+      if (n!==0) w |= 128;
       this.bits(8,w);
     } while (n!==0);
   }

@@ -20,6 +20,7 @@ export declare class DecoderState {
     byteArray(): Uint8Array;
     filler(): void;
     bits8(numBits: number): number;
+    word(): number;
     zero(): boolean;
     ensureBit(): void;
     ensureBits(requiredBits: number): void;
@@ -37,6 +38,7 @@ export declare class EncoderState {
     currentByte: number;
     constructor(bufferSize: number);
     filler(): void;
+    word(n: number): void;
     bits(numBits: number, value: number): void;
     zero(): void;
     one(): void;
