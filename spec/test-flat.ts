@@ -30,7 +30,8 @@ import {$Char,Char} from  '../ADT/Char/K066db52af145'
 function flatS(v: any, exp: any) {
     console.log("");
     console.log("Val:");
-    console.debug(v);
+    console.log(v)
+    console.log(v.toString());
     console.log("Max Size in Bits:");
     console.log(v.flatMaxSize());
     console.log("Flat:");
@@ -42,7 +43,8 @@ function flatS(v: any, exp: any) {
 function flatT <A extends Flat>(typ:zmFold<A>,v:A) {
     console.log("");
     console.log("Val:");
-    console.log(v);
+    console.log(v)
+    console.log(v.toString());
     console.log("Max Size in Bits:");
     console.log(v.flatMaxSize());
     console.log("Flat:");

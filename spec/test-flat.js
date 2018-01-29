@@ -21,7 +21,8 @@ var K066db52af145_1 = require("../ADT/Char/K066db52af145");
 function flatS(v, exp) {
     console.log("");
     console.log("Val:");
-    console.debug(v);
+    console.log(v);
+    console.log(v.toString());
     console.log("Max Size in Bits:");
     console.log(v.flatMaxSize());
     console.log("Flat:");
@@ -33,6 +34,7 @@ function flatT(typ, v) {
     console.log("");
     console.log("Val:");
     console.log(v);
+    console.log(v.toString());
     console.log("Max Size in Bits:");
     console.log(v.flatMaxSize());
     console.log("Flat:");

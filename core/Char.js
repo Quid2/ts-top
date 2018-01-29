@@ -16,7 +16,7 @@ var Char = (function () {
     Char.prototype.toString = function () { return this.toStr(); };
     Char.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
-        return this.value.toString();
+        return "'" + this.value + "'";
     };
     return Char;
 }());
