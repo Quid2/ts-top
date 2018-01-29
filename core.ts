@@ -27,7 +27,7 @@ export type zmTypeInfo = { zid: zmId, decoder: (decoders: Decoder[]) => Decoder 
 export interface Flat {
   flatMaxSize: () => number,
   flatEncode: Encoder,
-  toStr(nested:boolean):string // FIX: change interface name
+  toStr(nested:boolean):string // FIX interface name
 }
 
 //export type Decoder<T> = (s:DecoderState) => T
@@ -86,12 +86,12 @@ export class DecoderState {
     if (numBits < 0 || numBits > 8) throw Error("Decoder.bits8: incorrect value of numBits " + numBits);
     
     this.ensureBits(numBits);
-
+    // usedBits=1 numBits=8 unusedBits=7 leadingZeros=0 unusedBits+leadingZeros=7
     const unusedBits = 8 - this.usedBits;
     const leadingZeros = 8 - numBits;
-    var r = (this.buffer[this.currPtr] << this.usedBits) >>> leadingZeros;
+    var r = ((this.buffer[this.currPtr] << this.usedBits) & 255) >>> leadingZeros;
 
-    if (numBits > unusedBits) { r &= (this.buffer[this.currPtr + 1] >>> (unusedBits + leadingZeros)); }
+    if (numBits > unusedBits) {r |= (this.buffer[this.currPtr + 1] >>> (unusedBits + leadingZeros))}
 
     this.dropBits(numBits);
     

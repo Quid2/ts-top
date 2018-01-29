@@ -39,9 +39,9 @@ var DecoderState = (function () {
         this.ensureBits(numBits);
         var unusedBits = 8 - this.usedBits;
         var leadingZeros = 8 - numBits;
-        var r = (this.buffer[this.currPtr] << this.usedBits) >>> leadingZeros;
+        var r = ((this.buffer[this.currPtr] << this.usedBits) & 255) >>> leadingZeros;
         if (numBits > unusedBits) {
-            r &= (this.buffer[this.currPtr + 1] >>> (unusedBits + leadingZeros));
+            r |= (this.buffer[this.currPtr + 1] >>> (unusedBits + leadingZeros));
         }
         this.dropBits(numBits);
         return r;

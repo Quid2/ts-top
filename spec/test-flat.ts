@@ -10,7 +10,7 @@ import {$NonEmptyList,NonEmptyList,Elem,Cons as NECons} from  '../ADT/NonEmptyLi
 
 //import {Array,A1,A0} from  '../ADT/Array/K2e8b4519aeaa'
 //import {Array} from  '../ADT/Array/K2e8b4519aeaa'
-import { Tuple2 } from '../ADT/Tuple2/Ka5583bf3ad34'
+//import { Tuple2 } from '../ADT/Tuple2/Ka5583bf3ad34'
 import { $Either } from '../ADT/Either/K6260e465ae74'
 import { $Maybe } from '../ADT/Maybe/Kda6836778fd4'
 import { $Bool, Bool,True ,False} from '../ADT/Bool/K306f1981b41c'
@@ -23,6 +23,7 @@ import { $IP4Address, IP4Address } from '../ADT/IP4Address/K6cb2ee3ac409'
 import {$List,Cons,Nil}  from '../ADT/List/Kb8cd13187198'
 import {$Array,Array} from  '../ADT/Array/K2e8b4519aeaa'
 import {$Bytes,Bytes} from '../ADT/Bytes/Kf8844385a443'
+import {$Tuple2,Tuple2} from  '../ADT/Tuple2/Ka5583bf3ad34'
 
 function flatS(v: any, exp: any) {
     console.log("");
@@ -76,8 +77,9 @@ function testFlat() {
     flatT($List($Bit),new Cons(new V0,new Cons(new V1,new Nil)));
     flatT($Array($Bit),new Array([new V0,new V1,new V0]));
     flatT($Bytes,new Bytes(new Uint8Array([11,22,33])));
-    flatT($Word8,new Word8(111));
     flatT($Word7,new Word7(111));
+    flatT($Tuple2($Bit,$Word8),new Tuple2(new V1,new Word8(222)));
+    flatT($Tuple2($Bit,$Word7),new Tuple2(new V1,new Word7(127)));
     flatT($NonEmptyList($Bit),new NECons(new V0,new NECons(new V1,new Elem(new V0))));
 }
 

@@ -6,7 +6,6 @@ var K65149ce3b366_1 = require("../ADT/Bit/K65149ce3b366");
 var Kb1f46a49c8f8_1 = require("../ADT/Word8/Kb1f46a49c8f8");
 var Kf4c946334a7e_1 = require("../ADT/Word7/Kf4c946334a7e");
 var Kbf2d1c86eb20_1 = require("../ADT/NonEmptyList/Kbf2d1c86eb20");
-var Ka5583bf3ad34_1 = require("../ADT/Tuple2/Ka5583bf3ad34");
 var K6260e465ae74_1 = require("../ADT/Either/K6260e465ae74");
 var Kda6836778fd4_1 = require("../ADT/Maybe/Kda6836778fd4");
 var K306f1981b41c_1 = require("../ADT/Bool/K306f1981b41c");
@@ -16,6 +15,7 @@ var K6cb2ee3ac409_1 = require("../ADT/IP4Address/K6cb2ee3ac409");
 var Kb8cd13187198_1 = require("../ADT/List/Kb8cd13187198");
 var K2e8b4519aeaa_1 = require("../ADT/Array/K2e8b4519aeaa");
 var Kf8844385a443_1 = require("../ADT/Bytes/Kf8844385a443");
+var Ka5583bf3ad34_1 = require("../ADT/Tuple2/Ka5583bf3ad34");
 function flatS(v, exp) {
     console.log("");
     console.log("Val:");
@@ -54,8 +54,9 @@ function testFlat() {
     flatT(Kb8cd13187198_1.$List(K65149ce3b366_1.$Bit), new Kb8cd13187198_1.Cons(new K65149ce3b366_1.V0, new Kb8cd13187198_1.Cons(new K65149ce3b366_1.V1, new Kb8cd13187198_1.Nil)));
     flatT(K2e8b4519aeaa_1.$Array(K65149ce3b366_1.$Bit), new K2e8b4519aeaa_1.Array([new K65149ce3b366_1.V0, new K65149ce3b366_1.V1, new K65149ce3b366_1.V0]));
     flatT(Kf8844385a443_1.$Bytes, new Kf8844385a443_1.Bytes(new Uint8Array([11, 22, 33])));
-    flatT(Kb1f46a49c8f8_1.$Word8, new Kb1f46a49c8f8_1.Word8(111));
     flatT(Kf4c946334a7e_1.$Word7, new Kf4c946334a7e_1.Word7(111));
+    flatT(Ka5583bf3ad34_1.$Tuple2(K65149ce3b366_1.$Bit, Kb1f46a49c8f8_1.$Word8), new Ka5583bf3ad34_1.Tuple2(new K65149ce3b366_1.V1, new Kb1f46a49c8f8_1.Word8(222)));
+    flatT(Ka5583bf3ad34_1.$Tuple2(K65149ce3b366_1.$Bit, Kf4c946334a7e_1.$Word7), new Ka5583bf3ad34_1.Tuple2(new K65149ce3b366_1.V1, new Kf4c946334a7e_1.Word7(127)));
     flatT(Kbf2d1c86eb20_1.$NonEmptyList(K65149ce3b366_1.$Bit), new Kbf2d1c86eb20_1.Cons(new K65149ce3b366_1.V0, new Kbf2d1c86eb20_1.Cons(new K65149ce3b366_1.V1, new Kbf2d1c86eb20_1.Elem(new K65149ce3b366_1.V0))));
 }
 testFlat();
