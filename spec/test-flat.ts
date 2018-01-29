@@ -25,6 +25,7 @@ import {$Array,Array} from  '../ADT/Array/K2e8b4519aeaa'
 import {$Bytes,Bytes} from '../ADT/Bytes/Kf8844385a443'
 import {$Tuple2,Tuple2} from  '../ADT/Tuple2/Ka5583bf3ad34'
 import {Word16,$Word16} from  '../ADT/Word16/K295e24d62fac'
+import {$Char,Char} from  '../ADT/Char/K066db52af145'
 
 function flatS(v: any, exp: any) {
     console.log("");
@@ -85,6 +86,7 @@ function testFlat() {
     flatT($Tuple2($Bit,$Word16),new Tuple2(new V1,new Word16(0)));
     flatT($Tuple2($Bit,$Word16),new Tuple2(new V1,new Word16(65535)));
     flatT($NonEmptyList($Bit),new NECons(new V0,new NECons(new V1,new Elem(new V0))));
+    flatT($Char,new Char('a'));
 }
 
 testFlat();
