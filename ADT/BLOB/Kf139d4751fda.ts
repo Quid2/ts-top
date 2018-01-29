@@ -18,7 +18,7 @@ export class BLOB <A extends Q.Flat> implements Q.Flat {
   ) { }
 
   toString():string {return this.toStr(false)}
-  toStr(nested=false):string {return Q.nestedPars(nested,"BLOB"+this.encoding.toStr(true)+this.content.toStr(true))}
+  toStr(nested=false):string {return Q.nestedPars(nested,["BLOB",this.encoding.toStr(true),this.content.toStr(true)].join(' '))}
   match <R>(m:{BLOB:(v0:A,v1:Kf8844385a443.Bytes)=>R}) : R {return m.BLOB(this.encoding,this.content);}
   flatMaxSize():number {return this.encoding.flatMaxSize()+this.content.flatMaxSize();}
   flatEncode(st:Q.EncoderState) {this.encoding.flatEncode(st);this.content.flatEncode(st);}

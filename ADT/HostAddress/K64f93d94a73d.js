@@ -22,7 +22,7 @@ var IPAddress = (function () {
     IPAddress.prototype.toString = function () { return this.toStr(false); };
     IPAddress.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, "IPAddress" + this._0.toStr(true));
+        return Q.nestedPars(nested, ["IPAddress", this._0.toStr(true)].join(' '));
     };
     IPAddress.prototype.match = function (m) { return m.IPAddress(this._0); };
     IPAddress.prototype.flatMaxSize = function () { return 1 + this._0.flatMaxSize(); };
@@ -37,7 +37,7 @@ var DNSAddress = (function () {
     DNSAddress.prototype.toString = function () { return this.toStr(false); };
     DNSAddress.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, "DNSAddress" + this._0.toStr(true));
+        return Q.nestedPars(nested, ["DNSAddress", this._0.toStr(true)].join(' '));
     };
     DNSAddress.prototype.match = function (m) { return m.DNSAddress(this._0); };
     DNSAddress.prototype.flatMaxSize = function () { return 1 + this._0.flatMaxSize(); };

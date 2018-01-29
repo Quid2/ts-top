@@ -19,7 +19,7 @@ export class ByPattern <A extends Q.Flat> implements Q.Flat {
   ) { }
 
   toString():string {return this.toStr(false)}
-  toStr(nested=false):string {return Q.nestedPars(nested,"ByPattern"+this._0.toStr(true))}
+  toStr(nested=false):string {return Q.nestedPars(nested,["ByPattern",this._0.toStr(true)].join(' '))}
   match <R>(m:{ByPattern:(v0:Kb8cd13187198.List<Kc23b20389114.Match<Kb8cd13187198.List<K65149ce3b366.Bit>>>)=>R}) : R {return m.ByPattern(this._0);}
   flatMaxSize():number {return this._0.flatMaxSize();}
   flatEncode(st:Q.EncoderState) {this._0.flatEncode(st);}

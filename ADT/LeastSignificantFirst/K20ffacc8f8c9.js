@@ -15,7 +15,7 @@ var LeastSignificantFirst = (function () {
     LeastSignificantFirst.prototype.toString = function () { return this.toStr(false); };
     LeastSignificantFirst.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, "LeastSignificantFirst" + this._0.toStr(true));
+        return Q.nestedPars(nested, ["LeastSignificantFirst", this._0.toStr(true)].join(' '));
     };
     LeastSignificantFirst.prototype.match = function (m) { return m.LeastSignificantFirst(this._0); };
     LeastSignificantFirst.prototype.flatMaxSize = function () { return this._0.flatMaxSize(); };

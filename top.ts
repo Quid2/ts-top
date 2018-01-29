@@ -27,6 +27,7 @@ import { Observable, Subscribable } from 'rxjs/Observable'
 import { AnonymousSubscription } from 'rxjs/Subscription'
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/share';
+import { Observer } from "rxjs/Observer";
 
 export function flatBLOB(v: any): BLOB<FlatEncoding> {
     //return new BLOB(new FlatEncoding,new Bytes(new PreAligned(new FillerEnd(),flat (new ByType))));
@@ -165,7 +166,7 @@ export function channel<A>(t: zmFold<A>) : [Observable<A>,QueueingSubject<A>] {
 
 
 function testRX() {
-    var observable : Observable<number> = Observable.create(function (observer) {
+    var observable : Observable<number> = Observable.create(function (observer:Observer<number>) {
         observer.next(1);
         observer.next(2);
         observer.next(3);

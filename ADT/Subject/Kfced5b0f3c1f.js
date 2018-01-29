@@ -17,7 +17,7 @@ var Subject = (function () {
     Subject.prototype.toString = function () { return this.toStr(false); };
     Subject.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, "Subject" + this._0.toStr(true));
+        return Q.nestedPars(nested, ["Subject", this._0.toStr(true)].join(' '));
     };
     Subject.prototype.match = function (m) { return m.Subject(this._0); };
     Subject.prototype.flatMaxSize = function () { return this._0.flatMaxSize(); };

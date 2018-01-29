@@ -34,7 +34,7 @@ var Just = (function () {
     Just.prototype.toString = function () { return this.toStr(false); };
     Just.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, "Just" + this._0.toStr(true));
+        return Q.nestedPars(nested, ["Just", this._0.toStr(true)].join(' '));
     };
     Just.prototype.match = function (m) { return m.Just(this._0); };
     Just.prototype.flatMaxSize = function () { return 1 + this._0.flatMaxSize(); };

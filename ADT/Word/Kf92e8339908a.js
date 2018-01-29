@@ -19,7 +19,7 @@ var Word = (function () {
     Word.prototype.toString = function () { return this.toStr(false); };
     Word.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, "Word" + this._0.toStr(true));
+        return Q.nestedPars(nested, ["Word", this._0.toStr(true)].join(' '));
     };
     Word.prototype.match = function (m) { return m.Word(this._0); };
     Word.prototype.flatMaxSize = function () { return this._0.flatMaxSize(); };

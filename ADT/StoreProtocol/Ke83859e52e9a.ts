@@ -19,7 +19,7 @@ export class Save <A extends Q.Flat> implements Q.Flat {
   ) { }
 
   toString():string {return this.toStr(false)}
-  toStr(nested=false):string {return Q.nestedPars(nested,"Save"+this._0.toStr(true))}
+  toStr(nested=false):string {return Q.nestedPars(nested,["Save",this._0.toStr(true)].join(' '))}
   match <R>(m:{Save:(v0:A)=>R,Solve:(v0:K9f214799149b.SHAKE128_48<A>)=>R,Solved:(v0:K9f214799149b.SHAKE128_48<A>,v1:A)=>R}) : R {return m.Save(this._0);}
   flatMaxSize():number {return 1+this._0.flatMaxSize();}
   flatEncode(st:Q.EncoderState) {st.zero();this._0.flatEncode(st);}
@@ -33,7 +33,7 @@ export class Solve <A extends Q.Flat> implements Q.Flat {
   ) { }
 
   toString():string {return this.toStr(false)}
-  toStr(nested=false):string {return Q.nestedPars(nested,"Solve"+this._0.toStr(true))}
+  toStr(nested=false):string {return Q.nestedPars(nested,["Solve",this._0.toStr(true)].join(' '))}
   match <R>(m:{Save:(v0:A)=>R,Solve:(v0:K9f214799149b.SHAKE128_48<A>)=>R,Solved:(v0:K9f214799149b.SHAKE128_48<A>,v1:A)=>R}) : R {return m.Solve(this._0);}
   flatMaxSize():number {return 2+this._0.flatMaxSize();}
   flatEncode(st:Q.EncoderState) {st.one();st.zero();this._0.flatEncode(st);}
@@ -48,7 +48,7 @@ export class Solved <A extends Q.Flat> implements Q.Flat {
   ) { }
 
   toString():string {return this.toStr(false)}
-  toStr(nested=false):string {return Q.nestedPars(nested,"Solved"+this._0.toStr(true)+this._1.toStr(true))}
+  toStr(nested=false):string {return Q.nestedPars(nested,["Solved",this._0.toStr(true),this._1.toStr(true)].join(' '))}
   match <R>(m:{Save:(v0:A)=>R,Solve:(v0:K9f214799149b.SHAKE128_48<A>)=>R,Solved:(v0:K9f214799149b.SHAKE128_48<A>,v1:A)=>R}) : R {return m.Solved(this._0,this._1);}
   flatMaxSize():number {return 2+this._0.flatMaxSize()+this._1.flatMaxSize();}
   flatEncode(st:Q.EncoderState) {st.one();st.one();this._0.flatEncode(st);this._1.flatEncode(st);}

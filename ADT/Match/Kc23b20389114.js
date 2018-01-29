@@ -22,7 +22,7 @@ var MatchValue = (function () {
     MatchValue.prototype.toString = function () { return this.toStr(false); };
     MatchValue.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, "MatchValue" + this._0.toStr(true));
+        return Q.nestedPars(nested, ["MatchValue", this._0.toStr(true)].join(' '));
     };
     MatchValue.prototype.match = function (m) { return m.MatchValue(this._0); };
     MatchValue.prototype.flatMaxSize = function () { return 1 + this._0.flatMaxSize(); };
@@ -37,7 +37,7 @@ var MatchAny = (function () {
     MatchAny.prototype.toString = function () { return this.toStr(false); };
     MatchAny.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, "MatchAny" + this._0.toStr(true));
+        return Q.nestedPars(nested, ["MatchAny", this._0.toStr(true)].join(' '));
     };
     MatchAny.prototype.match = function (m) { return m.MatchAny(this._0); };
     MatchAny.prototype.flatMaxSize = function () { return 1 + this._0.flatMaxSize(); };

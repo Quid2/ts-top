@@ -17,7 +17,7 @@ export class UnicodeLetterOrNumberOrLine  implements Q.Flat {
   ) { }
 
   toString():string {return this.toStr(false)}
-  toStr(nested=false):string {return Q.nestedPars(nested,"UnicodeLetterOrNumberOrLine"+this._0.toStr(true))}
+  toStr(nested=false):string {return Q.nestedPars(nested,["UnicodeLetterOrNumberOrLine",this._0.toStr(true)].join(' '))}
   match <R>(m:{UnicodeLetterOrNumberOrLine:(v0:K066db52af145.Char)=>R}) : R {return m.UnicodeLetterOrNumberOrLine(this._0);}
   flatMaxSize():number {return this._0.flatMaxSize();}
   flatEncode(st:Q.EncoderState) {this._0.flatEncode(st);}

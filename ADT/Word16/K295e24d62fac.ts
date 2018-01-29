@@ -17,7 +17,7 @@ export class Word16  implements Q.Flat {
   ) { }
 
   toString():string {return this.toStr(false)}
-  toStr(nested=false):string {return Q.nestedPars(nested,"Word16"+this._0.toStr(true))}
+  toStr(nested=false):string {return Q.nestedPars(nested,["Word16",this._0.toStr(true)].join(' '))}
   match <R>(m:{Word16:(v0:Kf92e8339908a.Word)=>R}) : R {return m.Word16(this._0);}
   flatMaxSize():number {return this._0.flatMaxSize();}
   flatEncode(st:Q.EncoderState) {this._0.flatEncode(st);}

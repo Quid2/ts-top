@@ -41,7 +41,7 @@ var Failure = (function () {
     Failure.prototype.toString = function () { return this.toStr(false); };
     Failure.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, "Failure" + this.reason.toStr(true));
+        return Q.nestedPars(nested, ["Failure", this.reason.toStr(true)].join(' '));
     };
     Failure.prototype.match = function (m) { return m.Failure(this.reason); };
     Failure.prototype.flatMaxSize = function () { return 2 + this.reason.flatMaxSize(); };
@@ -56,7 +56,7 @@ var RetryAt = (function () {
     RetryAt.prototype.toString = function () { return this.toStr(false); };
     RetryAt.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, "RetryAt" + this._0.toStr(true));
+        return Q.nestedPars(nested, ["RetryAt", this._0.toStr(true)].join(' '));
     };
     RetryAt.prototype.match = function (m) { return m.RetryAt(this._0); };
     RetryAt.prototype.flatMaxSize = function () { return 2 + this._0.flatMaxSize(); };

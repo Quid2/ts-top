@@ -18,7 +18,7 @@ var Time = (function () {
     Time.prototype.toString = function () { return this.toStr(false); };
     Time.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, "Time" + this.utcDay.toStr(true) + this.utcSecs.toStr(true));
+        return Q.nestedPars(nested, ["Time", this.utcDay.toStr(true), this.utcSecs.toStr(true)].join(' '));
     };
     Time.prototype.match = function (m) { return m.Time(this.utcDay, this.utcSecs); };
     Time.prototype.flatMaxSize = function () { return this.utcDay.flatMaxSize() + this.utcSecs.flatMaxSize(); };

@@ -35,7 +35,7 @@ var Cons = (function () {
     Cons.prototype.toString = function () { return this.toStr(false); };
     Cons.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, "Cons" + this._0.toStr(true) + this._1.toStr(true));
+        return Q.nestedPars(nested, ["Cons", this._0.toStr(true), this._1.toStr(true)].join(' '));
     };
     Cons.prototype.match = function (m) { return m.Cons(this._0, this._1); };
     Cons.prototype.flatMaxSize = function () { return 1 + this._0.flatMaxSize() + this._1.flatMaxSize(); };

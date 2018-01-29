@@ -26,7 +26,7 @@ var Save = (function () {
     Save.prototype.toString = function () { return this.toStr(false); };
     Save.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, "Save" + this._0.toStr(true));
+        return Q.nestedPars(nested, ["Save", this._0.toStr(true)].join(' '));
     };
     Save.prototype.match = function (m) { return m.Save(this._0); };
     Save.prototype.flatMaxSize = function () { return 1 + this._0.flatMaxSize(); };
@@ -41,7 +41,7 @@ var Solve = (function () {
     Solve.prototype.toString = function () { return this.toStr(false); };
     Solve.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, "Solve" + this._0.toStr(true));
+        return Q.nestedPars(nested, ["Solve", this._0.toStr(true)].join(' '));
     };
     Solve.prototype.match = function (m) { return m.Solve(this._0); };
     Solve.prototype.flatMaxSize = function () { return 2 + this._0.flatMaxSize(); };
@@ -57,7 +57,7 @@ var Solved = (function () {
     Solved.prototype.toString = function () { return this.toStr(false); };
     Solved.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, "Solved" + this._0.toStr(true) + this._1.toStr(true));
+        return Q.nestedPars(nested, ["Solved", this._0.toStr(true), this._1.toStr(true)].join(' '));
     };
     Solved.prototype.match = function (m) { return m.Solved(this._0, this._1); };
     Solved.prototype.flatMaxSize = function () { return 2 + this._0.flatMaxSize() + this._1.flatMaxSize(); };

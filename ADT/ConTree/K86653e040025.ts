@@ -23,7 +23,7 @@ export class Con <A extends Q.Flat,B extends Q.Flat> implements Q.Flat {
   ) { }
 
   toString():string {return this.toStr(false)}
-  toStr(nested=false):string {return Q.nestedPars(nested,"Con"+this.constrName.toStr(true)+this.constrFields.toStr(true))}
+  toStr(nested=false):string {return Q.nestedPars(nested,["Con",this.constrName.toStr(true),this.constrFields.toStr(true)].join(' '))}
   match <R>(m:{Con:(v0:A,v1:K6260e465ae74.Either<Kb8cd13187198.List<K7028aa556ebc.Type<B>>,Kb8cd13187198.List<Ka5583bf3ad34.Tuple2<A,K7028aa556ebc.Type<B>>>>)=>R,ConTree:(v0:ConTree<A,B>,v1:ConTree<A,B>)=>R}) : R {return m.Con(this.constrName,this.constrFields);}
   flatMaxSize():number {return 1+this.constrName.flatMaxSize()+this.constrFields.flatMaxSize();}
   flatEncode(st:Q.EncoderState) {st.zero();this.constrName.flatEncode(st);this.constrFields.flatEncode(st);}
@@ -38,7 +38,7 @@ export class _ConTree <A extends Q.Flat,B extends Q.Flat> implements Q.Flat {
   ) { }
 
   toString():string {return this.toStr(false)}
-  toStr(nested=false):string {return Q.nestedPars(nested,"ConTree"+this._0.toStr(true)+this._1.toStr(true))}
+  toStr(nested=false):string {return Q.nestedPars(nested,["ConTree",this._0.toStr(true),this._1.toStr(true)].join(' '))}
   match <R>(m:{Con:(v0:A,v1:K6260e465ae74.Either<Kb8cd13187198.List<K7028aa556ebc.Type<B>>,Kb8cd13187198.List<Ka5583bf3ad34.Tuple2<A,K7028aa556ebc.Type<B>>>>)=>R,ConTree:(v0:ConTree<A,B>,v1:ConTree<A,B>)=>R}) : R {return m.ConTree(this._0,this._1);}
   flatMaxSize():number {return 1+this._0.flatMaxSize()+this._1.flatMaxSize();}
   flatEncode(st:Q.EncoderState) {st.one();this._0.flatEncode(st);this._1.flatEncode(st);}

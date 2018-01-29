@@ -20,7 +20,7 @@ var Left = (function () {
     Left.prototype.toString = function () { return this.toStr(false); };
     Left.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, "Left" + this._0.toStr(true));
+        return Q.nestedPars(nested, ["Left", this._0.toStr(true)].join(' '));
     };
     Left.prototype.match = function (m) { return m.Left(this._0); };
     Left.prototype.flatMaxSize = function () { return 1 + this._0.flatMaxSize(); };
@@ -35,7 +35,7 @@ var Right = (function () {
     Right.prototype.toString = function () { return this.toStr(false); };
     Right.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, "Right" + this._0.toStr(true));
+        return Q.nestedPars(nested, ["Right", this._0.toStr(true)].join(' '));
     };
     Right.prototype.match = function (m) { return m.Right(this._0); };
     Right.prototype.flatMaxSize = function () { return 1 + this._0.flatMaxSize(); };

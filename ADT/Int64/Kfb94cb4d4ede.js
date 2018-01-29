@@ -17,7 +17,7 @@ var Int64 = (function () {
     Int64.prototype.toString = function () { return this.toStr(false); };
     Int64.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, "Int64" + this._0.toStr(true));
+        return Q.nestedPars(nested, ["Int64", this._0.toStr(true)].join(' '));
     };
     Int64.prototype.match = function (m) { return m.Int64(this._0); };
     Int64.prototype.flatMaxSize = function () { return this._0.flatMaxSize(); };

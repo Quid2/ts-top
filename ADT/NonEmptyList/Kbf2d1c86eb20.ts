@@ -18,7 +18,7 @@ export class Elem <A extends Q.Flat> implements Q.Flat {
   ) { }
 
   toString():string {return this.toStr(false)}
-  toStr(nested=false):string {return Q.nestedPars(nested,"Elem"+this._0.toStr(true))}
+  toStr(nested=false):string {return Q.nestedPars(nested,["Elem",this._0.toStr(true)].join(' '))}
   match <R>(m:{Elem:(v0:A)=>R,Cons:(v0:A,v1:NonEmptyList<A>)=>R}) : R {return m.Elem(this._0);}
   flatMaxSize():number {return 1+this._0.flatMaxSize();}
   flatEncode(st:Q.EncoderState) {st.zero();this._0.flatEncode(st);}
@@ -33,7 +33,7 @@ export class Cons <A extends Q.Flat> implements Q.Flat {
   ) { }
 
   toString():string {return this.toStr(false)}
-  toStr(nested=false):string {return Q.nestedPars(nested,"Cons"+this._0.toStr(true)+this._1.toStr(true))}
+  toStr(nested=false):string {return Q.nestedPars(nested,["Cons",this._0.toStr(true),this._1.toStr(true)].join(' '))}
   match <R>(m:{Elem:(v0:A)=>R,Cons:(v0:A,v1:NonEmptyList<A>)=>R}) : R {return m.Cons(this._0,this._1);}
   flatMaxSize():number {return 1+this._0.flatMaxSize()+this._1.flatMaxSize();}
   flatEncode(st:Q.EncoderState) {st.one();this._0.flatEncode(st);this._1.flatEncode(st);}

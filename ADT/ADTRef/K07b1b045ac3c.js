@@ -26,7 +26,7 @@ var Var = (function () {
     Var.prototype.toString = function () { return this.toStr(false); };
     Var.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, "Var" + this._0.toStr(true));
+        return Q.nestedPars(nested, ["Var", this._0.toStr(true)].join(' '));
     };
     Var.prototype.match = function (m) { return m.Var(this._0); };
     Var.prototype.flatMaxSize = function () { return 1 + this._0.flatMaxSize(); };
@@ -55,7 +55,7 @@ var Ext = (function () {
     Ext.prototype.toString = function () { return this.toStr(false); };
     Ext.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, "Ext" + this._0.toStr(true));
+        return Q.nestedPars(nested, ["Ext", this._0.toStr(true)].join(' '));
     };
     Ext.prototype.match = function (m) { return m.Ext(this._0); };
     Ext.prototype.flatMaxSize = function () { return 2 + this._0.flatMaxSize(); };

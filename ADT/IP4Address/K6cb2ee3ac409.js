@@ -19,7 +19,7 @@ var IP4Address = (function () {
     IP4Address.prototype.toString = function () { return this.toStr(false); };
     IP4Address.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, "IP4Address" + this._0.toStr(true) + this._1.toStr(true) + this._2.toStr(true) + this._3.toStr(true));
+        return Q.nestedPars(nested, ["IP4Address", this._0.toStr(true), this._1.toStr(true), this._2.toStr(true), this._3.toStr(true)].join(' '));
     };
     IP4Address.prototype.match = function (m) { return m.IP4Address(this._0, this._1, this._2, this._3); };
     IP4Address.prototype.flatMaxSize = function () { return this._0.flatMaxSize() + this._1.flatMaxSize() + this._2.flatMaxSize() + this._3.flatMaxSize(); };

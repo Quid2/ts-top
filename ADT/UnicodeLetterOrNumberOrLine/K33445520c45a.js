@@ -16,7 +16,7 @@ var UnicodeLetterOrNumberOrLine = (function () {
     UnicodeLetterOrNumberOrLine.prototype.toString = function () { return this.toStr(false); };
     UnicodeLetterOrNumberOrLine.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, "UnicodeLetterOrNumberOrLine" + this._0.toStr(true));
+        return Q.nestedPars(nested, ["UnicodeLetterOrNumberOrLine", this._0.toStr(true)].join(' '));
     };
     UnicodeLetterOrNumberOrLine.prototype.match = function (m) { return m.UnicodeLetterOrNumberOrLine(this._0); };
     UnicodeLetterOrNumberOrLine.prototype.flatMaxSize = function () { return this._0.flatMaxSize(); };

@@ -19,7 +19,7 @@ export class Time  implements Q.Flat {
   ) { }
 
   toString():string {return this.toStr(false)}
-  toStr(nested=false):string {return Q.nestedPars(nested,"Time"+this.utcDay.toStr(true)+this.utcSecs.toStr(true))}
+  toStr(nested=false):string {return Q.nestedPars(nested,["Time",this.utcDay.toStr(true),this.utcSecs.toStr(true)].join(' '))}
   match <R>(m:{Time:(v0:K102a3bb904e3.Int,v1:K2412799c99f1.Word32)=>R}) : R {return m.Time(this.utcDay,this.utcSecs);}
   flatMaxSize():number {return this.utcDay.flatMaxSize()+this.utcSecs.flatMaxSize();}
   flatEncode(st:Q.EncoderState) {this.utcDay.flatEncode(st);this.utcSecs.flatEncode(st);}

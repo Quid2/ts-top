@@ -16,7 +16,7 @@ var Word64 = (function () {
     Word64.prototype.toString = function () { return this.toStr(false); };
     Word64.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, "Word64" + this._0.toStr(true));
+        return Q.nestedPars(nested, ["Word64", this._0.toStr(true)].join(' '));
     };
     Word64.prototype.match = function (m) { return m.Word64(this._0); };
     Word64.prototype.flatMaxSize = function () { return this._0.flatMaxSize(); };

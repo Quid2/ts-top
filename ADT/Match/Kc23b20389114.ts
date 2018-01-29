@@ -20,7 +20,7 @@ export class MatchValue <A extends Q.Flat> implements Q.Flat {
   ) { }
 
   toString():string {return this.toStr(false)}
-  toStr(nested=false):string {return Q.nestedPars(nested,"MatchValue"+this._0.toStr(true))}
+  toStr(nested=false):string {return Q.nestedPars(nested,["MatchValue",this._0.toStr(true)].join(' '))}
   match <R>(m:{MatchValue:(v0:A)=>R,MatchAny:(v0:K7028aa556ebc.Type<K4bbd38587b9e.AbsRef>)=>R}) : R {return m.MatchValue(this._0);}
   flatMaxSize():number {return 1+this._0.flatMaxSize();}
   flatEncode(st:Q.EncoderState) {st.zero();this._0.flatEncode(st);}
@@ -34,7 +34,7 @@ export class MatchAny <A extends Q.Flat> implements Q.Flat {
   ) { }
 
   toString():string {return this.toStr(false)}
-  toStr(nested=false):string {return Q.nestedPars(nested,"MatchAny"+this._0.toStr(true))}
+  toStr(nested=false):string {return Q.nestedPars(nested,["MatchAny",this._0.toStr(true)].join(' '))}
   match <R>(m:{MatchValue:(v0:A)=>R,MatchAny:(v0:K7028aa556ebc.Type<K4bbd38587b9e.AbsRef>)=>R}) : R {return m.MatchAny(this._0);}
   flatMaxSize():number {return 1+this._0.flatMaxSize();}
   flatEncode(st:Q.EncoderState) {st.one();this._0.flatEncode(st);}

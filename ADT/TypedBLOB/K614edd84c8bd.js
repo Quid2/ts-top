@@ -20,7 +20,7 @@ var TypedBLOB = (function () {
     TypedBLOB.prototype.toString = function () { return this.toStr(false); };
     TypedBLOB.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, "TypedBLOB" + this._0.toStr(true) + this._1.toStr(true));
+        return Q.nestedPars(nested, ["TypedBLOB", this._0.toStr(true), this._1.toStr(true)].join(' '));
     };
     TypedBLOB.prototype.match = function (m) { return m.TypedBLOB(this._0, this._1); };
     TypedBLOB.prototype.flatMaxSize = function () { return this._0.flatMaxSize() + this._1.flatMaxSize(); };

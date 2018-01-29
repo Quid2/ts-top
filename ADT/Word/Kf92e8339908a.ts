@@ -20,7 +20,7 @@ export class Word  implements Q.Flat {
   ) { }
 
   toString():string {return this.toStr(false)}
-  toStr(nested=false):string {return Q.nestedPars(nested,"Word"+this._0.toStr(true))}
+  toStr(nested=false):string {return Q.nestedPars(nested,["Word",this._0.toStr(true)].join(' '))}
   match <R>(m:{Word:(v0:K20ffacc8f8c9.LeastSignificantFirst<Kbf2d1c86eb20.NonEmptyList<K74e2b3b89941.MostSignificantFirst<Kf4c946334a7e.Word7>>>)=>R}) : R {return m.Word(this._0);}
   flatMaxSize():number {return this._0.flatMaxSize();}
   flatEncode(st:Q.EncoderState) {this._0.flatEncode(st);}

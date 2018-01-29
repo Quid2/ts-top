@@ -17,7 +17,7 @@ export class HostPort  implements Q.Flat {
   ) { }
 
   toString():string {return this.toStr(false)}
-  toStr(nested=false):string {return Q.nestedPars(nested,"HostPort"+this.port.toStr(true))}
+  toStr(nested=false):string {return Q.nestedPars(nested,["HostPort",this.port.toStr(true)].join(' '))}
   match <R>(m:{HostPort:(v0:K295e24d62fac.Word16)=>R}) : R {return m.HostPort(this.port);}
   flatMaxSize():number {return this.port.flatMaxSize();}
   flatEncode(st:Q.EncoderState) {this.port.flatEncode(st);}

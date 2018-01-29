@@ -23,7 +23,7 @@ var Bits8 = (function () {
     Bits8.prototype.toString = function () { return this.toStr(false); };
     Bits8.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, "Bits8" + this.bit0.toStr(true) + this.bit1.toStr(true) + this.bit2.toStr(true) + this.bit3.toStr(true) + this.bit4.toStr(true) + this.bit5.toStr(true) + this.bit6.toStr(true) + this.bit7.toStr(true));
+        return Q.nestedPars(nested, ["Bits8", this.bit0.toStr(true), this.bit1.toStr(true), this.bit2.toStr(true), this.bit3.toStr(true), this.bit4.toStr(true), this.bit5.toStr(true), this.bit6.toStr(true), this.bit7.toStr(true)].join(' '));
     };
     Bits8.prototype.match = function (m) { return m.Bits8(this.bit0, this.bit1, this.bit2, this.bit3, this.bit4, this.bit5, this.bit6, this.bit7); };
     Bits8.prototype.flatMaxSize = function () { return this.bit0.flatMaxSize() + this.bit1.flatMaxSize() + this.bit2.flatMaxSize() + this.bit3.flatMaxSize() + this.bit4.flatMaxSize() + this.bit5.flatMaxSize() + this.bit6.flatMaxSize() + this.bit7.flatMaxSize(); };

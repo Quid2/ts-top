@@ -60,7 +60,7 @@ function testTop() {
 exports.testTop = testTop;
 function testTopRX() {
     var received = [];
-    function log(n, v) { received.push([n, v]); }
+    function log(n, v) { received.push([n + ":" + v.toString()]); }
     var _a = __read(top_1.channel(K65149ce3b366_1.$Bit), 2), inChan = _a[0], outChan = _a[1];
     var inSubscription = inChan.subscribe({
         next: function (x) { return log("1.1", x); },
@@ -83,8 +83,7 @@ function testTopRX() {
         outChan2.next(new K65149ce3b366_1.V1);
     }, 2000);
     setTimeout(function () {
-        console.log("Received", received, received == [["2.1", new K65149ce3b366_1.V0], ["1.1", new K65149ce3b366_1.V1], ["1.2", new K65149ce3b366_1.V1]], new K65149ce3b366_1.V0 == new K65149ce3b366_1.V0, "1.1" == "1.1");
-        console.log(received, received.join(","), JSON.stringify(received), JSON.stringify(new K65149ce3b366_1.V1), (new K65149ce3b366_1.V1));
+        console.log("Received", received.toString(), received.toString() == "2.1:V0,1.1:V1,1.2:V1");
     }, 3000);
 }
 testTopRX();

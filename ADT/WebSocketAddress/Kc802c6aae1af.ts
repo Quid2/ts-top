@@ -22,7 +22,7 @@ export class WebSocketAddress <A extends Q.Flat> implements Q.Flat {
   ) { }
 
   toString():string {return this.toStr(false)}
-  toStr(nested=false):string {return Q.nestedPars(nested,"WebSocketAddress"+this.secure.toStr(true)+this.host.toStr(true)+this.path.toStr(true))}
+  toStr(nested=false):string {return Q.nestedPars(nested,["WebSocketAddress",this.secure.toStr(true),this.host.toStr(true),this.path.toStr(true)].join(' '))}
   match <R>(m:{WebSocketAddress:(v0:K306f1981b41c.Bool,v1:Ke5d02571ce7b.SocketAddress<A>,v2:Kb8cd13187198.List<K066db52af145.Char>)=>R}) : R {return m.WebSocketAddress(this.secure,this.host,this.path);}
   flatMaxSize():number {return this.secure.flatMaxSize()+this.host.flatMaxSize()+this.path.flatMaxSize();}
   flatEncode(st:Q.EncoderState) {this.secure.flatEncode(st);this.host.flatEncode(st);this.path.flatEncode(st);}

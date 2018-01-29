@@ -20,7 +20,7 @@ var Elem = (function () {
     Elem.prototype.toString = function () { return this.toStr(false); };
     Elem.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, "Elem" + this._0.toStr(true));
+        return Q.nestedPars(nested, ["Elem", this._0.toStr(true)].join(' '));
     };
     Elem.prototype.match = function (m) { return m.Elem(this._0); };
     Elem.prototype.flatMaxSize = function () { return 1 + this._0.flatMaxSize(); };
@@ -36,7 +36,7 @@ var Cons = (function () {
     Cons.prototype.toString = function () { return this.toStr(false); };
     Cons.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, "Cons" + this._0.toStr(true) + this._1.toStr(true));
+        return Q.nestedPars(nested, ["Cons", this._0.toStr(true), this._1.toStr(true)].join(' '));
     };
     Cons.prototype.match = function (m) { return m.Cons(this._0, this._1); };
     Cons.prototype.flatMaxSize = function () { return 1 + this._0.flatMaxSize() + this._1.flatMaxSize(); };

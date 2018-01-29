@@ -21,7 +21,7 @@ var Msg = (function () {
     Msg.prototype.toString = function () { return this.toStr(false); };
     Msg.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, "Msg" + this.fromUser.toStr(true) + this.subject.toStr(true) + this.content.toStr(true));
+        return Q.nestedPars(nested, ["Msg", this.fromUser.toStr(true), this.subject.toStr(true), this.content.toStr(true)].join(' '));
     };
     Msg.prototype.match = function (m) { return m.Msg(this.fromUser, this.subject, this.content); };
     Msg.prototype.flatMaxSize = function () { return this.fromUser.flatMaxSize() + this.subject.flatMaxSize() + this.content.flatMaxSize(); };

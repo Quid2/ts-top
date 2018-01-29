@@ -15,7 +15,7 @@ var ZigZag = (function () {
     ZigZag.prototype.toString = function () { return this.toStr(false); };
     ZigZag.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, "ZigZag" + this._0.toStr(true));
+        return Q.nestedPars(nested, ["ZigZag", this._0.toStr(true)].join(' '));
     };
     ZigZag.prototype.match = function (m) { return m.ZigZag(this._0); };
     ZigZag.prototype.flatMaxSize = function () { return this._0.flatMaxSize(); };

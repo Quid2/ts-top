@@ -16,7 +16,7 @@ var Word16 = (function () {
     Word16.prototype.toString = function () { return this.toStr(false); };
     Word16.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, "Word16" + this._0.toStr(true));
+        return Q.nestedPars(nested, ["Word16", this._0.toStr(true)].join(' '));
     };
     Word16.prototype.match = function (m) { return m.Word16(this._0); };
     Word16.prototype.flatMaxSize = function () { return this._0.flatMaxSize(); };

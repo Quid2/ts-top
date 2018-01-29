@@ -16,7 +16,7 @@ var UnicodeLetter = (function () {
     UnicodeLetter.prototype.toString = function () { return this.toStr(false); };
     UnicodeLetter.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, "UnicodeLetter" + this._0.toStr(true));
+        return Q.nestedPars(nested, ["UnicodeLetter", this._0.toStr(true)].join(' '));
     };
     UnicodeLetter.prototype.match = function (m) { return m.UnicodeLetter(this._0); };
     UnicodeLetter.prototype.flatMaxSize = function () { return this._0.flatMaxSize(); };

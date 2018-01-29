@@ -21,7 +21,7 @@ var IEEE_754_binary32 = (function () {
     IEEE_754_binary32.prototype.toString = function () { return this.toStr(false); };
     IEEE_754_binary32.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, "IEEE_754_binary32" + this.sign.toStr(true) + this.exponent.toStr(true) + this.fraction.toStr(true));
+        return Q.nestedPars(nested, ["IEEE_754_binary32", this.sign.toStr(true), this.exponent.toStr(true), this.fraction.toStr(true)].join(' '));
     };
     IEEE_754_binary32.prototype.match = function (m) { return m.IEEE_754_binary32(this.sign, this.exponent, this.fraction); };
     IEEE_754_binary32.prototype.flatMaxSize = function () { return this.sign.flatMaxSize() + this.exponent.flatMaxSize() + this.fraction.flatMaxSize(); };

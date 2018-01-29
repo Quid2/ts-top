@@ -17,7 +17,7 @@ var Int = (function () {
     Int.prototype.toString = function () { return this.toStr(false); };
     Int.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, "Int" + this._0.toStr(true));
+        return Q.nestedPars(nested, ["Int", this._0.toStr(true)].join(' '));
     };
     Int.prototype.match = function (m) { return m.Int(this._0); };
     Int.prototype.flatMaxSize = function () { return this._0.flatMaxSize(); };

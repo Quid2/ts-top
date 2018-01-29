@@ -25,7 +25,7 @@ var Con = (function () {
     Con.prototype.toString = function () { return this.toStr(false); };
     Con.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, "Con" + this.constrName.toStr(true) + this.constrFields.toStr(true));
+        return Q.nestedPars(nested, ["Con", this.constrName.toStr(true), this.constrFields.toStr(true)].join(' '));
     };
     Con.prototype.match = function (m) { return m.Con(this.constrName, this.constrFields); };
     Con.prototype.flatMaxSize = function () { return 1 + this.constrName.flatMaxSize() + this.constrFields.flatMaxSize(); };
@@ -41,7 +41,7 @@ var _ConTree = (function () {
     _ConTree.prototype.toString = function () { return this.toStr(false); };
     _ConTree.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, "ConTree" + this._0.toStr(true) + this._1.toStr(true));
+        return Q.nestedPars(nested, ["ConTree", this._0.toStr(true), this._1.toStr(true)].join(' '));
     };
     _ConTree.prototype.match = function (m) { return m.ConTree(this._0, this._1); };
     _ConTree.prototype.flatMaxSize = function () { return 1 + this._0.flatMaxSize() + this._1.flatMaxSize(); };

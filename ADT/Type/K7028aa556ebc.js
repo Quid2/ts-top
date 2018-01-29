@@ -20,7 +20,7 @@ var TypeCon = (function () {
     TypeCon.prototype.toString = function () { return this.toStr(false); };
     TypeCon.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, "TypeCon" + this._0.toStr(true));
+        return Q.nestedPars(nested, ["TypeCon", this._0.toStr(true)].join(' '));
     };
     TypeCon.prototype.match = function (m) { return m.TypeCon(this._0); };
     TypeCon.prototype.flatMaxSize = function () { return 1 + this._0.flatMaxSize(); };
@@ -36,7 +36,7 @@ var TypeApp = (function () {
     TypeApp.prototype.toString = function () { return this.toStr(false); };
     TypeApp.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, "TypeApp" + this._0.toStr(true) + this._1.toStr(true));
+        return Q.nestedPars(nested, ["TypeApp", this._0.toStr(true), this._1.toStr(true)].join(' '));
     };
     TypeApp.prototype.match = function (m) { return m.TypeApp(this._0, this._1); };
     TypeApp.prototype.flatMaxSize = function () { return 1 + this._0.flatMaxSize() + this._1.flatMaxSize(); };

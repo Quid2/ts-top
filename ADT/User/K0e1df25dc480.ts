@@ -18,7 +18,7 @@ export class User  implements Q.Flat {
   ) { }
 
   toString():string {return this.toStr(false)}
-  toStr(nested=false):string {return Q.nestedPars(nested,"User"+this.userName.toStr(true))}
+  toStr(nested=false):string {return Q.nestedPars(nested,["User",this.userName.toStr(true)].join(' '))}
   match <R>(m:{User:(v0:Kb8cd13187198.List<K066db52af145.Char>)=>R}) : R {return m.User(this.userName);}
   flatMaxSize():number {return this.userName.flatMaxSize();}
   flatEncode(st:Q.EncoderState) {this.userName.flatEncode(st);}

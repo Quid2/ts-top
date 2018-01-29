@@ -16,7 +16,7 @@ var Celsius = (function () {
     Celsius.prototype.toString = function () { return this.toStr(false); };
     Celsius.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, "Celsius" + this._0.toStr(true));
+        return Q.nestedPars(nested, ["Celsius", this._0.toStr(true)].join(' '));
     };
     Celsius.prototype.match = function (m) { return m.Celsius(this._0); };
     Celsius.prototype.flatMaxSize = function () { return this._0.flatMaxSize(); };

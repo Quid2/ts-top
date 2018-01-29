@@ -16,7 +16,7 @@ var UnicodeSymbol = (function () {
     UnicodeSymbol.prototype.toString = function () { return this.toStr(false); };
     UnicodeSymbol.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, "UnicodeSymbol" + this._0.toStr(true));
+        return Q.nestedPars(nested, ["UnicodeSymbol", this._0.toStr(true)].join(' '));
     };
     UnicodeSymbol.prototype.match = function (m) { return m.UnicodeSymbol(this._0); };
     UnicodeSymbol.prototype.flatMaxSize = function () { return this._0.flatMaxSize(); };

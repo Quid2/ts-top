@@ -26,7 +26,7 @@ var Bits11 = (function () {
     Bits11.prototype.toString = function () { return this.toStr(false); };
     Bits11.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, "Bits11" + this.bit0.toStr(true) + this.bit1.toStr(true) + this.bit2.toStr(true) + this.bit3.toStr(true) + this.bit4.toStr(true) + this.bit5.toStr(true) + this.bit6.toStr(true) + this.bit7.toStr(true) + this.bit8.toStr(true) + this.bit9.toStr(true) + this.bit10.toStr(true));
+        return Q.nestedPars(nested, ["Bits11", this.bit0.toStr(true), this.bit1.toStr(true), this.bit2.toStr(true), this.bit3.toStr(true), this.bit4.toStr(true), this.bit5.toStr(true), this.bit6.toStr(true), this.bit7.toStr(true), this.bit8.toStr(true), this.bit9.toStr(true), this.bit10.toStr(true)].join(' '));
     };
     Bits11.prototype.match = function (m) { return m.Bits11(this.bit0, this.bit1, this.bit2, this.bit3, this.bit4, this.bit5, this.bit6, this.bit7, this.bit8, this.bit9, this.bit10); };
     Bits11.prototype.flatMaxSize = function () { return this.bit0.flatMaxSize() + this.bit1.flatMaxSize() + this.bit2.flatMaxSize() + this.bit3.flatMaxSize() + this.bit4.flatMaxSize() + this.bit5.flatMaxSize() + this.bit6.flatMaxSize() + this.bit7.flatMaxSize() + this.bit8.flatMaxSize() + this.bit9.flatMaxSize() + this.bit10.flatMaxSize(); };

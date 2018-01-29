@@ -22,7 +22,7 @@ var TextMsg = (function () {
     TextMsg.prototype.toString = function () { return this.toStr(false); };
     TextMsg.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, "TextMsg" + this._0.toStr(true));
+        return Q.nestedPars(nested, ["TextMsg", this._0.toStr(true)].join(' '));
     };
     TextMsg.prototype.match = function (m) { return m.TextMsg(this._0); };
     TextMsg.prototype.flatMaxSize = function () { return 1 + this._0.flatMaxSize(); };

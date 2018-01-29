@@ -18,7 +18,7 @@ var SocketAddress = (function () {
     SocketAddress.prototype.toString = function () { return this.toStr(false); };
     SocketAddress.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, "SocketAddress" + this.socketAddress.toStr(true) + this.socketPort.toStr(true));
+        return Q.nestedPars(nested, ["SocketAddress", this.socketAddress.toStr(true), this.socketPort.toStr(true)].join(' '));
     };
     SocketAddress.prototype.match = function (m) { return m.SocketAddress(this.socketAddress, this.socketPort); };
     SocketAddress.prototype.flatMaxSize = function () { return this.socketAddress.flatMaxSize() + this.socketPort.flatMaxSize(); };

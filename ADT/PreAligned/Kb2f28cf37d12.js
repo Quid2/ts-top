@@ -17,7 +17,7 @@ var PreAligned = (function () {
     PreAligned.prototype.toString = function () { return this.toStr(false); };
     PreAligned.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, "PreAligned" + this.preFiller.toStr(true) + this.preValue.toStr(true));
+        return Q.nestedPars(nested, ["PreAligned", this.preFiller.toStr(true), this.preValue.toStr(true)].join(' '));
     };
     PreAligned.prototype.match = function (m) { return m.PreAligned(this.preFiller, this.preValue); };
     PreAligned.prototype.flatMaxSize = function () { return this.preFiller.flatMaxSize() + this.preValue.flatMaxSize(); };

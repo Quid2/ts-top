@@ -16,7 +16,7 @@ var Tuple2 = (function () {
     Tuple2.prototype.toString = function () { return this.toStr(false); };
     Tuple2.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, "Tuple2" + this._0.toStr(true) + this._1.toStr(true));
+        return Q.nestedPars(nested, ["Tuple2", this._0.toStr(true), this._1.toStr(true)].join(' '));
     };
     Tuple2.prototype.match = function (m) { return m.Tuple2(this._0, this._1); };
     Tuple2.prototype.flatMaxSize = function () { return this._0.flatMaxSize() + this._1.flatMaxSize(); };

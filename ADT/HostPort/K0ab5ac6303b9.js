@@ -16,7 +16,7 @@ var HostPort = (function () {
     HostPort.prototype.toString = function () { return this.toStr(false); };
     HostPort.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, "HostPort" + this.port.toStr(true));
+        return Q.nestedPars(nested, ["HostPort", this.port.toStr(true)].join(' '));
     };
     HostPort.prototype.match = function (m) { return m.HostPort(this.port); };
     HostPort.prototype.flatMaxSize = function () { return this.port.flatMaxSize(); };

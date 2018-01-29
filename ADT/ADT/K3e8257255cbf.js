@@ -20,7 +20,7 @@ var ADT = (function () {
     ADT.prototype.toString = function () { return this.toStr(false); };
     ADT.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, "ADT" + this.declName.toStr(true) + this.declNumParameters.toStr(true) + this.declCons.toStr(true));
+        return Q.nestedPars(nested, ["ADT", this.declName.toStr(true), this.declNumParameters.toStr(true), this.declCons.toStr(true)].join(' '));
     };
     ADT.prototype.match = function (m) { return m.ADT(this.declName, this.declNumParameters, this.declCons); };
     ADT.prototype.flatMaxSize = function () { return this.declName.flatMaxSize() + this.declNumParameters.flatMaxSize() + this.declCons.flatMaxSize(); };

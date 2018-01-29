@@ -17,7 +17,7 @@ export class Tuple2 <A extends Q.Flat,B extends Q.Flat> implements Q.Flat {
   ) { }
 
   toString():string {return this.toStr(false)}
-  toStr(nested=false):string {return Q.nestedPars(nested,"Tuple2"+this._0.toStr(true)+this._1.toStr(true))}
+  toStr(nested=false):string {return Q.nestedPars(nested,["Tuple2",this._0.toStr(true),this._1.toStr(true)].join(' '))}
   match <R>(m:{Tuple2:(v0:A,v1:B)=>R}) : R {return m.Tuple2(this._0,this._1);}
   flatMaxSize():number {return this._0.flatMaxSize()+this._1.flatMaxSize();}
   flatEncode(st:Q.EncoderState) {this._0.flatEncode(st);this._1.flatEncode(st);}

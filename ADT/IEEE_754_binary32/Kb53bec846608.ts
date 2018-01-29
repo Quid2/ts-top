@@ -22,7 +22,7 @@ export class IEEE_754_binary32  implements Q.Flat {
   ) { }
 
   toString():string {return this.toStr(false)}
-  toStr(nested=false):string {return Q.nestedPars(nested,"IEEE_754_binary32"+this.sign.toStr(true)+this.exponent.toStr(true)+this.fraction.toStr(true))}
+  toStr(nested=false):string {return Q.nestedPars(nested,["IEEE_754_binary32",this.sign.toStr(true),this.exponent.toStr(true),this.fraction.toStr(true)].join(' '))}
   match <R>(m:{IEEE_754_binary32:(v0:K549f91f3b0ec.Sign,v1:K74e2b3b89941.MostSignificantFirst<K9e3b8c835fe9.Bits8>,v2:K74e2b3b89941.MostSignificantFirst<K338888222364.Bits23>)=>R}) : R {return m.IEEE_754_binary32(this.sign,this.exponent,this.fraction);}
   flatMaxSize():number {return this.sign.flatMaxSize()+this.exponent.flatMaxSize()+this.fraction.flatMaxSize();}
   flatEncode(st:Q.EncoderState) {this.sign.flatEncode(st);this.exponent.flatEncode(st);this.fraction.flatEncode(st);}

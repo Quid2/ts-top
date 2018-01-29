@@ -26,7 +26,7 @@ var Name = (function () {
     Name.prototype.toString = function () { return this.toStr(false); };
     Name.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, "Name" + this._0.toStr(true) + this._1.toStr(true));
+        return Q.nestedPars(nested, ["Name", this._0.toStr(true), this._1.toStr(true)].join(' '));
     };
     Name.prototype.match = function (m) { return m.Name(this._0, this._1); };
     Name.prototype.flatMaxSize = function () { return 1 + this._0.flatMaxSize() + this._1.flatMaxSize(); };
@@ -41,7 +41,7 @@ var Symbol = (function () {
     Symbol.prototype.toString = function () { return this.toStr(false); };
     Symbol.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, "Symbol" + this._0.toStr(true));
+        return Q.nestedPars(nested, ["Symbol", this._0.toStr(true)].join(' '));
     };
     Symbol.prototype.match = function (m) { return m.Symbol(this._0); };
     Symbol.prototype.flatMaxSize = function () { return 1 + this._0.flatMaxSize(); };

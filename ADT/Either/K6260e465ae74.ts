@@ -18,7 +18,7 @@ export class Left <A extends Q.Flat,B extends Q.Flat> implements Q.Flat {
   ) { }
 
   toString():string {return this.toStr(false)}
-  toStr(nested=false):string {return Q.nestedPars(nested,"Left"+this._0.toStr(true))}
+  toStr(nested=false):string {return Q.nestedPars(nested,["Left",this._0.toStr(true)].join(' '))}
   match <R>(m:{Left:(v0:A)=>R,Right:(v0:B)=>R}) : R {return m.Left(this._0);}
   flatMaxSize():number {return 1+this._0.flatMaxSize();}
   flatEncode(st:Q.EncoderState) {st.zero();this._0.flatEncode(st);}
@@ -32,7 +32,7 @@ export class Right <A extends Q.Flat,B extends Q.Flat> implements Q.Flat {
   ) { }
 
   toString():string {return this.toStr(false)}
-  toStr(nested=false):string {return Q.nestedPars(nested,"Right"+this._0.toStr(true))}
+  toStr(nested=false):string {return Q.nestedPars(nested,["Right",this._0.toStr(true)].join(' '))}
   match <R>(m:{Left:(v0:A)=>R,Right:(v0:B)=>R}) : R {return m.Right(this._0);}
   flatMaxSize():number {return 1+this._0.flatMaxSize();}
   flatEncode(st:Q.EncoderState) {st.one();this._0.flatEncode(st);}

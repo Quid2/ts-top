@@ -17,7 +17,7 @@ var BLOB = (function () {
     BLOB.prototype.toString = function () { return this.toStr(false); };
     BLOB.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, "BLOB" + this.encoding.toStr(true) + this.content.toStr(true));
+        return Q.nestedPars(nested, ["BLOB", this.encoding.toStr(true), this.content.toStr(true)].join(' '));
     };
     BLOB.prototype.match = function (m) { return m.BLOB(this.encoding, this.content); };
     BLOB.prototype.flatMaxSize = function () { return this.encoding.flatMaxSize() + this.content.flatMaxSize(); };

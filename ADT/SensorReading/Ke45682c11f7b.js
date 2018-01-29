@@ -16,7 +16,7 @@ var SensorReading = (function () {
     SensorReading.prototype.toString = function () { return this.toStr(false); };
     SensorReading.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, "SensorReading" + this.reading.toStr(true) + this.location.toStr(true));
+        return Q.nestedPars(nested, ["SensorReading", this.reading.toStr(true), this.location.toStr(true)].join(' '));
     };
     SensorReading.prototype.match = function (m) { return m.SensorReading(this.reading, this.location); };
     SensorReading.prototype.flatMaxSize = function () { return this.reading.flatMaxSize() + this.location.flatMaxSize(); };

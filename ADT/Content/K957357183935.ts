@@ -20,7 +20,7 @@ export class TextMessage <A extends Q.Flat,B extends Q.Flat> implements Q.Flat {
   ) { }
 
   toString():string {return this.toStr(false)}
-  toStr(nested=false):string {return Q.nestedPars(nested,"TextMessage"+this._0.toStr(true))}
+  toStr(nested=false):string {return Q.nestedPars(nested,["TextMessage",this._0.toStr(true)].join(' '))}
   match <R>(m:{TextMessage:(v0:Kb8cd13187198.List<K066db52af145.Char>)=>R,AskSubSubjects:R,Join:R,Leave:R,Ping:R,AskUsers:R,Users:(v0:Kb8cd13187198.List<A>)=>R,AskHistory:R,History:(v0:Kb8cd13187198.List<B>)=>R}) : R {return m.TextMessage(this._0);}
   flatMaxSize():number {return 3+this._0.flatMaxSize();}
   flatEncode(st:Q.EncoderState) {st.zero();st.zero();st.zero();this._0.flatEncode(st);}
@@ -84,7 +84,7 @@ export class Users <A extends Q.Flat,B extends Q.Flat> implements Q.Flat {
   ) { }
 
   toString():string {return this.toStr(false)}
-  toStr(nested=false):string {return Q.nestedPars(nested,"Users"+this._0.toStr(true))}
+  toStr(nested=false):string {return Q.nestedPars(nested,["Users",this._0.toStr(true)].join(' '))}
   match <R>(m:{TextMessage:(v0:Kb8cd13187198.List<K066db52af145.Char>)=>R,AskSubSubjects:R,Join:R,Leave:R,Ping:R,AskUsers:R,Users:(v0:Kb8cd13187198.List<A>)=>R,AskHistory:R,History:(v0:Kb8cd13187198.List<B>)=>R}) : R {return m.Users(this._0);}
   flatMaxSize():number {return 3+this._0.flatMaxSize();}
   flatEncode(st:Q.EncoderState) {st.one();st.one();st.zero();this._0.flatEncode(st);}
@@ -108,7 +108,7 @@ export class History <A extends Q.Flat,B extends Q.Flat> implements Q.Flat {
   ) { }
 
   toString():string {return this.toStr(false)}
-  toStr(nested=false):string {return Q.nestedPars(nested,"History"+this._0.toStr(true))}
+  toStr(nested=false):string {return Q.nestedPars(nested,["History",this._0.toStr(true)].join(' '))}
   match <R>(m:{TextMessage:(v0:Kb8cd13187198.List<K066db52af145.Char>)=>R,AskSubSubjects:R,Join:R,Leave:R,Ping:R,AskUsers:R,Users:(v0:Kb8cd13187198.List<A>)=>R,AskHistory:R,History:(v0:Kb8cd13187198.List<B>)=>R}) : R {return m.History(this._0);}
   flatMaxSize():number {return 4+this._0.flatMaxSize();}
   flatEncode(st:Q.EncoderState) {st.one();st.one();st.one();st.one();this._0.flatEncode(st);}

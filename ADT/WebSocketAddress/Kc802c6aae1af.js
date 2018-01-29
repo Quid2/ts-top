@@ -21,7 +21,7 @@ var WebSocketAddress = (function () {
     WebSocketAddress.prototype.toString = function () { return this.toStr(false); };
     WebSocketAddress.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, "WebSocketAddress" + this.secure.toStr(true) + this.host.toStr(true) + this.path.toStr(true));
+        return Q.nestedPars(nested, ["WebSocketAddress", this.secure.toStr(true), this.host.toStr(true), this.path.toStr(true)].join(' '));
     };
     WebSocketAddress.prototype.match = function (m) { return m.WebSocketAddress(this.secure, this.host, this.path); };
     WebSocketAddress.prototype.flatMaxSize = function () { return this.secure.flatMaxSize() + this.host.flatMaxSize() + this.path.flatMaxSize(); };

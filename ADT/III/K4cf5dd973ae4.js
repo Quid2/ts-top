@@ -28,7 +28,7 @@ var III = (function () {
     III.prototype.toString = function () { return this.toStr(false); };
     III.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, "III" + this.w8.toStr(true) + this.w16.toStr(true) + this.w.toStr(true) + this.i8.toStr(true) + this.i.toStr(true) + this.f.toStr(true) + this.d.toStr(true) + this.ii.toStr(true));
+        return Q.nestedPars(nested, ["III", this.w8.toStr(true), this.w16.toStr(true), this.w.toStr(true), this.i8.toStr(true), this.i.toStr(true), this.f.toStr(true), this.d.toStr(true), this.ii.toStr(true)].join(' '));
     };
     III.prototype.match = function (m) { return m.III(this.w8, this.w16, this.w, this.i8, this.i, this.f, this.d, this.ii); };
     III.prototype.flatMaxSize = function () { return this.w8.flatMaxSize() + this.w16.flatMaxSize() + this.w.flatMaxSize() + this.i8.flatMaxSize() + this.i.flatMaxSize() + this.f.flatMaxSize() + this.d.flatMaxSize() + this.ii.flatMaxSize(); };

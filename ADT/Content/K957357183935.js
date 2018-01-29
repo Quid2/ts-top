@@ -57,7 +57,7 @@ var TextMessage = (function () {
     TextMessage.prototype.toString = function () { return this.toStr(false); };
     TextMessage.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, "TextMessage" + this._0.toStr(true));
+        return Q.nestedPars(nested, ["TextMessage", this._0.toStr(true)].join(' '));
     };
     TextMessage.prototype.match = function (m) { return m.TextMessage(this._0); };
     TextMessage.prototype.flatMaxSize = function () { return 3 + this._0.flatMaxSize(); };
@@ -142,7 +142,7 @@ var Users = (function () {
     Users.prototype.toString = function () { return this.toStr(false); };
     Users.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, "Users" + this._0.toStr(true));
+        return Q.nestedPars(nested, ["Users", this._0.toStr(true)].join(' '));
     };
     Users.prototype.match = function (m) { return m.Users(this._0); };
     Users.prototype.flatMaxSize = function () { return 3 + this._0.flatMaxSize(); };
@@ -171,7 +171,7 @@ var History = (function () {
     History.prototype.toString = function () { return this.toStr(false); };
     History.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, "History" + this._0.toStr(true));
+        return Q.nestedPars(nested, ["History", this._0.toStr(true)].join(' '));
     };
     History.prototype.match = function (m) { return m.History(this._0); };
     History.prototype.flatMaxSize = function () { return 4 + this._0.flatMaxSize(); };

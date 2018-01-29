@@ -41,7 +41,7 @@ var Record = (function () {
     Record.prototype.toString = function () { return this.toStr(false); };
     Record.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, "Record" + this._0.toStr(true));
+        return Q.nestedPars(nested, ["Record", this._0.toStr(true)].join(' '));
     };
     Record.prototype.match = function (m) { return m.Record(this._0); };
     Record.prototype.flatMaxSize = function () { return 2 + this._0.flatMaxSize(); };
@@ -56,7 +56,7 @@ var Solve = (function () {
     Solve.prototype.toString = function () { return this.toStr(false); };
     Solve.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, "Solve" + this._0.toStr(true));
+        return Q.nestedPars(nested, ["Solve", this._0.toStr(true)].join(' '));
     };
     Solve.prototype.match = function (m) { return m.Solve(this._0); };
     Solve.prototype.flatMaxSize = function () { return 2 + this._0.flatMaxSize(); };
@@ -72,7 +72,7 @@ var Solved = (function () {
     Solved.prototype.toString = function () { return this.toStr(false); };
     Solved.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, "Solved" + this._0.toStr(true) + this._1.toStr(true));
+        return Q.nestedPars(nested, ["Solved", this._0.toStr(true), this._1.toStr(true)].join(' '));
     };
     Solved.prototype.match = function (m) { return m.Solved(this._0, this._1); };
     Solved.prototype.flatMaxSize = function () { return 2 + this._0.flatMaxSize() + this._1.flatMaxSize(); };
@@ -101,7 +101,7 @@ var KnownDataTypes = (function () {
     KnownDataTypes.prototype.toString = function () { return this.toStr(false); };
     KnownDataTypes.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, "KnownDataTypes" + this._0.toStr(true));
+        return Q.nestedPars(nested, ["KnownDataTypes", this._0.toStr(true)].join(' '));
     };
     KnownDataTypes.prototype.match = function (m) { return m.KnownDataTypes(this._0); };
     KnownDataTypes.prototype.flatMaxSize = function () { return 3 + this._0.flatMaxSize(); };

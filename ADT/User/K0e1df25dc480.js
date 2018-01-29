@@ -17,7 +17,7 @@ var User = (function () {
     User.prototype.toString = function () { return this.toStr(false); };
     User.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, "User" + this.userName.toStr(true));
+        return Q.nestedPars(nested, ["User", this.userName.toStr(true)].join(' '));
     };
     User.prototype.match = function (m) { return m.User(this.userName); };
     User.prototype.flatMaxSize = function () { return this.userName.flatMaxSize(); };
