@@ -1,23 +1,23 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var index_1 = require("../index");
-var K87f090a54ea3_1 = require("../ADT/ByType/K87f090a54ea3");
-var K65149ce3b366_1 = require("../ADT/Bit/K65149ce3b366");
-var Kb1f46a49c8f8_1 = require("../ADT/Word8/Kb1f46a49c8f8");
-var Kf4c946334a7e_1 = require("../ADT/Word7/Kf4c946334a7e");
-var Kbf2d1c86eb20_1 = require("../ADT/NonEmptyList/Kbf2d1c86eb20");
-var K6260e465ae74_1 = require("../ADT/Either/K6260e465ae74");
-var Kda6836778fd4_1 = require("../ADT/Maybe/Kda6836778fd4");
-var K306f1981b41c_1 = require("../ADT/Bool/K306f1981b41c");
-var Kc6627a317dbc_1 = require("../ADT/ChannelSelectionResult/Kc6627a317dbc");
-var Kc802c6aae1af_1 = require("../ADT/WebSocketAddress/Kc802c6aae1af");
-var K6cb2ee3ac409_1 = require("../ADT/IP4Address/K6cb2ee3ac409");
-var Kb8cd13187198_1 = require("../ADT/List/Kb8cd13187198");
-var K2e8b4519aeaa_1 = require("../ADT/Array/K2e8b4519aeaa");
-var Kf8844385a443_1 = require("../ADT/Bytes/Kf8844385a443");
-var Ka5583bf3ad34_1 = require("../ADT/Tuple2/Ka5583bf3ad34");
-var K295e24d62fac_1 = require("../ADT/Word16/K295e24d62fac");
-var K066db52af145_1 = require("../ADT/Char/K066db52af145");
+const index_1 = require("../index");
+const K87f090a54ea3_1 = require("../ADT/ByType/K87f090a54ea3");
+const K65149ce3b366_1 = require("../ADT/Bit/K65149ce3b366");
+const Kb1f46a49c8f8_1 = require("../ADT/Word8/Kb1f46a49c8f8");
+const Kf4c946334a7e_1 = require("../ADT/Word7/Kf4c946334a7e");
+const Kbf2d1c86eb20_1 = require("../ADT/NonEmptyList/Kbf2d1c86eb20");
+const K6260e465ae74_1 = require("../ADT/Either/K6260e465ae74");
+const Kda6836778fd4_1 = require("../ADT/Maybe/Kda6836778fd4");
+const K306f1981b41c_1 = require("../ADT/Bool/K306f1981b41c");
+const Kc6627a317dbc_1 = require("../ADT/ChannelSelectionResult/Kc6627a317dbc");
+const Kc802c6aae1af_1 = require("../ADT/WebSocketAddress/Kc802c6aae1af");
+const K6cb2ee3ac409_1 = require("../ADT/IP4Address/K6cb2ee3ac409");
+const Kb8cd13187198_1 = require("../ADT/List/Kb8cd13187198");
+const K2e8b4519aeaa_1 = require("../ADT/Array/K2e8b4519aeaa");
+const Kf8844385a443_1 = require("../ADT/Bytes/Kf8844385a443");
+const Ka5583bf3ad34_1 = require("../ADT/Tuple2/Ka5583bf3ad34");
+const K295e24d62fac_1 = require("../ADT/Word16/K295e24d62fac");
+const K066db52af145_1 = require("../ADT/Char/K066db52af145");
 function flatS(v, exp) {
     console.log("");
     console.log("Val:");
@@ -67,5 +67,15 @@ function testFlat() {
     flatT(Kbf2d1c86eb20_1.$NonEmptyList(K65149ce3b366_1.$Bit), new Kbf2d1c86eb20_1.Cons(new K65149ce3b366_1.V0, new Kbf2d1c86eb20_1.Cons(new K65149ce3b366_1.V1, new Kbf2d1c86eb20_1.Elem(new K65149ce3b366_1.V0))));
     flatT(K066db52af145_1.$Char, new K066db52af145_1.Char('a'));
 }
-testFlat();
+function testCore() {
+    const l0 = new Kb8cd13187198_1.Nil;
+    const l1 = new Kb8cd13187198_1.Cons(new K65149ce3b366_1.V0, new Kb8cd13187198_1.Cons(new K65149ce3b366_1.V1, new Kb8cd13187198_1.Nil));
+    console.log(l0.toString());
+    for (var n0 of l0)
+        console.log(n0);
+    console.log(l1.toString());
+    for (var n1 of l1)
+        console.log(n1);
+}
+testCore();
 //# sourceMappingURL=test-flat.js.map

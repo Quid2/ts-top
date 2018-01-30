@@ -7,18 +7,14 @@ exports.___ = {
         return function (st) { return new Word7(st.bits8(7)); };
     }
 };
-var Word7 = (function () {
-    function Word7(value) {
+class Word7 {
+    constructor(value) {
         this.value = value;
     }
-    Word7.prototype.flatMaxSize = function () { return 7; };
-    Word7.prototype.flatEncode = function (st) { st.bits(7, this.value); };
-    Word7.prototype.toString = function () { return this.toStr(); };
-    Word7.prototype.toStr = function (nested) {
-        if (nested === void 0) { nested = false; }
-        return this.value.toString();
-    };
-    return Word7;
-}());
+    flatMaxSize() { return 7; }
+    flatEncode(st) { st.bits(7, this.value); }
+    toString() { return this.toStr(); }
+    toStr(nested = false) { return this.value.toString(); }
+}
 exports.Word7 = Word7;
 //# sourceMappingURL=Word7.js.map

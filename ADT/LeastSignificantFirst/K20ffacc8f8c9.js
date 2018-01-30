@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Q = require("../../core");
+const Q = require("../../core");
 exports.$LeastSignificantFirst = function (t1) { return function (f) { return f(exports.___, [t1(f)]); }; };
 exports.___ = {
     zid: [0x20, 0xff, 0xac, 0xc8, 0xf8, 0xc9],
@@ -8,19 +8,15 @@ exports.___ = {
         return function (st) { return new LeastSignificantFirst(decoders[0](st)); };
     }
 };
-var LeastSignificantFirst = (function () {
-    function LeastSignificantFirst(_0) {
+class LeastSignificantFirst {
+    constructor(_0) {
         this._0 = _0;
     }
-    LeastSignificantFirst.prototype.toString = function () { return this.toStr(false); };
-    LeastSignificantFirst.prototype.toStr = function (nested) {
-        if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, ["LeastSignificantFirst", this._0.toStr(true)].join(' '));
-    };
-    LeastSignificantFirst.prototype.match = function (m) { return m.LeastSignificantFirst(this._0); };
-    LeastSignificantFirst.prototype.flatMaxSize = function () { return this._0.flatMaxSize(); };
-    LeastSignificantFirst.prototype.flatEncode = function (st) { this._0.flatEncode(st); };
-    return LeastSignificantFirst;
-}());
+    toString() { return this.toStr(false); }
+    toStr(nested = false) { return Q.nestedPars(nested, ["LeastSignificantFirst", this._0.toStr(true)].join(' ')); }
+    match(m) { return m.LeastSignificantFirst(this._0); }
+    flatMaxSize() { return this._0.flatMaxSize(); }
+    flatEncode(st) { this._0.flatEncode(st); }
+}
 exports.LeastSignificantFirst = LeastSignificantFirst;
 //# sourceMappingURL=K20ffacc8f8c9.js.map

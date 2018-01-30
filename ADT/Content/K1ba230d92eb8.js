@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Q = require("../../core");
-var Kb8cd13187198 = require("../List/Kb8cd13187198");
-var K066db52af145 = require("../Char/K066db52af145");
+const Q = require("../../core");
+const Kb8cd13187198 = require("../List/Kb8cd13187198");
+const K066db52af145 = require("../Char/K066db52af145");
 exports.$Content = function (f) { return f(exports.___, []); };
 exports.___ = {
     zid: [0x1b, 0xa2, 0x30, 0xd9, 0x2e, 0xb8],
@@ -15,33 +15,23 @@ exports.___ = {
         } };
     }
 };
-var TextMsg = (function () {
-    function TextMsg(_0) {
+class TextMsg {
+    constructor(_0) {
         this._0 = _0;
     }
-    TextMsg.prototype.toString = function () { return this.toStr(false); };
-    TextMsg.prototype.toStr = function (nested) {
-        if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, ["TextMsg", this._0.toStr(true)].join(' '));
-    };
-    TextMsg.prototype.match = function (m) { return m.TextMsg(this._0); };
-    TextMsg.prototype.flatMaxSize = function () { return 1 + this._0.flatMaxSize(); };
-    TextMsg.prototype.flatEncode = function (st) { st.zero(); this._0.flatEncode(st); };
-    return TextMsg;
-}());
+    toString() { return this.toStr(false); }
+    toStr(nested = false) { return Q.nestedPars(nested, ["TextMsg", this._0.toStr(true)].join(' ')); }
+    match(m) { return m.TextMsg(this._0); }
+    flatMaxSize() { return 1 + this._0.flatMaxSize(); }
+    flatEncode(st) { st.zero(); this._0.flatEncode(st); }
+}
 exports.TextMsg = TextMsg;
-var Join = (function () {
-    function Join() {
-    }
-    Join.prototype.toString = function () { return this.toStr(false); };
-    Join.prototype.toStr = function (nested) {
-        if (nested === void 0) { nested = false; }
-        return "Join";
-    };
-    Join.prototype.match = function (m) { return m.Join; };
-    Join.prototype.flatMaxSize = function () { return 1 + 0; };
-    Join.prototype.flatEncode = function (st) { st.one(); };
-    return Join;
-}());
+class Join {
+    toString() { return this.toStr(false); }
+    toStr(nested = false) { return "Join"; }
+    match(m) { return m.Join; }
+    flatMaxSize() { return 1 + 0; }
+    flatEncode(st) { st.one(); }
+}
 exports.Join = Join;
 //# sourceMappingURL=K1ba230d92eb8.js.map

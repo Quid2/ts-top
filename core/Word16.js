@@ -7,18 +7,14 @@ exports.___ = {
         return function (st) { return new Word16(st.word()); };
     }
 };
-var Word16 = (function () {
-    function Word16(value) {
+class Word16 {
+    constructor(value) {
         this.value = value;
     }
-    Word16.prototype.flatMaxSize = function () { return 24; };
-    Word16.prototype.flatEncode = function (st) { st.word(this.value); };
-    Word16.prototype.toString = function () { return this.toStr(); };
-    Word16.prototype.toStr = function (nested) {
-        if (nested === void 0) { nested = false; }
-        return this.value.toString();
-    };
-    return Word16;
-}());
+    flatMaxSize() { return 24; }
+    flatEncode(st) { st.word(this.value); }
+    toString() { return this.toStr(); }
+    toStr(nested = false) { return this.value.toString(); }
+}
 exports.Word16 = Word16;
 //# sourceMappingURL=Word16.js.map

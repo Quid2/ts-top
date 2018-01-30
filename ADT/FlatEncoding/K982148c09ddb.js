@@ -7,18 +7,12 @@ exports.___ = {
         return function (st) { return new FlatEncoding(); };
     }
 };
-var FlatEncoding = (function () {
-    function FlatEncoding() {
-    }
-    FlatEncoding.prototype.toString = function () { return this.toStr(false); };
-    FlatEncoding.prototype.toStr = function (nested) {
-        if (nested === void 0) { nested = false; }
-        return "FlatEncoding";
-    };
-    FlatEncoding.prototype.match = function (m) { return m.FlatEncoding; };
-    FlatEncoding.prototype.flatMaxSize = function () { return 0; };
-    FlatEncoding.prototype.flatEncode = function () { };
-    return FlatEncoding;
-}());
+class FlatEncoding {
+    toString() { return this.toStr(false); }
+    toStr(nested = false) { return "FlatEncoding"; }
+    match(m) { return m.FlatEncoding; }
+    flatMaxSize() { return 0; }
+    flatEncode() { }
+}
 exports.FlatEncoding = FlatEncoding;
 //# sourceMappingURL=K982148c09ddb.js.map

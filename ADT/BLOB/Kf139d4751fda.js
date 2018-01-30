@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Q = require("../../core");
-var Kf8844385a443 = require("../Bytes/Kf8844385a443");
+const Q = require("../../core");
+const Kf8844385a443 = require("../Bytes/Kf8844385a443");
 exports.$BLOB = function (t1) { return function (f) { return f(exports.___, [t1(f)]); }; };
 exports.___ = {
     zid: [0xf1, 0x39, 0xd4, 0x75, 0x1f, 0xda],
@@ -9,20 +9,16 @@ exports.___ = {
         return function (st) { return new BLOB(decoders[0](st), Kf8844385a443.___.decoder([])(st)); };
     }
 };
-var BLOB = (function () {
-    function BLOB(encoding, content) {
+class BLOB {
+    constructor(encoding, content) {
         this.encoding = encoding;
         this.content = content;
     }
-    BLOB.prototype.toString = function () { return this.toStr(false); };
-    BLOB.prototype.toStr = function (nested) {
-        if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, ["BLOB", this.encoding.toStr(true), this.content.toStr(true)].join(' '));
-    };
-    BLOB.prototype.match = function (m) { return m.BLOB(this.encoding, this.content); };
-    BLOB.prototype.flatMaxSize = function () { return this.encoding.flatMaxSize() + this.content.flatMaxSize(); };
-    BLOB.prototype.flatEncode = function (st) { this.encoding.flatEncode(st); this.content.flatEncode(st); };
-    return BLOB;
-}());
+    toString() { return this.toStr(false); }
+    toStr(nested = false) { return Q.nestedPars(nested, ["BLOB", this.encoding.toStr(true), this.content.toStr(true)].join(' ')); }
+    match(m) { return m.BLOB(this.encoding, this.content); }
+    flatMaxSize() { return this.encoding.flatMaxSize() + this.content.flatMaxSize(); }
+    flatEncode(st) { this.encoding.flatEncode(st); this.content.flatEncode(st); }
+}
 exports.BLOB = BLOB;
 //# sourceMappingURL=Kf139d4751fda.js.map

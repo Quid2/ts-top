@@ -7,13 +7,13 @@ function flatDecoder(t, decoders) {
 }
 exports.flatDecoder = flatDecoder;
 ;
-var DecoderState = (function () {
-    function DecoderState(buffer) {
+class DecoderState {
+    constructor(buffer) {
         this.buffer = buffer;
         this.currPtr = 0;
         this.usedBits = 0;
     }
-    DecoderState.prototype.byteArray = function () {
+    byteArray() {
         if (this.usedBits != 0)
             throw Error("DecoderState.byteArray: Buffer is not byte aligned");
         var st = this;
@@ -28,25 +28,25 @@ var DecoderState = (function () {
             arrSize += blkLen;
         }
         return st.buffer.subarray(arrPtr, arrPtr + arrSize);
-    };
-    DecoderState.prototype.filler = function () {
+    }
+    filler() {
         while (this.zero())
             ;
-    };
-    DecoderState.prototype.bits8 = function (numBits) {
+    }
+    bits8(numBits) {
         if (numBits < 0 || numBits > 8)
             throw Error("Decoder.bits8: incorrect value of numBits " + numBits);
         this.ensureBits(numBits);
-        var unusedBits = 8 - this.usedBits;
-        var leadingZeros = 8 - numBits;
+        const unusedBits = 8 - this.usedBits;
+        const leadingZeros = 8 - numBits;
         var r = ((this.buffer[this.currPtr] << this.usedBits) & 255) >>> leadingZeros;
         if (numBits > unusedBits) {
             r |= (this.buffer[this.currPtr + 1] >>> (unusedBits + leadingZeros));
         }
         this.dropBits(numBits);
         return r;
-    };
-    DecoderState.prototype.word = function () {
+    }
+    word() {
         var n = 0;
         var shl = 0;
         var w8;
@@ -58,10 +58,10 @@ var DecoderState = (function () {
             shl += 7;
         } while (w8 !== w7);
         return n;
-    };
-    DecoderState.prototype.zero = function () {
+    }
+    zero() {
         this.ensureBit();
-        var b = !(this.buffer[this.currPtr] & (128 >>> this.usedBits));
+        const b = !(this.buffer[this.currPtr] & (128 >>> this.usedBits));
         if (this.usedBits == 7) {
             this.currPtr++;
             this.usedBits = 0;
@@ -69,53 +69,52 @@ var DecoderState = (function () {
         else
             this.usedBits++;
         return b;
-    };
-    DecoderState.prototype.ensureBit = function () {
+    }
+    ensureBit() {
         if (this.currPtr >= this.buffer.byteLength) {
             throw Error("DecoderState: Not enough data available: " + JSON.stringify(this));
         }
         ;
-    };
-    DecoderState.prototype.ensureBits = function (requiredBits) {
+    }
+    ensureBits(requiredBits) {
         if (requiredBits > this.availableBits()) {
             throw Error("DecoderState: Not enough data available: " + JSON.stringify(this));
         }
         ;
-    };
-    DecoderState.prototype.ensureBytes = function (requiredBytes) {
+    }
+    ensureBytes(requiredBytes) {
         if (requiredBytes > this.availableBytes()) {
             throw Error("DecoderState: Not enough data available: " + JSON.stringify(this));
         }
         ;
-    };
-    DecoderState.prototype.availableBits = function () { return 8 * this.availableBytes() - this.usedBits; };
-    DecoderState.prototype.availableBytes = function () { return this.buffer.byteLength - this.currPtr; };
-    DecoderState.prototype.dropBits = function (numBits) {
-        var totUsed = numBits + this.usedBits;
+    }
+    availableBits() { return 8 * this.availableBytes() - this.usedBits; }
+    availableBytes() { return this.buffer.byteLength - this.currPtr; }
+    dropBits(numBits) {
+        const totUsed = numBits + this.usedBits;
         this.usedBits = totUsed % 8;
         this.currPtr += Math.floor(totUsed / 8);
-    };
-    DecoderState.prototype.seal = function () {
+    }
+    seal() {
         if (this.availableBits() > 0) {
             throw Error("DecoderState: Unread data: " + JSON.stringify(this));
         }
         ;
-    };
-    return DecoderState;
-}());
+    }
+}
 exports.DecoderState = DecoderState;
-var EncoderState = (function () {
-    function EncoderState(bufferSize) {
+class EncoderState {
+    constructor(bufferSize) {
         this.buffer = new Uint8Array(bufferSize);
         this.nextPtr = 0;
         this.currentByte = 0;
         this.usedBits = 0;
     }
-    EncoderState.prototype.filler = function () {
+    filler() {
         this.currentByte |= 1;
         this.nextWord();
-    };
-    EncoderState.prototype.word = function (n) {
+    }
+    word(n) {
         do {
             var w = n & 127;
             n >>>= 7;
@@ -123,10 +122,10 @@ var EncoderState = (function () {
                 w |= 128;
             this.bits(8, w);
         } while (n !== 0);
-    };
-    EncoderState.prototype.bits = function (numBits, value) {
+    }
+    bits(numBits, value) {
         this.usedBits += numBits;
-        var unusedBits = 8 - this.usedBits;
+        let unusedBits = 8 - this.usedBits;
         if (unusedBits > 0)
             this.currentByte |= value << unusedBits;
         else if (unusedBits == 0) {
@@ -134,16 +133,16 @@ var EncoderState = (function () {
             this.nextWord();
         }
         else {
-            var used = -unusedBits;
+            let used = -unusedBits;
             this.currentByte |= value >>> used;
             this.nextWord();
             this.currentByte = value << (8 - used);
             this.usedBits = used;
         }
         ;
-    };
-    EncoderState.prototype.zero = function () { this.usedBits == 7 ? this.nextWord() : this.usedBits++; };
-    EncoderState.prototype.one = function () {
+    }
+    zero() { this.usedBits == 7 ? this.nextWord() : this.usedBits++; }
+    one() {
         if (this.usedBits == 7) {
             this.currentByte |= 1;
             this.nextWord();
@@ -152,14 +151,14 @@ var EncoderState = (function () {
             this.currentByte |= (1 << 7 - this.usedBits);
             this.usedBits++;
         }
-    };
-    EncoderState.prototype.byteArray = function (arr) {
+    }
+    byteArray(arr) {
         if (this.usedBits != 0)
             throw Error("EncoderState.byteArray: Buffer is not byte aligned");
         var st = this;
         function writeBlk(srcPtr) {
-            var srcLen = arr.byteLength - srcPtr;
-            var blkLen = Math.min(srcLen, 255);
+            let srcLen = arr.byteLength - srcPtr;
+            let blkLen = Math.min(srcLen, 255);
             st.buffer[st.nextPtr++] = blkLen;
             if (blkLen == 0)
                 return;
@@ -169,20 +168,19 @@ var EncoderState = (function () {
             writeBlk(srcPtr);
         }
         writeBlk(0);
-    };
-    EncoderState.prototype.nextWord = function () { this.buffer[this.nextPtr++] = this.currentByte; this.currentByte = 0, this.usedBits = 0; };
-    EncoderState.prototype.seal = function () {
+    }
+    nextWord() { this.buffer[this.nextPtr++] = this.currentByte; this.currentByte = 0, this.usedBits = 0; }
+    seal() {
         if (this.usedBits != 0) {
             throw Error("EncoderState.seal: Byte partially filled: " + JSON.stringify(this));
         }
         ;
         return this.buffer.subarray(0, this.nextPtr);
-    };
-    return EncoderState;
-}());
+    }
+}
 exports.EncoderState = EncoderState;
 function byteArraySize(arr) {
-    var numBytes = arr.byteLength + arrayBlocks(arr.byteLength);
+    let numBytes = arr.byteLength + arrayBlocks(arr.byteLength);
     return 8 * numBytes;
 }
 exports.byteArraySize = byteArraySize;

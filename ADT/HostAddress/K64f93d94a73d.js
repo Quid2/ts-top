@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Q = require("../../core");
-var Kb8cd13187198 = require("../List/Kb8cd13187198");
-var K066db52af145 = require("../Char/K066db52af145");
+const Q = require("../../core");
+const Kb8cd13187198 = require("../List/Kb8cd13187198");
+const K066db52af145 = require("../Char/K066db52af145");
 exports.$HostAddress = function (t1) { return function (f) { return f(exports.___, [t1(f)]); }; };
 exports.___ = {
     zid: [0x64, 0xf9, 0x3d, 0x94, 0xa7, 0x3d],
@@ -15,34 +15,26 @@ exports.___ = {
         } };
     }
 };
-var IPAddress = (function () {
-    function IPAddress(_0) {
+class IPAddress {
+    constructor(_0) {
         this._0 = _0;
     }
-    IPAddress.prototype.toString = function () { return this.toStr(false); };
-    IPAddress.prototype.toStr = function (nested) {
-        if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, ["IPAddress", this._0.toStr(true)].join(' '));
-    };
-    IPAddress.prototype.match = function (m) { return m.IPAddress(this._0); };
-    IPAddress.prototype.flatMaxSize = function () { return 1 + this._0.flatMaxSize(); };
-    IPAddress.prototype.flatEncode = function (st) { st.zero(); this._0.flatEncode(st); };
-    return IPAddress;
-}());
+    toString() { return this.toStr(false); }
+    toStr(nested = false) { return Q.nestedPars(nested, ["IPAddress", this._0.toStr(true)].join(' ')); }
+    match(m) { return m.IPAddress(this._0); }
+    flatMaxSize() { return 1 + this._0.flatMaxSize(); }
+    flatEncode(st) { st.zero(); this._0.flatEncode(st); }
+}
 exports.IPAddress = IPAddress;
-var DNSAddress = (function () {
-    function DNSAddress(_0) {
+class DNSAddress {
+    constructor(_0) {
         this._0 = _0;
     }
-    DNSAddress.prototype.toString = function () { return this.toStr(false); };
-    DNSAddress.prototype.toStr = function (nested) {
-        if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, ["DNSAddress", this._0.toStr(true)].join(' '));
-    };
-    DNSAddress.prototype.match = function (m) { return m.DNSAddress(this._0); };
-    DNSAddress.prototype.flatMaxSize = function () { return 1 + this._0.flatMaxSize(); };
-    DNSAddress.prototype.flatEncode = function (st) { st.one(); this._0.flatEncode(st); };
-    return DNSAddress;
-}());
+    toString() { return this.toStr(false); }
+    toStr(nested = false) { return Q.nestedPars(nested, ["DNSAddress", this._0.toStr(true)].join(' ')); }
+    match(m) { return m.DNSAddress(this._0); }
+    flatMaxSize() { return 1 + this._0.flatMaxSize(); }
+    flatEncode(st) { st.one(); this._0.flatEncode(st); }
+}
 exports.DNSAddress = DNSAddress;
 //# sourceMappingURL=K64f93d94a73d.js.map

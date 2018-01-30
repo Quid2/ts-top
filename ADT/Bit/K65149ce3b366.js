@@ -12,32 +12,20 @@ exports.___ = {
         } };
     }
 };
-var V0 = (function () {
-    function V0() {
-    }
-    V0.prototype.toString = function () { return this.toStr(false); };
-    V0.prototype.toStr = function (nested) {
-        if (nested === void 0) { nested = false; }
-        return "V0";
-    };
-    V0.prototype.match = function (m) { return m.V0; };
-    V0.prototype.flatMaxSize = function () { return 1 + 0; };
-    V0.prototype.flatEncode = function (st) { st.zero(); };
-    return V0;
-}());
+class V0 {
+    toString() { return this.toStr(false); }
+    toStr(nested = false) { return "V0"; }
+    match(m) { return m.V0; }
+    flatMaxSize() { return 1 + 0; }
+    flatEncode(st) { st.zero(); }
+}
 exports.V0 = V0;
-var V1 = (function () {
-    function V1() {
-    }
-    V1.prototype.toString = function () { return this.toStr(false); };
-    V1.prototype.toStr = function (nested) {
-        if (nested === void 0) { nested = false; }
-        return "V1";
-    };
-    V1.prototype.match = function (m) { return m.V1; };
-    V1.prototype.flatMaxSize = function () { return 1 + 0; };
-    V1.prototype.flatEncode = function (st) { st.one(); };
-    return V1;
-}());
+class V1 {
+    toString() { return this.toStr(false); }
+    toStr(nested = false) { return "V1"; }
+    match(m) { return m.V1; }
+    flatMaxSize() { return 1 + 0; }
+    flatEncode(st) { st.one(); }
+}
 exports.V1 = V1;
 //# sourceMappingURL=K65149ce3b366.js.map

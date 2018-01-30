@@ -7,18 +7,14 @@ exports.___ = {
         return function (st) { return new Char(String.fromCharCode(st.word())); };
     }
 };
-var Char = (function () {
-    function Char(value) {
+class Char {
+    constructor(value) {
         this.value = value;
     }
-    Char.prototype.flatMaxSize = function () { return 24; };
-    Char.prototype.flatEncode = function (st) { st.word(this.value.charCodeAt(0)); };
-    Char.prototype.toString = function () { return this.toStr(); };
-    Char.prototype.toStr = function (nested) {
-        if (nested === void 0) { nested = false; }
-        return "'" + this.value + "'";
-    };
-    return Char;
-}());
+    flatMaxSize() { return 24; }
+    flatEncode(st) { st.word(this.value.charCodeAt(0)); }
+    toString() { return this.toStr(); }
+    toStr(nested = false) { return "'" + this.value + "'"; }
+}
 exports.Char = Char;
 //# sourceMappingURL=Char.js.map

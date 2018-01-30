@@ -7,18 +7,12 @@ exports.___ = {
         return function (st) { return new ByAny(); };
     }
 };
-var ByAny = (function () {
-    function ByAny() {
-    }
-    ByAny.prototype.toString = function () { return this.toStr(false); };
-    ByAny.prototype.toStr = function (nested) {
-        if (nested === void 0) { nested = false; }
-        return "ByAny";
-    };
-    ByAny.prototype.match = function (m) { return m.ByAny; };
-    ByAny.prototype.flatMaxSize = function () { return 0; };
-    ByAny.prototype.flatEncode = function () { };
-    return ByAny;
-}());
+class ByAny {
+    toString() { return this.toStr(false); }
+    toStr(nested = false) { return "ByAny"; }
+    match(m) { return m.ByAny; }
+    flatMaxSize() { return 0; }
+    flatEncode() { }
+}
 exports.ByAny = ByAny;
 //# sourceMappingURL=Ka4d0bf8f6fb5.js.map

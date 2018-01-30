@@ -1,10 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Q = require("../../core");
-var K6260e465ae74 = require("../Either/K6260e465ae74");
-var Kb8cd13187198 = require("../List/Kb8cd13187198");
-var K7028aa556ebc = require("../Type/K7028aa556ebc");
-var Ka5583bf3ad34 = require("../Tuple2/Ka5583bf3ad34");
+const Q = require("../../core");
+const K6260e465ae74 = require("../Either/K6260e465ae74");
+const Kb8cd13187198 = require("../List/Kb8cd13187198");
+const K7028aa556ebc = require("../Type/K7028aa556ebc");
+const Ka5583bf3ad34 = require("../Tuple2/Ka5583bf3ad34");
 exports.$ConTree = function (t1, t2) { return function (f) { return f(exports.___, [t1(f), t2(f)]); }; };
 exports.___ = {
     zid: [0x86, 0x65, 0x3e, 0x04, 0x00, 0x25],
@@ -17,36 +17,28 @@ exports.___ = {
         } };
     }
 };
-var Con = (function () {
-    function Con(constrName, constrFields) {
+class Con {
+    constructor(constrName, constrFields) {
         this.constrName = constrName;
         this.constrFields = constrFields;
     }
-    Con.prototype.toString = function () { return this.toStr(false); };
-    Con.prototype.toStr = function (nested) {
-        if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, ["Con", this.constrName.toStr(true), this.constrFields.toStr(true)].join(' '));
-    };
-    Con.prototype.match = function (m) { return m.Con(this.constrName, this.constrFields); };
-    Con.prototype.flatMaxSize = function () { return 1 + this.constrName.flatMaxSize() + this.constrFields.flatMaxSize(); };
-    Con.prototype.flatEncode = function (st) { st.zero(); this.constrName.flatEncode(st); this.constrFields.flatEncode(st); };
-    return Con;
-}());
+    toString() { return this.toStr(false); }
+    toStr(nested = false) { return Q.nestedPars(nested, ["Con", this.constrName.toStr(true), this.constrFields.toStr(true)].join(' ')); }
+    match(m) { return m.Con(this.constrName, this.constrFields); }
+    flatMaxSize() { return 1 + this.constrName.flatMaxSize() + this.constrFields.flatMaxSize(); }
+    flatEncode(st) { st.zero(); this.constrName.flatEncode(st); this.constrFields.flatEncode(st); }
+}
 exports.Con = Con;
-var _ConTree = (function () {
-    function _ConTree(_0, _1) {
+class _ConTree {
+    constructor(_0, _1) {
         this._0 = _0;
         this._1 = _1;
     }
-    _ConTree.prototype.toString = function () { return this.toStr(false); };
-    _ConTree.prototype.toStr = function (nested) {
-        if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, ["ConTree", this._0.toStr(true), this._1.toStr(true)].join(' '));
-    };
-    _ConTree.prototype.match = function (m) { return m.ConTree(this._0, this._1); };
-    _ConTree.prototype.flatMaxSize = function () { return 1 + this._0.flatMaxSize() + this._1.flatMaxSize(); };
-    _ConTree.prototype.flatEncode = function (st) { st.one(); this._0.flatEncode(st); this._1.flatEncode(st); };
-    return _ConTree;
-}());
+    toString() { return this.toStr(false); }
+    toStr(nested = false) { return Q.nestedPars(nested, ["ConTree", this._0.toStr(true), this._1.toStr(true)].join(' ')); }
+    match(m) { return m.ConTree(this._0, this._1); }
+    flatMaxSize() { return 1 + this._0.flatMaxSize() + this._1.flatMaxSize(); }
+    flatEncode(st) { st.one(); this._0.flatEncode(st); this._1.flatEncode(st); }
+}
 exports._ConTree = _ConTree;
 //# sourceMappingURL=K86653e040025.js.map

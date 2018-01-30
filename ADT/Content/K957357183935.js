@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Q = require("../../core");
-var Kb8cd13187198 = require("../List/Kb8cd13187198");
-var K066db52af145 = require("../Char/K066db52af145");
+const Q = require("../../core");
+const Kb8cd13187198 = require("../List/Kb8cd13187198");
+const K066db52af145 = require("../Char/K066db52af145");
 exports.$Content = function (t1, t2) { return function (f) { return f(exports.___, [t1(f), t2(f)]); }; };
 exports.___ = {
     zid: [0x95, 0x73, 0x57, 0x18, 0x39, 0x35],
@@ -50,133 +50,85 @@ exports.___ = {
         } };
     }
 };
-var TextMessage = (function () {
-    function TextMessage(_0) {
+class TextMessage {
+    constructor(_0) {
         this._0 = _0;
     }
-    TextMessage.prototype.toString = function () { return this.toStr(false); };
-    TextMessage.prototype.toStr = function (nested) {
-        if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, ["TextMessage", this._0.toStr(true)].join(' '));
-    };
-    TextMessage.prototype.match = function (m) { return m.TextMessage(this._0); };
-    TextMessage.prototype.flatMaxSize = function () { return 3 + this._0.flatMaxSize(); };
-    TextMessage.prototype.flatEncode = function (st) { st.zero(); st.zero(); st.zero(); this._0.flatEncode(st); };
-    return TextMessage;
-}());
+    toString() { return this.toStr(false); }
+    toStr(nested = false) { return Q.nestedPars(nested, ["TextMessage", this._0.toStr(true)].join(' ')); }
+    match(m) { return m.TextMessage(this._0); }
+    flatMaxSize() { return 3 + this._0.flatMaxSize(); }
+    flatEncode(st) { st.zero(); st.zero(); st.zero(); this._0.flatEncode(st); }
+}
 exports.TextMessage = TextMessage;
-var AskSubSubjects = (function () {
-    function AskSubSubjects() {
-    }
-    AskSubSubjects.prototype.toString = function () { return this.toStr(false); };
-    AskSubSubjects.prototype.toStr = function (nested) {
-        if (nested === void 0) { nested = false; }
-        return "AskSubSubjects";
-    };
-    AskSubSubjects.prototype.match = function (m) { return m.AskSubSubjects; };
-    AskSubSubjects.prototype.flatMaxSize = function () { return 3 + 0; };
-    AskSubSubjects.prototype.flatEncode = function (st) { st.zero(); st.zero(); st.one(); };
-    return AskSubSubjects;
-}());
+class AskSubSubjects {
+    toString() { return this.toStr(false); }
+    toStr(nested = false) { return "AskSubSubjects"; }
+    match(m) { return m.AskSubSubjects; }
+    flatMaxSize() { return 3 + 0; }
+    flatEncode(st) { st.zero(); st.zero(); st.one(); }
+}
 exports.AskSubSubjects = AskSubSubjects;
-var Join = (function () {
-    function Join() {
-    }
-    Join.prototype.toString = function () { return this.toStr(false); };
-    Join.prototype.toStr = function (nested) {
-        if (nested === void 0) { nested = false; }
-        return "Join";
-    };
-    Join.prototype.match = function (m) { return m.Join; };
-    Join.prototype.flatMaxSize = function () { return 3 + 0; };
-    Join.prototype.flatEncode = function (st) { st.zero(); st.one(); st.zero(); };
-    return Join;
-}());
+class Join {
+    toString() { return this.toStr(false); }
+    toStr(nested = false) { return "Join"; }
+    match(m) { return m.Join; }
+    flatMaxSize() { return 3 + 0; }
+    flatEncode(st) { st.zero(); st.one(); st.zero(); }
+}
 exports.Join = Join;
-var Leave = (function () {
-    function Leave() {
-    }
-    Leave.prototype.toString = function () { return this.toStr(false); };
-    Leave.prototype.toStr = function (nested) {
-        if (nested === void 0) { nested = false; }
-        return "Leave";
-    };
-    Leave.prototype.match = function (m) { return m.Leave; };
-    Leave.prototype.flatMaxSize = function () { return 3 + 0; };
-    Leave.prototype.flatEncode = function (st) { st.zero(); st.one(); st.one(); };
-    return Leave;
-}());
+class Leave {
+    toString() { return this.toStr(false); }
+    toStr(nested = false) { return "Leave"; }
+    match(m) { return m.Leave; }
+    flatMaxSize() { return 3 + 0; }
+    flatEncode(st) { st.zero(); st.one(); st.one(); }
+}
 exports.Leave = Leave;
-var Ping = (function () {
-    function Ping() {
-    }
-    Ping.prototype.toString = function () { return this.toStr(false); };
-    Ping.prototype.toStr = function (nested) {
-        if (nested === void 0) { nested = false; }
-        return "Ping";
-    };
-    Ping.prototype.match = function (m) { return m.Ping; };
-    Ping.prototype.flatMaxSize = function () { return 3 + 0; };
-    Ping.prototype.flatEncode = function (st) { st.one(); st.zero(); st.zero(); };
-    return Ping;
-}());
+class Ping {
+    toString() { return this.toStr(false); }
+    toStr(nested = false) { return "Ping"; }
+    match(m) { return m.Ping; }
+    flatMaxSize() { return 3 + 0; }
+    flatEncode(st) { st.one(); st.zero(); st.zero(); }
+}
 exports.Ping = Ping;
-var AskUsers = (function () {
-    function AskUsers() {
-    }
-    AskUsers.prototype.toString = function () { return this.toStr(false); };
-    AskUsers.prototype.toStr = function (nested) {
-        if (nested === void 0) { nested = false; }
-        return "AskUsers";
-    };
-    AskUsers.prototype.match = function (m) { return m.AskUsers; };
-    AskUsers.prototype.flatMaxSize = function () { return 3 + 0; };
-    AskUsers.prototype.flatEncode = function (st) { st.one(); st.zero(); st.one(); };
-    return AskUsers;
-}());
+class AskUsers {
+    toString() { return this.toStr(false); }
+    toStr(nested = false) { return "AskUsers"; }
+    match(m) { return m.AskUsers; }
+    flatMaxSize() { return 3 + 0; }
+    flatEncode(st) { st.one(); st.zero(); st.one(); }
+}
 exports.AskUsers = AskUsers;
-var Users = (function () {
-    function Users(_0) {
+class Users {
+    constructor(_0) {
         this._0 = _0;
     }
-    Users.prototype.toString = function () { return this.toStr(false); };
-    Users.prototype.toStr = function (nested) {
-        if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, ["Users", this._0.toStr(true)].join(' '));
-    };
-    Users.prototype.match = function (m) { return m.Users(this._0); };
-    Users.prototype.flatMaxSize = function () { return 3 + this._0.flatMaxSize(); };
-    Users.prototype.flatEncode = function (st) { st.one(); st.one(); st.zero(); this._0.flatEncode(st); };
-    return Users;
-}());
+    toString() { return this.toStr(false); }
+    toStr(nested = false) { return Q.nestedPars(nested, ["Users", this._0.toStr(true)].join(' ')); }
+    match(m) { return m.Users(this._0); }
+    flatMaxSize() { return 3 + this._0.flatMaxSize(); }
+    flatEncode(st) { st.one(); st.one(); st.zero(); this._0.flatEncode(st); }
+}
 exports.Users = Users;
-var AskHistory = (function () {
-    function AskHistory() {
-    }
-    AskHistory.prototype.toString = function () { return this.toStr(false); };
-    AskHistory.prototype.toStr = function (nested) {
-        if (nested === void 0) { nested = false; }
-        return "AskHistory";
-    };
-    AskHistory.prototype.match = function (m) { return m.AskHistory; };
-    AskHistory.prototype.flatMaxSize = function () { return 4 + 0; };
-    AskHistory.prototype.flatEncode = function (st) { st.one(); st.one(); st.one(); st.zero(); };
-    return AskHistory;
-}());
+class AskHistory {
+    toString() { return this.toStr(false); }
+    toStr(nested = false) { return "AskHistory"; }
+    match(m) { return m.AskHistory; }
+    flatMaxSize() { return 4 + 0; }
+    flatEncode(st) { st.one(); st.one(); st.one(); st.zero(); }
+}
 exports.AskHistory = AskHistory;
-var History = (function () {
-    function History(_0) {
+class History {
+    constructor(_0) {
         this._0 = _0;
     }
-    History.prototype.toString = function () { return this.toStr(false); };
-    History.prototype.toStr = function (nested) {
-        if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, ["History", this._0.toStr(true)].join(' '));
-    };
-    History.prototype.match = function (m) { return m.History(this._0); };
-    History.prototype.flatMaxSize = function () { return 4 + this._0.flatMaxSize(); };
-    History.prototype.flatEncode = function (st) { st.one(); st.one(); st.one(); st.one(); this._0.flatEncode(st); };
-    return History;
-}());
+    toString() { return this.toStr(false); }
+    toStr(nested = false) { return Q.nestedPars(nested, ["History", this._0.toStr(true)].join(' ')); }
+    match(m) { return m.History(this._0); }
+    flatMaxSize() { return 4 + this._0.flatMaxSize(); }
+    flatEncode(st) { st.one(); st.one(); st.one(); st.one(); this._0.flatEncode(st); }
+}
 exports.History = History;
 //# sourceMappingURL=K957357183935.js.map

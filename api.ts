@@ -5,6 +5,11 @@ import {Type,TypeApp,TypeCon} from  './ADT/Type/K7028aa556ebc'
 import {AbsRef} from  './ADT/AbsRef/K4bbd38587b9e'
 import {SHAKE128_48} from  './ADT/SHAKE128_48/K9f214799149b'
 import {Word8 as W} from  './ADT/Word8/Kb1f46a49c8f8'
+import * as Kb8cd13187198 from  './ADT/List/Kb8cd13187198'
+//import { Symbol } from './ADT/Identifier/Kdc26e9d90047';
+//import * as ADD from './add'
+
+//var x = console.log(ADD.dummy)
 
 export {flat,zmType,zmId,zmFold,unflat,Decoder,flatDecoder,Flat};
 
@@ -42,3 +47,15 @@ function unflat(dec:Decoder,buf:Uint8Array) {
 // Optimised Types
 
 //String.prototype.
+
+//Kb8cd13187198.Nil.prototype[Symbol.iterator] = function* () {}
+// Kb8cd13187198.Cons.prototype[Symbol.iterator] = function* () {
+//     var l = this;
+//     do {
+ //        l = <>this._1; 
+//         yield l._0
+//         l=<>this._1;
+//  while (l._1 instanceof Kb8cd13187198.Nil)
+//     } while (l.match({Nil:false,Cons:()=>true}))
+// }
+

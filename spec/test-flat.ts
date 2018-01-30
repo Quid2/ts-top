@@ -8,6 +8,7 @@ import {$Word7, Word7 } from  '../ADT/Word7/Kf4c946334a7e'
 // import { FlatEncoding } from '../ADT/FlatEncoding/K982148c09ddb'
 import {$NonEmptyList,NonEmptyList,Elem,Cons as NECons} from  '../ADT/NonEmptyList/Kbf2d1c86eb20'
 
+
 //import {Array,A1,A0} from  '../ADT/Array/K2e8b4519aeaa'
 //import {Array} from  '../ADT/Array/K2e8b4519aeaa'
 //import { Tuple2 } from '../ADT/Tuple2/Ka5583bf3ad34'
@@ -91,4 +92,17 @@ function testFlat() {
     flatT($Char,new Char('a'));
 }
 
-testFlat();
+//testFlat();
+
+function testCore() {
+    const l0 = new Nil;
+    const l1 = new Cons(new V0,new Cons(new V1,new Nil))
+    
+    console.log(l0.toString())
+    for (var n0 of l0) console.log(n0)
+    
+    console.log(l1.toString())
+    for (var n1 of l1) console.log(n1)
+}
+
+testCore();

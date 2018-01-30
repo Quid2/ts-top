@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Q = require("../../core");
-var K295e24d62fac = require("../Word16/K295e24d62fac");
+const Q = require("../../core");
+const K295e24d62fac = require("../Word16/K295e24d62fac");
 exports.$HostPort = function (f) { return f(exports.___, []); };
 exports.___ = {
     zid: [0x0a, 0xb5, 0xac, 0x63, 0x03, 0xb9],
@@ -9,19 +9,15 @@ exports.___ = {
         return function (st) { return new HostPort(K295e24d62fac.___.decoder([])(st)); };
     }
 };
-var HostPort = (function () {
-    function HostPort(port) {
+class HostPort {
+    constructor(port) {
         this.port = port;
     }
-    HostPort.prototype.toString = function () { return this.toStr(false); };
-    HostPort.prototype.toStr = function (nested) {
-        if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, ["HostPort", this.port.toStr(true)].join(' '));
-    };
-    HostPort.prototype.match = function (m) { return m.HostPort(this.port); };
-    HostPort.prototype.flatMaxSize = function () { return this.port.flatMaxSize(); };
-    HostPort.prototype.flatEncode = function (st) { this.port.flatEncode(st); };
-    return HostPort;
-}());
+    toString() { return this.toStr(false); }
+    toStr(nested = false) { return Q.nestedPars(nested, ["HostPort", this.port.toStr(true)].join(' ')); }
+    match(m) { return m.HostPort(this.port); }
+    flatMaxSize() { return this.port.flatMaxSize(); }
+    flatEncode(st) { this.port.flatEncode(st); }
+}
 exports.HostPort = HostPort;
 //# sourceMappingURL=K0ab5ac6303b9.js.map

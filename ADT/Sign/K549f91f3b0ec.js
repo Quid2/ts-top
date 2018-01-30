@@ -12,32 +12,20 @@ exports.___ = {
         } };
     }
 };
-var Positive = (function () {
-    function Positive() {
-    }
-    Positive.prototype.toString = function () { return this.toStr(false); };
-    Positive.prototype.toStr = function (nested) {
-        if (nested === void 0) { nested = false; }
-        return "Positive";
-    };
-    Positive.prototype.match = function (m) { return m.Positive; };
-    Positive.prototype.flatMaxSize = function () { return 1 + 0; };
-    Positive.prototype.flatEncode = function (st) { st.zero(); };
-    return Positive;
-}());
+class Positive {
+    toString() { return this.toStr(false); }
+    toStr(nested = false) { return "Positive"; }
+    match(m) { return m.Positive; }
+    flatMaxSize() { return 1 + 0; }
+    flatEncode(st) { st.zero(); }
+}
 exports.Positive = Positive;
-var Negative = (function () {
-    function Negative() {
-    }
-    Negative.prototype.toString = function () { return this.toStr(false); };
-    Negative.prototype.toStr = function (nested) {
-        if (nested === void 0) { nested = false; }
-        return "Negative";
-    };
-    Negative.prototype.match = function (m) { return m.Negative; };
-    Negative.prototype.flatMaxSize = function () { return 1 + 0; };
-    Negative.prototype.flatEncode = function (st) { st.one(); };
-    return Negative;
-}());
+class Negative {
+    toString() { return this.toStr(false); }
+    toStr(nested = false) { return "Negative"; }
+    match(m) { return m.Negative; }
+    flatMaxSize() { return 1 + 0; }
+    flatEncode(st) { st.one(); }
+}
 exports.Negative = Negative;
 //# sourceMappingURL=K549f91f3b0ec.js.map

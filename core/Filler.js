@@ -7,30 +7,20 @@ exports.___ = {
         return function (st) { st.filler(); return new FillerEnd(); };
     }
 };
-var FillerBit = (function () {
-    function FillerBit(_0) {
+class FillerBit {
+    constructor(_0) {
         this._0 = _0;
     }
-    FillerBit.prototype.flatMaxSize = function () { return 8; };
-    FillerBit.prototype.flatEncode = function (st) { st.filler(); };
-    FillerBit.prototype.toStr = function (nested) {
-        if (nested === void 0) { nested = false; }
-        return "Filler";
-    };
-    return FillerBit;
-}());
+    flatMaxSize() { return 8; }
+    flatEncode(st) { st.filler(); }
+    toStr(nested = false) { return "Filler"; }
+}
 exports.FillerBit = FillerBit;
-var FillerEnd = (function () {
-    function FillerEnd() {
-    }
-    FillerEnd.prototype.flatMaxSize = function () { return 8; };
-    FillerEnd.prototype.flatEncode = function (st) { st.filler(); };
-    FillerEnd.prototype.toString = function () { return this.toStr(); };
-    FillerEnd.prototype.toStr = function (nested) {
-        if (nested === void 0) { nested = false; }
-        return "Filler";
-    };
-    return FillerEnd;
-}());
+class FillerEnd {
+    flatMaxSize() { return 8; }
+    flatEncode(st) { st.filler(); }
+    toString() { return this.toStr(); }
+    toStr(nested = false) { return "Filler"; }
+}
 exports.FillerEnd = FillerEnd;
 //# sourceMappingURL=Filler.js.map

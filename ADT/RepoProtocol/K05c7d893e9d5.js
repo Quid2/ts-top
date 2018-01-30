@@ -1,12 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Q = require("../../core");
-var K3e8257255cbf = require("../ADT/K3e8257255cbf");
-var Kdc26e9d90047 = require("../Identifier/Kdc26e9d90047");
-var K07b1b045ac3c = require("../ADTRef/K07b1b045ac3c");
-var K4bbd38587b9e = require("../AbsRef/K4bbd38587b9e");
-var Kb8cd13187198 = require("../List/Kb8cd13187198");
-var Ka5583bf3ad34 = require("../Tuple2/Ka5583bf3ad34");
+const Q = require("../../core");
+const K3e8257255cbf = require("../ADT/K3e8257255cbf");
+const Kdc26e9d90047 = require("../Identifier/Kdc26e9d90047");
+const K07b1b045ac3c = require("../ADTRef/K07b1b045ac3c");
+const K4bbd38587b9e = require("../AbsRef/K4bbd38587b9e");
+const Kb8cd13187198 = require("../List/Kb8cd13187198");
+const Ka5583bf3ad34 = require("../Tuple2/Ka5583bf3ad34");
 exports.$RepoProtocol = function (f) { return f(exports.___, []); };
 exports.___ = {
     zid: [0x05, 0xc7, 0xd8, 0x93, 0xe9, 0xd5],
@@ -34,79 +34,57 @@ exports.___ = {
         } };
     }
 };
-var Record = (function () {
-    function Record(_0) {
+class Record {
+    constructor(_0) {
         this._0 = _0;
     }
-    Record.prototype.toString = function () { return this.toStr(false); };
-    Record.prototype.toStr = function (nested) {
-        if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, ["Record", this._0.toStr(true)].join(' '));
-    };
-    Record.prototype.match = function (m) { return m.Record(this._0); };
-    Record.prototype.flatMaxSize = function () { return 2 + this._0.flatMaxSize(); };
-    Record.prototype.flatEncode = function (st) { st.zero(); st.zero(); this._0.flatEncode(st); };
-    return Record;
-}());
+    toString() { return this.toStr(false); }
+    toStr(nested = false) { return Q.nestedPars(nested, ["Record", this._0.toStr(true)].join(' ')); }
+    match(m) { return m.Record(this._0); }
+    flatMaxSize() { return 2 + this._0.flatMaxSize(); }
+    flatEncode(st) { st.zero(); st.zero(); this._0.flatEncode(st); }
+}
 exports.Record = Record;
-var Solve = (function () {
-    function Solve(_0) {
+class Solve {
+    constructor(_0) {
         this._0 = _0;
     }
-    Solve.prototype.toString = function () { return this.toStr(false); };
-    Solve.prototype.toStr = function (nested) {
-        if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, ["Solve", this._0.toStr(true)].join(' '));
-    };
-    Solve.prototype.match = function (m) { return m.Solve(this._0); };
-    Solve.prototype.flatMaxSize = function () { return 2 + this._0.flatMaxSize(); };
-    Solve.prototype.flatEncode = function (st) { st.zero(); st.one(); this._0.flatEncode(st); };
-    return Solve;
-}());
+    toString() { return this.toStr(false); }
+    toStr(nested = false) { return Q.nestedPars(nested, ["Solve", this._0.toStr(true)].join(' ')); }
+    match(m) { return m.Solve(this._0); }
+    flatMaxSize() { return 2 + this._0.flatMaxSize(); }
+    flatEncode(st) { st.zero(); st.one(); this._0.flatEncode(st); }
+}
 exports.Solve = Solve;
-var Solved = (function () {
-    function Solved(_0, _1) {
+class Solved {
+    constructor(_0, _1) {
         this._0 = _0;
         this._1 = _1;
     }
-    Solved.prototype.toString = function () { return this.toStr(false); };
-    Solved.prototype.toStr = function (nested) {
-        if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, ["Solved", this._0.toStr(true), this._1.toStr(true)].join(' '));
-    };
-    Solved.prototype.match = function (m) { return m.Solved(this._0, this._1); };
-    Solved.prototype.flatMaxSize = function () { return 2 + this._0.flatMaxSize() + this._1.flatMaxSize(); };
-    Solved.prototype.flatEncode = function (st) { st.one(); st.zero(); this._0.flatEncode(st); this._1.flatEncode(st); };
-    return Solved;
-}());
+    toString() { return this.toStr(false); }
+    toStr(nested = false) { return Q.nestedPars(nested, ["Solved", this._0.toStr(true), this._1.toStr(true)].join(' ')); }
+    match(m) { return m.Solved(this._0, this._1); }
+    flatMaxSize() { return 2 + this._0.flatMaxSize() + this._1.flatMaxSize(); }
+    flatEncode(st) { st.one(); st.zero(); this._0.flatEncode(st); this._1.flatEncode(st); }
+}
 exports.Solved = Solved;
-var AskDataTypes = (function () {
-    function AskDataTypes() {
-    }
-    AskDataTypes.prototype.toString = function () { return this.toStr(false); };
-    AskDataTypes.prototype.toStr = function (nested) {
-        if (nested === void 0) { nested = false; }
-        return "AskDataTypes";
-    };
-    AskDataTypes.prototype.match = function (m) { return m.AskDataTypes; };
-    AskDataTypes.prototype.flatMaxSize = function () { return 3 + 0; };
-    AskDataTypes.prototype.flatEncode = function (st) { st.one(); st.one(); st.zero(); };
-    return AskDataTypes;
-}());
+class AskDataTypes {
+    toString() { return this.toStr(false); }
+    toStr(nested = false) { return "AskDataTypes"; }
+    match(m) { return m.AskDataTypes; }
+    flatMaxSize() { return 3 + 0; }
+    flatEncode(st) { st.one(); st.one(); st.zero(); }
+}
 exports.AskDataTypes = AskDataTypes;
-var KnownDataTypes = (function () {
-    function KnownDataTypes(_0) {
+class KnownDataTypes {
+    constructor(_0) {
         this._0 = _0;
     }
-    KnownDataTypes.prototype.toString = function () { return this.toStr(false); };
-    KnownDataTypes.prototype.toStr = function (nested) {
-        if (nested === void 0) { nested = false; }
-        return Q.nestedPars(nested, ["KnownDataTypes", this._0.toStr(true)].join(' '));
-    };
-    KnownDataTypes.prototype.match = function (m) { return m.KnownDataTypes(this._0); };
-    KnownDataTypes.prototype.flatMaxSize = function () { return 3 + this._0.flatMaxSize(); };
-    KnownDataTypes.prototype.flatEncode = function (st) { st.one(); st.one(); st.one(); this._0.flatEncode(st); };
-    return KnownDataTypes;
-}());
+    toString() { return this.toStr(false); }
+    toStr(nested = false) { return Q.nestedPars(nested, ["KnownDataTypes", this._0.toStr(true)].join(' ')); }
+    match(m) { return m.KnownDataTypes(this._0); }
+    flatMaxSize() { return 3 + this._0.flatMaxSize(); }
+    flatEncode(st) { st.one(); st.one(); st.one(); this._0.flatEncode(st); }
+}
 exports.KnownDataTypes = KnownDataTypes;
 //# sourceMappingURL=K05c7d893e9d5.js.map

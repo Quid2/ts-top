@@ -7,18 +7,12 @@ exports.___ = {
         return function (st) { return new Unit(); };
     }
 };
-var Unit = (function () {
-    function Unit() {
-    }
-    Unit.prototype.toString = function () { return this.toStr(false); };
-    Unit.prototype.toStr = function (nested) {
-        if (nested === void 0) { nested = false; }
-        return "Unit";
-    };
-    Unit.prototype.match = function (m) { return m.Unit; };
-    Unit.prototype.flatMaxSize = function () { return 0; };
-    Unit.prototype.flatEncode = function () { };
-    return Unit;
-}());
+class Unit {
+    toString() { return this.toStr(false); }
+    toStr(nested = false) { return "Unit"; }
+    match(m) { return m.Unit; }
+    flatMaxSize() { return 0; }
+    flatEncode() { }
+}
 exports.Unit = Unit;
 //# sourceMappingURL=K794aef6e21aa.js.map
