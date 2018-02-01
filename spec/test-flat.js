@@ -70,6 +70,7 @@ function testFlat() {
 function testCore() {
     const l0 = new Kb8cd13187198_1.Nil;
     const l1 = new Kb8cd13187198_1.Cons(new K65149ce3b366_1.V0, new Kb8cd13187198_1.Cons(new K65149ce3b366_1.V1, new Kb8cd13187198_1.Nil));
+    console.log("Array", Array.from(l1));
     console.log(l0.toString());
     for (var n0 of l0)
         console.log(n0);

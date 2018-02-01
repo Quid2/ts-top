@@ -22,7 +22,7 @@ import { ChannelSelectionResult, $ChannelSelectionResult, RetryAt, Success } fro
 import { $WebSocketAddress, WebSocketAddress } from '../ADT/WebSocketAddress/Kc802c6aae1af'
 import { $IP4Address, IP4Address } from '../ADT/IP4Address/K6cb2ee3ac409'
 import {$List,Cons,Nil}  from '../ADT/List/Kb8cd13187198'
-import {$Array,Array} from  '../ADT/Array/K2e8b4519aeaa'
+import {$Array,Array as ZArray} from  '../ADT/Array/K2e8b4519aeaa'
 import {$Bytes,Bytes} from '../ADT/Bytes/Kf8844385a443'
 import {$Tuple2,Tuple2} from  '../ADT/Tuple2/Ka5583bf3ad34'
 import {Word16,$Word16} from  '../ADT/Word16/K295e24d62fac'
@@ -80,7 +80,7 @@ function testFlat() {
     flatT($Bit,new V0);
     flatT($ChannelSelectionResult($WebSocketAddress($IP4Address)),new Success);
     flatT($List($Bit),new Cons(new V0,new Cons(new V1,new Nil)));
-    flatT($Array($Bit),new Array([new V0,new V1,new V0]));
+    flatT($Array($Bit),new ZArray([new V0,new V1,new V0]));
     flatT($Bytes,new Bytes(new Uint8Array([11,22,33])));
     flatT($Word7,new Word7(111));
     flatT($Word16,new Word16(65535));
@@ -98,9 +98,11 @@ function testCore() {
     const l0 = new Nil;
     const l1 = new Cons(new V0,new Cons(new V1,new Nil))
     
+    console.log("Array",Array.from(l1))
+
     console.log(l0.toString())
     for (var n0 of l0) console.log(n0)
-    
+
     console.log(l1.toString())
     for (var n1 of l1) console.log(n1)
 }
