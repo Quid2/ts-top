@@ -210,6 +210,13 @@ export class EncoderState {
     }
   }
 
+  // string(s) : void {
+  //   let ptr = 0;
+  //   let blkLen = Math.min(s.length-ptr, 255);
+  //   bits8(blkLen)
+  //   for (var i=0;i<blkLen)
+  // }
+
   byteArray(arr: Uint8Array): void {
     if (this.usedBits != 0) throw Error("EncoderState.byteArray: Buffer is not byte aligned");
 

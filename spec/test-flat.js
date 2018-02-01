@@ -18,6 +18,7 @@ const Kf8844385a443_1 = require("../ADT/Bytes/Kf8844385a443");
 const Ka5583bf3ad34_1 = require("../ADT/Tuple2/Ka5583bf3ad34");
 const K295e24d62fac_1 = require("../ADT/Word16/K295e24d62fac");
 const K066db52af145_1 = require("../ADT/Char/K066db52af145");
+const K2f006595638c_1 = require("../ADT/String/K2f006595638c");
 function flatS(v, exp) {
     console.log("");
     console.log("Val:");
@@ -77,6 +78,8 @@ function testCore() {
     console.log(l1.toString());
     for (var n1 of l1)
         console.log(n1);
+    const s1 = new K2f006595638c_1.String(new Kb8cd13187198_1.Cons(new K066db52af145_1.Char('A'), new Kb8cd13187198_1.Cons(new K066db52af145_1.Char("B"), new Kb8cd13187198_1.Nil)));
+    console.log(s1.toString());
 }
 testCore();
 //# sourceMappingURL=test-flat.js.map

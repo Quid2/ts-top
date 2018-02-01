@@ -27,6 +27,7 @@ import {$Bytes,Bytes} from '../ADT/Bytes/Kf8844385a443'
 import {$Tuple2,Tuple2} from  '../ADT/Tuple2/Ka5583bf3ad34'
 import {Word16,$Word16} from  '../ADT/Word16/K295e24d62fac'
 import {$Char,Char} from  '../ADT/Char/K066db52af145'
+import {String} from  '../ADT/String/K2f006595638c'
 
 function flatS(v: any, exp: any) {
     console.log("");
@@ -105,6 +106,9 @@ function testCore() {
 
     console.log(l1.toString())
     for (var n1 of l1) console.log(n1)
+
+    const s1 = new String (new Cons(new Char('A'),new Cons(new Char("B"),new Nil)))
+    console.log(s1.toString())
 }
 
 testCore();

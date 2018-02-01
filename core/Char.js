@@ -8,13 +8,13 @@ exports.___ = {
     }
 };
 class Char {
-    constructor(value) {
-        this.value = value;
+    constructor(_0) {
+        this._0 = _0;
     }
     flatMaxSize() { return 24; }
-    flatEncode(st) { st.word(this.value.charCodeAt(0)); }
+    flatEncode(st) { st.word(this._0.charCodeAt(0)); }
     toString() { return this.toStr(); }
-    toStr(nested = false) { return "'" + this.value + "'"; }
+    toStr(nested = false) { return "'" + this._0 + "'"; }
 }
 exports.Char = Char;
 //# sourceMappingURL=Char.js.map

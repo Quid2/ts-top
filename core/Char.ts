@@ -11,11 +11,11 @@ export const ___ : Q.zmTypeInfo = {
 
 export class Char implements Q.Flat {
     constructor(
-        public value: string
+        public _0: string
     ) { }
     flatMaxSize() { return 24; }
-    flatEncode(st: Q.EncoderState) { st.word(this.value.charCodeAt(0)); }
+    flatEncode(st: Q.EncoderState) { st.word(this._0.charCodeAt(0)); }
     toString():string {return this.toStr()}
-    toStr(nested=false):string {return "'"+this.value+"'";}
+    toStr(nested=false):string {return "'"+this._0+"'";}
   
 }
