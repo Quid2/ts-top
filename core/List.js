@@ -14,6 +14,9 @@ exports.___ = {
     }
 };
 class Nil {
+    constructor() {
+        this.length = () => 0;
+    }
     toString() { return this.toStr(false); }
     toStr(nested = false) { return "Nil"; }
     match(m) { return m.Nil; }
@@ -46,6 +49,16 @@ class Cons {
                 }
             }
         };
+    }
+    length() {
+        var len = 0;
+        var l = this;
+        while (l instanceof Cons) {
+            l = l._1;
+            len++;
+        }
+        ;
+        return len;
     }
 }
 exports.Cons = Cons;

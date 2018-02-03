@@ -20,6 +20,7 @@ export class Nil<A extends Q.Flat> implements Q.Flat {
   flatEncode(st: Q.EncoderState) { st.zero(); }
 
   [Symbol.iterator]() { return { next: function () { return { done: true, value: undefined } } } }
+  length = () => 0;
 }
 
 export class Cons<A extends Q.Flat> implements Q.Flat {
@@ -47,6 +48,13 @@ export class Cons<A extends Q.Flat> implements Q.Flat {
         }
       }
     }
+  }
+
+  length() {
+    var len = 0;
+    var l: List<A> = this;
+    while (l instanceof Cons) {l = l._1;len++}; 
+    return len;
   }
 }
 

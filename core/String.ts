@@ -22,6 +22,7 @@ export class String  implements Q.Flat {
   toStr(nested=false):string {
     //const reducer = (accumulator:string, currentValue:Char) => accumulator + currentValue._0;
     var cs:Char[]= Array.from(this._0);
+    //var cs = this._0;
     var s ="";
     //console.log(this._0);
     //console.log(cs);

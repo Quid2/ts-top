@@ -17,6 +17,7 @@ export declare class Nil<A extends Q.Flat> implements Q.Flat {
             value: undefined;
         };
     };
+    length: () => number;
 }
 export declare class Cons<A extends Q.Flat> implements Q.Flat {
     _0: A;
@@ -39,4 +40,5 @@ export declare class Cons<A extends Q.Flat> implements Q.Flat {
             value: A;
         };
     };
+    length(): number;
 }

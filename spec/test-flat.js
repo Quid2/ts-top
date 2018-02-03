@@ -72,10 +72,10 @@ function testCore() {
     const l0 = new Kb8cd13187198_1.Nil;
     const l1 = new Kb8cd13187198_1.Cons(new K65149ce3b366_1.V0, new Kb8cd13187198_1.Cons(new K65149ce3b366_1.V1, new Kb8cd13187198_1.Nil));
     console.log("Array", Array.from(l1));
-    console.log(l0.toString());
+    console.log(l0.toString(), l0.length());
     for (var n0 of l0)
         console.log(n0);
-    console.log(l1.toString());
+    console.log(l1.toString(), l1.length());
     for (var n1 of l1)
         console.log(n1);
     const s1 = new K2f006595638c_1.String(new Kb8cd13187198_1.Cons(new K066db52af145_1.Char('A'), new Kb8cd13187198_1.Cons(new K066db52af145_1.Char("B"), new Kb8cd13187198_1.Nil)));
