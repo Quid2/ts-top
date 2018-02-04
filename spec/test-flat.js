@@ -67,7 +67,9 @@ function testFlat() {
     flatT(Ka5583bf3ad34_1.$Tuple2(K65149ce3b366_1.$Bit, K295e24d62fac_1.$Word16), new Ka5583bf3ad34_1.Tuple2(new K65149ce3b366_1.V1, new K295e24d62fac_1.Word16(65535)));
     flatT(Kbf2d1c86eb20_1.$NonEmptyList(K65149ce3b366_1.$Bit), new Kbf2d1c86eb20_1.Cons(new K65149ce3b366_1.V0, new Kbf2d1c86eb20_1.Cons(new K65149ce3b366_1.V1, new Kbf2d1c86eb20_1.Elem(new K65149ce3b366_1.V0))));
     flatT(K066db52af145_1.$Char, new K066db52af145_1.Char('a'));
+    flatT(K2f006595638c_1.$String, new K2f006595638c_1.String('abc'));
 }
+testFlat();
 function testCore() {
     const l0 = new Kb8cd13187198_1.Nil;
     const l1 = new Kb8cd13187198_1.Cons(new K65149ce3b366_1.V0, new Kb8cd13187198_1.Cons(new K65149ce3b366_1.V1, new Kb8cd13187198_1.Nil));
@@ -78,8 +80,6 @@ function testCore() {
     console.log(l1.toString(), l1.length());
     for (var n1 of l1)
         console.log(n1);
-    const s1 = new K2f006595638c_1.String(new Kb8cd13187198_1.Cons(new K066db52af145_1.Char('A'), new Kb8cd13187198_1.Cons(new K066db52af145_1.Char("B"), new Kb8cd13187198_1.Nil)));
-    console.log(s1.toString());
 }
 testCore();
 //# sourceMappingURL=test-flat.js.map

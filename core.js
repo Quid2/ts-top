@@ -59,6 +59,16 @@ class DecoderState {
         } while (w8 !== w7);
         return n;
     }
+    char() {
+        return String.fromCharCode(this.word());
+    }
+    string() {
+        var s = "";
+        while (!this.zero()) {
+            s += this.char();
+        }
+        return s;
+    }
     zero() {
         this.ensureBit();
         const b = !(this.buffer[this.currPtr] & (128 >>> this.usedBits));
@@ -122,6 +132,18 @@ class EncoderState {
                 w |= 128;
             this.bits(8, w);
         } while (n !== 0);
+    }
+    char(c) {
+        this.word(c.charCodeAt(0));
+    }
+    string(s) {
+        const l = s.length;
+        for (var i = 0; i < l; i++) {
+            this.one();
+            this.char(s.charAt(i));
+        }
+        ;
+        this.zero();
     }
     bits(numBits, value) {
         this.usedBits += numBits;

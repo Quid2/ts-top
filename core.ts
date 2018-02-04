@@ -115,6 +115,18 @@ export class DecoderState {
      return n;
   }
 
+  char () : string {
+    return String.fromCharCode(this.word());
+  }
+
+  string () : string {
+    var s = "";
+    while (! this.zero()) {
+      s += this.char();
+    }
+    return s;
+  } 
+
   zero(): boolean {
     this.ensureBit();
     const b = !(this.buffer[this.currPtr] & (128 >>> this.usedBits));
@@ -180,6 +192,21 @@ export class EncoderState {
       if (n!==0) w |= 128;
       this.bits(8,w);
     } while (n!==0);
+  }
+
+  char(c:string) : void {
+    this.word(c.charCodeAt(0));
+  }
+
+  string(s:string) : void {
+    const l = s.length;
+
+    for (var i=0;i<l;i++) {
+      this.one();
+      this.char(s.charAt(i));
+    };
+    
+    this.zero();
   }
 
   // add indicated number of bits (up to ? bits)

@@ -21,6 +21,8 @@ export declare class DecoderState {
     filler(): void;
     bits8(numBits: number): number;
     word(): number;
+    char(): string;
+    string(): string;
     zero(): boolean;
     ensureBit(): void;
     ensureBits(requiredBits: number): void;
@@ -39,6 +41,8 @@ export declare class EncoderState {
     constructor(bufferSize: number);
     filler(): void;
     word(n: number): void;
+    char(c: string): void;
+    string(s: string): void;
     bits(numBits: number, value: number): void;
     zero(): void;
     one(): void;
