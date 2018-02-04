@@ -22,25 +22,25 @@ export const ___ : Q.zmTypeInfo = {
 
 export class String  implements Q.Flat {
   constructor(
-    public _0: string
+    public value: string
 
   ) { }
 
   toString():string {return this.toStr(false)}
-  toStr(nested=false):string {return '"'+this._0.toString()+'"';}
+  toStr(nested=false):string {return '"'+this.value.toString()+'"';}
   // toStr(nested=false):string {
-  //   //const reducer = (accumulator:string, currentValue:Char) => accumulator + currentValue._0;
-  //   var cs:Char[]= Array.from(this._0);
-  //   //var cs = this._0;
+  //   //const reducer = (accumulator:string, currentValue:Char) => accumulator + currentValue.value;
+  //   var cs:Char[]= Array.from(this.value);
+  //   //var cs = this.value;
   //   var s ="";
-  //   //console.log(this._0);
+  //   //console.log(this.value);
   //   //console.log(cs);
-  //   for (var c of cs) s+=c._0;
+  //   for (var c of cs) s+=c.value;
   //   return s;
   //   }
-  //match <R>(m:{String:(v0:Kb8cd13187198.List<K066db52af145.Char>)=>R}) : R {return m.String(this._0);}
-  flatMaxSize():number {return this._0.length*25+1;}
-  flatEncode(st:Q.EncoderState) {st.string(this._0);}
+  //match <R>(m:{String:(v0:Kb8cd13187198.List<K066db52af145.Char>)=>R}) : R {return m.String(this.value);}
+  flatMaxSize():number {return this.value.length*25+1;}
+  flatEncode(st:Q.EncoderState) {st.string(this.value);}
 
 }
 

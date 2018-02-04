@@ -8,13 +8,13 @@ exports.___ = {
     }
 };
 class String {
-    constructor(_0) {
-        this._0 = _0;
+    constructor(value) {
+        this.value = value;
     }
     toString() { return this.toStr(false); }
-    toStr(nested = false) { return '"' + this._0.toString() + '"'; }
-    flatMaxSize() { return this._0.length * 25 + 1; }
-    flatEncode(st) { st.string(this._0); }
+    toStr(nested = false) { return '"' + this.value.toString() + '"'; }
+    flatMaxSize() { return this.value.length * 25 + 1; }
+    flatEncode(st) { st.string(this.value); }
 }
 exports.String = String;
 //# sourceMappingURL=String.js.map
