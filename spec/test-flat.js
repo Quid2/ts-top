@@ -77,7 +77,6 @@ function testCore() {
     console.log(l0.toString(), l0.length());
     for (var n0 of l0)
         console.log(n0);
-    console.log(l1.toString(), l1.length());
     for (var n1 of l1)
         console.log(n1);
 }
