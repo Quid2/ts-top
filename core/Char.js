@@ -14,7 +14,7 @@ class Char {
     flatMaxSize() { return 24; }
     flatEncode(st) { st.char(this._0); }
     toString() { return this.toStr(); }
-    toStr(nested = false) { return "'" + this._0 + "'"; }
+    toStr(nested = false) { return "'" + this._0.toString() + "'"; }
 }
 exports.Char = Char;
 //# sourceMappingURL=Char.js.map

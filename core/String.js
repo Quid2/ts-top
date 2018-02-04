@@ -12,7 +12,7 @@ class String {
         this._0 = _0;
     }
     toString() { return this.toStr(false); }
-    toStr(nested = false) { return this._0.toString(); }
+    toStr(nested = false) { return '"' + this._0.toString() + '"'; }
     flatMaxSize() { return this._0.length * 25 + 1; }
     flatEncode(st) { st.string(this._0); }
 }
