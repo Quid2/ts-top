@@ -16,6 +16,6 @@ export class Char implements Q.Flat {
     flatMaxSize() { return 24; }
     flatEncode(st: Q.EncoderState) { st.char(this._0); }
     toString():string {return this.toStr()}
-    toStr(nested=false):string {return "'"+this._0+"'";}
+    toStr(nested=false):string {return "'"+this._0.toString()+"'";}
   
 }
