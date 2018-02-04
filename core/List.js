@@ -50,16 +50,6 @@ class Cons {
             }
         };
     }
-    length() {
-        var len = 0;
-        var l = this;
-        while (l instanceof Cons) {
-            l = l._1;
-            len++;
-        }
-        ;
-        return len;
-    }
 }
 exports.Cons = Cons;
 //# sourceMappingURL=List.js.map

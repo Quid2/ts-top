@@ -40,5 +40,4 @@ export declare class Cons<A extends Q.Flat> implements Q.Flat {
             value: A;
         };
     };
-    length(): number;
 }

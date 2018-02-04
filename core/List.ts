@@ -50,12 +50,12 @@ export class Cons<A extends Q.Flat> implements Q.Flat {
     }
   }
 
-  length() {
-    var len = 0;
-    var l: List<A> = this;
-    while (l instanceof Cons) {l = l._1;len++}; 
-    return len;
-  }
+  // length() {
+  //   var len = 0;
+  //   var l: List<A> = this;
+  //   while (l instanceof Cons) {l = l._1;len++}; 
+  //   return len;
+  // }
 }
 
 
