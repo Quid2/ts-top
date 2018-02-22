@@ -1,11 +1,3 @@
-# quid2
-TypeScript API and ADTs
+TypeScript implementation of Quid2: Top, ZM and Flat support.
 
-npm run build
-npm run release
-
-Install with:
-
-BUGS
-every time we install a new packge quid2 disappears?
-
+Currently being polished and documented, soon to appear on NPM.
