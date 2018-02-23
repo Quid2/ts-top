@@ -27,7 +27,7 @@ require("rxjs/add/operator/map");
 require("rxjs/add/operator/share");
 require("rxjs/add/operator/filter");
 // https://italonascimento.github.io/applying-a-timeout-to-your-promises/
-const promiseTimeout = function (ms, promise) {
+exports.promiseTimeout = function (ms, promise) {
     // Create a promise that rejects in <ms> milliseconds
     let timeout = new Promise((resolve, reject) => {
         let id = setTimeout(() => {
@@ -153,11 +153,12 @@ function channel(t) {
 }
 exports.channel = channel;
 class CallChannel {
-    constructor(inType, outType) {
+    constructor(inType, outType, ms = 7000) {
         const self = this;
         const cs = channel(K56179bc11dc1_1.$Function(inType, K9f214799149b_1.$SHAKE128_48(inType), outType));
         this.inChan = cs[0];
         this.outChan = cs[1];
+        this.timeoutInMs = ms;
         this.inChan.filter(v => v instanceof K56179bc11dc1_1.Reply)
             .map(v => v._1)
             .subscribe(function (r) {
@@ -170,11 +171,12 @@ class CallChannel {
     call(val) {
         const self = this;
         this.outChan.next(new K56179bc11dc1_1.Call(val));
-        return new Promise(function (resolve, reject) {
+        return exports.promiseTimeout(self.timeoutInMs, new Promise(function (resolve, reject) {
             self.calls = resolve;
-        });
+        }));
     }
 }
+exports.CallChannel = CallChannel;
 function testRX() {
     var observable = Observable_1.Observable.create(function (observer) {
         observer.next(1);

@@ -9,4 +9,6 @@ const top_1 = require("./top");
 exports.typedBLOB = top_1.typedBLOB;
 exports.Channel = top_1.Channel;
 exports.channel = top_1.channel;
+exports.CallChannel = top_1.CallChannel;
+exports.promiseTimeout = top_1.promiseTimeout;
 //# sourceMappingURL=index.js.map
