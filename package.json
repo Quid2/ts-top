@@ -1,11 +1,11 @@
 {
   "name": "@quid2/ts",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "TypeScript API for Quid2",
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "release": "standard-version;maker;git commit -am \"release\";git push --follow-tags origin master;git status",
+    "release": "npm build;standard-version;maker;git commit -am \"release\";git push --follow-tags origin master;git status",
     "test": "tsc;node spec/test-flat",
     "test-top": "parcel -p 2345 spec/index.html",
     "doc": "typedoc --out doc *.ts;open doc/index.html",
