@@ -198,16 +198,19 @@ export function channel<A>(t: zmFold<A>) : [Observable<A>,QueueingSubject<A>] {
 export class CallChannel<I extends Flat,R extends Flat> {
     private inChan : Observable<ZMFunction<I, SHAKE128_48<I>, R>>
     private outChan: QueueingSubject<ZMFunction<I, SHAKE128_48<I>, R>>
- 
+
+    private timeoutInMs:number;    
+
     // FIX support multiple calls    
     private calls : any; // = []
 
-    constructor(inType:zmFold<I>,outType:zmFold<R>) {
+    constructor(inType:zmFold<I>,outType:zmFold<R>,ms:number=7000) {
         const self = this;
         const cs = channel($Function(inType,$SHAKE128_48(inType),outType));
         this.inChan = cs[0];
         this.outChan = cs[1];           
-    
+        this.timeoutInMs = ms;
+
         this.inChan.filter(v => v instanceof Reply)
           .map(v => v._1)
           // FIX: add filter on call unique code
@@ -223,9 +226,9 @@ export class CallChannel<I extends Flat,R extends Flat> {
 
         this.outChan.next(new Call(val));
         
-        return new Promise(function(resolve, reject) {
+        return promiseTimeout(self.timeoutInMs,new Promise(function(resolve, reject) {
             self.calls = resolve;
-          });
+          }));
     }
 }
 
@@ -258,6 +261,6 @@ function testCall() {
 }
 
 //testRX()
-//testCall();
+testCall();
 
 
