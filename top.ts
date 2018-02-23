@@ -195,7 +195,7 @@ export function channel<A>(t: zmFold<A>) : [Observable<A>,QueueingSubject<A>] {
     return [inChan, outChan];
 }
 
-class CallChannel<I extends Flat,R extends Flat> {
+export class CallChannel<I extends Flat,R extends Flat> {
     private inChan : Observable<ZMFunction<I, SHAKE128_48<I>, R>>
     private outChan: QueueingSubject<ZMFunction<I, SHAKE128_48<I>, R>>
  
