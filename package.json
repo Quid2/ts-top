@@ -1,13 +1,15 @@
 {
-  "name": "quid2",
-  "version": "1.0.59",
-  "description": "TypeScript API and ADTs for Quid2",
+  "name": "@quid2/ts",
+  "version": "0.1.1",
+  "description": "TypeScript API for Quid2",
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "release": "standard-version;git commit -am \"release\";git push --follow-tags origin master;git status",
+    "release": "standard-version;maker;git commit -am \"release\";git push --follow-tags origin master;git status",
     "test": "tsc;node spec/test-flat",
-    "test-top": "parcel -p 2345 spec/index.html"
+    "test-top": "parcel -p 2345 spec/index.html",
+    "doc": "typedoc --out doc *.ts;open doc/index.html",
+    "doctest": "npx typescript-doctest --help"
   },
   "repository": {
     "type": "git",
@@ -23,9 +25,11 @@
   "devDependencies": {
     "babel-preset-env": "^1.6.1",
     "standard-version": "^4.3.0",
+    "typedoc": "^0.10.0",
     "typescript": "^2.6.2"
   },
   "dependencies": {
+    "doctest": "^0.13.0",
     "queueing-subject": "^0.2.0",
     "rxjs": "^5.5.6",
     "ws": "^4.0.0"

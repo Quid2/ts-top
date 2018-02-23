@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.1.1"></a>
+## [0.1.1](https://github.com/Quid2/ts/compare/v1.0.59...v0.1.1) (2018-02-23)
+
+
+
 <a name="1.0.59"></a>
 ## [1.0.59](https://github.com/Quid2/ts/compare/v1.0.58...v1.0.59) (2018-02-22)
 
