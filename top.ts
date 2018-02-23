@@ -43,7 +43,7 @@ import 'rxjs/add/operator/filter';
 import { Observer } from "rxjs/Observer";
 
 // https://italonascimento.github.io/applying-a-timeout-to-your-promises/
-const promiseTimeout = function<A>(ms:Number, promise:Promise<A>) : Promise <{} | A> {
+export const promiseTimeout = function<A>(ms:Number, promise:Promise<A>) : Promise <{} | A> {
 
     // Create a promise that rejects in <ms> milliseconds
     let timeout = new Promise((resolve, reject) => {
