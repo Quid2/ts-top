@@ -21,6 +21,7 @@ function testTop() {
     });
 }
 exports.testTop = testTop;
+//testTop();
 function testTopRX() {
     const received = [];
     function log(n, v) { received.push([n + ":" + v.toString()]); }
@@ -41,12 +42,22 @@ function testTopRX() {
         error: err => console.error('inChan:error', err),
         complete: () => console.log('inChan:complete'),
     });
+    // close connection
+    //inSubscription.unsubscribe();
+    //for (let v of [new V1, new V0, new V1, new V1, new V1]) outChan.next(v);
     setTimeout(() => {
         outChan.next(new K65149ce3b366_1.V0);
         outChan2.next(new K65149ce3b366_1.V1);
+        // outChan.next(new V0);
+        // // Stop sending
+        // outChan.complete();
+        // outChan.next(new V1); 
+        // outChan.next(new V1);
     }, 2000);
     setTimeout(() => {
         console.log("Received", received.toString(), received.toString() == "2.1:V0,1.1:V1,1.2:V1");
+        //[["2.1", new V0],["1.1",new V1],["1.2", new V1]],new V0 == new V0,"1.1"=="1.1");
+        //console.log(received.toString(),received.join(","),JSON.stringify(received),JSON.stringify(new V1),(new V1));
     }, 3000);
 }
 testTopRX();

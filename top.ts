@@ -1,4 +1,4 @@
-import { flat, zmType, zmFold, flatDecoder, unflat, Decoder } from "./api";
+import { flat, zmType, zmFold, flatDecoder, unflat, Decoder ,Flat} from "./api";
 //import {arraySize,zmId} from "./core";
 
 import { ByType, $ByType } from './ADT/ByType/K87f090a54ea3'
@@ -20,6 +20,18 @@ import { Bytes } from './ADT/Bytes/Kf8844385a443'
 import { ChannelSelectionResult, $ChannelSelectionResult, RetryAt } from './ADT/ChannelSelectionResult/Kc6627a317dbc'
 import { $WebSocketAddress, WebSocketAddress } from './ADT/WebSocketAddress/Kc802c6aae1af'
 import { $IP4Address, IP4Address } from './ADT/IP4Address/K6cb2ee3ac409'
+import { $Function, Call, Reply ,Function as ZMFunction} from './ADT/Function/K56179bc11dc1'
+import { $SHAKE128_48,SHAKE128_48 } from './ADT/SHAKE128_48/K9f214799149b'
+
+import { $SourceCode ,SourceCode} from './ADT/SourceCode/Kb9b08d43766f'
+import { $String ,String} from './ADT/String/K2f006595638c'
+//import {$Issues,Issues} from  './ADT/Issues/Kd0790379c631'
+import {$Validate,Validate} from './ADT/Validate/Kffe0940f8ff2'
+import {$Position,Position} from './ADT/Position/K2ff00417fe9d'
+import {$Range,Range} from './ADT/Range/K63b2d97244bc'
+import {$ZM,ZM} from './ADT/ZM/Kb3a40bdda26f'
+import {$List,List as ZList} from './ADT/List/Kb8cd13187198'
+import { $Note ,Note } from './ADT/Note/K21b7bfc3d09c'
 
 //import Rx from 'rxjs/Rx';
 import { QueueingSubject } from 'queueing-subject'
@@ -27,7 +39,27 @@ import { Observable, Subscribable } from 'rxjs/Observable'
 import { AnonymousSubscription } from 'rxjs/Subscription'
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/share';
+import 'rxjs/add/operator/filter';
 import { Observer } from "rxjs/Observer";
+
+// https://italonascimento.github.io/applying-a-timeout-to-your-promises/
+const promiseTimeout = function<A>(ms:Number, promise:Promise<A>) : Promise <{} | A> {
+
+    // Create a promise that rejects in <ms> milliseconds
+    let timeout = new Promise((resolve, reject) => {
+      let id = setTimeout(() => {
+        clearTimeout(id);
+        reject('Timed out in '+ ms + 'ms.')
+      }, ms)
+    })
+  
+    // Returns a race between our timeout and the passed in promise
+    return Promise.race([
+      promise,
+      timeout
+    ])
+  }
+
 
 export function flatBLOB(v: any): BLOB<FlatEncoding> {
     //return new BLOB(new FlatEncoding,new Bytes(new PreAligned(new FillerEnd(),flat (new ByType))));
@@ -85,7 +117,6 @@ export class Channel<A> {
 
     }
 }
-
 
 // NOTE: code adapted from https://github.com/ohjames/rxjs-websockets
 /*
@@ -164,6 +195,39 @@ export function channel<A>(t: zmFold<A>) : [Observable<A>,QueueingSubject<A>] {
     return [inChan, outChan];
 }
 
+class CallChannel<I extends Flat,R extends Flat> {
+    private inChan : Observable<ZMFunction<I, SHAKE128_48<I>, R>>
+    private outChan: QueueingSubject<ZMFunction<I, SHAKE128_48<I>, R>>
+ 
+    // FIX support multiple calls    
+    private calls : any; // = []
+
+    constructor(inType:zmFold<I>,outType:zmFold<R>) {
+        const self = this;
+        const cs = channel($Function(inType,$SHAKE128_48(inType),outType));
+        this.inChan = cs[0];
+        this.outChan = cs[1];           
+    
+        this.inChan.filter(v => v instanceof Reply)
+          .map(v => v._1)
+          // FIX: add filter on call unique code
+          .subscribe(function (r) {
+            console.log("REPLY",r);
+            if (self.calls) self.calls(r);
+            //this.calls = undefined;
+        })
+    }
+
+    call(val:I) {
+        const self = this;
+
+        this.outChan.next(new Call(val));
+        
+        return new Promise(function(resolve, reject) {
+            self.calls = resolve;
+          });
+    }
+}
 
 function testRX() {
     var observable : Observable<number> = Observable.create(function (observer:Observer<number>) {
@@ -186,6 +250,14 @@ function testRX() {
     console.log('just after subscribe');
 }
 
+function testCall() {
+    const ch = new CallChannel($Validate($SourceCode($ZM)),$List($Note($String, $Range)));
+    ch.call(new Validate(new SourceCode (new ZM,new String("Void ==="))))
+      .then(r => console.log("CALL RESULT",r))
+      .catch(e => console.log("CALL FAILED",e));
+}
+
 //testRX()
+testCall();
 
 

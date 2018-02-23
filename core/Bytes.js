@@ -13,7 +13,7 @@ class Bytes {
         this.bytes = bytes;
     }
     flatMaxSize() {
-        return 8 + Q.byteArraySize(this.bytes);
+        return 8 + Q.byteArraySize(this.bytes); // Up to 8 bits for prefiller plus aligned byte array size
     }
     flatEncode(st) { st.filler(); st.byteArray(this.bytes); }
     toString() { return this.toStr(); }

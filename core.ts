@@ -1,8 +1,10 @@
-// Primitives required by the ADT definitions.
+/**
+  Primitives required by the generated ADT definitions.
+ */
 
 // ZM types
 
-// Saturated ZM Type Fold
+/** Saturated ZM Type Fold */
 export type zmFold<T> = <A> (f: (tId: zmTypeInfo, pars: A[]) => A) => A
 
 //export const zmConst : <A> (v:A) => ((f: (tId: zmTypeInfo,pars: A[]) => A) => A) = function (v) {return function(f) {return v;}} 
@@ -23,7 +25,7 @@ export type zmId = [number, number, number, number, number, number]
 
 export type zmTypeInfo = { zid: zmId, decoder: (decoders: Decoder[]) => Decoder }
 
-// Flat binary encoding
+/** Flat binary encoding **/
 export interface Flat {
   flatMaxSize: () => number,
   flatEncode: Encoder,
@@ -39,17 +41,28 @@ export function flatDecoder (t:zmTypeInfo,decoders:Decoder[]) {
 };
 
 export class DecoderState {
-  buffer: Uint8Array; //Flat-encoded value
-  currPtr: number;    //Pointer to the current byte being decoded (0..buffer.byteLength-1)
-  usedBits: number;   //Number of already decoded bits in the current byte (0..7)
+  /** The buffer that contains a sequence of flat-encoded values */
+  buffer: Uint8Array; 
+  
+  /** Pointer to the current byte being decoded (0..buffer.byteLength-1) */
+  currPtr: number;  
 
+  /** Number of already decoded bits in the current byte (0..7) */
+  usedBits: number;   
+
+  /**
+   * 
+   * @param buffer The flat-encoded binary value
+   */
   constructor(buffer: Uint8Array) {
     this.buffer = buffer;
     this.currPtr = 0;
     this.usedBits = 0;
   }
 
-  // Decode a byteArray (the underlying buffer is modified)
+  /** Decode a byteArray
+   * @return the decoded byteArray
+  */
   byteArray(): Uint8Array {
     if (this.usedBits != 0) throw Error("DecoderState.byteArray: Buffer is not byte aligned");
 
@@ -78,10 +91,15 @@ export class DecoderState {
     return st.buffer.subarray(arrPtr,arrPtr+arrSize);
   }
 
+  /** Decode a Filler, a special value that is used to byte align values. 
+  */
   filler(): void {
     while (this.zero());
   }
 
+  /** Decode up to 8 bits 
+   * @param numBits the number of bits to decode (0..8)
+  */
   bits8(numBits: number): number {
     if (numBits < 0 || numBits > 8) throw Error("Decoder.bits8: incorrect value of numBits " + numBits);
     
@@ -98,6 +116,7 @@ export class DecoderState {
     return r;
   }
 
+  /** Decode a ZM Word see definition at  */
   word():number {
     var n = 0;
     var shl = 0;

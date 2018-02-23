@@ -8,6 +8,15 @@ const K7028aa556ebc_1 = require("./ADT/Type/K7028aa556ebc");
 const K4bbd38587b9e_1 = require("./ADT/AbsRef/K4bbd38587b9e");
 const K9f214799149b_1 = require("./ADT/SHAKE128_48/K9f214799149b");
 const Kb1f46a49c8f8_1 = require("./ADT/Word8/Kb1f46a49c8f8");
+/**
+ *  Encode a value in the [Flat](http://quid2.org) binary format.
+ *  > flat(true)
+ *  MM
+ */
+/**
+ * @param v the value to encode
+ * @return the encoded value
+ */
 function flat(v) {
     let val = new Ka5583bf3ad34_1.Tuple2(v, new Kae1dfeece189_1.FillerEnd());
     let numBits = val.flatMaxSize();
@@ -17,6 +26,7 @@ function flat(v) {
     return st.seal();
 }
 exports.flat = flat;
+/** Apply to a type to create the corresponding ZM type */
 function zmType(t, ts) {
     function typeId(v) {
         return new K7028aa556ebc_1.TypeCon(new K4bbd38587b9e_1.AbsRef(new K9f214799149b_1.SHAKE128_48(new Kb1f46a49c8f8_1.Word8(v[0]), new Kb1f46a49c8f8_1.Word8(v[1]), new Kb1f46a49c8f8_1.Word8(v[2]), new Kb1f46a49c8f8_1.Word8(v[3]), new Kb1f46a49c8f8_1.Word8(v[4]), new Kb1f46a49c8f8_1.Word8(v[5]))));
@@ -25,7 +35,14 @@ function zmType(t, ts) {
 }
 exports.zmType = zmType;
 ;
+/**
+ * Decode value
+ * @param dec the decoder for the value only (excluding the final Filler)
+ * @param buf the binary buffer containing the encoded value plus the final Filler
+ * @return the decoded value
+ */
 function unflat(dec, buf) {
+    //console.log("unflat",buf);
     const st = new core_1.DecoderState(buf);
     const v = dec(st);
     st.filler();
@@ -33,4 +50,16 @@ function unflat(dec, buf) {
     return v;
 }
 exports.unflat = unflat;
+// Optimised Types
+//String.prototype.
+//Kb8cd13187198.Nil.prototype[Symbol.iterator] = function* () {}
+// Kb8cd13187198.Cons.prototype[Symbol.iterator] = function* () {
+//     var l = this;
+//     do {
+//        l = <>this._1; 
+//         yield l._0
+//         l=<>this._1;
+//  while (l._1 instanceof Kb8cd13187198.Nil)
+//     } while (l.match({Nil:false,Cons:()=>true}))
+// }
 //# sourceMappingURL=api.js.map

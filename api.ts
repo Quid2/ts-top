@@ -13,9 +13,16 @@ import * as Kb8cd13187198 from  './ADT/List/Kb8cd13187198'
 
 export {flat,zmType,zmId,zmFold,unflat,Decoder,flatDecoder,Flat};
 
-// Flat encode a value
-//function flat(v:any implements Flat) {
-function flat(v: any): Uint8Array {
+/**
+ *  Encode a value in the [Flat](http://quid2.org) binary format. 
+ *  > flat(true)
+ *  MM
+ */
+/**
+ * @param v the value to encode
+ * @return the encoded value
+ */
+ function flat(v: any): Uint8Array {
         let val = new Tuple2(v, new FillerEnd());
         let numBits = val.flatMaxSize();
         var numBytes = Math.ceil(numBits / 8);
@@ -24,7 +31,7 @@ function flat(v: any): Uint8Array {
         return st.seal();
 }
 
-// Apply to a type to create the corresponding ZM type
+/** Apply to a type to create the corresponding ZM type */
 function zmType(t:zmTypeInfo ,ts:Type<AbsRef>[]) : Type<AbsRef> {
     
     function typeId(v: zmId): Type<AbsRef> {
@@ -34,8 +41,13 @@ function zmType(t:zmTypeInfo ,ts:Type<AbsRef>[]) : Type<AbsRef> {
     return ts.reduce((f, a) => new TypeApp(f, a), typeId(t.zid));
 };
 
-
-function unflat(dec:Decoder,buf:Uint8Array) {
+/**
+ * Decode value
+ * @param dec the decoder for the value only (excluding the final Filler)  
+ * @param buf the binary buffer containing the encoded value plus the final Filler
+ * @return the decoded value
+ */
+function unflat(dec:Decoder,buf:Uint8Array) : any {
     //console.log("unflat",buf);
     const st = new DecoderState(buf);
     const v = dec(st);

@@ -3,9 +3,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const index_1 = require("../index");
 const K87f090a54ea3_1 = require("../ADT/ByType/K87f090a54ea3");
 const K65149ce3b366_1 = require("../ADT/Bit/K65149ce3b366");
+// import { TypedBLOB } from '../ADT/TypedBLOB/K614edd84c8bd'
 const Kb1f46a49c8f8_1 = require("../ADT/Word8/Kb1f46a49c8f8");
 const Kf4c946334a7e_1 = require("../ADT/Word7/Kf4c946334a7e");
+// import { BLOB } from '../ADT/BLOB/Kf139d4751fda'
+// import { FlatEncoding } from '../ADT/FlatEncoding/K982148c09ddb'
 const Kbf2d1c86eb20_1 = require("../ADT/NonEmptyList/Kbf2d1c86eb20");
+//import {Array,A1,A0} from  '../ADT/Array/K2e8b4519aeaa'
+//import {Array} from  '../ADT/Array/K2e8b4519aeaa'
+//import { Tuple2 } from '../ADT/Tuple2/Ka5583bf3ad34'
 const K6260e465ae74_1 = require("../ADT/Either/K6260e465ae74");
 const Kda6836778fd4_1 = require("../ADT/Maybe/Kda6836778fd4");
 const K306f1981b41c_1 = require("../ADT/Bool/K306f1981b41c");
@@ -49,6 +55,9 @@ function testFlat() {
     flatS(new Ka5583bf3ad34_1.Tuple2(new K65149ce3b366_1.V1, new Kb1f46a49c8f8_1.Word8(128 + 1)), [128 + 64, 128 + 1]);
     flatS(new Ka5583bf3ad34_1.Tuple2(new Kb1f46a49c8f8_1.Word8(128 + 1), new K65149ce3b366_1.V1), [129, 128 + 1]);
     flatS(K6260e465ae74_1.$Either(K306f1981b41c_1.$Bool, Kda6836778fd4_1.$Maybe(K306f1981b41c_1.$Bool))(index_1.zmType), [204, 76, 28, 140, 181, 206, 131, 6, 241, 152, 27, 65, 203, 105, 160, 217, 222, 63, 80, 96, 222, 51, 3, 104, 57]);
+    // flat $ typedBLOB(ByType::ByType Bool);
+    // [161, 252, 36, 41, 83, 168, 198, 13, 227, 48, 54, 131, 129,       1,     1,        0,        1]
+    // <TypCon (ByType Bool) + prealign                         >   arrayN, ByType arrayEnd postalign   
     flatS(index_1.typedBLOB(new K87f090a54ea3_1.ByType, K87f090a54ea3_1.$ByType(K306f1981b41c_1.$Bool)), [161, 252, 36, 41, 83, 168, 198, 13, 227, 48, 54, 131, 129, 1, 1, 0, 1]);
     flatS(index_1.typedBLOB(new K87f090a54ea3_1.ByType, K87f090a54ea3_1.$ByType(K65149ce3b366_1.$Bit)), [161, 252, 36, 41, 83, 168, 204, 162, 147, 156, 118, 108, 193, 1, 1, 0, 1]);
     flatS(index_1.typedBLOB(new K306f1981b41c_1.True, K306f1981b41c_1.$Bool), [24, 55, 140, 192, 218, 14, 1, 1, 129, 0, 1]);
@@ -77,8 +86,11 @@ function testCore() {
     console.log(l0.toString(), l0.length());
     for (var n0 of l0)
         console.log(n0);
+    //console.log(l1.toString(),l1.length())
     for (var n1 of l1)
         console.log(n1);
+    //const s1 = new String (new Cons(new Char('A'),new Cons(new Char("B"),new Nil)))
+    //console.log(s1.toString())
 }
 testCore();
 //# sourceMappingURL=test-flat.js.map

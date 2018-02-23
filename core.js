@@ -1,5 +1,9 @@
 "use strict";
+/**
+  Primitives required by the generated ADT definitions.
+ */
 Object.defineProperty(exports, "__esModule", { value: true });
+//export const zmConst : <A> (v:A) => ((f: (tId: zmTypeInfo,pars: A[]) => A) => A) = function (v) {return function(f) {return v;}} 
 function zmConst(v) { return function (f) { return v; }; }
 exports.zmConst = zmConst;
 function flatDecoder(t, decoders) {
@@ -8,15 +12,28 @@ function flatDecoder(t, decoders) {
 exports.flatDecoder = flatDecoder;
 ;
 class DecoderState {
+    /**
+     *
+     * @param buffer The flat-encoded binary value
+     */
     constructor(buffer) {
         this.buffer = buffer;
         this.currPtr = 0;
         this.usedBits = 0;
     }
+    /** Decode a byteArray
+     * @return the decoded byteArray
+    */
     byteArray() {
         if (this.usedBits != 0)
             throw Error("DecoderState.byteArray: Buffer is not byte aligned");
         var st = this;
+        // const arr = new Uint8Array(1000);
+        // while (blkLen=st.buffer[st.currPtr++]) {
+        //   arr.set(st.buffer.subarray(0,blkLen), arrPtr);
+        //   arrPtr += blkLen;
+        //   st.currPtr += blkLen;
+        // }
         var arrPtr = st.currPtr;
         var arrSize = 0;
         var blkLen;
@@ -29,14 +46,20 @@ class DecoderState {
         }
         return st.buffer.subarray(arrPtr, arrPtr + arrSize);
     }
+    /** Decode a Filler, a special value that is used to byte align values.
+    */
     filler() {
         while (this.zero())
             ;
     }
+    /** Decode up to 8 bits
+     * @param numBits the number of bits to decode (0..8)
+    */
     bits8(numBits) {
         if (numBits < 0 || numBits > 8)
             throw Error("Decoder.bits8: incorrect value of numBits " + numBits);
         this.ensureBits(numBits);
+        // usedBits=1 numBits=8 unusedBits=7 leadingZeros=0 unusedBits+leadingZeros=7
         const unusedBits = 8 - this.usedBits;
         const leadingZeros = 8 - numBits;
         var r = ((this.buffer[this.currPtr] << this.usedBits) & 255) >>> leadingZeros;
@@ -46,6 +69,7 @@ class DecoderState {
         this.dropBits(numBits);
         return r;
     }
+    /** Decode a ZM Word see definition at  */
     word() {
         var n = 0;
         var shl = 0;
@@ -56,6 +80,7 @@ class DecoderState {
             w7 = w8 & 127;
             n |= w7 << shl;
             shl += 7;
+            //console.log("usedBits",this.usedBits,"w7",w7,"w8",w8,w8!==w7)
         } while (w8 !== w7);
         return n;
     }
@@ -72,6 +97,7 @@ class DecoderState {
     zero() {
         this.ensureBit();
         const b = !(this.buffer[this.currPtr] & (128 >>> this.usedBits));
+        //console.log("BIT",this.buffer,this.currPtr,this.buffer[this.currPtr],128 >>> this.usedBits,(this.buffer[this.currPtr] & (128 >>> this.usedBits)),b);
         if (this.usedBits == 7) {
             this.currPtr++;
             this.usedBits = 0;
@@ -80,6 +106,7 @@ class DecoderState {
             this.usedBits++;
         return b;
     }
+    // Is this required? Or we can rely on build in js checks?
     ensureBit() {
         if (this.currPtr >= this.buffer.byteLength) {
             throw Error("DecoderState: Not enough data available: " + JSON.stringify(this));
@@ -99,6 +126,7 @@ class DecoderState {
         ;
     }
     availableBits() { return 8 * this.availableBytes() - this.usedBits; }
+    // Available bytes, ignoring used bits
     availableBytes() { return this.buffer.byteLength - this.currPtr; }
     dropBits(numBits) {
         const totUsed = numBits + this.usedBits;
@@ -145,6 +173,7 @@ class EncoderState {
         ;
         this.zero();
     }
+    // add indicated number of bits (up to ? bits)
     bits(numBits, value) {
         this.usedBits += numBits;
         let unusedBits = 8 - this.usedBits;
@@ -174,6 +203,12 @@ class EncoderState {
             this.usedBits++;
         }
     }
+    // string(s) : void {
+    //   let ptr = 0;
+    //   let blkLen = Math.min(s.length-ptr, 255);
+    //   bits8(blkLen)
+    //   for (var i=0;i<blkLen)
+    // }
     byteArray(arr) {
         if (this.usedBits != 0)
             throw Error("EncoderState.byteArray: Buffer is not byte aligned");
@@ -201,11 +236,13 @@ class EncoderState {
     }
 }
 exports.EncoderState = EncoderState;
+// Exact encoding size in bits of a prealigned Array of bytes
 function byteArraySize(arr) {
     let numBytes = arr.byteLength + arrayBlocks(arr.byteLength);
     return 8 * numBytes;
 }
 exports.byteArraySize = byteArraySize;
+// Exact number of bytes needed to store the array blocks lengths
 function arrayBlocks(len) { return Math.ceil(len / 255) + 1; }
 exports.arrayBlocks = arrayBlocks;
 function nestedPars(nested, s) { return nested ? "(" + s + ")" : s; }

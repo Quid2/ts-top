@@ -6,6 +6,7 @@ import { QueueingSubject } from 'queueing-subject';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/share';
+import 'rxjs/add/operator/filter';
 export declare function flatBLOB(v: any): BLOB<FlatEncoding>;
 export declare function typedBLOB(v: any, t: zmFold<any>): TypedBLOB;
 export interface Client<A> {
