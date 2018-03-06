@@ -1,13 +1,13 @@
 {
   "name": "@quid2/ts",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "TypeScript API for Quid2",
   "main": "index.js",
   "scripts": {
     "build": "tsc",
     "release": "npm run build;standard-version;maker;git commit -am \"release\";git push --follow-tags origin master;git status",
     "test": "tsc;node spec/test-flat",
-    "test-top": "parcel -p 2345 spec/index.html",
+    "test-top": "parcel -p 2345 test/index.html",
     "doc": "typedoc --out doc *.ts;open doc/index.html",
     "doctest": "npx typescript-doctest --help"
   },
@@ -23,13 +23,23 @@
   },
   "homepage": "https://github.com/Quid2/ts#readme",
   "devDependencies": {
+    "@types/chai": "^4.1.2",
+    "@types/es6-promise": "^3.3.0",
+    "@types/mocha": "^2.2.48",
     "babel-preset-env": "^1.6.1",
+    "chai": "^4.1.2",
+    "es6-promise": "^4.2.4",
+    "mocha": "^5.0.1",
+    "nyc": "^11.4.1",
     "standard-version": "^4.3.0",
+    "ts-node": "^5.0.0",
     "typedoc": "^0.10.0",
     "typescript": "^2.6.2"
   },
   "dependencies": {
+    "chai-as-promised": "^7.1.1",
     "doctest": "^0.13.0",
+    "js-sha3": "^0.7.0",
     "queueing-subject": "^0.2.0",
     "rxjs": "^5.5.6",
     "ws": "^4.0.0"
