@@ -1,15 +1,16 @@
 {
   "name": "@quid2/ts",
-  "version": "0.1.11",
+  "version": "0.1.12",
   "description": "TypeScript API for Quid2",
   "main": "index.js",
   "scripts": {
     "build": "tsc",
     "release": "npm run build;standard-version;maker;git commit -am \"release\";git push --follow-tags origin master;git status",
-    "test": "tsc;node spec/test-flat",
+    "test": "tsc test/test-flat;node test/test-flat",
     "test-top": "parcel -p 2345 test/index.html",
     "doc": "typedoc --out doc *.ts;open doc/index.html",
-    "doctest": "npx typescript-doctest --help"
+    "doctest": "npx typescript-doctest --help",
+    "adt": "cd ~/workspace/top-apps;stack install :zm;zm ts --srcDir \"/Users/titto/workspace/ts\""
   },
   "repository": {
     "type": "git",
@@ -34,7 +35,8 @@
     "standard-version": "^4.3.0",
     "ts-node": "^5.0.0",
     "typedoc": "^0.10.0",
-    "typescript": "^2.6.2"
+    "typescript": "^2.6.2",
+    "tap": "^11.1.5"
   },
   "dependencies": {
     "chai-as-promised": "^7.1.1",
