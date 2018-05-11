@@ -20,7 +20,7 @@ export function zmConst (v:any) {return function(f:any) {return v;}}
 //export type zmFold0 = <A> (v:A) => ((f: (tId: zmTypeInfo,pars: A[]) => A) => A)
 //export const zmConst : zmFold0 = function (v) {return function(f) {return v;}} 
 
-// ZM type contructor unique code
+// ZM type constructor unique code
 export type zmId = [number, number, number, number, number, number]
 
 export type zmTypeInfo = { zid: zmId, decoder: (decoders: Decoder[]) => Decoder }

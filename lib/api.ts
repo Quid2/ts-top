@@ -1,12 +1,12 @@
 import {EncoderState,zmId,zmFold,zmTypeInfo,Decoder,DecoderState,flatDecoder,Flat} from './core'
-import {Tuple2} from  './ADT/Tuple2/Ka5583bf3ad34'
-import {FillerEnd} from  './ADT/Filler/Kae1dfeece189'
-import {Type,TypeApp,TypeCon} from  './ADT/Type/K7028aa556ebc'
-import {AbsRef} from  './ADT/AbsRef/K4bbd38587b9e'
-import {SHAKE128_48} from  './ADT/SHAKE128_48/K9f214799149b'
-import {Word8 as W} from  './ADT/Word8/Kb1f46a49c8f8'
-import * as Kb8cd13187198 from  './ADT/List/Kb8cd13187198'
-//import { Symbol } from './ADT/Identifier/Kdc26e9d90047';
+import {Tuple2} from  '../ADT/Tuple2/Ka5583bf3ad34'
+import {FillerEnd} from  '../ADT/Filler/Kae1dfeece189'
+import {Type,TypeApp,TypeCon} from  '../ADT/Type/K7028aa556ebc'
+import {AbsRef} from  '../ADT/AbsRef/K4bbd38587b9e'
+import {SHAKE128_48} from  '../ADT/SHAKE128_48/K9f214799149b'
+import {Word8 as W} from  '../ADT/Word8/Kb1f46a49c8f8'
+import * as Kb8cd13187198 from  '../ADT/List/Kb8cd13187198'
+//import { Symbol } from '../ADT/Identifier/Kdc26e9d90047';
 //import * as ADD from './add'
 
 //var x = console.log(ADD.dummy)

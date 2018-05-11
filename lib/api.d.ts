@@ -1,6 +1,6 @@
 import { zmId, zmFold, zmTypeInfo, Decoder, flatDecoder, Flat } from './core';
-import { Type } from './ADT/Type/K7028aa556ebc';
-import { AbsRef } from './ADT/AbsRef/K4bbd38587b9e';
+import { Type } from '../ADT/Type/K7028aa556ebc';
+import { AbsRef } from '../ADT/AbsRef/K4bbd38587b9e';
 export { flat, zmType, zmId, zmFold, unflat, Decoder, flatDecoder, Flat };
 /**
  *  Encode a value in the [Flat](http://quid2.org) binary format.
