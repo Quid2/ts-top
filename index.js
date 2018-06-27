@@ -14,4 +14,5 @@ exports.promiseTimeout = top_1.promiseTimeout;
 const util_1 = require("./lib/util");
 exports.parseShake48 = util_1.parseShake48;
 exports.prettyShake48 = util_1.prettyShake48;
+exports.prettyAbsRef = util_1.prettyAbsRef;
 //# sourceMappingURL=index.js.map
