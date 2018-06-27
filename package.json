@@ -1,6 +1,6 @@
 {
   "name": "@quid2/ts",
-  "version": "0.1.16",
+  "version": "0.1.17",
   "description": "TypeScript API for Quid2",
   "main": "index.js",
   "scripts": {
