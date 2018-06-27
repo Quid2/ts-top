@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "release": "npm run build;standard-version;maker;git commit -am \"release\";git push --follow-tags origin master;git status",
+    "release": "npm run build;npm run test;standard-version;maker;git commit -am \"release\";git push --follow-tags origin master;git status",
     "test": "tsc test/test-flat;node test/test-flat;tsc test/test-util;node test/test-util",
     "test-top": "parcel -p 2345 test/index.html",
     "doc": "typedoc --out doc *.ts;open doc/index.html",
