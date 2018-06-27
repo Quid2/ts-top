@@ -21,7 +21,6 @@ import { ChannelSelectionResult, $ChannelSelectionResult, RetryAt } from '../ADT
 import { $WebSocketAddress, WebSocketAddress } from '../ADT/WebSocketAddress/Kc802c6aae1af'
 import { $IP4Address, IP4Address } from '../ADT/IP4Address/K6cb2ee3ac409'
 import { $Function, Call, Reply, Function as ZMFunction } from '../ADT/Function/K2396c227c787'
-import { $SHAKE128_48, SHAKE128_48 } from '../ADT/SHAKE128_48/K9f214799149b'
 
 import { $SourceCode, SourceCode } from '../ADT/SourceCode/Kb9b08d43766f'
 import { $String, String } from '../ADT/String/K2f006595638c'
@@ -198,15 +197,6 @@ export function channel<A>(t: zmFold<A>): [Observable<A>, QueueingSubject<A>] {
     }).share();
 
     return [inChan, outChan];
-}
-
-interface Pretty<A> {
-    pretty<A>(v: A): string
-}
-
-function prettyShake48<I extends Flat>(s: SHAKE128_48<I>): string {
-    function asHex(v: Word8) { const r = v.value.toString(16); return r.length == 1 ? '0' + r : r; }
-    return asHex(s._0) + asHex(s._1) + asHex(s._2) + asHex(s._3) + asHex(s._4) + asHex(s._5);
 }
 
 //SHAKE128_48.prototype.pretty = function prettyShake48<I extends Flat>(s:SHAKE128_48<I>) : string {

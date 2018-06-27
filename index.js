@@ -11,4 +11,7 @@ exports.Channel = top_1.Channel;
 exports.channel = top_1.channel;
 exports.CallChannel = top_1.CallChannel;
 exports.promiseTimeout = top_1.promiseTimeout;
+const util_1 = require("./lib/util");
+exports.parseShake48 = util_1.parseShake48;
+exports.prettyShake48 = util_1.prettyShake48;
 //# sourceMappingURL=index.js.map
