@@ -1,4 +1,4 @@
-import { flat, zmType, zmFold, flatDecoder, unflat, Decoder, Flat} from "./api";
+import { flat, zmType, zmFold, flatDecoder, unflat, Decoder, Flat } from "./api";
 //import {arraySize,zmId} from "./core";
 
 import { ByType, $ByType } from '../ADT/ByType/K87f090a54ea3'
@@ -45,6 +45,7 @@ import { assert } from "chai";
 //chai.use(chaiAsPromised);
 import { shake128, shake_128 } from 'js-sha3';
 import { isUndefined } from "util";
+import { prettyShake48 } from "./util"
 
 // https://italonascimento.github.io/applying-a-timeout-to-your-promises/
 export const promiseTimeout = function <A>(ms: Number, promise: Promise<A>): Promise<{} | A> {
