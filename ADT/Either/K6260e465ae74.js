@@ -3,8 +3,8 @@
 Either a b ≡   Left a
              | Right b
 */
-Object.defineProperty(exports, "__esModule", { value: true });
-const Q = require("../.././lib/core");
+exports.__esModule = true;
+var Q = require("../.././lib/core");
 exports.$Either = function (t1, t2) { return function (f) { return f(exports.___, [t1(f), t2(f)]); }; };
 exports.___ = {
     zid: [0x62, 0x60, 0xe4, 0x65, 0xae, 0x74],
@@ -17,26 +17,33 @@ exports.___ = {
         } };
     }
 };
-class Left {
-    constructor(_0) {
+var Left = /** @class */ (function () {
+    function Left(_0) {
         this._0 = _0;
     }
-    toString() { return this.toStr(false); }
-    toStr(nested = false) { return Q.nestedPars(nested, ["Left", this._0.toStr(true)].join(' ')); }
-    match(m) { return m.Left(this._0); }
-    flatMaxSize() { return 1 + this._0.flatMaxSize(); }
-    flatEncode(st) { st.zero(); this._0.flatEncode(st); }
-}
+    Left.prototype.toString = function () { return this.toStr(false); };
+    Left.prototype.toStr = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return Q.nestedPars(nested, ["Left", this._0.toStr(true)].join(' '));
+    };
+    Left.prototype.match = function (m) { return m.Left(this._0); };
+    Left.prototype.flatMaxSize = function () { return 1 + this._0.flatMaxSize(); };
+    Left.prototype.flatEncode = function (st) { st.zero(); this._0.flatEncode(st); };
+    return Left;
+}());
 exports.Left = Left;
-class Right {
-    constructor(_0) {
+var Right = /** @class */ (function () {
+    function Right(_0) {
         this._0 = _0;
     }
-    toString() { return this.toStr(false); }
-    toStr(nested = false) { return Q.nestedPars(nested, ["Right", this._0.toStr(true)].join(' ')); }
-    match(m) { return m.Right(this._0); }
-    flatMaxSize() { return 1 + this._0.flatMaxSize(); }
-    flatEncode(st) { st.one(); this._0.flatEncode(st); }
-}
+    Right.prototype.toString = function () { return this.toStr(false); };
+    Right.prototype.toStr = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return Q.nestedPars(nested, ["Right", this._0.toStr(true)].join(' '));
+    };
+    Right.prototype.match = function (m) { return m.Right(this._0); };
+    Right.prototype.flatMaxSize = function () { return 1 + this._0.flatMaxSize(); };
+    Right.prototype.flatEncode = function (st) { st.one(); this._0.flatEncode(st); };
+    return Right;
+}());
 exports.Right = Right;
-//# sourceMappingURL=K6260e465ae74.js.map

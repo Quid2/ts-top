@@ -3,7 +3,7 @@
 Bool ≡   False
        | True
 */
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 exports.$Bool = function (f) { return f(exports.___, []); };
 exports.___ = {
     zid: [0x30, 0x6f, 0x19, 0x81, 0xb4, 0x1c],
@@ -16,20 +16,31 @@ exports.___ = {
         } };
     }
 };
-class False {
-    toString() { return this.toStr(false); }
-    toStr(nested = false) { return "False"; }
-    match(m) { return m.False; }
-    flatMaxSize() { return 1 + 0; }
-    flatEncode(st) { st.zero(); }
-}
+var False = /** @class */ (function () {
+    function False() {
+    }
+    False.prototype.toString = function () { return this.toStr(false); };
+    False.prototype.toStr = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return "False";
+    };
+    False.prototype.match = function (m) { return m.False; };
+    False.prototype.flatMaxSize = function () { return 1 + 0; };
+    False.prototype.flatEncode = function (st) { st.zero(); };
+    return False;
+}());
 exports.False = False;
-class True {
-    toString() { return this.toStr(false); }
-    toStr(nested = false) { return "True"; }
-    match(m) { return m.True; }
-    flatMaxSize() { return 1 + 0; }
-    flatEncode(st) { st.one(); }
-}
+var True = /** @class */ (function () {
+    function True() {
+    }
+    True.prototype.toString = function () { return this.toStr(false); };
+    True.prototype.toStr = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return "True";
+    };
+    True.prototype.match = function (m) { return m.True; };
+    True.prototype.flatMaxSize = function () { return 1 + 0; };
+    True.prototype.flatEncode = function (st) { st.one(); };
+    return True;
+}());
 exports.True = True;
-//# sourceMappingURL=K306f1981b41c.js.map

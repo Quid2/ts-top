@@ -2,7 +2,7 @@
 /** ZM Type:
 FlatEncoding ≡   FlatEncoding
 */
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 exports.$FlatEncoding = function (f) { return f(exports.___, []); };
 exports.___ = {
     zid: [0x98, 0x21, 0x48, 0xc0, 0x9d, 0xdb],
@@ -10,12 +10,17 @@ exports.___ = {
         return function (st) { return new FlatEncoding(); };
     }
 };
-class FlatEncoding {
-    toString() { return this.toStr(false); }
-    toStr(nested = false) { return "FlatEncoding"; }
-    match(m) { return m.FlatEncoding; }
-    flatMaxSize() { return 0; }
-    flatEncode() { }
-}
+var FlatEncoding = /** @class */ (function () {
+    function FlatEncoding() {
+    }
+    FlatEncoding.prototype.toString = function () { return this.toStr(false); };
+    FlatEncoding.prototype.toStr = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return "FlatEncoding";
+    };
+    FlatEncoding.prototype.match = function (m) { return m.FlatEncoding; };
+    FlatEncoding.prototype.flatMaxSize = function () { return 0; };
+    FlatEncoding.prototype.flatEncode = function () { };
+    return FlatEncoding;
+}());
 exports.FlatEncoding = FlatEncoding;
-//# sourceMappingURL=K982148c09ddb.js.map

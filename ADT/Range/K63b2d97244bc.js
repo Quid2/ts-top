@@ -2,9 +2,9 @@
 /** ZM Type:
 Range ≡   Range {start :: K2ff00417fe9d, end :: K2ff00417fe9d}
 */
-Object.defineProperty(exports, "__esModule", { value: true });
-const Q = require("../.././lib/core");
-const K2ff00417fe9d = require("../Position/K2ff00417fe9d");
+exports.__esModule = true;
+var Q = require("../.././lib/core");
+var K2ff00417fe9d = require("../Position/K2ff00417fe9d");
 exports.$Range = function (f) { return f(exports.___, []); };
 exports.___ = {
     zid: [0x63, 0xb2, 0xd9, 0x72, 0x44, 0xbc],
@@ -12,16 +12,19 @@ exports.___ = {
         return function (st) { return new Range(K2ff00417fe9d.___.decoder([])(st), K2ff00417fe9d.___.decoder([])(st)); };
     }
 };
-class Range {
-    constructor(start, end) {
+var Range = /** @class */ (function () {
+    function Range(start, end) {
         this.start = start;
         this.end = end;
     }
-    toString() { return this.toStr(false); }
-    toStr(nested = false) { return Q.nestedPars(nested, ["Range", this.start.toStr(true), this.end.toStr(true)].join(' ')); }
-    match(m) { return m.Range(this.start, this.end); }
-    flatMaxSize() { return this.start.flatMaxSize() + this.end.flatMaxSize(); }
-    flatEncode(st) { this.start.flatEncode(st); this.end.flatEncode(st); }
-}
+    Range.prototype.toString = function () { return this.toStr(false); };
+    Range.prototype.toStr = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return Q.nestedPars(nested, ["Range", this.start.toStr(true), this.end.toStr(true)].join(' '));
+    };
+    Range.prototype.match = function (m) { return m.Range(this.start, this.end); };
+    Range.prototype.flatMaxSize = function () { return this.start.flatMaxSize() + this.end.flatMaxSize(); };
+    Range.prototype.flatEncode = function (st) { this.start.flatEncode(st); this.end.flatEncode(st); };
+    return Range;
+}());
 exports.Range = Range;
-//# sourceMappingURL=K63b2d97244bc.js.map

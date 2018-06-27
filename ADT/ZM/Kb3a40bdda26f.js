@@ -2,7 +2,7 @@
 /** ZM Type:
 ZM ≡   ZM
 */
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 exports.$ZM = function (f) { return f(exports.___, []); };
 exports.___ = {
     zid: [0xb3, 0xa4, 0x0b, 0xdd, 0xa2, 0x6f],
@@ -10,12 +10,17 @@ exports.___ = {
         return function (st) { return new ZM(); };
     }
 };
-class ZM {
-    toString() { return this.toStr(false); }
-    toStr(nested = false) { return "ZM"; }
-    match(m) { return m.ZM; }
-    flatMaxSize() { return 0; }
-    flatEncode() { }
-}
+var ZM = /** @class */ (function () {
+    function ZM() {
+    }
+    ZM.prototype.toString = function () { return this.toStr(false); };
+    ZM.prototype.toStr = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return "ZM";
+    };
+    ZM.prototype.match = function (m) { return m.ZM; };
+    ZM.prototype.flatMaxSize = function () { return 0; };
+    ZM.prototype.flatEncode = function () { };
+    return ZM;
+}());
 exports.ZM = ZM;
-//# sourceMappingURL=Kb3a40bdda26f.js.map
