@@ -1,8 +1,8 @@
-import { flat, zmType, zmFold, flatDecoder, unflat, Decoder ,Flat} from "./api";
+import { flat, zmType, zmFold, flatDecoder, unflat, Decoder, Flat} from "./api";
 //import {arraySize,zmId} from "./core";
 
 import { ByType, $ByType } from '../ADT/ByType/K87f090a54ea3'
-import { Bit, V0, V1, $Bit } from '../ADT/Bit/K65149ce3b366'
+//import { Bit, V0, V1, $Bit } from '../ADT/Bit/K65149ce3b366'
 import { TypedBLOB } from '../ADT/TypedBLOB/K614edd84c8bd'
 import { Word8 } from '../ADT/Word8/Kb1f46a49c8f8'
 import { BLOB } from '../ADT/BLOB/Kf139d4751fda'
@@ -20,18 +20,18 @@ import { Bytes } from '../ADT/Bytes/Kf8844385a443'
 import { ChannelSelectionResult, $ChannelSelectionResult, RetryAt } from '../ADT/ChannelSelectionResult/Kc6627a317dbc'
 import { $WebSocketAddress, WebSocketAddress } from '../ADT/WebSocketAddress/Kc802c6aae1af'
 import { $IP4Address, IP4Address } from '../ADT/IP4Address/K6cb2ee3ac409'
-import { $Function, Call, Reply ,Function as ZMFunction} from '../ADT/Function/K56179bc11dc1'
-import { $SHAKE128_48,SHAKE128_48 } from '../ADT/SHAKE128_48/K9f214799149b'
+import { $Function, Call, Reply, Function as ZMFunction } from '../ADT/Function/K2396c227c787'
+import { $SHAKE128_48, SHAKE128_48 } from '../ADT/SHAKE128_48/K9f214799149b'
 
-import { $SourceCode ,SourceCode} from '../ADT/SourceCode/Kb9b08d43766f'
-import { $String ,String} from '../ADT/String/K2f006595638c'
+import { $SourceCode, SourceCode } from '../ADT/SourceCode/Kb9b08d43766f'
+import { $String, String } from '../ADT/String/K2f006595638c'
 //import {$Issues,Issues} from  '../ADT/Issues/Kd0790379c631'
-import {$Validate,Validate} from '../ADT/Validate/Kffe0940f8ff2'
-import {$Position,Position} from '../ADT/Position/K2ff00417fe9d'
-import {$Range,Range} from '../ADT/Range/K63b2d97244bc'
-import {$ZM,ZM} from '../ADT/ZM/Kb3a40bdda26f'
-import {$List,List as ZList} from '../ADT/List/Kb8cd13187198'
-import { $Note ,Note } from '../ADT/Note/K21b7bfc3d09c'
+import { $Validate, Validate } from '../ADT/Validate/Kffe0940f8ff2'
+import { $Position, Position } from '../ADT/Position/K2ff00417fe9d'
+import { $Range, Range } from '../ADT/Range/K63b2d97244bc'
+import { $ZM, ZM } from '../ADT/ZM/Kb3a40bdda26f'
+import { $List, List as ZList } from '../ADT/List/Kb8cd13187198'
+import { $Note, Note } from '../ADT/Note/K21b7bfc3d09c'
 
 //import Rx from 'rxjs/Rx';
 import { QueueingSubject } from 'queueing-subject'
@@ -44,26 +44,26 @@ import { Observer } from "rxjs/Observer";
 import { assert } from "chai";
 //import "chai-as-promised" as CAP;
 //chai.use(chaiAsPromised);
-import {shake128, shake_128} from 'js-sha3';
+import { shake128, shake_128 } from 'js-sha3';
 import { isUndefined } from "util";
 
 // https://italonascimento.github.io/applying-a-timeout-to-your-promises/
-export const promiseTimeout = function<A>(ms:Number, promise:Promise<A>) : Promise <{} | A> {
+export const promiseTimeout = function <A>(ms: Number, promise: Promise<A>): Promise<{} | A> {
 
     // Create a promise that rejects in <ms> milliseconds
     let timeout = new Promise((resolve, reject) => {
-      let id = setTimeout(() => {
-        clearTimeout(id);
-        reject('Timed out in '+ ms + 'ms.')
-      }, ms)
+        let id = setTimeout(() => {
+            clearTimeout(id);
+            reject('Timed out in ' + ms + 'ms.')
+        }, ms)
     })
-  
+
     // Returns a race between our timeout and the passed in promise
     return Promise.race([
-      promise,
-      timeout
+        promise,
+        timeout
     ])
-  }
+}
 
 
 export function flatBLOB(v: any): BLOB<FlatEncoding> {
@@ -129,7 +129,7 @@ Each invocation causes a new connection to the specified Top channel to be estab
 Return a couple of input and output,  they are related as values queued on the outChan won't be observed on the inChan.
 The inChan is shared so that any subscription will work on the same underlying socket connection.
 */
-export function channel<A>(t: zmFold<A>) : [Observable<A>,QueueingSubject<A>] {
+export function channel<A>(t: zmFold<A>): [Observable<A>, QueueingSubject<A>] {
 
     const outChan = new QueueingSubject<A>();
 
@@ -191,17 +191,17 @@ export function channel<A>(t: zmFold<A>) : [Observable<A>,QueueingSubject<A>] {
         }
 
         return function unsubscribe() {
-            console.log("COMPLETED",outSubscription,socket);
+            console.log("COMPLETED", outSubscription, socket);
             if (outSubscription) outSubscription.unsubscribe()
             socket.close()
         }
     }).share();
-    
+
     return [inChan, outChan];
 }
 
 interface Pretty<A> {
-    pretty<A>(v:A) : string
+    pretty<A>(v: A): string
 }
 
 function prettyShake48<I extends Flat>(s: SHAKE128_48<I>): string {
@@ -214,21 +214,21 @@ function prettyShake48<I extends Flat>(s: SHAKE128_48<I>): string {
 
 // Might fails if accesses asynchronously
 class Multi {
-    private vals : any = {}; 
+    private vals: any = {};
 
     // has(key:string) : boolean {
     //    return ! isUndefined(this.values[key]);
     // }
 
-    values(key:string) {
+    values(key: string) {
         const maybeValues = this.vals[key];
         return isUndefined(maybeValues) ? [] : maybeValues;
-     }
+    }
 
-    use(key:string,f:any) {
+    use(key: string, f: any) {
         this.values(key).map(f);
         delete this.values;
-     }
+    }
 
     add(key: string, val: any) {
         var vals = this.vals[key];
@@ -237,63 +237,65 @@ class Multi {
             vals = [val];
         else
             vals.push(val);
-        
+
         this.vals[key] = vals;
     }
 
 }
 
-export class CallChannel<I extends Flat,R extends Flat> {
-    private inChan : Observable<ZMFunction<I, SHAKE128_48<I>, R>>
-    private outChan: QueueingSubject<ZMFunction<I, SHAKE128_48<I>, R>>
+export class CallChannel<I extends Flat, R extends Flat> {
+    private inChan: Observable<ZMFunction<I, R>>
+    private outChan: QueueingSubject<ZMFunction<I, R>>
 
-    private timeoutInMs:number;    
+    private timeoutInMs: number;
 
     private calls = new Multi();
 
-    constructor(inType:zmFold<I>,outType:zmFold<R>,ms:number=7000) {
+    constructor(inType: zmFold<I>, outType: zmFold<R>, ms: number = 7000) {
         const self = this;
-        const cs = channel($Function(inType,$SHAKE128_48(inType),outType));
+        //const cs = channel($Function(inType, $SHAKE128_48(inType), outType));
+        const cs = channel($Function(inType, outType));
         this.inChan = cs[0];
-        this.outChan = cs[1];           
+        this.outChan = cs[1];
         this.timeoutInMs = ms;
 
         this.inChan.filter(v => v instanceof Reply)
-          .map(v => v as Reply<I,SHAKE128_48<I>,R>)          
-          .subscribe(function (r) {
-            //console.log("CALLS",self.calls,"REPLY",prettyShake48(r._0),self.calls.values(prettyShake48(r._0)),r.toString());
-            const key = prettyShake48(r._0);
-            self.calls.use(key,function (f:any) {f(r._1)})
-        })
+            //.map(v => v as Reply<I, SHAKE128_48<I>, R>)
+            .map(v => v as Reply<I, R>)
+            .subscribe(function (r) {
+                //console.log("CALLS",self.calls,"REPLY",prettyShake48(r._0),self.calls.values(prettyShake48(r._0)),r.toString());
+                const key = prettyShake48(r._0);
+                self.calls.use(key, function (f: any) { f(r._1) })
+            })
     }
 
     /** Call remote function 
      * @param val the remote function parameter
      * @return a Promise of 
     */
-    call(val:I) {
+    call(val: I) {
         const self = this
 
         this.outChan.next(new Call(val))
-        
-        const reply = new Promise(function(resolve) {
-            const key = shake_128(flat(val),48)
-            self.calls.add(key,resolve)
+
+        const reply = new Promise(function (resolve) {
+            const key = shake_128(flat(val), 48)
+            self.calls.add(key, resolve)
         });
-        
-        return promiseTimeout(self.timeoutInMs,reply)
+
+        return promiseTimeout(self.timeoutInMs, reply)
     }
 }
 
 function testCall() {
-    const ch = new CallChannel($Validate($SourceCode($ZM)),$List($Note($String, $Range)));
+    const ch = new CallChannel($Validate($SourceCode($ZM)), $List($Note($String, $Range)));
     //assert.fail("BAD")
-    const results = [["Void ===","Cons (Note \"unexpected '=' expecting ';', end of input, or letter\" (Range (Position 0 6) (Position 0 6))) Nil"]
-                     ,["Void","Nil"]
-                     ,["Void","Nil"]
-                     ,["Bool = False | True |","Cons (Note \"unexpected end of input expecting letter\" (Range (Position 0 21) (Position 0 21))) Nil"]
-                     ,["Void","Nil"]
-                    ]
+    const results = [["Void ===", "Cons (Note \"unexpected '=' expecting ';', end of input, or letter\" (Range (Position 0 6) (Position 0 6))) Nil"]
+        , ["Void", "Nil"]
+        , ["Void", "Nil"]
+        , ["Bool = False | True |", "Cons (Note \"unexpected end of input expecting letter\" (Range (Position 0 21) (Position 0 21))) Nil"]
+        , ["Void", "Nil"]
+    ]
     var rs = results[0]
     for (let i = 0; i < results.length; i++) {
         let rs = results[i];
@@ -313,7 +315,7 @@ function testCall() {
 //testCall();
 
 function testRX() {
-    var observable : Observable<number> = Observable.create(function (observer:Observer<number>) {
+    var observable: Observable<number> = Observable.create(function (observer: Observer<number>) {
         observer.next(1);
         observer.next(2);
         observer.next(3);
