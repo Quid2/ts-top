@@ -186,8 +186,9 @@ export function channel<A>(t: zmFold<A>): [Observable<A>, QueueingSubject<A>] {
                 })
 
             } else {
-                console.log('Channel:got data', event.data);
-                observer.next(unflat(dec, new Uint8Array(event.data)));
+                const val = unflat(dec, new Uint8Array(event.data));
+                console.log('Channel:got data', event.data, val);
+                observer.next(val);
             }
         };
 
