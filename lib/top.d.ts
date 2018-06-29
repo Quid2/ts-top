@@ -28,7 +28,7 @@ export declare class CallChannel<I extends Flat, R extends Flat> {
     constructor(inType: zmFold<I>, outType: zmFold<R>, ms?: number);
     /** Call remote function
      * @param val the remote function parameter
-     * @return a Promise of
+     * @return a Promise of the remote function's result
     */
-    call(val: I): Promise<I>;
+    call(val: I): Promise<R>;
 }

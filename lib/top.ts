@@ -277,14 +277,15 @@ export class CallChannel<I extends Flat, R extends Flat> {
 
     /** Call remote function 
      * @param val the remote function parameter
-     * @return a Promise of 
+     * @return a Promise of the remote function's result
     */
-    call(val: I): Promise<I> {
+    call(val: I): Promise<R> {
         const self = this
 
         this.outChan.next(new Call(val))
 
-        const reply: Promise<I> = promiseWithTimeout(self.timeoutInMs, function (resolve) {
+        //const reply = promiseWithTimeout(self.timeoutInMs, function (resolve) {
+        const reply: Promise<R> = new Promise(function (resolve) {
             const key = shake_128(flat(val), 48)
             self.calls.add(key, resolve)
         });
