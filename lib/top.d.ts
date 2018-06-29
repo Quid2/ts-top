@@ -8,6 +8,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/share';
 import 'rxjs/add/operator/filter';
 export declare const promiseTimeout: <A>(ms: Number, promise: Promise<A>) => Promise<{} | A>;
+export declare const promiseWithTimeout: <A>(ms: Number, f: (resolve: (value: A) => void, reject: (reason?: any) => void) => void) => Promise<A>;
 export declare function flatBLOB(v: any): BLOB<FlatEncoding>;
 export declare function typedBLOB(v: any, t: zmFold<any>): TypedBLOB;
 export interface Client<A> {
@@ -29,5 +30,5 @@ export declare class CallChannel<I extends Flat, R extends Flat> {
      * @param val the remote function parameter
      * @return a Promise of
     */
-    call(val: I): Promise<{} | I>;
+    call(val: I): Promise<I>;
 }

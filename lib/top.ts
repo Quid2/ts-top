@@ -65,6 +65,21 @@ export const promiseTimeout = function <A>(ms: Number, promise: Promise<A>): Pro
     ])
 }
 
+export const promiseWithTimeout = function <A>(ms: Number, f: (resolve: (value: A) => void, reject: (reason?: any) => void) => void): Promise<A> {
+
+    // Create a promise that rejects in <ms> milliseconds
+    return new Promise((resolve, reject) => {
+
+        let id = setTimeout(() => {
+            clearTimeout(id);
+            reject('Timed out in ' + ms + 'ms.')
+        }, ms)
+
+        f(resolve, reject);
+    })
+
+}
+
 
 export function flatBLOB(v: any): BLOB<FlatEncoding> {
     //return new BLOB(new FlatEncoding,new Bytes(new PreAligned(new FillerEnd(),flat (new ByType))));
@@ -264,17 +279,18 @@ export class CallChannel<I extends Flat, R extends Flat> {
      * @param val the remote function parameter
      * @return a Promise of 
     */
-    call(val: I): Promise<{} | I> {
+    call(val: I): Promise<I> {
         const self = this
 
         this.outChan.next(new Call(val))
 
-        const reply = new Promise(function (resolve) {
+        const reply: Promise<I> = promiseWithTimeout(self.timeoutInMs, function (resolve) {
             const key = shake_128(flat(val), 48)
             self.calls.add(key, resolve)
         });
 
-        return promiseTimeout(self.timeoutInMs, reply)
+        //return promiseTimeout(self.timeoutInMs, reply)
+        return reply; //promiseTimeout(self.timeoutInMs, reply)
     }
 }
 
