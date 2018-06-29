@@ -264,7 +264,7 @@ export class CallChannel<I extends Flat, R extends Flat> {
      * @param val the remote function parameter
      * @return a Promise of 
     */
-    call(val: I) {
+    call(val: I): Promise<{} | I> {
         const self = this
 
         this.outChan.next(new Call(val))

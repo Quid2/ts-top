@@ -29,5 +29,5 @@ export declare class CallChannel<I extends Flat, R extends Flat> {
      * @param val the remote function parameter
      * @return a Promise of
     */
-    call(val: I): Promise<{} | {}>;
+    call(val: I): Promise<{} | I>;
 }
