@@ -1,4 +1,4 @@
-import { Flat } from "./api";
+import { Flat } from "./core";
 import { SHAKE128_48 } from '../ADT/SHAKE128_48/K9f214799149b';
 import { AbsRef } from '../ADT/AbsRef/K4bbd38587b9e';
 export declare function parseAbsRef(s: string): AbsRef;

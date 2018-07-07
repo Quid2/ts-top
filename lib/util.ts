@@ -1,11 +1,8 @@
-import { Flat } from "./api";
+//import { Flat } from "./api";
+import { Flat } from "./core";
 import { Word8 } from '../ADT/Word8/Kb1f46a49c8f8'
 import { SHAKE128_48 } from '../ADT/SHAKE128_48/K9f214799149b'
 import { AbsRef } from '../ADT/AbsRef/K4bbd38587b9e'
-
-interface Pretty<A> {
-    pretty<A>(v: A): string
-}
 
 export function parseAbsRef(s: string): AbsRef {
     if (s.substring(0, 1) !== "K") throw "unexpected input: " + s;

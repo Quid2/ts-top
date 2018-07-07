@@ -9,7 +9,7 @@ export type zmFold<T> = <A> (f: (tId: zmTypeInfo, pars: A[]) => A) => A
 
 //export const zmConst : <A> (v:A) => ((f: (tId: zmTypeInfo,pars: A[]) => A) => A) = function (v) {return function(f) {return v;}} 
 
-export function zmConst (v:any) {return function(f:any) {return v;}} 
+export function zmConst(v: any) { return function (f: any) { return v; } }
 
 //export const zmConst : string = ""
 
@@ -29,26 +29,29 @@ export type zmTypeInfo = { zid: zmId, decoder: (decoders: Decoder[]) => Decoder 
 export interface Flat {
   flatMaxSize: () => number,
   flatEncode: Encoder,
-  toStr(nested:boolean):string // FIX interface name
+
+  // Move to different interface
+  toStr(nested: boolean): string
+  //pretty():string = toStr()
 }
 
 //export type Decoder<T> = (s:DecoderState) => T
 
 export type Decoder = (s: DecoderState) => any
 
-export function flatDecoder (t:zmTypeInfo,decoders:Decoder[]) {
+export function flatDecoder(t: zmTypeInfo, decoders: Decoder[]) {
   return t.decoder(decoders);
 };
 
 export class DecoderState {
   /** The buffer that contains a sequence of flat-encoded values */
-  buffer: Uint8Array; 
-  
+  buffer: Uint8Array;
+
   /** Pointer to the current byte being decoded (0..buffer.byteLength-1) */
-  currPtr: number;  
+  currPtr: number;
 
   /** Number of already decoded bits in the current byte (0..7) */
-  usedBits: number;   
+  usedBits: number;
 
   /**
    * 
@@ -76,19 +79,19 @@ export class DecoderState {
     //   st.currPtr += blkLen;
     // }
 
-    var arrPtr=st.currPtr;
-    var arrSize=0;
+    var arrPtr = st.currPtr;
+    var arrSize = 0;
     var blkLen;
 
     st.ensureBytes(1);
-    while (blkLen=st.buffer[st.currPtr++]) {
-      st.ensureBytes(blkLen+1);
-      st.buffer.copyWithin(st.currPtr-1,st.currPtr,st.currPtr+blkLen);
+    while (blkLen = st.buffer[st.currPtr++]) {
+      st.ensureBytes(blkLen + 1);
+      st.buffer.copyWithin(st.currPtr - 1, st.currPtr, st.currPtr + blkLen);
       st.currPtr += blkLen;
       arrSize += blkLen;
     }
 
-    return st.buffer.subarray(arrPtr,arrPtr+arrSize);
+    return st.buffer.subarray(arrPtr, arrPtr + arrSize);
   }
 
   /** Decode a Filler, a special value that is used to byte align values. 
@@ -102,49 +105,49 @@ export class DecoderState {
   */
   bits8(numBits: number): number {
     if (numBits < 0 || numBits > 8) throw Error("Decoder.bits8: incorrect value of numBits " + numBits);
-    
+
     this.ensureBits(numBits);
     // usedBits=1 numBits=8 unusedBits=7 leadingZeros=0 unusedBits+leadingZeros=7
     const unusedBits = 8 - this.usedBits;
     const leadingZeros = 8 - numBits;
     var r = ((this.buffer[this.currPtr] << this.usedBits) & 255) >>> leadingZeros;
 
-    if (numBits > unusedBits) {r |= (this.buffer[this.currPtr + 1] >>> (unusedBits + leadingZeros))}
+    if (numBits > unusedBits) { r |= (this.buffer[this.currPtr + 1] >>> (unusedBits + leadingZeros)) }
 
     this.dropBits(numBits);
-    
+
     return r;
   }
 
   /** Decode a ZM Word see definition at  */
-  word():number {
+  word(): number {
     var n = 0;
     var shl = 0;
     var w8;
     var w7;
-    
+
     do {
       w8 = this.bits8(8)
       w7 = w8 & 127
       n |= w7 << shl
-      shl +=7
+      shl += 7
       //console.log("usedBits",this.usedBits,"w7",w7,"w8",w8,w8!==w7)
-    } while (w8!==w7);
+    } while (w8 !== w7);
 
-     return n;
+    return n;
   }
 
-  char () : string {
+  char(): string {
     return String.fromCharCode(this.word());
   }
 
-  string () : string {
+  string(): string {
     var s = "";
-    while (! this.zero()) {
+    while (!this.zero()) {
       s += this.char();
     }
     return s;
-  } 
+  }
 
   zero(): boolean {
     this.ensureBit();
@@ -204,27 +207,27 @@ export class EncoderState {
     this.nextWord();
   }
 
-  word(n:number): void {
+  word(n: number): void {
     do {
       var w = n & 127;
       n >>>= 7;
-      if (n!==0) w |= 128;
-      this.bits(8,w);
-    } while (n!==0);
+      if (n !== 0) w |= 128;
+      this.bits(8, w);
+    } while (n !== 0);
   }
 
-  char(c:string) : void {
+  char(c: string): void {
     this.word(c.charCodeAt(0));
   }
 
-  string(s:string) : void {
+  string(s: string): void {
     const l = s.length;
 
-    for (var i=0;i<l;i++) {
+    for (var i = 0; i < l; i++) {
       this.one();
       this.char(s.charAt(i));
     };
-    
+
     this.zero();
   }
 
@@ -299,8 +302,8 @@ export function byteArraySize(arr: Uint8Array): number {
 }
 
 // Exact number of bytes needed to store the array blocks lengths
-export function arrayBlocks(len: number): number {return Math.ceil(len / 255) + 1;}
+export function arrayBlocks(len: number): number { return Math.ceil(len / 255) + 1; }
 
-export function nestedPars(nested:boolean,s:string) : string {return nested ? "("+s+")" : s}
+export function nestedPars(nested: boolean, s: string): string { return nested ? "(" + s + ")" : s }
 
 
