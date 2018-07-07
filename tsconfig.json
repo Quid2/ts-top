@@ -1,9 +1,9 @@
 {
   "compileOnSave": true,
-  "compilerOptions": {    
+  "compilerOptions": {
     "strict": true,
-    "noImplicitAny": true,
-    "noImplicitThis":   true,
+    "noImplicitAny": false,
+    "noImplicitThis": true,
     "alwaysStrict": true,
     "noUnusedLocals": false,
     "noUnusedParameters": false,
