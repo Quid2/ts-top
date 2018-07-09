@@ -4,7 +4,7 @@ import { typedBLOB, Channel, Client, channel, CallChannel, promiseTimeout } from
 
 import { parseShake48, parseAbsRef } from './lib/util'
 
-import { } from './lib/pretty'
+import './lib/pretty'
 
 export { Flat, flat, zmType, zmId, zmFold, unflat, flatDecoder, Decoder, typedBLOB, Channel, Client, channel, CallChannel, promiseTimeout, parseShake48, parseAbsRef };
 

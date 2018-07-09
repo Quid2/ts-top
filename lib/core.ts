@@ -70,7 +70,7 @@ export class DecoderState {
     this.usedBits = 0;
   }
 
-  zmBytes(decoders?: Decoder[]): Uint8Array { return this.byteArray(); }
+  zmBytes(decoders?: Decoder[]): Uint8Array { this.filler(); return this.byteArray(); }
 
   zmChar(decoders?: Decoder[]): string { return String.fromCharCode(this.word()); }
 

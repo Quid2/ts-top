@@ -14,3 +14,4 @@ exports.promiseTimeout = top_1.promiseTimeout;
 var util_1 = require("./lib/util");
 exports.parseShake48 = util_1.parseShake48;
 exports.parseAbsRef = util_1.parseAbsRef;
+require("./lib/pretty");
