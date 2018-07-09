@@ -2,7 +2,7 @@
 /** ZM Type:
 StoreProtocol a ≡   Save a
                   | Solve (K9f214799149b a)
-                  | Solved (K9f214799149b a) a
+                  | Solved (K
 */
 Object.defineProperty(exports, "__esModule", { value: true });
 const Q = require("../.././lib/core");
@@ -30,6 +30,7 @@ class Save {
     }
     toString() { return this.toStr(false); }
     toStr(nested = false) { return Q.nestedPars(nested, ["Save", this._0.toStr(true)].join(' ')); }
+    pretty(nested = false) { return Q.nestedPars(nested, ["Save", this._0.pretty(true)].join(' ')); }
     match(m) { return m.Save(this._0); }
     flatMaxSize() { return 1 + this._0.flatMaxSize(); }
     flatEncode(st) { st.zero(); this._0.flatEncode(st); }
@@ -41,6 +42,7 @@ class Solve {
     }
     toString() { return this.toStr(false); }
     toStr(nested = false) { return Q.nestedPars(nested, ["Solve", this._0.toStr(true)].join(' ')); }
+    pretty(nested = false) { return Q.nestedPars(nested, ["Solve", this._0.pretty(true)].join(' ')); }
     match(m) { return m.Solve(this._0); }
     flatMaxSize() { return 2 + this._0.flatMaxSize(); }
     flatEncode(st) { st.one(); st.zero(); this._0.flatEncode(st); }
@@ -53,6 +55,7 @@ class Solved {
     }
     toString() { return this.toStr(false); }
     toStr(nested = false) { return Q.nestedPars(nested, ["Solved", this._0.toStr(true), this._1.toStr(true)].join(' ')); }
+    pretty(nested = false) { return Q.nestedPars(nested, ["Solved", this._0.pretty(true), this._1.pretty(true)].join(' ')); }
     match(m) { return m.Solved(this._0, this._1); }
     flatMaxSize() { return 2 + this._0.flatMaxSize() + this._1.flatMaxSize(); }
     flatEncode(st) { st.one(); st.one(); this._0.flatEncode(st); this._1.flatEncode(st); }

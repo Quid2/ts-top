@@ -1,6 +1,6 @@
 /** ZM Type:
 TypedBLOB ≡   TypedBLOB (K7028aa556ebc K4bbd38587b9e)
-                        (Kf139d4751fda K982148c09ddb)
+                        (Kf139d4751fda K982148
 */
 
 import * as Q from '../.././lib/core'
@@ -18,7 +18,8 @@ export const ___ : Q.zmTypeInfo = {
   }
 }
 
-export class TypedBLOB  implements Q.Flat {
+
+export class TypedBLOB  implements Q.ZM {
   constructor(
     public _0: K7028aa556ebc.Type<K4bbd38587b9e.AbsRef>,
     public _1: Kf139d4751fda.BLOB<K982148c09ddb.FlatEncoding>,
@@ -27,6 +28,8 @@ export class TypedBLOB  implements Q.Flat {
 
   toString():string {return this.toStr(false)}
   toStr(nested=false):string {return Q.nestedPars(nested,["TypedBLOB",this._0.toStr(true),this._1.toStr(true)].join(' '))}
+  pretty(nested=false):string {return Q.nestedPars(nested,["TypedBLOB",this._0.pretty(true),this._1.pretty(true)].join(' '))}
+
   match <R>(m:{TypedBLOB:(v0:K7028aa556ebc.Type<K4bbd38587b9e.AbsRef>,v1:Kf139d4751fda.BLOB<K982148c09ddb.FlatEncoding>)=>R}) : R {return m.TypedBLOB(this._0,this._1);}
   flatMaxSize():number {return this._0.flatMaxSize()+this._1.flatMaxSize();}
   flatEncode(st:Q.EncoderState) {this._0.flatEncode(st);this._1.flatEncode(st);}

@@ -1,7 +1,7 @@
 /** ZM Type:
 Msg ≡   Msg {fromUser :: Kb8cd13187198 K066db52af145,
              subject :: Kfced5b0f3c1f,
-             content :: K1ba230d92eb8}
+       
 */
 
 import * as Q from '../.././lib/core'
@@ -19,7 +19,8 @@ export const ___ : Q.zmTypeInfo = {
   }
 }
 
-export class Msg  implements Q.Flat {
+
+export class Msg  implements Q.ZM {
   constructor(
     public fromUser: Kb8cd13187198.List<K066db52af145.Char>,
     public subject: Kfced5b0f3c1f.Subject,
@@ -29,6 +30,8 @@ export class Msg  implements Q.Flat {
 
   toString():string {return this.toStr(false)}
   toStr(nested=false):string {return Q.nestedPars(nested,["Msg",this.fromUser.toStr(true),this.subject.toStr(true),this.content.toStr(true)].join(' '))}
+  pretty(nested=false):string {return Q.nestedPars(nested,["Msg",this.fromUser.pretty(true),this.subject.pretty(true),this.content.pretty(true)].join(' '))}
+
   match <R>(m:{Msg:(v0:Kb8cd13187198.List<K066db52af145.Char>,v1:Kfced5b0f3c1f.Subject,v2:K1ba230d92eb8.Content)=>R}) : R {return m.Msg(this.fromUser,this.subject,this.content);}
   flatMaxSize():number {return this.fromUser.flatMaxSize()+this.subject.flatMaxSize()+this.content.flatMaxSize();}
   flatEncode(st:Q.EncoderState) {this.fromUser.flatEncode(st);this.subject.flatEncode(st);this.content.flatEncode(st);}

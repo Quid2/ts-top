@@ -2,13 +2,14 @@
 LeastSignificantFirst a ≡   LeastSignificantFirst a
 */
 import * as Q from '../.././lib/core';
-export declare const $LeastSignificantFirst: <A extends Q.Flat>(t0: Q.zmFold<A>) => Q.zmFold<LeastSignificantFirst<A>>;
+export declare const $LeastSignificantFirst: <A extends Q.ZM>(t0: Q.zmFold<A>) => Q.zmFold<LeastSignificantFirst<A>>;
 export declare const ___: Q.zmTypeInfo;
-export declare class LeastSignificantFirst<A extends Q.Flat> implements Q.Flat {
+export declare class LeastSignificantFirst<A extends Q.ZM> implements Q.ZM {
     _0: A;
     constructor(_0: A);
     toString(): string;
     toStr(nested?: boolean): string;
+    pretty(nested?: boolean): string;
     match<R>(m: {
         LeastSignificantFirst: (v0: A) => R;
     }): R;

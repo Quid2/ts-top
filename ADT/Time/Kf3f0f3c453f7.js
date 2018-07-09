@@ -20,6 +20,7 @@ class Time {
     }
     toString() { return this.toStr(false); }
     toStr(nested = false) { return Q.nestedPars(nested, ["Time", this.utcDay.toStr(true), this.utcSecs.toStr(true)].join(' ')); }
+    pretty(nested = false) { return Q.nestedPars(nested, ["Time", this.utcDay.pretty(true), this.utcSecs.pretty(true)].join(' ')); }
     match(m) { return m.Time(this.utcDay, this.utcSecs); }
     flatMaxSize() { return this.utcDay.flatMaxSize() + this.utcSecs.flatMaxSize(); }
     flatEncode(st) { this.utcDay.flatEncode(st); this.utcSecs.flatEncode(st); }

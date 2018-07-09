@@ -3,14 +3,14 @@ import * as Q from '../core'
 //import * as K066db52af145 from  '../ADT/Char/K066db52af145'
 //import {Char} from  '../ADT/Char/K066db52af145'
 
-export const $String:Q.zmFold<String> = function (f) {return f(___,[])}
+export const $String: Q.zmFold<String> = function (f) { return f(___, []) }
 
-export const ___ : Q.zmTypeInfo = {
-  zid : [0x2f,0x00,0x65,0x95,0x63,0x8c],
-  decoder : function (decoders) {
-        //return function(st) { return new String(Kb8cd13187198.___.decoder([K066db52af145.___.decoder([])])(st)) }
-        //return function(st) { return st.string();}
-        return function(st) { return new String(st.string());}
+export const ___: Q.zmTypeInfo = {
+  zid: [0x2f, 0x00, 0x65, 0x95, 0x63, 0x8c],
+  decoder: function (decoders) {
+    //return function(st) { return new String(Kb8cd13187198.___.decoder([K066db52af145.___.decoder([])])(st)) }
+    //return function(st) { return st.string();}
+    return function (st) { return new String(st.string()); }
   }
 }
 
@@ -20,14 +20,15 @@ export const ___ : Q.zmTypeInfo = {
 
 //export {String};
 
-export class String  implements Q.Flat {
+export class String implements Q.ZM {
   constructor(
     public value: string
 
   ) { }
 
-  toString():string {return this.toStr(false)}
-  toStr(nested=false):string {return '"'+this.value.toString()+'"';}
+  toString(): string { return this.toStr(false) }
+  toStr(nested = false): string { return '"' + this.value.toString() + '"'; }
+  pretty(nested?:boolean) { return this.toString(); }
   // toStr(nested=false):string {
   //   //const reducer = (accumulator:string, currentValue:Char) => accumulator + currentValue.value;
   //   var cs:Char[]= Array.from(this.value);
@@ -39,8 +40,8 @@ export class String  implements Q.Flat {
   //   return s;
   //   }
   //match <R>(m:{String:(v0:Kb8cd13187198.List<K066db52af145.Char>)=>R}) : R {return m.String(this.value);}
-  flatMaxSize():number {return this.value.length*25+1;}
-  flatEncode(st:Q.EncoderState) {st.string(this.value);}
+  flatMaxSize(): number { return this.value.length * 25 + 1; }
+  flatEncode(st: Q.EncoderState) { st.string(this.value); }
 
 }
 

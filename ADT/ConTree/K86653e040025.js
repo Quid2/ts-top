@@ -1,10 +1,7 @@
 "use strict";
 /** ZM Type:
 ConTree a b ≡   Con {constrName :: a,
-                     constrFields :: K6260e465ae74 (Kb8cd13187198 (K7028aa556ebc b))
-                                                   (Kb8cd13187198 (Ka5583bf3ad34 a
-                                                                                 (K7028aa556ebc b)))}
-              | ConTree (↫ a b) (↫ a b)
+                     constrFields :: K6260e465ae74 (Kb8cd13187
 */
 exports.__esModule = true;
 var Q = require("../.././lib/core");
@@ -34,6 +31,10 @@ var Con = /** @class */ (function () {
         if (nested === void 0) { nested = false; }
         return Q.nestedPars(nested, ["Con", this.constrName.toStr(true), this.constrFields.toStr(true)].join(' '));
     };
+    Con.prototype.pretty = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return Q.nestedPars(nested, ["Con", this.constrName.pretty(true), this.constrFields.pretty(true)].join(' '));
+    };
     Con.prototype.match = function (m) { return m.Con(this.constrName, this.constrFields); };
     Con.prototype.flatMaxSize = function () { return 1 + this.constrName.flatMaxSize() + this.constrFields.flatMaxSize(); };
     Con.prototype.flatEncode = function (st) { st.zero(); this.constrName.flatEncode(st); this.constrFields.flatEncode(st); };
@@ -49,6 +50,10 @@ var _ConTree = /** @class */ (function () {
     _ConTree.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
         return Q.nestedPars(nested, ["ConTree", this._0.toStr(true), this._1.toStr(true)].join(' '));
+    };
+    _ConTree.prototype.pretty = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return Q.nestedPars(nested, ["ConTree", this._0.pretty(true), this._1.pretty(true)].join(' '));
     };
     _ConTree.prototype.match = function (m) { return m.ConTree(this._0, this._1); };
     _ConTree.prototype.flatMaxSize = function () { return 1 + this._0.flatMaxSize() + this._1.flatMaxSize(); };

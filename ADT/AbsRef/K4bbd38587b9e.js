@@ -1,8 +1,7 @@
 "use strict";
 /** ZM Type:
 AbsRef ≡   AbsRef (K9f214799149b (K3e8257255cbf Kdc26e9d90047
-                                                Kdc26e9d90047
-                                                (K07b1b045ac3c ↫)))
+                                      
 */
 exports.__esModule = true;
 var Q = require("../.././lib/core");
@@ -25,6 +24,10 @@ var AbsRef = /** @class */ (function () {
     AbsRef.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
         return Q.nestedPars(nested, ["AbsRef", this._0.toStr(true)].join(' '));
+    };
+    AbsRef.prototype.pretty = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return Q.nestedPars(nested, ["AbsRef", this._0.pretty(true)].join(' '));
     };
     AbsRef.prototype.match = function (m) { return m.AbsRef(this._0); };
     AbsRef.prototype.flatMaxSize = function () { return this._0.flatMaxSize(); };

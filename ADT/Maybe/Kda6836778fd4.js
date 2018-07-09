@@ -25,6 +25,10 @@ var Nothing = /** @class */ (function () {
         if (nested === void 0) { nested = false; }
         return "Nothing";
     };
+    Nothing.prototype.pretty = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return "Nothing";
+    };
     Nothing.prototype.match = function (m) { return m.Nothing; };
     Nothing.prototype.flatMaxSize = function () { return 1 + 0; };
     Nothing.prototype.flatEncode = function (st) { st.zero(); };
@@ -39,6 +43,10 @@ var Just = /** @class */ (function () {
     Just.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
         return Q.nestedPars(nested, ["Just", this._0.toStr(true)].join(' '));
+    };
+    Just.prototype.pretty = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return Q.nestedPars(nested, ["Just", this._0.pretty(true)].join(' '));
     };
     Just.prototype.match = function (m) { return m.Just(this._0); };
     Just.prototype.flatMaxSize = function () { return 1 + this._0.flatMaxSize(); };

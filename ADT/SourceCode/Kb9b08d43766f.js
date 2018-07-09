@@ -22,6 +22,10 @@ var SourceCode = /** @class */ (function () {
         if (nested === void 0) { nested = false; }
         return Q.nestedPars(nested, ["SourceCode", this._0.toStr(true), this._1.toStr(true)].join(' '));
     };
+    SourceCode.prototype.pretty = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return Q.nestedPars(nested, ["SourceCode", this._0.pretty(true), this._1.pretty(true)].join(' '));
+    };
     SourceCode.prototype.match = function (m) { return m.SourceCode(this._0, this._1); };
     SourceCode.prototype.flatMaxSize = function () { return this._0.flatMaxSize() + this._1.flatMaxSize(); };
     SourceCode.prototype.flatEncode = function (st) { this._0.flatEncode(st); this._1.flatEncode(st); };

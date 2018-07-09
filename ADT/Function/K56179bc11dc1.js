@@ -23,6 +23,7 @@ class Call {
     }
     toString() { return this.toStr(false); }
     toStr(nested = false) { return Q.nestedPars(nested, ["Call", this._0.toStr(true)].join(' ')); }
+    pretty(nested = false) { return Q.nestedPars(nested, ["Call", this._0.pretty(true)].join(' ')); }
     match(m) { return m.Call(this._0); }
     flatMaxSize() { return 1 + this._0.flatMaxSize(); }
     flatEncode(st) { st.zero(); this._0.flatEncode(st); }
@@ -35,6 +36,7 @@ class Reply {
     }
     toString() { return this.toStr(false); }
     toStr(nested = false) { return Q.nestedPars(nested, ["Reply", this._0.toStr(true), this._1.toStr(true)].join(' ')); }
+    pretty(nested = false) { return Q.nestedPars(nested, ["Reply", this._0.pretty(true), this._1.pretty(true)].join(' ')); }
     match(m) { return m.Reply(this._0, this._1); }
     flatMaxSize() { return 1 + this._0.flatMaxSize() + this._1.flatMaxSize(); }
     flatEncode(st) { st.one(); this._0.flatEncode(st); this._1.flatEncode(st); }

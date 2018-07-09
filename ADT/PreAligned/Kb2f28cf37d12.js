@@ -23,6 +23,10 @@ var PreAligned = /** @class */ (function () {
         if (nested === void 0) { nested = false; }
         return Q.nestedPars(nested, ["PreAligned", this.preFiller.toStr(true), this.preValue.toStr(true)].join(' '));
     };
+    PreAligned.prototype.pretty = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return Q.nestedPars(nested, ["PreAligned", this.preFiller.pretty(true), this.preValue.pretty(true)].join(' '));
+    };
     PreAligned.prototype.match = function (m) { return m.PreAligned(this.preFiller, this.preValue); };
     PreAligned.prototype.flatMaxSize = function () { return this.preFiller.flatMaxSize() + this.preValue.flatMaxSize(); };
     PreAligned.prototype.flatEncode = function (st) { this.preFiller.flatEncode(st); this.preValue.flatEncode(st); };

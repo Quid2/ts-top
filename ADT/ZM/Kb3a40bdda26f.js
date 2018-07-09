@@ -18,6 +18,10 @@ var ZM = /** @class */ (function () {
         if (nested === void 0) { nested = false; }
         return "ZM";
     };
+    ZM.prototype.pretty = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return "ZM";
+    };
     ZM.prototype.match = function (m) { return m.ZM; };
     ZM.prototype.flatMaxSize = function () { return 0; };
     ZM.prototype.flatEncode = function () { };

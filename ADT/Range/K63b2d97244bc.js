@@ -22,6 +22,10 @@ var Range = /** @class */ (function () {
         if (nested === void 0) { nested = false; }
         return Q.nestedPars(nested, ["Range", this.start.toStr(true), this.end.toStr(true)].join(' '));
     };
+    Range.prototype.pretty = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return Q.nestedPars(nested, ["Range", this.start.pretty(true), this.end.pretty(true)].join(' '));
+    };
     Range.prototype.match = function (m) { return m.Range(this.start, this.end); };
     Range.prototype.flatMaxSize = function () { return this.start.flatMaxSize() + this.end.flatMaxSize(); };
     Range.prototype.flatEncode = function (st) { this.start.flatEncode(st); this.end.flatEncode(st); };

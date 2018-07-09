@@ -25,6 +25,7 @@ class MatchValue {
     }
     toString() { return this.toStr(false); }
     toStr(nested = false) { return Q.nestedPars(nested, ["MatchValue", this._0.toStr(true)].join(' ')); }
+    pretty(nested = false) { return Q.nestedPars(nested, ["MatchValue", this._0.pretty(true)].join(' ')); }
     match(m) { return m.MatchValue(this._0); }
     flatMaxSize() { return 1 + this._0.flatMaxSize(); }
     flatEncode(st) { st.zero(); this._0.flatEncode(st); }
@@ -36,6 +37,7 @@ class MatchAny {
     }
     toString() { return this.toStr(false); }
     toStr(nested = false) { return Q.nestedPars(nested, ["MatchAny", this._0.toStr(true)].join(' ')); }
+    pretty(nested = false) { return Q.nestedPars(nested, ["MatchAny", this._0.pretty(true)].join(' ')); }
     match(m) { return m.MatchAny(this._0); }
     flatMaxSize() { return 1 + this._0.flatMaxSize(); }
     flatEncode(st) { st.one(); this._0.flatEncode(st); }

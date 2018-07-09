@@ -18,6 +18,10 @@ var ByType = /** @class */ (function () {
         if (nested === void 0) { nested = false; }
         return "ByType";
     };
+    ByType.prototype.pretty = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return "ByType";
+    };
     ByType.prototype.match = function (m) { return m.ByType; };
     ByType.prototype.flatMaxSize = function () { return 0; };
     ByType.prototype.flatEncode = function () { };

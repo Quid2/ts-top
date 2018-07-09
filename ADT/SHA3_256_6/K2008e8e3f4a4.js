@@ -2,10 +2,7 @@
 /** ZM Type:
 SHA3_256_6 a ≡   SHA3_256_6 Kb1f46a49c8f8
                             Kb1f46a49c8f8
-                            Kb1f46a49c8f8
-                            Kb1f46a49c8f8
-                            Kb1f46a49c8f8
-                            Kb1f46a49c8f8
+                
 */
 Object.defineProperty(exports, "__esModule", { value: true });
 const Q = require("../.././lib/core");
@@ -28,6 +25,7 @@ class SHA3_256_6 {
     }
     toString() { return this.toStr(false); }
     toStr(nested = false) { return Q.nestedPars(nested, ["SHA3_256_6", this._0.toStr(true), this._1.toStr(true), this._2.toStr(true), this._3.toStr(true), this._4.toStr(true), this._5.toStr(true)].join(' ')); }
+    pretty(nested = false) { return Q.nestedPars(nested, ["SHA3_256_6", this._0.pretty(true), this._1.pretty(true), this._2.pretty(true), this._3.pretty(true), this._4.pretty(true), this._5.pretty(true)].join(' ')); }
     match(m) { return m.SHA3_256_6(this._0, this._1, this._2, this._3, this._4, this._5); }
     flatMaxSize() { return this._0.flatMaxSize() + this._1.flatMaxSize() + this._2.flatMaxSize() + this._3.flatMaxSize() + this._4.flatMaxSize() + this._5.flatMaxSize(); }
     flatEncode(st) { this._0.flatEncode(st); this._1.flatEncode(st); this._2.flatEncode(st); this._3.flatEncode(st); this._4.flatEncode(st); this._5.flatEncode(st); }

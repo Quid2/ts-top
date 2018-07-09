@@ -13,6 +13,7 @@ exports.___ = {
 class Unit {
     toString() { return this.toStr(false); }
     toStr(nested = false) { return "Unit"; }
+    pretty(nested = false) { return "Unit"; }
     match(m) { return m.Unit; }
     flatMaxSize() { return 0; }
     flatEncode() { }

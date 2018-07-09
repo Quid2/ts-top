@@ -13,6 +13,7 @@ exports.___ = {
 class UTF8Encoding {
     toString() { return this.toStr(false); }
     toStr(nested = false) { return "UTF8Encoding"; }
+    pretty(nested = false) { return "UTF8Encoding"; }
     match(m) { return m.UTF8Encoding; }
     flatMaxSize() { return 0; }
     flatEncode() { }

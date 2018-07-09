@@ -1,7 +1,7 @@
 "use strict";
 /** ZM Type:
 SocketAddress a ≡   SocketAddress {socketAddress :: K64f93d94a73d a,
-                                   socketPort :: K0ab5ac6303b9}
+                               
 */
 exports.__esModule = true;
 var Q = require("../.././lib/core");
@@ -23,6 +23,10 @@ var SocketAddress = /** @class */ (function () {
     SocketAddress.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
         return Q.nestedPars(nested, ["SocketAddress", this.socketAddress.toStr(true), this.socketPort.toStr(true)].join(' '));
+    };
+    SocketAddress.prototype.pretty = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return Q.nestedPars(nested, ["SocketAddress", this.socketAddress.pretty(true), this.socketPort.pretty(true)].join(' '));
     };
     SocketAddress.prototype.match = function (m) { return m.SocketAddress(this.socketAddress, this.socketPort); };
     SocketAddress.prototype.flatMaxSize = function () { return this.socketAddress.flatMaxSize() + this.socketPort.flatMaxSize(); };

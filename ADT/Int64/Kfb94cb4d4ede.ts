@@ -15,7 +15,8 @@ export const ___ : Q.zmTypeInfo = {
   }
 }
 
-export class Int64  implements Q.Flat {
+
+export class Int64  implements Q.ZM {
   constructor(
     public _0: K03226796ede4.ZigZag<K50d018f7593a.Word64>,
 
@@ -23,6 +24,8 @@ export class Int64  implements Q.Flat {
 
   toString():string {return this.toStr(false)}
   toStr(nested=false):string {return Q.nestedPars(nested,["Int64",this._0.toStr(true)].join(' '))}
+  pretty(nested=false):string {return Q.nestedPars(nested,["Int64",this._0.pretty(true)].join(' '))}
+
   match <R>(m:{Int64:(v0:K03226796ede4.ZigZag<K50d018f7593a.Word64>)=>R}) : R {return m.Int64(this._0);}
   flatMaxSize():number {return this._0.flatMaxSize();}
   flatEncode(st:Q.EncoderState) {this._0.flatEncode(st);}

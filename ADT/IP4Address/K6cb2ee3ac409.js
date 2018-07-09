@@ -2,8 +2,7 @@
 /** ZM Type:
 IP4Address ≡   IP4Address Kb1f46a49c8f8
                           Kb1f46a49c8f8
-                          Kb1f46a49c8f8
-                          Kb1f46a49c8f8
+                    
 */
 exports.__esModule = true;
 var Q = require("../.././lib/core");
@@ -26,6 +25,10 @@ var IP4Address = /** @class */ (function () {
     IP4Address.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
         return Q.nestedPars(nested, ["IP4Address", this._0.toStr(true), this._1.toStr(true), this._2.toStr(true), this._3.toStr(true)].join(' '));
+    };
+    IP4Address.prototype.pretty = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return Q.nestedPars(nested, ["IP4Address", this._0.pretty(true), this._1.pretty(true), this._2.pretty(true), this._3.pretty(true)].join(' '));
     };
     IP4Address.prototype.match = function (m) { return m.IP4Address(this._0, this._1, this._2, this._3); };
     IP4Address.prototype.flatMaxSize = function () { return this._0.flatMaxSize() + this._1.flatMaxSize() + this._2.flatMaxSize() + this._3.flatMaxSize(); };

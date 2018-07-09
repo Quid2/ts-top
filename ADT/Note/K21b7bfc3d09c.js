@@ -21,6 +21,10 @@ var Note = /** @class */ (function () {
         if (nested === void 0) { nested = false; }
         return Q.nestedPars(nested, ["Note", this.annotation.toStr(true), this.object.toStr(true)].join(' '));
     };
+    Note.prototype.pretty = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return Q.nestedPars(nested, ["Note", this.annotation.pretty(true), this.object.pretty(true)].join(' '));
+    };
     Note.prototype.match = function (m) { return m.Note(this.annotation, this.object); };
     Note.prototype.flatMaxSize = function () { return this.annotation.flatMaxSize() + this.object.flatMaxSize(); };
     Note.prototype.flatEncode = function (st) { this.annotation.flatEncode(st); this.object.flatEncode(st); };

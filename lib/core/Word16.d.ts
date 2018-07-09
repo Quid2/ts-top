@@ -4,7 +4,7 @@ export declare const ___: Q.zmTypeInfo;
 export declare class Word16 implements Q.Flat {
     value: number;
     constructor(value: number);
-    flatMaxSize(): number;
+    flatMaxSize(): any;
     flatEncode(st: Q.EncoderState): void;
     toString(): string;
     toStr(nested?: boolean): string;

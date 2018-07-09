@@ -6,9 +6,10 @@ import * as Q from '../.././lib/core';
 export declare const $Bit: Q.zmFold<Bit>;
 export declare const ___: Q.zmTypeInfo;
 export declare type Bit = V0 | V1;
-export declare class V0 implements Q.Flat {
+export declare class V0 implements Q.ZM {
     toString(): string;
     toStr(nested?: boolean): string;
+    pretty(nested?: boolean): string;
     match<R>(m: {
         V0: R;
         V1: R;
@@ -16,9 +17,10 @@ export declare class V0 implements Q.Flat {
     flatMaxSize(): number;
     flatEncode(st: Q.EncoderState): void;
 }
-export declare class V1 implements Q.Flat {
+export declare class V1 implements Q.ZM {
     toString(): string;
     toStr(nested?: boolean): string;
+    pretty(nested?: boolean): string;
     match<R>(m: {
         V0: R;
         V1: R;

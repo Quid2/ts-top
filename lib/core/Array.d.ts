@@ -1,7 +1,7 @@
 import * as Q from "../core";
-export declare const $Array: <A extends Q.Flat>(t1: Q.zmFold<A>) => Q.zmFold<Array<A>>;
+export declare const $Array: <A extends Q.ZM>(t1: Q.zmFold<A>) => Q.zmFold<Array<A>>;
 export declare const ___: Q.zmTypeInfo;
-export declare class Array<A extends Q.Flat> implements Q.Flat {
+export declare class Array<A extends Q.ZM> implements Q.ZM {
     values: A[];
     constructor(values: A[]);
     flatMaxSize(): number;

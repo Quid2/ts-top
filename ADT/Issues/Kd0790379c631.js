@@ -1,7 +1,7 @@
 "use strict";
 /** ZM Type:
 Issues a b ≡   Issues {errors :: Kb8cd13187198 a,
-                       warnings :: Kb8cd13187198 b}
+                       warnings :: Kb8cd13187198 b
 */
 Object.defineProperty(exports, "__esModule", { value: true });
 const Q = require("../.././lib/core");
@@ -20,6 +20,7 @@ class Issues {
     }
     toString() { return this.toStr(false); }
     toStr(nested = false) { return Q.nestedPars(nested, ["Issues", this.errors.toStr(true), this.warnings.toStr(true)].join(' ')); }
+    pretty(nested = false) { return Q.nestedPars(nested, ["Issues", this.errors.pretty(true), this.warnings.pretty(true)].join(' ')); }
     match(m) { return m.Issues(this.errors, this.warnings); }
     flatMaxSize() { return this.errors.flatMaxSize() + this.warnings.flatMaxSize(); }
     flatEncode(st) { this.errors.flatEncode(st); this.warnings.flatEncode(st); }

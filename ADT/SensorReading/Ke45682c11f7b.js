@@ -18,6 +18,7 @@ class SensorReading {
     }
     toString() { return this.toStr(false); }
     toStr(nested = false) { return Q.nestedPars(nested, ["SensorReading", this.reading.toStr(true), this.location.toStr(true)].join(' ')); }
+    pretty(nested = false) { return Q.nestedPars(nested, ["SensorReading", this.reading.pretty(true), this.location.pretty(true)].join(' ')); }
     match(m) { return m.SensorReading(this.reading, this.location); }
     flatMaxSize() { return this.reading.flatMaxSize() + this.location.flatMaxSize(); }
     flatEncode(st) { this.reading.flatEncode(st); this.location.flatEncode(st); }

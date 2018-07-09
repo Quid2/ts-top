@@ -13,6 +13,7 @@ exports.___ = {
 class ByAny {
     toString() { return this.toStr(false); }
     toStr(nested = false) { return "ByAny"; }
+    pretty(nested = false) { return "ByAny"; }
     match(m) { return m.ByAny; }
     flatMaxSize() { return 0; }
     flatEncode() { }

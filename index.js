@@ -13,6 +13,4 @@ exports.CallChannel = top_1.CallChannel;
 exports.promiseTimeout = top_1.promiseTimeout;
 var util_1 = require("./lib/util");
 exports.parseShake48 = util_1.parseShake48;
-exports.prettyShake48 = util_1.prettyShake48;
-exports.prettyAbsRef = util_1.prettyAbsRef;
 exports.parseAbsRef = util_1.parseAbsRef;

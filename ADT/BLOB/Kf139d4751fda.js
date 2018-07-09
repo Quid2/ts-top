@@ -22,6 +22,10 @@ var BLOB = /** @class */ (function () {
         if (nested === void 0) { nested = false; }
         return Q.nestedPars(nested, ["BLOB", this.encoding.toStr(true), this.content.toStr(true)].join(' '));
     };
+    BLOB.prototype.pretty = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return Q.nestedPars(nested, ["BLOB", this.encoding.pretty(true), this.content.pretty(true)].join(' '));
+    };
     BLOB.prototype.match = function (m) { return m.BLOB(this.encoding, this.content); };
     BLOB.prototype.flatMaxSize = function () { return this.encoding.flatMaxSize() + this.content.flatMaxSize(); };
     BLOB.prototype.flatEncode = function (st) { this.encoding.flatEncode(st); this.content.flatEncode(st); };

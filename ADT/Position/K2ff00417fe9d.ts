@@ -15,7 +15,8 @@ export const ___ : Q.zmTypeInfo = {
   }
 }
 
-export class Position  implements Q.Flat {
+
+export class Position  implements Q.ZM {
   constructor(
     public row: K2412799c99f1.Word32,
     public column: K2412799c99f1.Word32,
@@ -24,6 +25,8 @@ export class Position  implements Q.Flat {
 
   toString():string {return this.toStr(false)}
   toStr(nested=false):string {return Q.nestedPars(nested,["Position",this.row.toStr(true),this.column.toStr(true)].join(' '))}
+  pretty(nested=false):string {return Q.nestedPars(nested,["Position",this.row.pretty(true),this.column.pretty(true)].join(' '))}
+
   match <R>(m:{Position:(v0:K2412799c99f1.Word32,v1:K2412799c99f1.Word32)=>R}) : R {return m.Position(this.row,this.column);}
   flatMaxSize():number {return this.row.flatMaxSize()+this.column.flatMaxSize();}
   flatEncode(st:Q.EncoderState) {this.row.flatEncode(st);this.column.flatEncode(st);}

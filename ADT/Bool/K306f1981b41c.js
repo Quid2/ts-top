@@ -24,6 +24,10 @@ var False = /** @class */ (function () {
         if (nested === void 0) { nested = false; }
         return "False";
     };
+    False.prototype.pretty = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return "False";
+    };
     False.prototype.match = function (m) { return m.False; };
     False.prototype.flatMaxSize = function () { return 1 + 0; };
     False.prototype.flatEncode = function (st) { st.zero(); };
@@ -35,6 +39,10 @@ var True = /** @class */ (function () {
     }
     True.prototype.toString = function () { return this.toStr(false); };
     True.prototype.toStr = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return "True";
+    };
+    True.prototype.pretty = function (nested) {
         if (nested === void 0) { nested = false; }
         return "True";
     };

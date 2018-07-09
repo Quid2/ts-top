@@ -23,6 +23,10 @@ var Position = /** @class */ (function () {
         if (nested === void 0) { nested = false; }
         return Q.nestedPars(nested, ["Position", this.row.toStr(true), this.column.toStr(true)].join(' '));
     };
+    Position.prototype.pretty = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return Q.nestedPars(nested, ["Position", this.row.pretty(true), this.column.pretty(true)].join(' '));
+    };
     Position.prototype.match = function (m) { return m.Position(this.row, this.column); };
     Position.prototype.flatMaxSize = function () { return this.row.flatMaxSize() + this.column.flatMaxSize(); };
     Position.prototype.flatEncode = function (st) { this.row.flatEncode(st); this.column.flatEncode(st); };

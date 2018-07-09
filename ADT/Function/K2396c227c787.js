@@ -27,6 +27,10 @@ var Call = /** @class */ (function () {
         if (nested === void 0) { nested = false; }
         return Q.nestedPars(nested, ["Call", this._0.toStr(true)].join(' '));
     };
+    Call.prototype.pretty = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return Q.nestedPars(nested, ["Call", this._0.pretty(true)].join(' '));
+    };
     Call.prototype.match = function (m) { return m.Call(this._0); };
     Call.prototype.flatMaxSize = function () { return 1 + this._0.flatMaxSize(); };
     Call.prototype.flatEncode = function (st) { st.zero(); this._0.flatEncode(st); };
@@ -42,6 +46,10 @@ var Reply = /** @class */ (function () {
     Reply.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
         return Q.nestedPars(nested, ["Reply", this._0.toStr(true), this._1.toStr(true)].join(' '));
+    };
+    Reply.prototype.pretty = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return Q.nestedPars(nested, ["Reply", this._0.pretty(true), this._1.pretty(true)].join(' '));
     };
     Reply.prototype.match = function (m) { return m.Reply(this._0, this._1); };
     Reply.prototype.flatMaxSize = function () { return 1 + this._0.flatMaxSize() + this._1.flatMaxSize(); };

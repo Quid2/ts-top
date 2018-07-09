@@ -14,7 +14,8 @@ export const ___ : Q.zmTypeInfo = {
   }
 }
 
-export class HostPort  implements Q.Flat {
+
+export class HostPort  implements Q.ZM {
   constructor(
     public port: K295e24d62fac.Word16,
 
@@ -22,6 +23,8 @@ export class HostPort  implements Q.Flat {
 
   toString():string {return this.toStr(false)}
   toStr(nested=false):string {return Q.nestedPars(nested,["HostPort",this.port.toStr(true)].join(' '))}
+  pretty(nested=false):string {return Q.nestedPars(nested,["HostPort",this.port.pretty(true)].join(' '))}
+
   match <R>(m:{HostPort:(v0:K295e24d62fac.Word16)=>R}) : R {return m.HostPort(this.port);}
   flatMaxSize():number {return this.port.flatMaxSize();}
   flatEncode(st:Q.EncoderState) {this.port.flatEncode(st);}

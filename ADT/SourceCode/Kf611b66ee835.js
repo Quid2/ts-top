@@ -20,6 +20,7 @@ class SourceCode {
     }
     toString() { return this.toStr(false); }
     toStr(nested = false) { return Q.nestedPars(nested, ["SourceCode", this._0.toStr(true), this._1.toStr(true)].join(' ')); }
+    pretty(nested = false) { return Q.nestedPars(nested, ["SourceCode", this._0.pretty(true), this._1.pretty(true)].join(' ')); }
     match(m) { return m.SourceCode(this._0, this._1); }
     flatMaxSize() { return this._0.flatMaxSize() + this._1.flatMaxSize(); }
     flatEncode(st) { this._0.flatEncode(st); this._1.flatEncode(st); }

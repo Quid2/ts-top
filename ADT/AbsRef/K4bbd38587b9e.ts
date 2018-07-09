@@ -1,7 +1,6 @@
 /** ZM Type:
 AbsRef ≡   AbsRef (K9f214799149b (K3e8257255cbf Kdc26e9d90047
-                                                Kdc26e9d90047
-                                                (K07b1b045ac3c ↫)))
+                                      
 */
 
 import * as Q from '../.././lib/core'
@@ -19,7 +18,8 @@ export const ___ : Q.zmTypeInfo = {
   }
 }
 
-export class AbsRef  implements Q.Flat {
+
+export class AbsRef  implements Q.ZM {
   constructor(
     public _0: K9f214799149b.SHAKE128_48<K3e8257255cbf.ADT<Kdc26e9d90047.Identifier,Kdc26e9d90047.Identifier,K07b1b045ac3c.ADTRef<AbsRef>>>,
 
@@ -27,6 +27,8 @@ export class AbsRef  implements Q.Flat {
 
   toString():string {return this.toStr(false)}
   toStr(nested=false):string {return Q.nestedPars(nested,["AbsRef",this._0.toStr(true)].join(' '))}
+  pretty(nested=false):string {return Q.nestedPars(nested,["AbsRef",this._0.pretty(true)].join(' '))}
+
   match <R>(m:{AbsRef:(v0:K9f214799149b.SHAKE128_48<K3e8257255cbf.ADT<Kdc26e9d90047.Identifier,Kdc26e9d90047.Identifier,K07b1b045ac3c.ADTRef<AbsRef>>>)=>R}) : R {return m.AbsRef(this._0);}
   flatMaxSize():number {return this._0.flatMaxSize();}
   flatEncode(st:Q.EncoderState) {this._0.flatEncode(st);}

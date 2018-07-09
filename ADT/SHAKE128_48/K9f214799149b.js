@@ -2,10 +2,7 @@
 /** ZM Type:
 SHAKE128_48 a ≡   SHAKE128_48 Kb1f46a49c8f8
                               Kb1f46a49c8f8
-                              Kb1f46a49c8f8
-                              Kb1f46a49c8f8
-                              Kb1f46a49c8f8
-                              Kb1f46a49c8f8
+            
 */
 exports.__esModule = true;
 var Q = require("../.././lib/core");
@@ -30,6 +27,10 @@ var SHAKE128_48 = /** @class */ (function () {
     SHAKE128_48.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
         return Q.nestedPars(nested, ["SHAKE128_48", this._0.toStr(true), this._1.toStr(true), this._2.toStr(true), this._3.toStr(true), this._4.toStr(true), this._5.toStr(true)].join(' '));
+    };
+    SHAKE128_48.prototype.pretty = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return Q.nestedPars(nested, ["SHAKE128_48", this._0.pretty(true), this._1.pretty(true), this._2.pretty(true), this._3.pretty(true), this._4.pretty(true), this._5.pretty(true)].join(' '));
     };
     SHAKE128_48.prototype.match = function (m) { return m.SHAKE128_48(this._0, this._1, this._2, this._3, this._4, this._5); };
     SHAKE128_48.prototype.flatMaxSize = function () { return this._0.flatMaxSize() + this._1.flatMaxSize() + this._2.flatMaxSize() + this._3.flatMaxSize() + this._4.flatMaxSize() + this._5.flatMaxSize(); };

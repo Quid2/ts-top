@@ -1,21 +1,7 @@
 "use strict";
 /** ZM Type:
 RepoProtocol ≡   Record (K3e8257255cbf Kdc26e9d90047
-                                       Kdc26e9d90047
-                                       (K07b1b045ac3c K4bbd38587b9e))
-               | Solve K4bbd38587b9e
-               | Solved K4bbd38587b9e
-                        (K3e8257255cbf Kdc26e9d90047
-                                       Kdc26e9d90047
-                                       (K07b1b045ac3c K4bbd38587b9e))
-               | AskDataTypes
-               | KnownDataTypes (Kb8cd13187198 (Ka5583bf3ad34 K4bbd38587b9e
-                                                              (K3e8257255cbf Kdc26e9d90047
-                                                                             Kdc26e9d90047
-                                                                             (K07b1b045ac3c K4bbd38587b9e))))
-               | AskDataTypesRefs
-               | KnownDataTypesRefs (Kb8cd13187198 (Ka5583bf3ad34 K4bbd38587b9e
-                                                                  K2f006595638c))
+                                       Kdc26e9d
 */
 Object.defineProperty(exports, "__esModule", { value: true });
 const Q = require("../.././lib/core");
@@ -69,6 +55,7 @@ class Record {
     }
     toString() { return this.toStr(false); }
     toStr(nested = false) { return Q.nestedPars(nested, ["Record", this._0.toStr(true)].join(' ')); }
+    pretty(nested = false) { return Q.nestedPars(nested, ["Record", this._0.pretty(true)].join(' ')); }
     match(m) { return m.Record(this._0); }
     flatMaxSize() { return 2 + this._0.flatMaxSize(); }
     flatEncode(st) { st.zero(); st.zero(); this._0.flatEncode(st); }
@@ -80,6 +67,7 @@ class Solve {
     }
     toString() { return this.toStr(false); }
     toStr(nested = false) { return Q.nestedPars(nested, ["Solve", this._0.toStr(true)].join(' ')); }
+    pretty(nested = false) { return Q.nestedPars(nested, ["Solve", this._0.pretty(true)].join(' ')); }
     match(m) { return m.Solve(this._0); }
     flatMaxSize() { return 3 + this._0.flatMaxSize(); }
     flatEncode(st) { st.zero(); st.one(); st.zero(); this._0.flatEncode(st); }
@@ -92,6 +80,7 @@ class Solved {
     }
     toString() { return this.toStr(false); }
     toStr(nested = false) { return Q.nestedPars(nested, ["Solved", this._0.toStr(true), this._1.toStr(true)].join(' ')); }
+    pretty(nested = false) { return Q.nestedPars(nested, ["Solved", this._0.pretty(true), this._1.pretty(true)].join(' ')); }
     match(m) { return m.Solved(this._0, this._1); }
     flatMaxSize() { return 3 + this._0.flatMaxSize() + this._1.flatMaxSize(); }
     flatEncode(st) { st.zero(); st.one(); st.one(); this._0.flatEncode(st); this._1.flatEncode(st); }
@@ -100,6 +89,7 @@ exports.Solved = Solved;
 class AskDataTypes {
     toString() { return this.toStr(false); }
     toStr(nested = false) { return "AskDataTypes"; }
+    pretty(nested = false) { return "AskDataTypes"; }
     match(m) { return m.AskDataTypes; }
     flatMaxSize() { return 3 + 0; }
     flatEncode(st) { st.one(); st.zero(); st.zero(); }
@@ -111,6 +101,7 @@ class KnownDataTypes {
     }
     toString() { return this.toStr(false); }
     toStr(nested = false) { return Q.nestedPars(nested, ["KnownDataTypes", this._0.toStr(true)].join(' ')); }
+    pretty(nested = false) { return Q.nestedPars(nested, ["KnownDataTypes", this._0.pretty(true)].join(' ')); }
     match(m) { return m.KnownDataTypes(this._0); }
     flatMaxSize() { return 3 + this._0.flatMaxSize(); }
     flatEncode(st) { st.one(); st.zero(); st.one(); this._0.flatEncode(st); }
@@ -119,6 +110,7 @@ exports.KnownDataTypes = KnownDataTypes;
 class AskDataTypesRefs {
     toString() { return this.toStr(false); }
     toStr(nested = false) { return "AskDataTypesRefs"; }
+    pretty(nested = false) { return "AskDataTypesRefs"; }
     match(m) { return m.AskDataTypesRefs; }
     flatMaxSize() { return 3 + 0; }
     flatEncode(st) { st.one(); st.one(); st.zero(); }
@@ -130,6 +122,7 @@ class KnownDataTypesRefs {
     }
     toString() { return this.toStr(false); }
     toStr(nested = false) { return Q.nestedPars(nested, ["KnownDataTypesRefs", this._0.toStr(true)].join(' ')); }
+    pretty(nested = false) { return Q.nestedPars(nested, ["KnownDataTypesRefs", this._0.pretty(true)].join(' ')); }
     match(m) { return m.KnownDataTypesRefs(this._0); }
     flatMaxSize() { return 3 + this._0.flatMaxSize(); }
     flatEncode(st) { st.one(); st.one(); st.one(); this._0.flatEncode(st); }

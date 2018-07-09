@@ -2,7 +2,7 @@
 /** ZM Type:
 ADT a b c ≡   ADT {declName :: a,
                    declNumParameters :: Kb1f46a49c8f8,
-                   declCons :: Kda6836778fd4 (K86653e040025 b c)}
+           
 */
 exports.__esModule = true;
 var Q = require("../.././lib/core");
@@ -26,6 +26,10 @@ var ADT = /** @class */ (function () {
     ADT.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
         return Q.nestedPars(nested, ["ADT", this.declName.toStr(true), this.declNumParameters.toStr(true), this.declCons.toStr(true)].join(' '));
+    };
+    ADT.prototype.pretty = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return Q.nestedPars(nested, ["ADT", this.declName.pretty(true), this.declNumParameters.pretty(true), this.declCons.pretty(true)].join(' '));
     };
     ADT.prototype.match = function (m) { return m.ADT(this.declName, this.declNumParameters, this.declCons); };
     ADT.prototype.flatMaxSize = function () { return this.declName.flatMaxSize() + this.declNumParameters.flatMaxSize() + this.declCons.flatMaxSize(); };

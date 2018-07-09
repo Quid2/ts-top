@@ -18,6 +18,7 @@ class Word64 {
     }
     toString() { return this.toStr(false); }
     toStr(nested = false) { return Q.nestedPars(nested, ["Word64", this._0.toStr(true)].join(' ')); }
+    pretty(nested = false) { return Q.nestedPars(nested, ["Word64", this._0.pretty(true)].join(' ')); }
     match(m) { return m.Word64(this._0); }
     flatMaxSize() { return this._0.flatMaxSize(); }
     flatEncode(st) { this._0.flatEncode(st); }

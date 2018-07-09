@@ -2,7 +2,7 @@
 /** ZM Type:
 Msg ≡   Msg {fromUser :: Kb8cd13187198 K066db52af145,
              subject :: Kfced5b0f3c1f,
-             content :: K1ba230d92eb8}
+       
 */
 Object.defineProperty(exports, "__esModule", { value: true });
 const Q = require("../.././lib/core");
@@ -25,6 +25,7 @@ class Msg {
     }
     toString() { return this.toStr(false); }
     toStr(nested = false) { return Q.nestedPars(nested, ["Msg", this.fromUser.toStr(true), this.subject.toStr(true), this.content.toStr(true)].join(' ')); }
+    pretty(nested = false) { return Q.nestedPars(nested, ["Msg", this.fromUser.pretty(true), this.subject.pretty(true), this.content.pretty(true)].join(' ')); }
     match(m) { return m.Msg(this.fromUser, this.subject, this.content); }
     flatMaxSize() { return this.fromUser.flatMaxSize() + this.subject.flatMaxSize() + this.content.flatMaxSize(); }
     flatEncode(st) { this.fromUser.flatEncode(st); this.subject.flatEncode(st); this.content.flatEncode(st); }

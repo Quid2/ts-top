@@ -30,9 +30,16 @@ export interface Flat {
   flatMaxSize: () => number,
   flatEncode: Encoder,
 
-  // Move to different interface
-  toStr(nested: boolean): string
-  //pretty():string = toStr()
+}
+
+export interface AsString {
+  toStr(nested?: boolean): string
+
+    , pretty(nested?: boolean): string
+}
+
+export interface ZM extends Flat, AsString {
+
 }
 
 //export type Decoder<T> = (s:DecoderState) => T
@@ -61,6 +68,28 @@ export class DecoderState {
     this.buffer = buffer;
     this.currPtr = 0;
     this.usedBits = 0;
+  }
+
+  zmBytes(decoders?: Decoder[]): Uint8Array { return this.byteArray(); }
+
+  zmChar(decoders?: Decoder[]): string { return String.fromCharCode(this.word()); }
+
+  zmWord7(decoders?: Decoder[]): number { return this.bits8(7); }
+
+  zmWord8(decoders?: Decoder[]): number { return this.bits8(8); }
+
+  zmWord16(decoders?: Decoder[]): number { return this.word(); }
+
+  zmWord32(decoders?: Decoder[]): number { return this.word(); }
+
+  zmArray(decoders: Decoder[]) {
+    const dec = decoders[0];
+    var arr = [];
+    var blkLen;
+    while (blkLen = this.bits8(8))
+      for (var i = 0; i < blkLen; i++) arr.push(dec(this));
+    //console.log(arr);
+    return arr;
   }
 
   /** Decode a byteArray
@@ -137,14 +166,14 @@ export class DecoderState {
     return n;
   }
 
-  char(): string {
-    return String.fromCharCode(this.word());
-  }
+  // char(): string {
+  //   return String.fromCharCode(this.word());
+  // }
 
   string(): string {
     var s = "";
     while (!this.zero()) {
-      s += this.char();
+      s += this.zmChar();
     }
     return s;
   }
@@ -202,6 +231,46 @@ export class EncoderState {
     this.usedBits = 0;
   }
 
+  // Up to 8 bits for prefiller plus aligned byte array size;
+  static szBytes = (v: Uint8Array) => 8 + byteArraySize(v);
+  zmBytes(v: Uint8Array): void { this.filler(); this.byteArray(v); }
+
+  static szChar = (v?: string) => 24;
+  zmChar(v: string): void { this.word(v.charCodeAt(0)); }
+
+  static szWord7 = (n: number) => 7;
+  zmWord7(n: number): void { this.bits(7, n); }
+
+  static szWord8 = (n: number) => 8;
+  zmWord8(n: number): void { this.bits(8, n); }
+
+  static szWord16 = (n: number) => 24;
+  zmWord16(n: number): void { this.word(n) }
+
+  static szWord32 = (n: number) => 40;
+  zmWord32(n: number): void { this.word(n) }
+
+  static szArray<A extends Flat>(vals: A[]) {
+    const len = vals.length;
+    var size = arrayBlocks(len) * 8;
+    for (var i = 0; i < len; i++) size += vals[i].flatMaxSize();
+    return size;
+  }
+
+  zmArray<A extends Flat>(vals: A[]) {
+    //const vals = this.values;
+    var numElems = vals.length;
+    var inx = 0;
+    var blkLen;
+
+    while (blkLen = Math.min(255, numElems)) {
+      this.bits(8, blkLen);
+      for (var i = 0; i < blkLen; i++) vals[inx + i].flatEncode(this);
+      numElems -= blkLen;
+    }
+    this.bits(8, 0);
+  }
+
   filler(): void {
     this.currentByte |= 1;
     this.nextWord();
@@ -216,16 +285,16 @@ export class EncoderState {
     } while (n !== 0);
   }
 
-  char(c: string): void {
-    this.word(c.charCodeAt(0));
-  }
+  // char(c: string): void {
+  //   this.word(c.charCodeAt(0));
+  // }
 
   string(s: string): void {
     const l = s.length;
 
     for (var i = 0; i < l; i++) {
       this.one();
-      this.char(s.charAt(i));
+      this.zmChar(s.charAt(i));
     };
 
     this.zero();

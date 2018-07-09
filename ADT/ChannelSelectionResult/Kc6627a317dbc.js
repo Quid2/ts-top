@@ -1,8 +1,7 @@
 "use strict";
 /** ZM Type:
 ChannelSelectionResult a ≡   Success
-                           | Failure {reason :: Kb8cd13187198 K066db52af145}
-                           | RetryAt a
+                           | Failure {reason :: Kb8cd13187198 K
 */
 exports.__esModule = true;
 var Q = require("../.././lib/core");
@@ -33,6 +32,10 @@ var Success = /** @class */ (function () {
         if (nested === void 0) { nested = false; }
         return "Success";
     };
+    Success.prototype.pretty = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return "Success";
+    };
     Success.prototype.match = function (m) { return m.Success; };
     Success.prototype.flatMaxSize = function () { return 1 + 0; };
     Success.prototype.flatEncode = function (st) { st.zero(); };
@@ -48,6 +51,10 @@ var Failure = /** @class */ (function () {
         if (nested === void 0) { nested = false; }
         return Q.nestedPars(nested, ["Failure", this.reason.toStr(true)].join(' '));
     };
+    Failure.prototype.pretty = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return Q.nestedPars(nested, ["Failure", this.reason.pretty(true)].join(' '));
+    };
     Failure.prototype.match = function (m) { return m.Failure(this.reason); };
     Failure.prototype.flatMaxSize = function () { return 2 + this.reason.flatMaxSize(); };
     Failure.prototype.flatEncode = function (st) { st.one(); st.zero(); this.reason.flatEncode(st); };
@@ -62,6 +69,10 @@ var RetryAt = /** @class */ (function () {
     RetryAt.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
         return Q.nestedPars(nested, ["RetryAt", this._0.toStr(true)].join(' '));
+    };
+    RetryAt.prototype.pretty = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return Q.nestedPars(nested, ["RetryAt", this._0.pretty(true)].join(' '));
     };
     RetryAt.prototype.match = function (m) { return m.RetryAt(this._0); };
     RetryAt.prototype.flatMaxSize = function () { return 2 + this._0.flatMaxSize(); };

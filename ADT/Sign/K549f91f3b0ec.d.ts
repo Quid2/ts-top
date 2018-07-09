@@ -6,9 +6,10 @@ import * as Q from '../.././lib/core';
 export declare const $Sign: Q.zmFold<Sign>;
 export declare const ___: Q.zmTypeInfo;
 export declare type Sign = Positive | Negative;
-export declare class Positive implements Q.Flat {
+export declare class Positive implements Q.ZM {
     toString(): string;
     toStr(nested?: boolean): string;
+    pretty(nested?: boolean): string;
     match<R>(m: {
         Positive: R;
         Negative: R;
@@ -16,9 +17,10 @@ export declare class Positive implements Q.Flat {
     flatMaxSize(): number;
     flatEncode(st: Q.EncoderState): void;
 }
-export declare class Negative implements Q.Flat {
+export declare class Negative implements Q.ZM {
     toString(): string;
     toStr(nested?: boolean): string;
+    pretty(nested?: boolean): string;
     match<R>(m: {
         Positive: R;
         Negative: R;

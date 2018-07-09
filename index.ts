@@ -2,9 +2,9 @@ import { Flat, flat, zmType, zmId, zmFold, unflat, flatDecoder, Decoder } from '
 
 import { typedBLOB, Channel, Client, channel, CallChannel, promiseTimeout } from './lib/top'
 
-import { parseShake48, prettyShake48, prettyAbsRef, parseAbsRef } from './lib/util'
+import { parseShake48, parseAbsRef } from './lib/util'
 
-import * from './lib/pretty'
+import { } from './lib/pretty'
 
-export { Flat, flat, zmType, zmId, zmFold, unflat, flatDecoder, Decoder, typedBLOB, Channel, Client, channel, CallChannel, promiseTimeout, parseShake48, prettyShake48, prettyAbsRef, parseAbsRef };
+export { Flat, flat, zmType, zmId, zmFold, unflat, flatDecoder, Decoder, typedBLOB, Channel, Client, channel, CallChannel, promiseTimeout, parseShake48, parseAbsRef };
 

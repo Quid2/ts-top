@@ -1,6 +1,6 @@
 import * as Q from "../core";
 
-export const $Array: <A extends Q.Flat>(t1: Q.zmFold<A>) => Q.zmFold<Array<A>> = function (t1) { return function (f) { return f(___, [t1(f)]) } }
+export const $Array: <A extends Q.ZM>(t1: Q.zmFold<A>) => Q.zmFold<Array<A>> = function (t1) { return function (f) { return f(___, [t1(f)]) } }
 
 export const ___: Q.zmTypeInfo = {
   zid: [0x2e, 0x8b, 0x45, 0x19, 0xae, 0xaa],
@@ -17,7 +17,7 @@ export const ___: Q.zmTypeInfo = {
   }
 }
 
-export class Array<A extends Q.Flat> implements Q.Flat {
+export class Array<A extends Q.ZM> implements Q.ZM {
   constructor(
     public values: A[]
   ) { }
@@ -45,5 +45,6 @@ export class Array<A extends Q.Flat> implements Q.Flat {
   }
   toString():string {return this.toStr()}
   toStr(nested=false):string {return this.values.toString();}
+  pretty(nested?:boolean): string { return this.toString(); }
 
 }

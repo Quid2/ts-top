@@ -18,6 +18,10 @@ var FlatEncoding = /** @class */ (function () {
         if (nested === void 0) { nested = false; }
         return "FlatEncoding";
     };
+    FlatEncoding.prototype.pretty = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return "FlatEncoding";
+    };
     FlatEncoding.prototype.match = function (m) { return m.FlatEncoding; };
     FlatEncoding.prototype.flatMaxSize = function () { return 0; };
     FlatEncoding.prototype.flatEncode = function () { };

@@ -1,17 +1,6 @@
 /** ZM Type:
 RepoProtocol ≡   Record (K3e8257255cbf Kdc26e9d90047
-                                       Kdc26e9d90047
-                                       (K07b1b045ac3c K4bbd38587b9e))
-               | Solve K4bbd38587b9e
-               | Solved K4bbd38587b9e
-                        (K3e8257255cbf Kdc26e9d90047
-                                       Kdc26e9d90047
-                                       (K07b1b045ac3c K4bbd38587b9e))
-               | AskDataTypes
-               | KnownDataTypes (Kb8cd13187198 (Ka5583bf3ad34 K4bbd38587b9e
-                                                              (K3e8257255cbf Kdc26e9d90047
-                                                                             Kdc26e9d90047
-                                                                             (K07b1b045ac3c K4bbd38587b9e))))
+                                       Kdc26e9d
 */
 import * as Q from '../.././lib/core';
 import * as K3e8257255cbf from '../ADT/K3e8257255cbf';
@@ -23,11 +12,12 @@ import * as Ka5583bf3ad34 from '../Tuple2/Ka5583bf3ad34';
 export declare const $RepoProtocol: Q.zmFold<RepoProtocol>;
 export declare const ___: Q.zmTypeInfo;
 export declare type RepoProtocol = Record | Solve | Solved | AskDataTypes | KnownDataTypes;
-export declare class Record implements Q.Flat {
+export declare class Record implements Q.ZM {
     _0: K3e8257255cbf.ADT<Kdc26e9d90047.Identifier, Kdc26e9d90047.Identifier, K07b1b045ac3c.ADTRef<K4bbd38587b9e.AbsRef>>;
     constructor(_0: K3e8257255cbf.ADT<Kdc26e9d90047.Identifier, Kdc26e9d90047.Identifier, K07b1b045ac3c.ADTRef<K4bbd38587b9e.AbsRef>>);
     toString(): string;
     toStr(nested?: boolean): string;
+    pretty(nested?: boolean): string;
     match<R>(m: {
         Record: (v0: K3e8257255cbf.ADT<Kdc26e9d90047.Identifier, Kdc26e9d90047.Identifier, K07b1b045ac3c.ADTRef<K4bbd38587b9e.AbsRef>>) => R;
         Solve: (v0: K4bbd38587b9e.AbsRef) => R;
@@ -38,11 +28,12 @@ export declare class Record implements Q.Flat {
     flatMaxSize(): number;
     flatEncode(st: Q.EncoderState): void;
 }
-export declare class Solve implements Q.Flat {
+export declare class Solve implements Q.ZM {
     _0: K4bbd38587b9e.AbsRef;
     constructor(_0: K4bbd38587b9e.AbsRef);
     toString(): string;
     toStr(nested?: boolean): string;
+    pretty(nested?: boolean): string;
     match<R>(m: {
         Record: (v0: K3e8257255cbf.ADT<Kdc26e9d90047.Identifier, Kdc26e9d90047.Identifier, K07b1b045ac3c.ADTRef<K4bbd38587b9e.AbsRef>>) => R;
         Solve: (v0: K4bbd38587b9e.AbsRef) => R;
@@ -53,12 +44,13 @@ export declare class Solve implements Q.Flat {
     flatMaxSize(): number;
     flatEncode(st: Q.EncoderState): void;
 }
-export declare class Solved implements Q.Flat {
+export declare class Solved implements Q.ZM {
     _0: K4bbd38587b9e.AbsRef;
     _1: K3e8257255cbf.ADT<Kdc26e9d90047.Identifier, Kdc26e9d90047.Identifier, K07b1b045ac3c.ADTRef<K4bbd38587b9e.AbsRef>>;
     constructor(_0: K4bbd38587b9e.AbsRef, _1: K3e8257255cbf.ADT<Kdc26e9d90047.Identifier, Kdc26e9d90047.Identifier, K07b1b045ac3c.ADTRef<K4bbd38587b9e.AbsRef>>);
     toString(): string;
     toStr(nested?: boolean): string;
+    pretty(nested?: boolean): string;
     match<R>(m: {
         Record: (v0: K3e8257255cbf.ADT<Kdc26e9d90047.Identifier, Kdc26e9d90047.Identifier, K07b1b045ac3c.ADTRef<K4bbd38587b9e.AbsRef>>) => R;
         Solve: (v0: K4bbd38587b9e.AbsRef) => R;
@@ -69,9 +61,10 @@ export declare class Solved implements Q.Flat {
     flatMaxSize(): number;
     flatEncode(st: Q.EncoderState): void;
 }
-export declare class AskDataTypes implements Q.Flat {
+export declare class AskDataTypes implements Q.ZM {
     toString(): string;
     toStr(nested?: boolean): string;
+    pretty(nested?: boolean): string;
     match<R>(m: {
         Record: (v0: K3e8257255cbf.ADT<Kdc26e9d90047.Identifier, Kdc26e9d90047.Identifier, K07b1b045ac3c.ADTRef<K4bbd38587b9e.AbsRef>>) => R;
         Solve: (v0: K4bbd38587b9e.AbsRef) => R;
@@ -82,11 +75,12 @@ export declare class AskDataTypes implements Q.Flat {
     flatMaxSize(): number;
     flatEncode(st: Q.EncoderState): void;
 }
-export declare class KnownDataTypes implements Q.Flat {
+export declare class KnownDataTypes implements Q.ZM {
     _0: Kb8cd13187198.List<Ka5583bf3ad34.Tuple2<K4bbd38587b9e.AbsRef, K3e8257255cbf.ADT<Kdc26e9d90047.Identifier, Kdc26e9d90047.Identifier, K07b1b045ac3c.ADTRef<K4bbd38587b9e.AbsRef>>>>;
     constructor(_0: Kb8cd13187198.List<Ka5583bf3ad34.Tuple2<K4bbd38587b9e.AbsRef, K3e8257255cbf.ADT<Kdc26e9d90047.Identifier, Kdc26e9d90047.Identifier, K07b1b045ac3c.ADTRef<K4bbd38587b9e.AbsRef>>>>);
     toString(): string;
     toStr(nested?: boolean): string;
+    pretty(nested?: boolean): string;
     match<R>(m: {
         Record: (v0: K3e8257255cbf.ADT<Kdc26e9d90047.Identifier, Kdc26e9d90047.Identifier, K07b1b045ac3c.ADTRef<K4bbd38587b9e.AbsRef>>) => R;
         Solve: (v0: K4bbd38587b9e.AbsRef) => R;

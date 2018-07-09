@@ -13,7 +13,12 @@ export declare type zmTypeInfo = {
 export interface Flat {
     flatMaxSize: () => number;
     flatEncode: Encoder;
-    toStr(nested: boolean): string;
+}
+export interface AsString {
+    toStr(nested?: boolean): string;
+    pretty(nested?: boolean): string;
+}
+export interface ZM extends Flat, AsString {
 }
 export declare type Decoder = (s: DecoderState) => any;
 export declare function flatDecoder(t: zmTypeInfo, decoders: Decoder[]): Decoder;
@@ -29,6 +34,13 @@ export declare class DecoderState {
      * @param buffer The flat-encoded binary value
      */
     constructor(buffer: Uint8Array);
+    zmBytes(decoders?: Decoder[]): Uint8Array;
+    zmChar(decoders?: Decoder[]): string;
+    zmWord7(decoders?: Decoder[]): number;
+    zmWord8(decoders?: Decoder[]): number;
+    zmWord16(decoders?: Decoder[]): number;
+    zmWord32(decoders?: Decoder[]): number;
+    zmArray(decoders: Decoder[]): any[];
     /** Decode a byteArray
      * @return the decoded byteArray
     */
@@ -42,7 +54,6 @@ export declare class DecoderState {
     bits8(numBits: number): number;
     /** Decode a ZM Word see definition at  */
     word(): number;
-    char(): string;
     string(): string;
     zero(): boolean;
     ensureBit(): void;
@@ -60,9 +71,22 @@ export declare class EncoderState {
     usedBits: number;
     currentByte: number;
     constructor(bufferSize: number);
+    static szBytes: (v: Uint8Array) => number;
+    zmBytes(v: Uint8Array): void;
+    static szChar: (v?: string | undefined) => number;
+    zmChar(v: string): void;
+    static szWord7: (n: number) => number;
+    zmWord7(n: number): void;
+    static szWord8: (n: number) => number;
+    zmWord8(n: number): void;
+    static szWord16: (n: number) => number;
+    zmWord16(n: number): void;
+    static szWord32: (n: number) => number;
+    zmWord32(n: number): void;
+    static szArray<A extends Flat>(vals: A[]): number;
+    zmArray<A extends Flat>(vals: A[]): void;
     filler(): void;
     word(n: number): void;
-    char(c: string): void;
     string(s: string): void;
     bits(numBits: number, value: number): void;
     zero(): void;

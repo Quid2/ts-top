@@ -21,6 +21,10 @@ var Tuple2 = /** @class */ (function () {
         if (nested === void 0) { nested = false; }
         return Q.nestedPars(nested, ["Tuple2", this._0.toStr(true), this._1.toStr(true)].join(' '));
     };
+    Tuple2.prototype.pretty = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return Q.nestedPars(nested, ["Tuple2", this._0.pretty(true), this._1.pretty(true)].join(' '));
+    };
     Tuple2.prototype.match = function (m) { return m.Tuple2(this._0, this._1); };
     Tuple2.prototype.flatMaxSize = function () { return this._0.flatMaxSize() + this._1.flatMaxSize(); };
     Tuple2.prototype.flatEncode = function (st) { this._0.flatEncode(st); this._1.flatEncode(st); };

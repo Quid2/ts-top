@@ -14,7 +14,8 @@ export const ___ : Q.zmTypeInfo = {
   }
 }
 
-export class Word64  implements Q.Flat {
+
+export class Word64  implements Q.ZM {
   constructor(
     public _0: Kf92e8339908a.Word,
 
@@ -22,6 +23,8 @@ export class Word64  implements Q.Flat {
 
   toString():string {return this.toStr(false)}
   toStr(nested=false):string {return Q.nestedPars(nested,["Word64",this._0.toStr(true)].join(' '))}
+  pretty(nested=false):string {return Q.nestedPars(nested,["Word64",this._0.pretty(true)].join(' '))}
+
   match <R>(m:{Word64:(v0:Kf92e8339908a.Word)=>R}) : R {return m.Word64(this._0);}
   flatMaxSize():number {return this._0.flatMaxSize();}
   flatEncode(st:Q.EncoderState) {this._0.flatEncode(st);}

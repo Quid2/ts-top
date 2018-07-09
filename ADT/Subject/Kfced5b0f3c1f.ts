@@ -15,7 +15,8 @@ export const ___ : Q.zmTypeInfo = {
   }
 }
 
-export class Subject  implements Q.Flat {
+
+export class Subject  implements Q.ZM {
   constructor(
     public _0: Kb8cd13187198.List<Kb8cd13187198.List<K066db52af145.Char>>,
 
@@ -23,6 +24,8 @@ export class Subject  implements Q.Flat {
 
   toString():string {return this.toStr(false)}
   toStr(nested=false):string {return Q.nestedPars(nested,["Subject",this._0.toStr(true)].join(' '))}
+  pretty(nested=false):string {return Q.nestedPars(nested,["Subject",this._0.pretty(true)].join(' '))}
+
   match <R>(m:{Subject:(v0:Kb8cd13187198.List<Kb8cd13187198.List<K066db52af145.Char>>)=>R}) : R {return m.Subject(this._0);}
   flatMaxSize():number {return this._0.flatMaxSize();}
   flatEncode(st:Q.EncoderState) {this._0.flatEncode(st);}

@@ -13,10 +13,13 @@ export const ___ : Q.zmTypeInfo = {
   }
 }
 
-export class FlatEncoding  implements Q.Flat {
+
+export class FlatEncoding  implements Q.ZM {
 
   toString():string {return this.toStr(false)}
   toStr(nested=false):string {return "FlatEncoding"}
+  pretty(nested=false):string {return "FlatEncoding"}
+
   match <R>(m:{FlatEncoding:R}) : R {return m.FlatEncoding;}
   flatMaxSize():number {return 0;}
   flatEncode() {}

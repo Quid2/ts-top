@@ -26,6 +26,10 @@ var Left = /** @class */ (function () {
         if (nested === void 0) { nested = false; }
         return Q.nestedPars(nested, ["Left", this._0.toStr(true)].join(' '));
     };
+    Left.prototype.pretty = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return Q.nestedPars(nested, ["Left", this._0.pretty(true)].join(' '));
+    };
     Left.prototype.match = function (m) { return m.Left(this._0); };
     Left.prototype.flatMaxSize = function () { return 1 + this._0.flatMaxSize(); };
     Left.prototype.flatEncode = function (st) { st.zero(); this._0.flatEncode(st); };
@@ -40,6 +44,10 @@ var Right = /** @class */ (function () {
     Right.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
         return Q.nestedPars(nested, ["Right", this._0.toStr(true)].join(' '));
+    };
+    Right.prototype.pretty = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return Q.nestedPars(nested, ["Right", this._0.pretty(true)].join(' '));
     };
     Right.prototype.match = function (m) { return m.Right(this._0); };
     Right.prototype.flatMaxSize = function () { return 1 + this._0.flatMaxSize(); };

@@ -14,7 +14,8 @@ export const ___ : Q.zmTypeInfo = {
   }
 }
 
-export class Range  implements Q.Flat {
+
+export class Range  implements Q.ZM {
   constructor(
     public start: K2ff00417fe9d.Position,
     public end: K2ff00417fe9d.Position,
@@ -23,6 +24,8 @@ export class Range  implements Q.Flat {
 
   toString():string {return this.toStr(false)}
   toStr(nested=false):string {return Q.nestedPars(nested,["Range",this.start.toStr(true),this.end.toStr(true)].join(' '))}
+  pretty(nested=false):string {return Q.nestedPars(nested,["Range",this.start.pretty(true),this.end.pretty(true)].join(' '))}
+
   match <R>(m:{Range:(v0:K2ff00417fe9d.Position,v1:K2ff00417fe9d.Position)=>R}) : R {return m.Range(this.start,this.end);}
   flatMaxSize():number {return this.start.flatMaxSize()+this.end.flatMaxSize();}
   flatEncode(st:Q.EncoderState) {this.start.flatEncode(st);this.end.flatEncode(st);}

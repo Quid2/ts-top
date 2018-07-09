@@ -2,12 +2,7 @@
 /** ZM Type:
 III ≡   III {w8 :: Kb3a2642b4a84,
              w16 :: K3dac6bd4fa9c,
-             w :: Kfb94cb4d4ede,
-             i8 :: Kb3a2642b4a84,
-             i :: Kfb94cb4d4ede,
-             f :: Kb53bec846608,
-             d :: Kcba9596b4657,
-             ii :: K102a3bb904e3}
+             w :: Kfb94cb4d4ede
 */
 Object.defineProperty(exports, "__esModule", { value: true });
 const Q = require("../.././lib/core");
@@ -37,6 +32,7 @@ class III {
     }
     toString() { return this.toStr(false); }
     toStr(nested = false) { return Q.nestedPars(nested, ["III", this.w8.toStr(true), this.w16.toStr(true), this.w.toStr(true), this.i8.toStr(true), this.i.toStr(true), this.f.toStr(true), this.d.toStr(true), this.ii.toStr(true)].join(' ')); }
+    pretty(nested = false) { return Q.nestedPars(nested, ["III", this.w8.pretty(true), this.w16.pretty(true), this.w.pretty(true), this.i8.pretty(true), this.i.pretty(true), this.f.pretty(true), this.d.pretty(true), this.ii.pretty(true)].join(' ')); }
     match(m) { return m.III(this.w8, this.w16, this.w, this.i8, this.i, this.f, this.d, this.ii); }
     flatMaxSize() { return this.w8.flatMaxSize() + this.w16.flatMaxSize() + this.w.flatMaxSize() + this.i8.flatMaxSize() + this.i.flatMaxSize() + this.f.flatMaxSize() + this.d.flatMaxSize() + this.ii.flatMaxSize(); }
     flatEncode(st) { this.w8.flatEncode(st); this.w16.flatEncode(st); this.w.flatEncode(st); this.i8.flatEncode(st); this.i.flatEncode(st); this.f.flatEncode(st); this.d.flatEncode(st); this.ii.flatEncode(st); }

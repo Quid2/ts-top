@@ -19,6 +19,7 @@ class User {
     }
     toString() { return this.toStr(false); }
     toStr(nested = false) { return Q.nestedPars(nested, ["User", this.userName.toStr(true)].join(' ')); }
+    pretty(nested = false) { return Q.nestedPars(nested, ["User", this.userName.pretty(true)].join(' ')); }
     match(m) { return m.User(this.userName); }
     flatMaxSize() { return this.userName.flatMaxSize(); }
     flatEncode(st) { this.userName.flatEncode(st); }

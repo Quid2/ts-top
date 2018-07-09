@@ -1,4 +1,4 @@
-import { flat, zmType, zmFold, flatDecoder, unflat, Decoder, Flat } from "./api";
+import { flat, zmType, zmFold, flatDecoder, unflat, ZM } from "./api";
 //import {arraySize,zmId} from "./core";
 
 import { ByType, $ByType } from '../ADT/ByType/K87f090a54ea3'
@@ -28,7 +28,7 @@ import { $String, String } from '../ADT/String/K2f006595638c'
 import { $Validate, Validate } from '../ADT/Validate/Kffe0940f8ff2'
 import { $Position, Position } from '../ADT/Position/K2ff00417fe9d'
 import { $Range, Range } from '../ADT/Range/K63b2d97244bc'
-import { $ZM, ZM } from '../ADT/ZM/Kb3a40bdda26f'
+import { $ZM, ZM as ZML } from '../ADT/ZM/Kb3a40bdda26f'
 import { $List, List as ZList } from '../ADT/List/Kb8cd13187198'
 import { $Note, Note } from '../ADT/Note/K21b7bfc3d09c'
 
@@ -45,7 +45,8 @@ import { assert } from "chai";
 //chai.use(chaiAsPromised);
 import { shake128, shake_128 } from 'js-sha3';
 import { isUndefined } from "util";
-import { prettyShake48 } from "./util"
+import { } from "./pretty"
+//import { prettyShake48 } from "./util"
 
 // https://italonascimento.github.io/applying-a-timeout-to-your-promises/
 export const promiseTimeout = function <A>(ms: Number, promise: Promise<A>): Promise<{} | A> {
@@ -250,7 +251,7 @@ class Multi {
 
 }
 
-export class CallChannel<I extends Flat, R extends Flat> {
+export class CallChannel<I extends ZM, R extends ZM> {
     private inChan: Observable<ZMFunction<I, R>>
     private outChan: QueueingSubject<ZMFunction<I, R>>
 
@@ -271,7 +272,7 @@ export class CallChannel<I extends Flat, R extends Flat> {
             .map(v => v as Reply<I, R>)
             .subscribe(function (r) {
                 //console.log("CALLS",self.calls,"REPLY",prettyShake48(r._0),self.calls.values(prettyShake48(r._0)),r.toString());
-                const key = prettyShake48(r._0);
+                const key = r._0.pretty();
                 self.calls.use(key, function (f: any) { f(r._1) })
             })
     }
@@ -308,7 +309,7 @@ function testCall() {
     var rs = results[0]
     for (let i = 0; i < results.length; i++) {
         let rs = results[i];
-        ch.call(new Validate(new SourceCode(new ZM, new String(rs[0]))))
+        ch.call(new Validate(new SourceCode(new ZML, new String(rs[0]))))
             .then(function (r) {
                 console.log("OK", r.toString())
                 //console.log("OK","Cons (Note \"nexpected '=' expecting ';', end of input, or letter\" (Range (Position 0 6) (Position 0 6))) Nil")

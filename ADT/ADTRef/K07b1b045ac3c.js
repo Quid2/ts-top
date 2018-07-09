@@ -33,6 +33,10 @@ var Var = /** @class */ (function () {
         if (nested === void 0) { nested = false; }
         return Q.nestedPars(nested, ["Var", this._0.toStr(true)].join(' '));
     };
+    Var.prototype.pretty = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return Q.nestedPars(nested, ["Var", this._0.pretty(true)].join(' '));
+    };
     Var.prototype.match = function (m) { return m.Var(this._0); };
     Var.prototype.flatMaxSize = function () { return 1 + this._0.flatMaxSize(); };
     Var.prototype.flatEncode = function (st) { st.zero(); this._0.flatEncode(st); };
@@ -44,6 +48,10 @@ var Rec = /** @class */ (function () {
     }
     Rec.prototype.toString = function () { return this.toStr(false); };
     Rec.prototype.toStr = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return "Rec";
+    };
+    Rec.prototype.pretty = function (nested) {
         if (nested === void 0) { nested = false; }
         return "Rec";
     };
@@ -61,6 +69,10 @@ var Ext = /** @class */ (function () {
     Ext.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
         return Q.nestedPars(nested, ["Ext", this._0.toStr(true)].join(' '));
+    };
+    Ext.prototype.pretty = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return Q.nestedPars(nested, ["Ext", this._0.pretty(true)].join(' '));
     };
     Ext.prototype.match = function (m) { return m.Ext(this._0); };
     Ext.prototype.flatMaxSize = function () { return 2 + this._0.flatMaxSize(); };

@@ -1,8 +1,7 @@
 "use strict";
 /** ZM Type:
 WebSocketAddress a ≡   WebSocketAddress {secure :: K306f1981b41c,
-                                         host :: Ke5d02571ce7b a,
-                                         path :: Kb8cd13187198 K066db52af145}
+                                  
 */
 exports.__esModule = true;
 var Q = require("../.././lib/core");
@@ -27,6 +26,10 @@ var WebSocketAddress = /** @class */ (function () {
     WebSocketAddress.prototype.toStr = function (nested) {
         if (nested === void 0) { nested = false; }
         return Q.nestedPars(nested, ["WebSocketAddress", this.secure.toStr(true), this.host.toStr(true), this.path.toStr(true)].join(' '));
+    };
+    WebSocketAddress.prototype.pretty = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return Q.nestedPars(nested, ["WebSocketAddress", this.secure.pretty(true), this.host.pretty(true), this.path.pretty(true)].join(' '));
     };
     WebSocketAddress.prototype.match = function (m) { return m.WebSocketAddress(this.secure, this.host, this.path); };
     WebSocketAddress.prototype.flatMaxSize = function () { return this.secure.flatMaxSize() + this.host.flatMaxSize() + this.path.flatMaxSize(); };

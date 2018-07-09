@@ -21,6 +21,10 @@ var UnicodeSymbol = /** @class */ (function () {
         if (nested === void 0) { nested = false; }
         return Q.nestedPars(nested, ["UnicodeSymbol", this._0.toStr(true)].join(' '));
     };
+    UnicodeSymbol.prototype.pretty = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return Q.nestedPars(nested, ["UnicodeSymbol", this._0.pretty(true)].join(' '));
+    };
     UnicodeSymbol.prototype.match = function (m) { return m.UnicodeSymbol(this._0); };
     UnicodeSymbol.prototype.flatMaxSize = function () { return this._0.flatMaxSize(); };
     UnicodeSymbol.prototype.flatEncode = function (st) { this._0.flatEncode(st); };

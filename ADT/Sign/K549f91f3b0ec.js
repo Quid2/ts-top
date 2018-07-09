@@ -19,6 +19,7 @@ exports.___ = {
 class Positive {
     toString() { return this.toStr(false); }
     toStr(nested = false) { return "Positive"; }
+    pretty(nested = false) { return "Positive"; }
     match(m) { return m.Positive; }
     flatMaxSize() { return 1 + 0; }
     flatEncode(st) { st.zero(); }
@@ -27,6 +28,7 @@ exports.Positive = Positive;
 class Negative {
     toString() { return this.toStr(false); }
     toStr(nested = false) { return "Negative"; }
+    pretty(nested = false) { return "Negative"; }
     match(m) { return m.Negative; }
     flatMaxSize() { return 1 + 0; }
     flatEncode(st) { st.one(); }

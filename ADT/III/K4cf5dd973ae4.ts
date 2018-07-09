@@ -1,12 +1,7 @@
 /** ZM Type:
 III ≡   III {w8 :: Kb3a2642b4a84,
              w16 :: K3dac6bd4fa9c,
-             w :: Kfb94cb4d4ede,
-             i8 :: Kb3a2642b4a84,
-             i :: Kfb94cb4d4ede,
-             f :: Kb53bec846608,
-             d :: Kcba9596b4657,
-             ii :: K102a3bb904e3}
+             w :: Kfb94cb4d4ede
 */
 
 import * as Q from '../.././lib/core'
@@ -26,7 +21,8 @@ export const ___ : Q.zmTypeInfo = {
   }
 }
 
-export class III  implements Q.Flat {
+
+export class III  implements Q.ZM {
   constructor(
     public w8: Kb3a2642b4a84.Int8,
     public w16: K3dac6bd4fa9c.Int16,
@@ -41,6 +37,8 @@ export class III  implements Q.Flat {
 
   toString():string {return this.toStr(false)}
   toStr(nested=false):string {return Q.nestedPars(nested,["III",this.w8.toStr(true),this.w16.toStr(true),this.w.toStr(true),this.i8.toStr(true),this.i.toStr(true),this.f.toStr(true),this.d.toStr(true),this.ii.toStr(true)].join(' '))}
+  pretty(nested=false):string {return Q.nestedPars(nested,["III",this.w8.pretty(true),this.w16.pretty(true),this.w.pretty(true),this.i8.pretty(true),this.i.pretty(true),this.f.pretty(true),this.d.pretty(true),this.ii.pretty(true)].join(' '))}
+
   match <R>(m:{III:(v0:Kb3a2642b4a84.Int8,v1:K3dac6bd4fa9c.Int16,v2:Kfb94cb4d4ede.Int64,v3:Kb3a2642b4a84.Int8,v4:Kfb94cb4d4ede.Int64,v5:Kb53bec846608.IEEE_754_binary32,v6:Kcba9596b4657.IEEE_754_binary64,v7:K102a3bb904e3.Int)=>R}) : R {return m.III(this.w8,this.w16,this.w,this.i8,this.i,this.f,this.d,this.ii);}
   flatMaxSize():number {return this.w8.flatMaxSize()+this.w16.flatMaxSize()+this.w.flatMaxSize()+this.i8.flatMaxSize()+this.i.flatMaxSize()+this.f.flatMaxSize()+this.d.flatMaxSize()+this.ii.flatMaxSize();}
   flatEncode(st:Q.EncoderState) {this.w8.flatEncode(st);this.w16.flatEncode(st);this.w.flatEncode(st);this.i8.flatEncode(st);this.i.flatEncode(st);this.f.flatEncode(st);this.d.flatEncode(st);this.ii.flatEncode(st);}

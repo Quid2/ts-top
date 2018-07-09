@@ -25,6 +25,7 @@ class TextMsg {
     }
     toString() { return this.toStr(false); }
     toStr(nested = false) { return Q.nestedPars(nested, ["TextMsg", this._0.toStr(true)].join(' ')); }
+    pretty(nested = false) { return Q.nestedPars(nested, ["TextMsg", this._0.pretty(true)].join(' ')); }
     match(m) { return m.TextMsg(this._0); }
     flatMaxSize() { return 1 + this._0.flatMaxSize(); }
     flatEncode(st) { st.zero(); this._0.flatEncode(st); }
@@ -33,6 +34,7 @@ exports.TextMsg = TextMsg;
 class Join {
     toString() { return this.toStr(false); }
     toStr(nested = false) { return "Join"; }
+    pretty(nested = false) { return "Join"; }
     match(m) { return m.Join; }
     flatMaxSize() { return 1 + 0; }
     flatEncode(st) { st.one(); }

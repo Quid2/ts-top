@@ -20,6 +20,10 @@ var Validate = /** @class */ (function () {
         if (nested === void 0) { nested = false; }
         return Q.nestedPars(nested, ["Validate", this._0.toStr(true)].join(' '));
     };
+    Validate.prototype.pretty = function (nested) {
+        if (nested === void 0) { nested = false; }
+        return Q.nestedPars(nested, ["Validate", this._0.pretty(true)].join(' '));
+    };
     Validate.prototype.match = function (m) { return m.Validate(this._0); };
     Validate.prototype.flatMaxSize = function () { return this._0.flatMaxSize(); };
     Validate.prototype.flatEncode = function (st) { this._0.flatEncode(st); };
