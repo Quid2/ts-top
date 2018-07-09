@@ -1,6 +1,6 @@
 {
   "name": "@quid2/ts",
-  "version": "0.1.31",
+  "version": "0.1.32",
   "description": "TypeScript API for Quid2",
   "main": "index.js",
   "scripts": {
@@ -37,7 +37,7 @@
     "tap": "^11.1.5",
     "ts-node": "^5.0.1",
     "typedoc": "^0.10.0",
-    "typescript": "^2.9.2"
+    "typescript": "^2.6.2"
   },
   "dependencies": {
     "chai-as-promised": "^7.1.1",
