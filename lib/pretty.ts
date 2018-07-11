@@ -58,9 +58,8 @@ function prettyField(f: Tuple2<Identifier, Type<AbsRef>>): string {
 }
 
 function prettyFields(ts: List<Tuple2<Identifier, Type<AbsRef>>>) {
-    var s = ""
-    for (var f of asArray(ts)) { s += prettyField(f) }
-    return s;
+    //for (var f of asArray(ts)) { s += prettyField(f) }
+    return asArray(ts).map(prettyField).join(", ")
 }
 
 
