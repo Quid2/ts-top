@@ -4,11 +4,14 @@ import { AbsRef } from '../ADT/AbsRef/K4bbd38587b9e'
 import { Word8 } from '../ADT/Word8/Kb1f46a49c8f8'
 import { SHAKE128_48 } from '../ADT/SHAKE128_48/K9f214799149b'
 import { Char } from '../ADT/Char/K066db52af145'
-import { Name } from '../ADT/Identifier/Kdc26e9d90047';
+import { Identifier, Name } from '../ADT/Identifier/Kdc26e9d90047';
 import { prettyConcat, prettyString } from '../ADT/List/Kb8cd13187198'
 import { Con, _ConTree } from '../ADT/ConTree/K86653e040025'
 import { ZM } from './core'
 import { ADT } from '../ADT/ADT/K3e8257255cbf'
+import { Tuple2 } from '../ADT/Tuple2/Ka5583bf3ad34'
+import { Type, TypeApp, TypeCon } from '../ADT/Type/K7028aa556ebc'
+
 //import {Name}
 
 // Check https://www.bennadel.com/blog/3290-using-module-augmentation-to-safely-inject-runtime-methods-using-typescript-and-node-js.htm
@@ -52,9 +55,21 @@ function vars(numVars: number) {
 //         , ConTree: (left,right) = prettyCon })
 // }
 
+function prettyField(f: Tuple2<Identifier, Type<AbsRef>>) {
+    return f._0.pretty() + ":" + f._1.pretty();
+}
+
+TypeApp.prototype.pretty = function () {
+    return this._0.pretty() + "(" + this._1.pretty() + ")";
+}
+
+TypeCon.prototype.pretty = function () {
+    return this._0.pretty();
+}
+
 
 Con.prototype.pretty = function () {
-    return this.constrName.pretty() + " " + this.constrFields.pretty();
+    return this.constrName.pretty() + " " + this.constrFields.match({ Left: (ts) => prettyConcat(ts), Right: (ts) => "{" + prettyConcat(ts, ",") + "}" });
 }
 
 _ConTree.prototype.pretty = function () {
@@ -66,8 +81,7 @@ ADT.prototype.pretty = function () {
 }
 
 Name.prototype.pretty = function () {
-    //return this.match({ Name: (h, l) => h.pretty() +})
-    return str(this._0.pretty() + prettyConcat(this._1));
+    return this._0.pretty() + prettyConcat(this._1);
 }
 
 UnicodeLetter.prototype.pretty = function () { return this._0.pretty(); }

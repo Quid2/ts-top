@@ -45,4 +45,4 @@ export declare class Cons<A extends Q.ZM> implements Q.ZM {
     prettyList(nested?: boolean): string;
 }
 export declare function prettyString<A extends Q.ZM>(l: List<A>): string;
-export declare function prettyConcat<A extends Q.ZM>(l: List<A>): string;
+export declare function prettyConcat<A extends Q.ZM>(l: List<A>, separator?: string): string;

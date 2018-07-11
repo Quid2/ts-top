@@ -90,9 +90,9 @@ export function prettyString<A extends Q.ZM>(l: List<A>): string {
   return '"' + prettyConcat(l) + '"';
 }
 
-export function prettyConcat<A extends Q.ZM>(l: List<A>): string {
+export function prettyConcat<A extends Q.ZM>(l: List<A>, separator: string = ""): string {
   return l.match({
     Nil: ""
-    , Cons: (h, t) => h.pretty() + prettyConcat(t)
+    , Cons: (h, t) => h.pretty() + separator + prettyConcat(t)
   })
 }
