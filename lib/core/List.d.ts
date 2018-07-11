@@ -32,17 +32,9 @@ export declare class Cons<A extends Q.ZM> implements Q.ZM {
     }): R;
     flatMaxSize(): number;
     flatEncode(st: Q.EncoderState): void;
-    [Symbol.iterator](): {
-        next: () => {
-            done: boolean;
-            value: undefined;
-        } | {
-            done: boolean;
-            value: A;
-        };
-    };
     pretty(nested?: boolean): string;
     prettyList(nested?: boolean): string;
 }
 export declare function prettyString<A extends Q.ZM>(l: List<A>): string;
 export declare function prettyConcat<A extends Q.ZM>(l: List<A>, separator?: string): string;
+export declare function asArray<A extends Q.ZM>(l: List<A>, vs?: Array<A>): Array<A>;

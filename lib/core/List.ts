@@ -43,21 +43,26 @@ export class Cons<A extends Q.ZM> implements Q.ZM {
   flatEncode(st: Q.EncoderState) { st.one(); this._0.flatEncode(st); this._1.flatEncode(st); }
 
   // TODO FIX
-  [Symbol.iterator]() {
-    var l: List<A> = this;
-    return {
-      next: function () {
-        if (l instanceof Nil) {
-          return { done: true, value: undefined }
-        }
-        else {
-          const c: Cons<A> = <Cons<A>>l;
-          l = c._1;
-          return { done: false, value: c._0 }
-        }
-      }
-    }
-  }
+  // *[Symbol.iterator]() {
+  //   yield this._0;
+  //   var l: List<A> = this;
+  // }
+
+  // [Symbol.iterator]() {
+  //   var l: List<A> = this;
+  //   return {
+  //     next: function () {
+  //       if (l instanceof Nil) {
+  //         return { done: true, value: undefined }
+  //       }
+  //       else {
+  //         const c: Cons<A> = <Cons<A>>l;
+  //         l = c._1;
+  //         return { done: false, value: c._0 }
+  //       }
+  //     }
+  //   }
+  // }
 
   // pretty(nested = false): string {
   //   var nxt = false;
@@ -86,6 +91,7 @@ export class Cons<A extends Q.ZM> implements Q.ZM {
   }
 }
 
+
 export function prettyString<A extends Q.ZM>(l: List<A>): string {
   return '"' + prettyConcat(l) + '"';
 }
@@ -94,5 +100,15 @@ export function prettyConcat<A extends Q.ZM>(l: List<A>, separator: string = "")
   return l.match({
     Nil: ""
     , Cons: (h, t) => h.pretty() + separator + prettyConcat(t)
+  })
+}
+
+export function asArray<A extends Q.ZM>(l: List<A>, vs?: Array<A>): Array<A> {
+  var vss = vs ? vs : new Array<A>();
+  return l.match({
+    Nil: vss
+    , Cons: function (h, t) {
+      vss.push(h); return asArray(t, vss)
+    }
   })
 }

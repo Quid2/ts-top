@@ -11,6 +11,8 @@ import { ZM } from './core'
 import { ADT } from '../ADT/ADT/K3e8257255cbf'
 import { Tuple2 } from '../ADT/Tuple2/Ka5583bf3ad34'
 import { Type, TypeApp, TypeCon } from '../ADT/Type/K7028aa556ebc'
+import { Var, Ext, Rec } from '../ADT/ADTRef/K07b1b045ac3c'
+import { List, asArray } from '../ADT/List/Kb8cd13187198'
 
 //import {Name}
 
@@ -43,21 +45,24 @@ import { Type, TypeApp, TypeCon } from '../ADT/Type/K7028aa556ebc'
 
 function str(s: string): string { return '"' + s + '"'; }
 
+function varName(n: number): string { return String.fromCharCode(97 + n) }
+
 function vars(numVars: number) {
     let vs = ""
-    for (var n = 0; n < numVars; n++) { vs += String.fromCharCode(97 + n) + " " }
+    for (var n = 0; n < numVars; n++) { vs += varName(n) + " " }
     return vs
 }
 
-// function prettyConTree<A extends ZM, B extends ZM>(conTree: ConTree<A, B>): string {
-//     return conTree.match({
-//         Con: (name, pars) => name.pretty()
-//         , ConTree: (left,right) = prettyCon })
-// }
-
-function prettyField(f: Tuple2<Identifier, Type<AbsRef>>) {
+function prettyField(f: Tuple2<Identifier, Type<AbsRef>>): string {
     return f._0.pretty() + ":" + f._1.pretty();
 }
+
+function prettyFields(ts: List<Tuple2<Identifier, Type<AbsRef>>>) {
+    var s = ""
+    for (var f of asArray(ts)) { s += prettyField(f) }
+    return s;
+}
+
 
 TypeApp.prototype.pretty = function () {
     return this._0.pretty() + "(" + this._1.pretty() + ")";
@@ -67,13 +72,26 @@ TypeCon.prototype.pretty = function () {
     return this._0.pretty();
 }
 
+Ext.prototype.pretty = function () {
+    return this._0.pretty();
+}
+
+Var.prototype.pretty = function () {
+    return varName(this._0.value);
+}
+
+Rec.prototype.pretty = () => '\x21AB'
+
 
 Con.prototype.pretty = function () {
-    return this.constrName.pretty() + " " + this.constrFields.match({ Left: (ts) => prettyConcat(ts), Right: (ts) => "{" + prettyConcat(ts, ",") + "}" });
+    return this.constrName.pretty() + " " + this.constrFields.match({
+        Left: (ts) => prettyConcat(ts)
+        , Right: (ts) => "{" + prettyFields(ts) + "}"
+    });
 }
 
 _ConTree.prototype.pretty = function () {
-    return this._0.pretty() + this._1.pretty();
+    return this._0.pretty() + "\n  |" + this._1.pretty();
 }
 
 ADT.prototype.pretty = function () {
