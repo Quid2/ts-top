@@ -32,6 +32,15 @@ export declare class Cons<A extends Q.ZM> implements Q.ZM {
     }): R;
     flatMaxSize(): number;
     flatEncode(st: Q.EncoderState): void;
+    [Symbol.iterator](): {
+        next: () => {
+            done: boolean;
+            value: undefined;
+        } | {
+            done: boolean;
+            value: A;
+        };
+    };
     pretty(nested?: boolean): string;
     prettyList(nested?: boolean): string;
 }

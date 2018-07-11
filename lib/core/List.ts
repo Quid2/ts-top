@@ -48,21 +48,21 @@ export class Cons<A extends Q.ZM> implements Q.ZM {
   //   var l: List<A> = this;
   // }
 
-  // [Symbol.iterator]() {
-  //   var l: List<A> = this;
-  //   return {
-  //     next: function () {
-  //       if (l instanceof Nil) {
-  //         return { done: true, value: undefined }
-  //       }
-  //       else {
-  //         const c: Cons<A> = <Cons<A>>l;
-  //         l = c._1;
-  //         return { done: false, value: c._0 }
-  //       }
-  //     }
-  //   }
-  // }
+  [Symbol.iterator]() {
+    var l: List<A> = this;
+    return {
+      next: function () {
+        if (l instanceof Nil) {
+          return { done: true, value: undefined }
+        }
+        else {
+          const c: Cons<A> = <Cons<A>>l;
+          l = c._1;
+          return { done: false, value: c._0 }
+        }
+      }
+    }
+  }
 
   // pretty(nested = false): string {
   //   var nxt = false;
