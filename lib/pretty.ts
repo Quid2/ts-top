@@ -4,6 +4,8 @@ import { AbsRef } from '../ADT/AbsRef/K4bbd38587b9e'
 import { Word8 } from '../ADT/Word8/Kb1f46a49c8f8'
 import { SHAKE128_48 } from '../ADT/SHAKE128_48/K9f214799149b'
 import { Char } from '../ADT/Char/K066db52af145'
+import { Name } from '../ADT/Identifier/Kdc26e9d90047';
+import { prettyConcat, prettyString } from '../ADT/List/Kb8cd13187198'
 
 import { ADT } from '../ADT/ADT/K3e8257255cbf'
 //import {Name}
@@ -38,11 +40,19 @@ import { ADT } from '../ADT/ADT/K3e8257255cbf'
 
 //ADT.prototype.pretty = function () { return "K" + this._0.pretty();}
 
+function str(s: string): string { return '"' + s + '"'; }
+
+Name.prototype.pretty = function () {
+    //return this.match({ Name: (h, l) => h.pretty() +})
+    return str(this._0.pretty() + prettyConcat(this._1));
+}
+
 UnicodeLetter.prototype.pretty = function () { return this._0.pretty(); }
 UnicodeLetterOrNumberOrLine.prototype.pretty = function () { return this._0.pretty(); }
 
 // Char.prototype.toStr = function(nested = false): string { return "'" + this._0.toString() + "'"; }
-Char.prototype.pretty = function () { return "'" + this.value.toString() + "'"; }
+//Char.prototype.pretty = function () { return "'" + this.value.toString() + "'"; }
+Char.prototype.pretty = function () { return this.value; }
 
 AbsRef.prototype.pretty = function () { return "K" + this._0.pretty(); }
 
@@ -63,3 +73,5 @@ SHAKE128_48.prototype.pretty = function () {
 //     function asHex(v: Word8) { const r = v.value.toString(16); return r.length == 1 ? '0' + r : r; }
 //     return asHex(s._0) + asHex(s._1) + asHex(s._2) + asHex(s._3) + asHex(s._4) + asHex(s._5);
 // }
+
+export { str, prettyConcat, prettyString }
