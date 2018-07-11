@@ -6,7 +6,8 @@ import { SHAKE128_48 } from '../ADT/SHAKE128_48/K9f214799149b'
 import { Char } from '../ADT/Char/K066db52af145'
 import { Name } from '../ADT/Identifier/Kdc26e9d90047';
 import { prettyConcat, prettyString } from '../ADT/List/Kb8cd13187198'
-
+import { Con, _ConTree } from '../ADT/ConTree/K86653e040025'
+import { ZM } from './core'
 import { ADT } from '../ADT/ADT/K3e8257255cbf'
 //import {Name}
 
@@ -36,11 +37,33 @@ import { ADT } from '../ADT/ADT/K3e8257255cbf'
 //     pretty() { return "PRETTY" + prettyAbsRef(this) }
 // }
 
-//AbsRef.prototype.toStr = function () {return "PRETTY"+prettyAbsRef(this)} 
-
-//ADT.prototype.pretty = function () { return "K" + this._0.pretty();}
 
 function str(s: string): string { return '"' + s + '"'; }
+
+function vars(numVars: number) {
+    let vs = ""
+    for (var n = 0; n < numVars; n++) { vs += String.fromCharCode(97 + n) + " " }
+    return vs
+}
+
+// function prettyConTree<A extends ZM, B extends ZM>(conTree: ConTree<A, B>): string {
+//     return conTree.match({
+//         Con: (name, pars) => name.pretty()
+//         , ConTree: (left,right) = prettyCon })
+// }
+
+
+Con.prototype.pretty = function () {
+    return this.constrName.pretty() + " " + this.constrFields.pretty();
+}
+
+_ConTree.prototype.pretty = function () {
+    return this._0.pretty() + this._1.pretty();
+}
+
+ADT.prototype.pretty = function () {
+    return this.declName.pretty() + " " + vars(this.declNumParameters.value) + this.declCons.match({ Nothing: "", Just: (conTree) => "= " + conTree.pretty() });
+}
 
 Name.prototype.pretty = function () {
     //return this.match({ Name: (h, l) => h.pretty() +})
