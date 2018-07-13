@@ -90,7 +90,7 @@ Con.prototype.pretty = function () {
 }
 
 _ConTree.prototype.pretty = function () {
-    return this._0.pretty() + "\n  |" + this._1.pretty();
+    return this._0.pretty() + "\n  | " + this._1.pretty();
 }
 
 ADT.prototype.pretty = function () {
