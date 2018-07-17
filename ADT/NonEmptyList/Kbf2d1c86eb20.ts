@@ -19,7 +19,7 @@ export type NonEmptyList <A extends Q.ZM> = Elem <A> | Cons <A>
 
 export class Elem <A extends Q.ZM> implements Q.ZM {
   constructor(
-    public _0: A,
+    public readonly _0: A,
 
   ) { }
 
@@ -35,8 +35,8 @@ export class Elem <A extends Q.ZM> implements Q.ZM {
 
 export class Cons <A extends Q.ZM> implements Q.ZM {
   constructor(
-    public _0: A,
-    public _1: NonEmptyList<A>,
+    public readonly _0: A,
+    public readonly _1: NonEmptyList<A>,
 
   ) { }
 

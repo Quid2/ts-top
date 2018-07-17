@@ -6,8 +6,8 @@ import * as K2f006595638c from '../String/K2f006595638c';
 export declare const $SourceCode: <A extends Q.ZM>(t0: Q.zmFold<A>) => Q.zmFold<SourceCode<A>>;
 export declare const ___: Q.zmTypeInfo;
 export declare class SourceCode<A extends Q.ZM> implements Q.ZM {
-    _0: A;
-    _1: K2f006595638c.String;
+    readonly _0: A;
+    readonly _1: K2f006595638c.String;
     constructor(_0: A, _1: K2f006595638c.String);
     toString(): string;
     toStr(nested?: boolean): string;

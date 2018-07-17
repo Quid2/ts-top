@@ -6,7 +6,7 @@ import * as K295e24d62fac from '../Word16/K295e24d62fac';
 export declare const $HostPort: Q.zmFold<HostPort>;
 export declare const ___: Q.zmTypeInfo;
 export declare class HostPort implements Q.ZM {
-    port: K295e24d62fac.Word16;
+    readonly port: K295e24d62fac.Word16;
     constructor(port: K295e24d62fac.Word16);
     toString(): string;
     toStr(nested?: boolean): string;

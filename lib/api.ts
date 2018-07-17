@@ -1,13 +1,13 @@
 import { EncoderState, zmId, zmFold, zmTypeInfo, Decoder, DecoderState, flatDecoder, Flat, AsString, ZM } from './core'
 import { Tuple2 } from '../ADT/Tuple2/Ka5583bf3ad34'
-import { FillerEnd } from '../ADT/Filler/Kae1dfeece189'
+import { Filler } from '../ADT/Filler/Kae1dfeece189'
 import { Type, TypeApp, TypeCon } from '../ADT/Type/K7028aa556ebc'
 import { AbsRef } from '../ADT/AbsRef/K4bbd38587b9e'
 import { SHAKE128_48 } from '../ADT/SHAKE128_48/K9f214799149b'
 import { Word8 as W } from '../ADT/Word8/Kb1f46a49c8f8'
-import * as Kb8cd13187198 from '../ADT/List/Kb8cd13187198'
-//import { Symbol } from '../ADT/Identifier/Kdc26e9d90047';
-//import * as ADD from './add'
+export * from './iterator' // Not working?
+import './pretty'
+import './iterator'
 
 //var x = console.log(ADD.dummy)
 
@@ -23,7 +23,7 @@ export { flat, zmType, zmId, zmFold, unflat, Decoder, flatDecoder, Flat, AsStrin
  * @return the encoded value
  */
 function flat(v: any): Uint8Array {
-    let val = new Tuple2(v, new FillerEnd());
+    let val = new Tuple2(v, new Filler(""));
     let numBits = val.flatMaxSize();
     var numBytes = Math.ceil(numBits / 8);
     let st = new EncoderState(numBytes);
@@ -51,23 +51,19 @@ function unflat(dec: Decoder, buf: Uint8Array): any {
     //console.log("unflat",buf);
     const st = new DecoderState(buf);
     const v = dec(st);
-    st.filler();
+    st.zmFiller();
     st.seal();
     return v;
 }
 
 // Optimised Types
 
-//String.prototype.
-
-//Kb8cd13187198.Nil.prototype[Symbol.iterator] = function* () {}
-// Kb8cd13187198.Cons.prototype[Symbol.iterator] = function* () {
-//     var l = this;
-//     do {
- //        l = <>this._1; 
-//         yield l._0
-//         l=<>this._1;
-//  while (l._1 instanceof Kb8cd13187198.Nil)
-//     } while (l.match({Nil:false,Cons:()=>true}))
+// Filler
+// decoder: function (decoders) {
+//   return function (st) { st.filler(); return new FillerEnd(); }
 // }
+
+// String
+//toStr(nested = false): string { return '"' + this.value.toString() + '"'; }
+
 

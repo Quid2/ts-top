@@ -1,7 +1,12 @@
 /** ZM Type:
 III ≡   III {w8 :: Kb3a2642b4a84,
              w16 :: K3dac6bd4fa9c,
-             w :: Kfb94cb4d4ede
+             w :: Kfb94cb4d4ede,
+             i8 :: Kb3a2642b4a84,
+             i :: Kfb94cb4d4ede,
+             f :: Kb53bec846608,
+             d :: Kcba9596b4657,
+             ii :: K102a3bb904e3}
 */
 
 import * as Q from '../.././lib/core'
@@ -24,14 +29,14 @@ export const ___ : Q.zmTypeInfo = {
 
 export class III  implements Q.ZM {
   constructor(
-    public w8: Kb3a2642b4a84.Int8,
-    public w16: K3dac6bd4fa9c.Int16,
-    public w: Kfb94cb4d4ede.Int64,
-    public i8: Kb3a2642b4a84.Int8,
-    public i: Kfb94cb4d4ede.Int64,
-    public f: Kb53bec846608.IEEE_754_binary32,
-    public d: Kcba9596b4657.IEEE_754_binary64,
-    public ii: K102a3bb904e3.Int,
+    public readonly w8: Kb3a2642b4a84.Int8,
+    public readonly w16: K3dac6bd4fa9c.Int16,
+    public readonly w: Kfb94cb4d4ede.Int64,
+    public readonly i8: Kb3a2642b4a84.Int8,
+    public readonly i: Kfb94cb4d4ede.Int64,
+    public readonly f: Kb53bec846608.IEEE_754_binary32,
+    public readonly d: Kcba9596b4657.IEEE_754_binary64,
+    public readonly ii: K102a3bb904e3.Int,
 
   ) { }
 

@@ -16,7 +16,7 @@ export const ___ : Q.zmTypeInfo = {
 
 export class ZigZag <A extends Q.ZM> implements Q.ZM {
   constructor(
-    public _0: A,
+    public readonly _0: A,
 
   ) { }
 

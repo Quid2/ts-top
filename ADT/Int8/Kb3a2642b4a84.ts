@@ -18,7 +18,7 @@ export const ___ : Q.zmTypeInfo = {
 
 export class Int8  implements Q.ZM {
   constructor(
-    public _0: K03226796ede4.ZigZag<Kb1f46a49c8f8.Word8>,
+    public readonly _0: K03226796ede4.ZigZag<Kb1f46a49c8f8.Word8>,
 
   ) { }
 

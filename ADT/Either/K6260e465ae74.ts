@@ -19,7 +19,7 @@ export type Either <A extends Q.ZM,B extends Q.ZM> = Left <A,B> | Right <A,B>
 
 export class Left <A extends Q.ZM,B extends Q.ZM> implements Q.ZM {
   constructor(
-    public _0: A,
+    public readonly _0: A,
 
   ) { }
 
@@ -35,7 +35,7 @@ export class Left <A extends Q.ZM,B extends Q.ZM> implements Q.ZM {
 
 export class Right <A extends Q.ZM,B extends Q.ZM> implements Q.ZM {
   constructor(
-    public _0: B,
+    public readonly _0: B,
 
   ) { }
 

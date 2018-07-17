@@ -17,8 +17,8 @@ export const ___ : Q.zmTypeInfo = {
 
 export class Range  implements Q.ZM {
   constructor(
-    public start: K2ff00417fe9d.Position,
-    public end: K2ff00417fe9d.Position,
+    public readonly start: K2ff00417fe9d.Position,
+    public readonly end: K2ff00417fe9d.Position,
 
   ) { }
 

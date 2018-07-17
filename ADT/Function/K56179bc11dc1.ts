@@ -19,7 +19,7 @@ export type Function <A extends Q.ZM,B extends Q.ZM,C extends Q.ZM> = Call <A,B,
 
 export class Call <A extends Q.ZM,B extends Q.ZM,C extends Q.ZM> implements Q.ZM {
   constructor(
-    public _0: A,
+    public readonly _0: A,
 
   ) { }
 
@@ -35,8 +35,8 @@ export class Call <A extends Q.ZM,B extends Q.ZM,C extends Q.ZM> implements Q.ZM
 
 export class Reply <A extends Q.ZM,B extends Q.ZM,C extends Q.ZM> implements Q.ZM {
   constructor(
-    public _0: B,
-    public _1: C,
+    public readonly _0: B,
+    public readonly _1: C,
 
   ) { }
 

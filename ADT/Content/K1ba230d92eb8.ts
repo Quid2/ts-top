@@ -21,7 +21,7 @@ export type Content  = TextMsg  | Join
 
 export class TextMsg  implements Q.ZM {
   constructor(
-    public _0: Kb8cd13187198.List<K066db52af145.Char>,
+    public readonly _0: Kb8cd13187198.List<K066db52af145.Char>,
 
   ) { }
 

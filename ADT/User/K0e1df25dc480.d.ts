@@ -7,7 +7,7 @@ import * as K066db52af145 from '../Char/K066db52af145';
 export declare const $User: Q.zmFold<User>;
 export declare const ___: Q.zmTypeInfo;
 export declare class User implements Q.ZM {
-    userName: Kb8cd13187198.List<K066db52af145.Char>;
+    readonly userName: Kb8cd13187198.List<K066db52af145.Char>;
     constructor(userName: Kb8cd13187198.List<K066db52af145.Char>);
     toString(): string;
     toStr(nested?: boolean): string;

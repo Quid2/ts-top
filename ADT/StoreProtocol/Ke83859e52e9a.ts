@@ -1,7 +1,7 @@
 /** ZM Type:
 StoreProtocol a ≡   Save a
                   | Solve (K9f214799149b a)
-                  | Solved (K
+                  | Solved (K9f214799149b a) a
 */
 
 import * as Q from '../.././lib/core'
@@ -21,7 +21,7 @@ export type StoreProtocol <A extends Q.ZM> = Save <A> | Solve <A> | Solved <A>
 
 export class Save <A extends Q.ZM> implements Q.ZM {
   constructor(
-    public _0: A,
+    public readonly _0: A,
 
   ) { }
 
@@ -37,7 +37,7 @@ export class Save <A extends Q.ZM> implements Q.ZM {
 
 export class Solve <A extends Q.ZM> implements Q.ZM {
   constructor(
-    public _0: K9f214799149b.SHAKE128_48<A>,
+    public readonly _0: K9f214799149b.SHAKE128_48<A>,
 
   ) { }
 
@@ -53,8 +53,8 @@ export class Solve <A extends Q.ZM> implements Q.ZM {
 
 export class Solved <A extends Q.ZM> implements Q.ZM {
   constructor(
-    public _0: K9f214799149b.SHAKE128_48<A>,
-    public _1: A,
+    public readonly _0: K9f214799149b.SHAKE128_48<A>,
+    public readonly _1: A,
 
   ) { }
 

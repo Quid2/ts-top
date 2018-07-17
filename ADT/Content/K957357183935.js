@@ -2,7 +2,13 @@
 /** ZM Type:
 Content a b ≡   TextMessage (Kb8cd13187198 K066db52af145)
               | AskSubSubjects
-           
+              | Join
+              | Leave
+              | Ping
+              | AskUsers
+              | Users (Kb8cd13187198 a)
+              | AskHistory
+              | History (Kb8cd13187198 b)
 */
 Object.defineProperty(exports, "__esModule", { value: true });
 const Q = require("../.././lib/core");

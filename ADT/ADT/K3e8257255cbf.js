@@ -2,7 +2,7 @@
 /** ZM Type:
 ADT a b c ≡   ADT {declName :: a,
                    declNumParameters :: Kb1f46a49c8f8,
-           
+                   declCons :: Kda6836778fd4 (K86653e040025 b c)}
 */
 exports.__esModule = true;
 var Q = require("../.././lib/core");

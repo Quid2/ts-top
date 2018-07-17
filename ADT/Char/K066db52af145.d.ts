@@ -5,7 +5,7 @@ import * as Q from '../.././lib/core';
 export declare const $Char: Q.zmFold<Char>;
 export declare const ___: Q.zmTypeInfo;
 export declare class Char implements Q.ZM {
-    value: string;
+    readonly value: string;
     constructor(value: string);
     flatMaxSize(): number;
     flatEncode(st: Q.EncoderState): void;

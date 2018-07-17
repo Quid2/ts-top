@@ -1,6 +1,6 @@
 /** ZM Type:
 TypedBLOB ≡   TypedBLOB (K7028aa556ebc K4bbd38587b9e)
-                        (Kf139d4751fda K982148
+                        (Kf139d4751fda K982148c09ddb)
 */
 
 import * as Q from '../.././lib/core'
@@ -21,8 +21,8 @@ export const ___ : Q.zmTypeInfo = {
 
 export class TypedBLOB  implements Q.ZM {
   constructor(
-    public _0: K7028aa556ebc.Type<K4bbd38587b9e.AbsRef>,
-    public _1: Kf139d4751fda.BLOB<K982148c09ddb.FlatEncoding>,
+    public readonly _0: K7028aa556ebc.Type<K4bbd38587b9e.AbsRef>,
+    public readonly _1: Kf139d4751fda.BLOB<K982148c09ddb.FlatEncoding>,
 
   ) { }
 

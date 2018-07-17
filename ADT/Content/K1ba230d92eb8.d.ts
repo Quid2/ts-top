@@ -9,7 +9,7 @@ export declare const $Content: Q.zmFold<Content>;
 export declare const ___: Q.zmTypeInfo;
 export declare type Content = TextMsg | Join;
 export declare class TextMsg implements Q.ZM {
-    _0: Kb8cd13187198.List<K066db52af145.Char>;
+    readonly _0: Kb8cd13187198.List<K066db52af145.Char>;
     constructor(_0: Kb8cd13187198.List<K066db52af145.Char>);
     toString(): string;
     toStr(nested?: boolean): string;

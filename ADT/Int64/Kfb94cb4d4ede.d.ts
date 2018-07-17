@@ -7,7 +7,7 @@ import * as K50d018f7593a from '../Word64/K50d018f7593a';
 export declare const $Int64: Q.zmFold<Int64>;
 export declare const ___: Q.zmTypeInfo;
 export declare class Int64 implements Q.ZM {
-    _0: K03226796ede4.ZigZag<K50d018f7593a.Word64>;
+    readonly _0: K03226796ede4.ZigZag<K50d018f7593a.Word64>;
     constructor(_0: K03226796ede4.ZigZag<K50d018f7593a.Word64>);
     toString(): string;
     toStr(nested?: boolean): string;

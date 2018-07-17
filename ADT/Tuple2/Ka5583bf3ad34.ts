@@ -16,8 +16,8 @@ export const ___ : Q.zmTypeInfo = {
 
 export class Tuple2 <A extends Q.ZM,B extends Q.ZM> implements Q.ZM {
   constructor(
-    public _0: A,
-    public _1: B,
+    public readonly _0: A,
+    public readonly _1: B,
 
   ) { }
 

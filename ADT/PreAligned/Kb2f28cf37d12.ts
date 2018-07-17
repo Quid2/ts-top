@@ -18,8 +18,8 @@ export const ___ : Q.zmTypeInfo = {
 
 export class PreAligned <A extends Q.ZM> implements Q.ZM {
   constructor(
-    public preFiller: Kae1dfeece189.Filler,
-    public preValue: A,
+    public readonly preFiller: Kae1dfeece189.Filler,
+    public readonly preValue: A,
 
   ) { }
 

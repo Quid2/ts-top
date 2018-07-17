@@ -1,7 +1,7 @@
 /** ZM Type:
 Msg ≡   Msg {fromUser :: Kb8cd13187198 K066db52af145,
              subject :: Kfced5b0f3c1f,
-       
+             content :: K1ba230d92eb8}
 */
 import * as Q from '../.././lib/core';
 import * as Kb8cd13187198 from '../List/Kb8cd13187198';
@@ -11,9 +11,9 @@ import * as K1ba230d92eb8 from '../Content/K1ba230d92eb8';
 export declare const $Msg: Q.zmFold<Msg>;
 export declare const ___: Q.zmTypeInfo;
 export declare class Msg implements Q.ZM {
-    fromUser: Kb8cd13187198.List<K066db52af145.Char>;
-    subject: Kfced5b0f3c1f.Subject;
-    content: K1ba230d92eb8.Content;
+    readonly fromUser: Kb8cd13187198.List<K066db52af145.Char>;
+    readonly subject: Kfced5b0f3c1f.Subject;
+    readonly content: K1ba230d92eb8.Content;
     constructor(fromUser: Kb8cd13187198.List<K066db52af145.Char>, subject: Kfced5b0f3c1f.Subject, content: K1ba230d92eb8.Content);
     toString(): string;
     toStr(nested?: boolean): string;

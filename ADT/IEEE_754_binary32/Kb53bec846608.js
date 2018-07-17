@@ -1,7 +1,8 @@
 "use strict";
 /** ZM Type:
 IEEE_754_binary32 ≡   IEEE_754_binary32 {sign :: K549f91f3b0ec,
-                                    
+                                         exponent :: K74e2b3b89941 K9e3b8c835fe9,
+                                         fraction :: K74e2b3b89941 K338888222364}
 */
 Object.defineProperty(exports, "__esModule", { value: true });
 const Q = require("../.././lib/core");

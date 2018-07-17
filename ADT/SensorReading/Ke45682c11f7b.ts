@@ -16,8 +16,8 @@ export const ___ : Q.zmTypeInfo = {
 
 export class SensorReading <A extends Q.ZM,B extends Q.ZM> implements Q.ZM {
   constructor(
-    public reading: A,
-    public location: B,
+    public readonly reading: A,
+    public readonly location: B,
 
   ) { }
 

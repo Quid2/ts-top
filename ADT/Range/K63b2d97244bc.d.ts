@@ -6,8 +6,8 @@ import * as K2ff00417fe9d from '../Position/K2ff00417fe9d';
 export declare const $Range: Q.zmFold<Range>;
 export declare const ___: Q.zmTypeInfo;
 export declare class Range implements Q.ZM {
-    start: K2ff00417fe9d.Position;
-    end: K2ff00417fe9d.Position;
+    readonly start: K2ff00417fe9d.Position;
+    readonly end: K2ff00417fe9d.Position;
     constructor(start: K2ff00417fe9d.Position, end: K2ff00417fe9d.Position);
     toString(): string;
     toStr(nested?: boolean): string;

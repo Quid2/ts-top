@@ -2,7 +2,12 @@
 /** ZM Type:
 Bits8 ≡   Bits8 {bit0 :: K65149ce3b366,
                  bit1 :: K65149ce3b366,
-                 bit
+                 bit2 :: K65149ce3b366,
+                 bit3 :: K65149ce3b366,
+                 bit4 :: K65149ce3b366,
+                 bit5 :: K65149ce3b366,
+                 bit6 :: K65149ce3b366,
+                 bit7 :: K65149ce3b366}
 */
 Object.defineProperty(exports, "__esModule", { value: true });
 const Q = require("../.././lib/core");

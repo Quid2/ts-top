@@ -5,7 +5,7 @@ import * as Q from '../.././lib/core';
 export declare const $Word32: Q.zmFold<Word32>;
 export declare const ___: Q.zmTypeInfo;
 export declare class Word32 implements Q.ZM {
-    value: number;
+    readonly value: number;
     constructor(value: number);
     flatMaxSize(): number;
     flatEncode(st: Q.EncoderState): void;

@@ -7,7 +7,7 @@ export declare const $Type: <A extends Q.ZM>(t0: Q.zmFold<A>) => Q.zmFold<Type<A
 export declare const ___: Q.zmTypeInfo;
 export declare type Type<A extends Q.ZM> = TypeCon<A> | TypeApp<A>;
 export declare class TypeCon<A extends Q.ZM> implements Q.ZM {
-    _0: A;
+    readonly _0: A;
     constructor(_0: A);
     toString(): string;
     toStr(nested?: boolean): string;
@@ -20,8 +20,8 @@ export declare class TypeCon<A extends Q.ZM> implements Q.ZM {
     flatEncode(st: Q.EncoderState): void;
 }
 export declare class TypeApp<A extends Q.ZM> implements Q.ZM {
-    _0: Type<A>;
-    _1: Type<A>;
+    readonly _0: Type<A>;
+    readonly _1: Type<A>;
     constructor(_0: Type<A>, _1: Type<A>);
     toString(): string;
     toStr(nested?: boolean): string;

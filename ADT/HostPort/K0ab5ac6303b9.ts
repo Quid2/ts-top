@@ -17,7 +17,7 @@ export const ___ : Q.zmTypeInfo = {
 
 export class HostPort  implements Q.ZM {
   constructor(
-    public port: K295e24d62fac.Word16,
+    public readonly port: K295e24d62fac.Word16,
 
   ) { }
 

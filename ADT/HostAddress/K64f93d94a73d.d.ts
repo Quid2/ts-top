@@ -9,7 +9,7 @@ export declare const $HostAddress: <A extends Q.ZM>(t0: Q.zmFold<A>) => Q.zmFold
 export declare const ___: Q.zmTypeInfo;
 export declare type HostAddress<A extends Q.ZM> = IPAddress<A> | DNSAddress<A>;
 export declare class IPAddress<A extends Q.ZM> implements Q.ZM {
-    _0: A;
+    readonly _0: A;
     constructor(_0: A);
     toString(): string;
     toStr(nested?: boolean): string;
@@ -22,7 +22,7 @@ export declare class IPAddress<A extends Q.ZM> implements Q.ZM {
     flatEncode(st: Q.EncoderState): void;
 }
 export declare class DNSAddress<A extends Q.ZM> implements Q.ZM {
-    _0: Kb8cd13187198.List<K066db52af145.Char>;
+    readonly _0: Kb8cd13187198.List<K066db52af145.Char>;
     constructor(_0: Kb8cd13187198.List<K066db52af145.Char>);
     toString(): string;
     toStr(nested?: boolean): string;

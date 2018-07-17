@@ -7,7 +7,7 @@ export declare const $Either: <A extends Q.ZM, B extends Q.ZM>(t0: Q.zmFold<A>, 
 export declare const ___: Q.zmTypeInfo;
 export declare type Either<A extends Q.ZM, B extends Q.ZM> = Left<A, B> | Right<A, B>;
 export declare class Left<A extends Q.ZM, B extends Q.ZM> implements Q.ZM {
-    _0: A;
+    readonly _0: A;
     constructor(_0: A);
     toString(): string;
     toStr(nested?: boolean): string;
@@ -20,7 +20,7 @@ export declare class Left<A extends Q.ZM, B extends Q.ZM> implements Q.ZM {
     flatEncode(st: Q.EncoderState): void;
 }
 export declare class Right<A extends Q.ZM, B extends Q.ZM> implements Q.ZM {
-    _0: B;
+    readonly _0: B;
     constructor(_0: B);
     toString(): string;
     toStr(nested?: boolean): string;

@@ -18,8 +18,8 @@ export const ___ : Q.zmTypeInfo = {
 
 export class Time  implements Q.ZM {
   constructor(
-    public utcDay: K102a3bb904e3.Int,
-    public utcSecs: K2412799c99f1.Word32,
+    public readonly utcDay: K102a3bb904e3.Int,
+    public readonly utcSecs: K2412799c99f1.Word32,
 
   ) { }
 

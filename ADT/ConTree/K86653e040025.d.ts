@@ -1,6 +1,9 @@
 /** ZM Type:
 ConTree a b ≡   Con {constrName :: a,
-                     constrFields :: K6260e465ae74 (Kb8cd13187
+                     constrFields :: K6260e465ae74 (Kb8cd13187198 (K7028aa556ebc b))
+                                                   (Kb8cd13187198 (Ka5583bf3ad34 a
+                                                                                 (K7028aa556ebc b)))}
+              | ConTree (↫ a b) (↫ a b)
 */
 import * as Q from '../.././lib/core';
 import * as K6260e465ae74 from '../Either/K6260e465ae74';
@@ -11,8 +14,8 @@ export declare const $ConTree: <A extends Q.ZM, B extends Q.ZM>(t0: Q.zmFold<A>,
 export declare const ___: Q.zmTypeInfo;
 export declare type ConTree<A extends Q.ZM, B extends Q.ZM> = Con<A, B> | _ConTree<A, B>;
 export declare class Con<A extends Q.ZM, B extends Q.ZM> implements Q.ZM {
-    constrName: A;
-    constrFields: K6260e465ae74.Either<Kb8cd13187198.List<K7028aa556ebc.Type<B>>, Kb8cd13187198.List<Ka5583bf3ad34.Tuple2<A, K7028aa556ebc.Type<B>>>>;
+    readonly constrName: A;
+    readonly constrFields: K6260e465ae74.Either<Kb8cd13187198.List<K7028aa556ebc.Type<B>>, Kb8cd13187198.List<Ka5583bf3ad34.Tuple2<A, K7028aa556ebc.Type<B>>>>;
     constructor(constrName: A, constrFields: K6260e465ae74.Either<Kb8cd13187198.List<K7028aa556ebc.Type<B>>, Kb8cd13187198.List<Ka5583bf3ad34.Tuple2<A, K7028aa556ebc.Type<B>>>>);
     toString(): string;
     toStr(nested?: boolean): string;
@@ -25,8 +28,8 @@ export declare class Con<A extends Q.ZM, B extends Q.ZM> implements Q.ZM {
     flatEncode(st: Q.EncoderState): void;
 }
 export declare class _ConTree<A extends Q.ZM, B extends Q.ZM> implements Q.ZM {
-    _0: ConTree<A, B>;
-    _1: ConTree<A, B>;
+    readonly _0: ConTree<A, B>;
+    readonly _1: ConTree<A, B>;
     constructor(_0: ConTree<A, B>, _1: ConTree<A, B>);
     toString(): string;
     toStr(nested?: boolean): string;

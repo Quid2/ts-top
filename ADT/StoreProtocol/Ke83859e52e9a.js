@@ -2,7 +2,7 @@
 /** ZM Type:
 StoreProtocol a ≡   Save a
                   | Solve (K9f214799149b a)
-                  | Solved (K
+                  | Solved (K9f214799149b a) a
 */
 Object.defineProperty(exports, "__esModule", { value: true });
 const Q = require("../.././lib/core");

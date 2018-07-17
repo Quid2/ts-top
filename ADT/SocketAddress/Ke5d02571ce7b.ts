@@ -1,6 +1,6 @@
 /** ZM Type:
 SocketAddress a ≡   SocketAddress {socketAddress :: K64f93d94a73d a,
-                               
+                                   socketPort :: K0ab5ac6303b9}
 */
 
 import * as Q from '../.././lib/core'
@@ -19,8 +19,8 @@ export const ___ : Q.zmTypeInfo = {
 
 export class SocketAddress <A extends Q.ZM> implements Q.ZM {
   constructor(
-    public socketAddress: K64f93d94a73d.HostAddress<A>,
-    public socketPort: K0ab5ac6303b9.HostPort,
+    public readonly socketAddress: K64f93d94a73d.HostAddress<A>,
+    public readonly socketPort: K0ab5ac6303b9.HostPort,
 
   ) { }
 

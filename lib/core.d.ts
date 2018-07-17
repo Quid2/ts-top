@@ -34,8 +34,12 @@ export declare class DecoderState {
      * @param buffer The flat-encoded binary value
      */
     constructor(buffer: Uint8Array);
+    /** Decode a Filler, a special value that is used to byte align values.
+      */
+    zmFiller(decoders?: Decoder[]): string;
     zmBytes(decoders?: Decoder[]): Uint8Array;
     zmChar(decoders?: Decoder[]): string;
+    zmString(decoders?: Decoder[]): string;
     zmWord7(decoders?: Decoder[]): number;
     zmWord8(decoders?: Decoder[]): number;
     zmWord16(decoders?: Decoder[]): number;
@@ -45,16 +49,12 @@ export declare class DecoderState {
      * @return the decoded byteArray
     */
     byteArray(): Uint8Array;
-    /** Decode a Filler, a special value that is used to byte align values.
-    */
-    filler(): void;
     /** Decode up to 8 bits
      * @param numBits the number of bits to decode (0..8)
     */
     bits8(numBits: number): number;
     /** Decode a ZM Word see definition at  */
     word(): number;
-    string(): string;
     zero(): boolean;
     ensureBit(): void;
     ensureBits(requiredBits: number): void;
@@ -71,10 +71,13 @@ export declare class EncoderState {
     usedBits: number;
     currentByte: number;
     constructor(bufferSize: number);
+    static szFiller: (v?: string | undefined) => number;
     static szBytes: (v: Uint8Array) => number;
     zmBytes(v: Uint8Array): void;
     static szChar: (v?: string | undefined) => number;
     zmChar(v: string): void;
+    static szString: (v: string) => number;
+    zmString(s: string): void;
     static szWord7: (n: number) => number;
     zmWord7(n: number): void;
     static szWord8: (n: number) => number;
@@ -85,9 +88,8 @@ export declare class EncoderState {
     zmWord32(n: number): void;
     static szArray<A extends Flat>(vals: A[]): number;
     zmArray<A extends Flat>(vals: A[]): void;
-    filler(): void;
+    zmFiller(v?: string): void;
     word(n: number): void;
-    string(s: string): void;
     bits(numBits: number, value: number): void;
     zero(): void;
     one(): void;

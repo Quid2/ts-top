@@ -1,7 +1,21 @@
 "use strict";
 /** ZM Type:
 RepoProtocol ≡   Record (K3e8257255cbf Kdc26e9d90047
-                                       Kdc26e9d
+                                       Kdc26e9d90047
+                                       (K07b1b045ac3c K4bbd38587b9e))
+               | Solve K4bbd38587b9e
+               | Solved K4bbd38587b9e
+                        (K3e8257255cbf Kdc26e9d90047
+                                       Kdc26e9d90047
+                                       (K07b1b045ac3c K4bbd38587b9e))
+               | AskDataTypes
+               | KnownDataTypes (Kb8cd13187198 (Ka5583bf3ad34 K4bbd38587b9e
+                                                              (K3e8257255cbf Kdc26e9d90047
+                                                                             Kdc26e9d90047
+                                                                             (K07b1b045ac3c K4bbd38587b9e))))
+               | AskDataTypesRefs
+               | KnownDataTypesRefs (Kb8cd13187198 (Ka5583bf3ad34 K4bbd38587b9e
+                                                             
 */
 Object.defineProperty(exports, "__esModule", { value: true });
 const Q = require("../.././lib/core");

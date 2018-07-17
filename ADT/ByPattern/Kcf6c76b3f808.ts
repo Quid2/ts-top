@@ -19,7 +19,7 @@ export const ___ : Q.zmTypeInfo = {
 
 export class ByPattern <A extends Q.ZM> implements Q.ZM {
   constructor(
-    public _0: Kb8cd13187198.List<Kc23b20389114.Match<Kb8cd13187198.List<K65149ce3b366.Bit>>>,
+    public readonly _0: Kb8cd13187198.List<Kc23b20389114.Match<Kb8cd13187198.List<K65149ce3b366.Bit>>>,
 
   ) { }
 

@@ -16,7 +16,7 @@ export const ___ : Q.zmTypeInfo = {
 
 
 export class Char  implements Q.ZM {
-    constructor(public value:string) { }
+    constructor(public readonly value:string) { }
     flatMaxSize() {return Q.EncoderState.szChar(this.value);}
     flatEncode(st: Q.EncoderState) {st.zmChar(this.value);}
     toString(): string {return this.toStr(false)}

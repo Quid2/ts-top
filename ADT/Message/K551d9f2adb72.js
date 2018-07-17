@@ -2,7 +2,7 @@
 /** ZM Type:
 Message ≡   Message {fromUser :: K0e1df25dc480,
                      subject :: Kfced5b0f3c1f,
-     
+                     content :: K957357183935 K0e1df25dc480 ↫}
 */
 Object.defineProperty(exports, "__esModule", { value: true });
 const Q = require("../.././lib/core");

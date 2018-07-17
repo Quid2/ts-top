@@ -18,8 +18,8 @@ export const ___ : Q.zmTypeInfo = {
 
 export class Position  implements Q.ZM {
   constructor(
-    public row: K2412799c99f1.Word32,
-    public column: K2412799c99f1.Word32,
+    public readonly row: K2412799c99f1.Word32,
+    public readonly column: K2412799c99f1.Word32,
 
   ) { }
 

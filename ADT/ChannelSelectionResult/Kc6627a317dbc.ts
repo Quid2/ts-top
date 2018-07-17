@@ -1,6 +1,7 @@
 /** ZM Type:
 ChannelSelectionResult a ≡   Success
-                           | Failure {reason :: Kb8cd13187198 K
+                           | Failure {reason :: Kb8cd13187198 K066db52af145}
+                           | RetryAt a
 */
 
 import * as Q from '../.././lib/core'
@@ -33,7 +34,7 @@ export class Success <A extends Q.ZM> implements Q.ZM {
 
 export class Failure <A extends Q.ZM> implements Q.ZM {
   constructor(
-    public reason: Kb8cd13187198.List<K066db52af145.Char>,
+    public readonly reason: Kb8cd13187198.List<K066db52af145.Char>,
 
   ) { }
 
@@ -49,7 +50,7 @@ export class Failure <A extends Q.ZM> implements Q.ZM {
 
 export class RetryAt <A extends Q.ZM> implements Q.ZM {
   constructor(
-    public _0: A,
+    public readonly _0: A,
 
   ) { }
 

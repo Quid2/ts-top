@@ -21,7 +21,7 @@ export type HostAddress <A extends Q.ZM> = IPAddress <A> | DNSAddress <A>
 
 export class IPAddress <A extends Q.ZM> implements Q.ZM {
   constructor(
-    public _0: A,
+    public readonly _0: A,
 
   ) { }
 
@@ -37,7 +37,7 @@ export class IPAddress <A extends Q.ZM> implements Q.ZM {
 
 export class DNSAddress <A extends Q.ZM> implements Q.ZM {
   constructor(
-    public _0: Kb8cd13187198.List<K066db52af145.Char>,
+    public readonly _0: Kb8cd13187198.List<K066db52af145.Char>,
 
   ) { }
 

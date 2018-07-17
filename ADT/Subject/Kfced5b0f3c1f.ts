@@ -18,7 +18,7 @@ export const ___ : Q.zmTypeInfo = {
 
 export class Subject  implements Q.ZM {
   constructor(
-    public _0: Kb8cd13187198.List<Kb8cd13187198.List<K066db52af145.Char>>,
+    public readonly _0: Kb8cd13187198.List<Kb8cd13187198.List<K066db52af145.Char>>,
 
   ) { }
 

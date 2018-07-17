@@ -1,6 +1,7 @@
 /** ZM Type:
 AbsRef ≡   AbsRef (K9f214799149b (K3e8257255cbf Kdc26e9d90047
-                                      
+                                                Kdc26e9d90047
+                                                (K07b1b045ac3c ↫)))
 */
 
 import * as Q from '../.././lib/core'
@@ -21,7 +22,7 @@ export const ___ : Q.zmTypeInfo = {
 
 export class AbsRef  implements Q.ZM {
   constructor(
-    public _0: K9f214799149b.SHAKE128_48<K3e8257255cbf.ADT<Kdc26e9d90047.Identifier,Kdc26e9d90047.Identifier,K07b1b045ac3c.ADTRef<AbsRef>>>,
+    public readonly _0: K9f214799149b.SHAKE128_48<K3e8257255cbf.ADT<Kdc26e9d90047.Identifier,Kdc26e9d90047.Identifier,K07b1b045ac3c.ADTRef<AbsRef>>>,
 
   ) { }
 

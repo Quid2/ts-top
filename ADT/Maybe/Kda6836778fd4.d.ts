@@ -18,7 +18,7 @@ export declare class Nothing<A extends Q.ZM> implements Q.ZM {
     flatEncode(st: Q.EncoderState): void;
 }
 export declare class Just<A extends Q.ZM> implements Q.ZM {
-    _0: A;
+    readonly _0: A;
     constructor(_0: A);
     toString(): string;
     toStr(nested?: boolean): string;

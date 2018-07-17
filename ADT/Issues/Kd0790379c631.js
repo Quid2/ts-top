@@ -1,7 +1,7 @@
 "use strict";
 /** ZM Type:
 Issues a b ≡   Issues {errors :: Kb8cd13187198 a,
-                       warnings :: Kb8cd13187198 b
+                       warnings :: Kb8cd13187198 b}
 */
 Object.defineProperty(exports, "__esModule", { value: true });
 const Q = require("../.././lib/core");

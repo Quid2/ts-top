@@ -1,7 +1,8 @@
 "use strict";
 /** ZM Type:
 ChannelSelectionResult a ≡   Success
-                           | Failure {reason :: Kb8cd13187198 K
+                           | Failure {reason :: Kb8cd13187198 K066db52af145}
+                           | RetryAt a
 */
 exports.__esModule = true;
 var Q = require("../.././lib/core");

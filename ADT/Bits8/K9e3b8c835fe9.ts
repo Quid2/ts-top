@@ -1,7 +1,12 @@
 /** ZM Type:
 Bits8 ≡   Bits8 {bit0 :: K65149ce3b366,
                  bit1 :: K65149ce3b366,
-                 bit
+                 bit2 :: K65149ce3b366,
+                 bit3 :: K65149ce3b366,
+                 bit4 :: K65149ce3b366,
+                 bit5 :: K65149ce3b366,
+                 bit6 :: K65149ce3b366,
+                 bit7 :: K65149ce3b366}
 */
 
 import * as Q from '../.././lib/core'
@@ -19,14 +24,14 @@ export const ___ : Q.zmTypeInfo = {
 
 export class Bits8  implements Q.ZM {
   constructor(
-    public bit0: K65149ce3b366.Bit,
-    public bit1: K65149ce3b366.Bit,
-    public bit2: K65149ce3b366.Bit,
-    public bit3: K65149ce3b366.Bit,
-    public bit4: K65149ce3b366.Bit,
-    public bit5: K65149ce3b366.Bit,
-    public bit6: K65149ce3b366.Bit,
-    public bit7: K65149ce3b366.Bit,
+    public readonly bit0: K65149ce3b366.Bit,
+    public readonly bit1: K65149ce3b366.Bit,
+    public readonly bit2: K65149ce3b366.Bit,
+    public readonly bit3: K65149ce3b366.Bit,
+    public readonly bit4: K65149ce3b366.Bit,
+    public readonly bit5: K65149ce3b366.Bit,
+    public readonly bit6: K65149ce3b366.Bit,
+    public readonly bit7: K65149ce3b366.Bit,
 
   ) { }
 

@@ -5,14 +5,13 @@ import { Word8 } from '../ADT/Word8/Kb1f46a49c8f8'
 import { SHAKE128_48 } from '../ADT/SHAKE128_48/K9f214799149b'
 import { Char } from '../ADT/Char/K066db52af145'
 import { Identifier, Name } from '../ADT/Identifier/Kdc26e9d90047';
-import { prettyConcat, prettyString } from '../ADT/List/Kb8cd13187198'
 import { Con, _ConTree } from '../ADT/ConTree/K86653e040025'
-import { ZM } from './core'
+import * as Q from './core'
 import { ADT } from '../ADT/ADT/K3e8257255cbf'
 import { Tuple2 } from '../ADT/Tuple2/Ka5583bf3ad34'
 import { Type, TypeApp, TypeCon } from '../ADT/Type/K7028aa556ebc'
 import { Var, Ext, Rec } from '../ADT/ADTRef/K07b1b045ac3c'
-import { List, asArray } from '../ADT/List/Kb8cd13187198'
+import { List, Nil, Cons } from '../ADT/List/Kb8cd13187198'
 
 //import {Name}
 
@@ -43,6 +42,37 @@ import { List, asArray } from '../ADT/List/Kb8cd13187198'
 // }
 
 
+function prettyList<A extends Q.ZM>(c: Cons<A>): string {
+    var p = "[" + c._0.pretty(false);
+    var l = c._1;
+    while (l instanceof Cons) {
+        p += "," + l._0.pretty(false);
+        l = l._1;
+    };
+    return p + "]";
+}
+
+function prettyString<A extends Q.ZM>(l: List<A>): string {
+    return '"' + prettyConcat(l) + '"';
+}
+
+function prettyConcat<A extends Q.ZM>(l: List<A>, separator: string = ""): string {
+    return l.match({
+        Nil: ""
+        , Cons: (h, t) => h.pretty() + separator + prettyConcat(t)
+    })
+}
+
+function asArray<A extends Q.ZM>(l: List<A>, vs?: Array<A>): Array<A> {
+    var vss = vs ? vs : new Array<A>();
+    return l.match({
+        Nil: vss
+        , Cons: function (h, t) {
+            vss.push(h); return asArray(t, vss)
+        }
+    })
+}
+
 function str(s: string): string { return '"' + s + '"'; }
 
 function varName(n: number): string { return String.fromCharCode(97 + n) }
@@ -62,6 +92,9 @@ function prettyFields(ts: List<Tuple2<Identifier, Type<AbsRef>>>) {
     return asArray(ts).map(prettyField).join(", ")
 }
 
+Nil.prototype.pretty = () => "[]"
+
+Cons.prototype.pretty = function (nested: false) { return prettyList(this); }
 
 TypeApp.prototype.pretty = function () {
     return this._0.pretty() + "(" + this._1.pretty() + ")";

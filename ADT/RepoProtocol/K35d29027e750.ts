@@ -1,6 +1,20 @@
 /** ZM Type:
 RepoProtocol ≡   Record (K3e8257255cbf Kdc26e9d90047
-                                       Kdc26e9d
+                                       Kdc26e9d90047
+                                       (K07b1b045ac3c K4bbd38587b9e))
+               | Solve K4bbd38587b9e
+               | Solved K4bbd38587b9e
+                        (K3e8257255cbf Kdc26e9d90047
+                                       Kdc26e9d90047
+                                       (K07b1b045ac3c K4bbd38587b9e))
+               | AskDataTypes
+               | KnownDataTypes (Kb8cd13187198 (Ka5583bf3ad34 K4bbd38587b9e
+                                                              (K3e8257255cbf Kdc26e9d90047
+                                                                             Kdc26e9d90047
+                                                                             (K07b1b045ac3c K4bbd38587b9e))))
+               | AskDataTypesRefs
+               | KnownDataTypesRefs (Kb8cd13187198 (Ka5583bf3ad34 K4bbd38587b9e
+                                                             
 */
 
 import * as Q from '../.././lib/core'
@@ -26,7 +40,7 @@ export type RepoProtocol  = Record  | Solve  | Solved  | AskDataTypes  | KnownDa
 
 export class Record  implements Q.ZM {
   constructor(
-    public _0: K3e8257255cbf.ADT<Kdc26e9d90047.Identifier,Kdc26e9d90047.Identifier,K07b1b045ac3c.ADTRef<K4bbd38587b9e.AbsRef>>,
+    public readonly _0: K3e8257255cbf.ADT<Kdc26e9d90047.Identifier,Kdc26e9d90047.Identifier,K07b1b045ac3c.ADTRef<K4bbd38587b9e.AbsRef>>,
 
   ) { }
 
@@ -42,7 +56,7 @@ export class Record  implements Q.ZM {
 
 export class Solve  implements Q.ZM {
   constructor(
-    public _0: K4bbd38587b9e.AbsRef,
+    public readonly _0: K4bbd38587b9e.AbsRef,
 
   ) { }
 
@@ -58,8 +72,8 @@ export class Solve  implements Q.ZM {
 
 export class Solved  implements Q.ZM {
   constructor(
-    public _0: K4bbd38587b9e.AbsRef,
-    public _1: K3e8257255cbf.ADT<Kdc26e9d90047.Identifier,Kdc26e9d90047.Identifier,K07b1b045ac3c.ADTRef<K4bbd38587b9e.AbsRef>>,
+    public readonly _0: K4bbd38587b9e.AbsRef,
+    public readonly _1: K3e8257255cbf.ADT<Kdc26e9d90047.Identifier,Kdc26e9d90047.Identifier,K07b1b045ac3c.ADTRef<K4bbd38587b9e.AbsRef>>,
 
   ) { }
 
@@ -87,7 +101,7 @@ export class AskDataTypes  implements Q.ZM {
 
 export class KnownDataTypes  implements Q.ZM {
   constructor(
-    public _0: Kb8cd13187198.List<Ka5583bf3ad34.Tuple2<K4bbd38587b9e.AbsRef,K3e8257255cbf.ADT<Kdc26e9d90047.Identifier,Kdc26e9d90047.Identifier,K07b1b045ac3c.ADTRef<K4bbd38587b9e.AbsRef>>>>,
+    public readonly _0: Kb8cd13187198.List<Ka5583bf3ad34.Tuple2<K4bbd38587b9e.AbsRef,K3e8257255cbf.ADT<Kdc26e9d90047.Identifier,Kdc26e9d90047.Identifier,K07b1b045ac3c.ADTRef<K4bbd38587b9e.AbsRef>>>>,
 
   ) { }
 
@@ -115,7 +129,7 @@ export class AskDataTypesRefs  implements Q.ZM {
 
 export class KnownDataTypesRefs  implements Q.ZM {
   constructor(
-    public _0: Kb8cd13187198.List<Ka5583bf3ad34.Tuple2<K4bbd38587b9e.AbsRef,K2f006595638c.String>>,
+    public readonly _0: Kb8cd13187198.List<Ka5583bf3ad34.Tuple2<K4bbd38587b9e.AbsRef,K2f006595638c.String>>,
 
   ) { }
 

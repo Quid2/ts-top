@@ -1,7 +1,7 @@
 "use strict";
 /** ZM Type:
 SocketAddress a ≡   SocketAddress {socketAddress :: K64f93d94a73d a,
-                               
+                                   socketPort :: K0ab5ac6303b9}
 */
 exports.__esModule = true;
 var Q = require("../.././lib/core");

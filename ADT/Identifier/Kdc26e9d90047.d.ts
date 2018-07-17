@@ -1,6 +1,6 @@
 /** ZM Type:
 Identifier ≡   Name K3878b3580fc5 (Kb8cd13187198 K33445520c45a)
-             | Symbol (Kbf2d1c86eb20
+             | Symbol (Kbf2d1c86eb20 K801030ef543c)
 */
 import * as Q from '../.././lib/core';
 import * as K3878b3580fc5 from '../UnicodeLetter/K3878b3580fc5';
@@ -12,8 +12,8 @@ export declare const $Identifier: Q.zmFold<Identifier>;
 export declare const ___: Q.zmTypeInfo;
 export declare type Identifier = Name | Symbol;
 export declare class Name implements Q.ZM {
-    _0: K3878b3580fc5.UnicodeLetter;
-    _1: Kb8cd13187198.List<K33445520c45a.UnicodeLetterOrNumberOrLine>;
+    readonly _0: K3878b3580fc5.UnicodeLetter;
+    readonly _1: Kb8cd13187198.List<K33445520c45a.UnicodeLetterOrNumberOrLine>;
     constructor(_0: K3878b3580fc5.UnicodeLetter, _1: Kb8cd13187198.List<K33445520c45a.UnicodeLetterOrNumberOrLine>);
     toString(): string;
     toStr(nested?: boolean): string;
@@ -26,7 +26,7 @@ export declare class Name implements Q.ZM {
     flatEncode(st: Q.EncoderState): void;
 }
 export declare class Symbol implements Q.ZM {
-    _0: Kbf2d1c86eb20.NonEmptyList<K801030ef543c.UnicodeSymbol>;
+    readonly _0: Kbf2d1c86eb20.NonEmptyList<K801030ef543c.UnicodeSymbol>;
     constructor(_0: Kbf2d1c86eb20.NonEmptyList<K801030ef543c.UnicodeSymbol>);
     toString(): string;
     toStr(nested?: boolean): string;

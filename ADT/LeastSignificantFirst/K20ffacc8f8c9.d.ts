@@ -5,7 +5,7 @@ import * as Q from '../.././lib/core';
 export declare const $LeastSignificantFirst: <A extends Q.ZM>(t0: Q.zmFold<A>) => Q.zmFold<LeastSignificantFirst<A>>;
 export declare const ___: Q.zmTypeInfo;
 export declare class LeastSignificantFirst<A extends Q.ZM> implements Q.ZM {
-    _0: A;
+    readonly _0: A;
     constructor(_0: A);
     toString(): string;
     toStr(nested?: boolean): string;

@@ -6,8 +6,8 @@ import * as Kf8844385a443 from '../Bytes/Kf8844385a443';
 export declare const $BLOB: <A extends Q.ZM>(t0: Q.zmFold<A>) => Q.zmFold<BLOB<A>>;
 export declare const ___: Q.zmTypeInfo;
 export declare class BLOB<A extends Q.ZM> implements Q.ZM {
-    encoding: A;
-    content: Kf8844385a443.Bytes;
+    readonly encoding: A;
+    readonly content: Kf8844385a443.Bytes;
     constructor(encoding: A, content: Kf8844385a443.Bytes);
     toString(): string;
     toStr(nested?: boolean): string;

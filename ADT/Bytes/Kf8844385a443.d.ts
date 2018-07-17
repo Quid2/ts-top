@@ -5,7 +5,7 @@ import * as Q from '../.././lib/core';
 export declare const $Bytes: Q.zmFold<Bytes>;
 export declare const ___: Q.zmTypeInfo;
 export declare class Bytes implements Q.ZM {
-    value: Uint8Array;
+    readonly value: Uint8Array;
     constructor(value: Uint8Array);
     flatMaxSize(): number;
     flatEncode(st: Q.EncoderState): void;

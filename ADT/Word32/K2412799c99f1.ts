@@ -16,7 +16,7 @@ export const ___ : Q.zmTypeInfo = {
 
 
 export class Word32  implements Q.ZM {
-    constructor(public value:number) { }
+    constructor(public readonly value:number) { }
     flatMaxSize() {return Q.EncoderState.szWord32(this.value);}
     flatEncode(st: Q.EncoderState) {st.zmWord32(this.value);}
     toString(): string {return this.toStr(false)}

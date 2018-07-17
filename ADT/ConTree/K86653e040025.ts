@@ -1,6 +1,9 @@
 /** ZM Type:
 ConTree a b ≡   Con {constrName :: a,
-                     constrFields :: K6260e465ae74 (Kb8cd13187
+                     constrFields :: K6260e465ae74 (Kb8cd13187198 (K7028aa556ebc b))
+                                                   (Kb8cd13187198 (Ka5583bf3ad34 a
+                                                                                 (K7028aa556ebc b)))}
+              | ConTree (↫ a b) (↫ a b)
 */
 
 import * as Q from '../.././lib/core'
@@ -23,8 +26,8 @@ export type ConTree <A extends Q.ZM,B extends Q.ZM> = Con <A,B> | _ConTree <A,B>
 
 export class Con <A extends Q.ZM,B extends Q.ZM> implements Q.ZM {
   constructor(
-    public constrName: A,
-    public constrFields: K6260e465ae74.Either<Kb8cd13187198.List<K7028aa556ebc.Type<B>>,Kb8cd13187198.List<Ka5583bf3ad34.Tuple2<A,K7028aa556ebc.Type<B>>>>,
+    public readonly constrName: A,
+    public readonly constrFields: K6260e465ae74.Either<Kb8cd13187198.List<K7028aa556ebc.Type<B>>,Kb8cd13187198.List<Ka5583bf3ad34.Tuple2<A,K7028aa556ebc.Type<B>>>>,
 
   ) { }
 
@@ -40,8 +43,8 @@ export class Con <A extends Q.ZM,B extends Q.ZM> implements Q.ZM {
 
 export class _ConTree <A extends Q.ZM,B extends Q.ZM> implements Q.ZM {
   constructor(
-    public _0: ConTree<A,B>,
-    public _1: ConTree<A,B>,
+    public readonly _0: ConTree<A,B>,
+    public readonly _1: ConTree<A,B>,
 
   ) { }
 

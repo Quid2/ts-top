@@ -17,8 +17,8 @@ export const ___ : Q.zmTypeInfo = {
 
 export class BLOB <A extends Q.ZM> implements Q.ZM {
   constructor(
-    public encoding: A,
-    public content: Kf8844385a443.Bytes,
+    public readonly encoding: A,
+    public readonly content: Kf8844385a443.Bytes,
 
   ) { }
 

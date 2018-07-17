@@ -17,7 +17,7 @@ export const ___ : Q.zmTypeInfo = {
 
 export class Celsius  implements Q.ZM {
   constructor(
-    public _0: Kb53bec846608.IEEE_754_binary32,
+    public readonly _0: Kb53bec846608.IEEE_754_binary32,
 
   ) { }
 

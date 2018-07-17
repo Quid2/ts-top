@@ -6,7 +6,7 @@ import * as Kf92e8339908a from '../Word/Kf92e8339908a';
 export declare const $Word64: Q.zmFold<Word64>;
 export declare const ___: Q.zmTypeInfo;
 export declare class Word64 implements Q.ZM {
-    _0: Kf92e8339908a.Word;
+    readonly _0: Kf92e8339908a.Word;
     constructor(_0: Kf92e8339908a.Word);
     toString(): string;
     toStr(nested?: boolean): string;

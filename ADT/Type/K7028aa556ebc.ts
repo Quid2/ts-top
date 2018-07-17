@@ -19,7 +19,7 @@ export type Type <A extends Q.ZM> = TypeCon <A> | TypeApp <A>
 
 export class TypeCon <A extends Q.ZM> implements Q.ZM {
   constructor(
-    public _0: A,
+    public readonly _0: A,
 
   ) { }
 
@@ -35,8 +35,8 @@ export class TypeCon <A extends Q.ZM> implements Q.ZM {
 
 export class TypeApp <A extends Q.ZM> implements Q.ZM {
   constructor(
-    public _0: Type<A>,
-    public _1: Type<A>,
+    public readonly _0: Type<A>,
+    public readonly _1: Type<A>,
 
   ) { }
 

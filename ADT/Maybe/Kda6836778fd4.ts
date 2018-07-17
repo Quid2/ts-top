@@ -31,7 +31,7 @@ export class Nothing <A extends Q.ZM> implements Q.ZM {
 
 export class Just <A extends Q.ZM> implements Q.ZM {
   constructor(
-    public _0: A,
+    public readonly _0: A,
 
   ) { }
 

@@ -2,7 +2,12 @@
 /** ZM Type:
 III ≡   III {w8 :: Kb3a2642b4a84,
              w16 :: K3dac6bd4fa9c,
-             w :: Kfb94cb4d4ede
+             w :: Kfb94cb4d4ede,
+             i8 :: Kb3a2642b4a84,
+             i :: Kfb94cb4d4ede,
+             f :: Kb53bec846608,
+             d :: Kcba9596b4657,
+             ii :: K102a3bb904e3}
 */
 Object.defineProperty(exports, "__esModule", { value: true });
 const Q = require("../.././lib/core");

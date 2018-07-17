@@ -21,7 +21,7 @@ export type Match <A extends Q.ZM> = MatchValue <A> | MatchAny <A>
 
 export class MatchValue <A extends Q.ZM> implements Q.ZM {
   constructor(
-    public _0: A,
+    public readonly _0: A,
 
   ) { }
 
@@ -37,7 +37,7 @@ export class MatchValue <A extends Q.ZM> implements Q.ZM {
 
 export class MatchAny <A extends Q.ZM> implements Q.ZM {
   constructor(
-    public _0: K7028aa556ebc.Type<K4bbd38587b9e.AbsRef>,
+    public readonly _0: K7028aa556ebc.Type<K4bbd38587b9e.AbsRef>,
 
   ) { }
 

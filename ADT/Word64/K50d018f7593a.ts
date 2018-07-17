@@ -17,7 +17,7 @@ export const ___ : Q.zmTypeInfo = {
 
 export class Word64  implements Q.ZM {
   constructor(
-    public _0: Kf92e8339908a.Word,
+    public readonly _0: Kf92e8339908a.Word,
 
   ) { }
 

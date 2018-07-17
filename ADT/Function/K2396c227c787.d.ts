@@ -8,7 +8,7 @@ export declare const $Function: <A extends Q.ZM, B extends Q.ZM>(t0: Q.zmFold<A>
 export declare const ___: Q.zmTypeInfo;
 export declare type Function<A extends Q.ZM, B extends Q.ZM> = Call<A, B> | Reply<A, B>;
 export declare class Call<A extends Q.ZM, B extends Q.ZM> implements Q.ZM {
-    _0: A;
+    readonly _0: A;
     constructor(_0: A);
     toString(): string;
     toStr(nested?: boolean): string;
@@ -21,8 +21,8 @@ export declare class Call<A extends Q.ZM, B extends Q.ZM> implements Q.ZM {
     flatEncode(st: Q.EncoderState): void;
 }
 export declare class Reply<A extends Q.ZM, B extends Q.ZM> implements Q.ZM {
-    _0: K9f214799149b.SHAKE128_48<A>;
-    _1: B;
+    readonly _0: K9f214799149b.SHAKE128_48<A>;
+    readonly _1: B;
     constructor(_0: K9f214799149b.SHAKE128_48<A>, _1: B);
     toString(): string;
     toStr(nested?: boolean): string;

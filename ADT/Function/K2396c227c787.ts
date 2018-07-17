@@ -20,7 +20,7 @@ export type Function <A extends Q.ZM,B extends Q.ZM> = Call <A,B> | Reply <A,B>
 
 export class Call <A extends Q.ZM,B extends Q.ZM> implements Q.ZM {
   constructor(
-    public _0: A,
+    public readonly _0: A,
 
   ) { }
 
@@ -36,8 +36,8 @@ export class Call <A extends Q.ZM,B extends Q.ZM> implements Q.ZM {
 
 export class Reply <A extends Q.ZM,B extends Q.ZM> implements Q.ZM {
   constructor(
-    public _0: K9f214799149b.SHAKE128_48<A>,
-    public _1: B,
+    public readonly _0: K9f214799149b.SHAKE128_48<A>,
+    public readonly _1: B,
 
   ) { }
 

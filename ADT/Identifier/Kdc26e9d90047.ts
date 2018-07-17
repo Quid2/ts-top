@@ -1,6 +1,6 @@
 /** ZM Type:
 Identifier ≡   Name K3878b3580fc5 (Kb8cd13187198 K33445520c45a)
-             | Symbol (Kbf2d1c86eb20
+             | Symbol (Kbf2d1c86eb20 K801030ef543c)
 */
 
 import * as Q from '../.././lib/core'
@@ -24,8 +24,8 @@ export type Identifier  = Name  | Symbol
 
 export class Name  implements Q.ZM {
   constructor(
-    public _0: K3878b3580fc5.UnicodeLetter,
-    public _1: Kb8cd13187198.List<K33445520c45a.UnicodeLetterOrNumberOrLine>,
+    public readonly _0: K3878b3580fc5.UnicodeLetter,
+    public readonly _1: Kb8cd13187198.List<K33445520c45a.UnicodeLetterOrNumberOrLine>,
 
   ) { }
 
@@ -41,7 +41,7 @@ export class Name  implements Q.ZM {
 
 export class Symbol  implements Q.ZM {
   constructor(
-    public _0: Kbf2d1c86eb20.NonEmptyList<K801030ef543c.UnicodeSymbol>,
+    public readonly _0: Kbf2d1c86eb20.NonEmptyList<K801030ef543c.UnicodeSymbol>,
 
   ) { }
 

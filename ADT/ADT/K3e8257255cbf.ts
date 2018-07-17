@@ -1,7 +1,7 @@
 /** ZM Type:
 ADT a b c ≡   ADT {declName :: a,
                    declNumParameters :: Kb1f46a49c8f8,
-           
+                   declCons :: Kda6836778fd4 (K86653e040025 b c)}
 */
 
 import * as Q from '../.././lib/core'
@@ -21,9 +21,9 @@ export const ___ : Q.zmTypeInfo = {
 
 export class ADT <A extends Q.ZM,B extends Q.ZM,C extends Q.ZM> implements Q.ZM {
   constructor(
-    public declName: A,
-    public declNumParameters: Kb1f46a49c8f8.Word8,
-    public declCons: Kda6836778fd4.Maybe<K86653e040025.ConTree<B,C>>,
+    public readonly declName: A,
+    public readonly declNumParameters: Kb1f46a49c8f8.Word8,
+    public readonly declCons: Kda6836778fd4.Maybe<K86653e040025.ConTree<B,C>>,
 
   ) { }
 

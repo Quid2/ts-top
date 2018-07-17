@@ -10,17 +10,18 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
+    //"target": "ESNext",
     "target": "es2015",
-    //"target": "es2017",
+    "downlevelIteration": true,
     "module": "commonjs",
     "declaration": true,
     "removeComments": false,
-    "downlevelIteration": true,
     "moduleResolution": "node",
     "rootDir": "."
   },
   "include": [
     "*.ts",
+    //"test/*.ts",
     "spec/**/*"
   ]
 }

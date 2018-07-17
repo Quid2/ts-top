@@ -1,6 +1,7 @@
 /** ZM Type:
 IEEE_754_binary32 ≡   IEEE_754_binary32 {sign :: K549f91f3b0ec,
-                                    
+                                         exponent :: K74e2b3b89941 K9e3b8c835fe9,
+                                         fraction :: K74e2b3b89941 K338888222364}
 */
 
 import * as Q from '../.././lib/core'
@@ -21,9 +22,9 @@ export const ___ : Q.zmTypeInfo = {
 
 export class IEEE_754_binary32  implements Q.ZM {
   constructor(
-    public sign: K549f91f3b0ec.Sign,
-    public exponent: K74e2b3b89941.MostSignificantFirst<K9e3b8c835fe9.Bits8>,
-    public fraction: K74e2b3b89941.MostSignificantFirst<K338888222364.Bits23>,
+    public readonly sign: K549f91f3b0ec.Sign,
+    public readonly exponent: K74e2b3b89941.MostSignificantFirst<K9e3b8c835fe9.Bits8>,
+    public readonly fraction: K74e2b3b89941.MostSignificantFirst<K338888222364.Bits23>,
 
   ) { }
 

@@ -18,8 +18,8 @@ export const ___ : Q.zmTypeInfo = {
 
 export class SourceCode <A extends Q.ZM> implements Q.ZM {
   constructor(
-    public _0: A,
-    public _1: Kb8cd13187198.List<K066db52af145.Char>,
+    public readonly _0: A,
+    public readonly _1: Kb8cd13187198.List<K066db52af145.Char>,
 
   ) { }
 

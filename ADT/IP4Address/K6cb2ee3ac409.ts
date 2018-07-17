@@ -1,7 +1,8 @@
 /** ZM Type:
 IP4Address ≡   IP4Address Kb1f46a49c8f8
                           Kb1f46a49c8f8
-                    
+                          Kb1f46a49c8f8
+                          Kb1f46a49c8f8
 */
 
 import * as Q from '../.././lib/core'
@@ -19,10 +20,10 @@ export const ___ : Q.zmTypeInfo = {
 
 export class IP4Address  implements Q.ZM {
   constructor(
-    public _0: Kb1f46a49c8f8.Word8,
-    public _1: Kb1f46a49c8f8.Word8,
-    public _2: Kb1f46a49c8f8.Word8,
-    public _3: Kb1f46a49c8f8.Word8,
+    public readonly _0: Kb1f46a49c8f8.Word8,
+    public readonly _1: Kb1f46a49c8f8.Word8,
+    public readonly _2: Kb1f46a49c8f8.Word8,
+    public readonly _3: Kb1f46a49c8f8.Word8,
 
   ) { }
 

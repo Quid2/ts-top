@@ -1,7 +1,13 @@
 /** ZM Type:
 Content a b ≡   TextMessage (Kb8cd13187198 K066db52af145)
               | AskSubSubjects
-           
+              | Join
+              | Leave
+              | Ping
+              | AskUsers
+              | Users (Kb8cd13187198 a)
+              | AskHistory
+              | History (Kb8cd13187198 b)
 */
 
 import * as Q from '../.././lib/core'
@@ -22,7 +28,7 @@ export type Content <A extends Q.ZM,B extends Q.ZM> = TextMessage <A,B> | AskSub
 
 export class TextMessage <A extends Q.ZM,B extends Q.ZM> implements Q.ZM {
   constructor(
-    public _0: Kb8cd13187198.List<K066db52af145.Char>,
+    public readonly _0: Kb8cd13187198.List<K066db52af145.Char>,
 
   ) { }
 
@@ -98,7 +104,7 @@ export class AskUsers <A extends Q.ZM,B extends Q.ZM> implements Q.ZM {
 
 export class Users <A extends Q.ZM,B extends Q.ZM> implements Q.ZM {
   constructor(
-    public _0: Kb8cd13187198.List<A>,
+    public readonly _0: Kb8cd13187198.List<A>,
 
   ) { }
 
@@ -126,7 +132,7 @@ export class AskHistory <A extends Q.ZM,B extends Q.ZM> implements Q.ZM {
 
 export class History <A extends Q.ZM,B extends Q.ZM> implements Q.ZM {
   constructor(
-    public _0: Kb8cd13187198.List<B>,
+    public readonly _0: Kb8cd13187198.List<B>,
 
   ) { }
 

@@ -8,7 +8,7 @@ import * as K65149ce3b366 from '../Bit/K65149ce3b366';
 export declare const $ByPattern: <A extends Q.ZM>(t0: Q.zmFold<A>) => Q.zmFold<ByPattern<A>>;
 export declare const ___: Q.zmTypeInfo;
 export declare class ByPattern<A extends Q.ZM> implements Q.ZM {
-    _0: Kb8cd13187198.List<Kc23b20389114.Match<Kb8cd13187198.List<K65149ce3b366.Bit>>>;
+    readonly _0: Kb8cd13187198.List<Kc23b20389114.Match<Kb8cd13187198.List<K65149ce3b366.Bit>>>;
     constructor(_0: Kb8cd13187198.List<Kc23b20389114.Match<Kb8cd13187198.List<K65149ce3b366.Bit>>>);
     toString(): string;
     toStr(nested?: boolean): string;

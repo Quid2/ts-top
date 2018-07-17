@@ -21,7 +21,7 @@ export type ADTRef <A extends Q.ZM> = Var <A> | Rec <A> | Ext <A>
 
 export class Var <A extends Q.ZM> implements Q.ZM {
   constructor(
-    public _0: Kb1f46a49c8f8.Word8,
+    public readonly _0: Kb1f46a49c8f8.Word8,
 
   ) { }
 
@@ -49,7 +49,7 @@ export class Rec <A extends Q.ZM> implements Q.ZM {
 
 export class Ext <A extends Q.ZM> implements Q.ZM {
   constructor(
-    public _0: A,
+    public readonly _0: A,
 
   ) { }
 

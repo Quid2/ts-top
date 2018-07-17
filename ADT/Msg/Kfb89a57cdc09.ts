@@ -1,7 +1,7 @@
 /** ZM Type:
 Msg ≡   Msg {fromUser :: Kb8cd13187198 K066db52af145,
              subject :: Kfced5b0f3c1f,
-       
+             content :: K1ba230d92eb8}
 */
 
 import * as Q from '../.././lib/core'
@@ -22,9 +22,9 @@ export const ___ : Q.zmTypeInfo = {
 
 export class Msg  implements Q.ZM {
   constructor(
-    public fromUser: Kb8cd13187198.List<K066db52af145.Char>,
-    public subject: Kfced5b0f3c1f.Subject,
-    public content: K1ba230d92eb8.Content,
+    public readonly fromUser: Kb8cd13187198.List<K066db52af145.Char>,
+    public readonly subject: Kfced5b0f3c1f.Subject,
+    public readonly content: K1ba230d92eb8.Content,
 
   ) { }
 

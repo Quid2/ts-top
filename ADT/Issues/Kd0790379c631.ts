@@ -1,6 +1,6 @@
 /** ZM Type:
 Issues a b ≡   Issues {errors :: Kb8cd13187198 a,
-                       warnings :: Kb8cd13187198 b
+                       warnings :: Kb8cd13187198 b}
 */
 
 import * as Q from '../.././lib/core'
@@ -18,8 +18,8 @@ export const ___ : Q.zmTypeInfo = {
 
 export class Issues <A extends Q.ZM,B extends Q.ZM> implements Q.ZM {
   constructor(
-    public errors: Kb8cd13187198.List<A>,
-    public warnings: Kb8cd13187198.List<B>,
+    public readonly errors: Kb8cd13187198.List<A>,
+    public readonly warnings: Kb8cd13187198.List<B>,
 
   ) { }
 

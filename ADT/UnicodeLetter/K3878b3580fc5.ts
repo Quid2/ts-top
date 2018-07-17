@@ -17,7 +17,7 @@ export const ___ : Q.zmTypeInfo = {
 
 export class UnicodeLetter  implements Q.ZM {
   constructor(
-    public _0: K066db52af145.Char,
+    public readonly _0: K066db52af145.Char,
 
   ) { }
 

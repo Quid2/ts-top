@@ -1,6 +1,25 @@
 "use strict";
-function __export(m) {
-    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-}
+/** ZM Type:
+String ≡   String (Kb8cd13187198 K066db52af145)
+*/
 exports.__esModule = true;
-__export(require("../../lib/core/String"));
+var Q = require("../.././lib/core");
+exports.$String = function (f) { return f(exports.___, []); };
+exports.___ = {
+    zid: [0x2f, 0x00, 0x65, 0x95, 0x63, 0x8c],
+    decoder: function (decoders) {
+        return function (st) { return new String(st.zmString(decoders)); };
+    }
+};
+var String = /** @class */ (function () {
+    function String(value) {
+        this.value = value;
+    }
+    String.prototype.flatMaxSize = function () { return Q.EncoderState.szString(this.value); };
+    String.prototype.flatEncode = function (st) { st.zmString(this.value); };
+    String.prototype.toString = function () { return this.toStr(false); };
+    String.prototype.toStr = function (nested) { return this.value.toString(); };
+    String.prototype.pretty = function (nested) { return this.toString(); };
+    return String;
+}());
+exports.String = String;

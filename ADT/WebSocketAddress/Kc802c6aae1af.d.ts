@@ -1,6 +1,7 @@
 /** ZM Type:
 WebSocketAddress a ≡   WebSocketAddress {secure :: K306f1981b41c,
-                                  
+                                         host :: Ke5d02571ce7b a,
+                                         path :: Kb8cd13187198 K066db52af145}
 */
 import * as Q from '../.././lib/core';
 import * as K306f1981b41c from '../Bool/K306f1981b41c';
@@ -10,9 +11,9 @@ import * as K066db52af145 from '../Char/K066db52af145';
 export declare const $WebSocketAddress: <A extends Q.ZM>(t0: Q.zmFold<A>) => Q.zmFold<WebSocketAddress<A>>;
 export declare const ___: Q.zmTypeInfo;
 export declare class WebSocketAddress<A extends Q.ZM> implements Q.ZM {
-    secure: K306f1981b41c.Bool;
-    host: Ke5d02571ce7b.SocketAddress<A>;
-    path: Kb8cd13187198.List<K066db52af145.Char>;
+    readonly secure: K306f1981b41c.Bool;
+    readonly host: Ke5d02571ce7b.SocketAddress<A>;
+    readonly path: Kb8cd13187198.List<K066db52af145.Char>;
     constructor(secure: K306f1981b41c.Bool, host: Ke5d02571ce7b.SocketAddress<A>, path: Kb8cd13187198.List<K066db52af145.Char>);
     toString(): string;
     toStr(nested?: boolean): string;

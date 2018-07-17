@@ -1,6 +1,26 @@
 "use strict";
-function __export(m) {
-    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-}
+/** ZM Type:
+Filler ≡   FillerBit ↫
+         | FillerEnd
+*/
 exports.__esModule = true;
-__export(require("../../lib/core/Filler"));
+var Q = require("../.././lib/core");
+exports.$Filler = function (f) { return f(exports.___, []); };
+exports.___ = {
+    zid: [0xae, 0x1d, 0xfe, 0xec, 0xe1, 0x89],
+    decoder: function (decoders) {
+        return function (st) { return new Filler(st.zmFiller(decoders)); };
+    }
+};
+var Filler = /** @class */ (function () {
+    function Filler(value) {
+        this.value = value;
+    }
+    Filler.prototype.flatMaxSize = function () { return Q.EncoderState.szFiller(this.value); };
+    Filler.prototype.flatEncode = function (st) { st.zmFiller(this.value); };
+    Filler.prototype.toString = function () { return this.toStr(false); };
+    Filler.prototype.toStr = function (nested) { return this.value.toString(); };
+    Filler.prototype.pretty = function (nested) { return this.toString(); };
+    return Filler;
+}());
+exports.Filler = Filler;

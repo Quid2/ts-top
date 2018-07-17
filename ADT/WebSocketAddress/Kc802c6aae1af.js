@@ -1,7 +1,8 @@
 "use strict";
 /** ZM Type:
 WebSocketAddress a ≡   WebSocketAddress {secure :: K306f1981b41c,
-                                  
+                                         host :: Ke5d02571ce7b a,
+                                         path :: Kb8cd13187198 K066db52af145}
 */
 exports.__esModule = true;
 var Q = require("../.././lib/core");

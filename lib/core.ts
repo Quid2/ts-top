@@ -70,9 +70,24 @@ export class DecoderState {
     this.usedBits = 0;
   }
 
-  zmBytes(decoders?: Decoder[]): Uint8Array { this.filler(); return this.byteArray(); }
+  /** Decode a Filler, a special value that is used to byte align values. 
+    */
+  zmFiller(decoders?: Decoder[]): string {
+    while (this.zero());
+    return "";
+  }
+
+  zmBytes(decoders?: Decoder[]): Uint8Array { this.zmFiller(); return this.byteArray(); }
 
   zmChar(decoders?: Decoder[]): string { return String.fromCharCode(this.word()); }
+
+  zmString(decoders?: Decoder[]): string {
+    var s = "";
+    while (!this.zero()) {
+      s += this.zmChar();
+    }
+    return s;
+  }
 
   zmWord7(decoders?: Decoder[]): number { return this.bits8(7); }
 
@@ -123,12 +138,6 @@ export class DecoderState {
     return st.buffer.subarray(arrPtr, arrPtr + arrSize);
   }
 
-  /** Decode a Filler, a special value that is used to byte align values. 
-  */
-  filler(): void {
-    while (this.zero());
-  }
-
   /** Decode up to 8 bits 
    * @param numBits the number of bits to decode (0..8)
   */
@@ -166,17 +175,6 @@ export class DecoderState {
     return n;
   }
 
-  // char(): string {
-  //   return String.fromCharCode(this.word());
-  // }
-
-  string(): string {
-    var s = "";
-    while (!this.zero()) {
-      s += this.zmChar();
-    }
-    return s;
-  }
 
   zero(): boolean {
     this.ensureBit();
@@ -231,12 +229,27 @@ export class EncoderState {
     this.usedBits = 0;
   }
 
+  static szFiller = (v?: string) => 8;
+
   // Up to 8 bits for prefiller plus aligned byte array size;
   static szBytes = (v: Uint8Array) => 8 + byteArraySize(v);
-  zmBytes(v: Uint8Array): void { this.filler(); this.byteArray(v); }
+  zmBytes(v: Uint8Array): void { this.zmFiller(); this.byteArray(v); }
 
   static szChar = (v?: string) => 24;
   zmChar(v: string): void { this.word(v.charCodeAt(0)); }
+
+  static szString = (v: string) => v.length * 25 + 1;
+
+  zmString(s: string): void {
+    const l = s.length;
+
+    for (var i = 0; i < l; i++) {
+      this.one();
+      this.zmChar(s.charAt(i));
+    };
+
+    this.zero();
+  }
 
   static szWord7 = (n: number) => 7;
   zmWord7(n: number): void { this.bits(7, n); }
@@ -271,7 +284,7 @@ export class EncoderState {
     this.bits(8, 0);
   }
 
-  filler(): void {
+  zmFiller(v?: string): void {
     this.currentByte |= 1;
     this.nextWord();
   }
@@ -283,21 +296,6 @@ export class EncoderState {
       if (n !== 0) w |= 128;
       this.bits(8, w);
     } while (n !== 0);
-  }
-
-  // char(c: string): void {
-  //   this.word(c.charCodeAt(0));
-  // }
-
-  string(s: string): void {
-    const l = s.length;
-
-    for (var i = 0; i < l; i++) {
-      this.one();
-      this.zmChar(s.charAt(i));
-    };
-
-    this.zero();
   }
 
   // add indicated number of bits (up to ? bits)
@@ -374,5 +372,4 @@ export function byteArraySize(arr: Uint8Array): number {
 export function arrayBlocks(len: number): number { return Math.ceil(len / 255) + 1; }
 
 export function nestedPars(nested: boolean, s: string): string { return nested ? "(" + s + ")" : s }
-
 

@@ -16,8 +16,8 @@ export const ___ : Q.zmTypeInfo = {
 
 export class Note <A extends Q.ZM,B extends Q.ZM> implements Q.ZM {
   constructor(
-    public annotation: A,
-    public object: B,
+    public readonly annotation: A,
+    public readonly object: B,
 
   ) { }
 

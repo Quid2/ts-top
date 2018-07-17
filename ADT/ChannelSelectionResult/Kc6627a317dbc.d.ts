@@ -1,6 +1,7 @@
 /** ZM Type:
 ChannelSelectionResult a ≡   Success
-                           | Failure {reason :: Kb8cd13187198 K
+                           | Failure {reason :: Kb8cd13187198 K066db52af145}
+                           | RetryAt a
 */
 import * as Q from '../.././lib/core';
 import * as Kb8cd13187198 from '../List/Kb8cd13187198';
@@ -21,7 +22,7 @@ export declare class Success<A extends Q.ZM> implements Q.ZM {
     flatEncode(st: Q.EncoderState): void;
 }
 export declare class Failure<A extends Q.ZM> implements Q.ZM {
-    reason: Kb8cd13187198.List<K066db52af145.Char>;
+    readonly reason: Kb8cd13187198.List<K066db52af145.Char>;
     constructor(reason: Kb8cd13187198.List<K066db52af145.Char>);
     toString(): string;
     toStr(nested?: boolean): string;
@@ -35,7 +36,7 @@ export declare class Failure<A extends Q.ZM> implements Q.ZM {
     flatEncode(st: Q.EncoderState): void;
 }
 export declare class RetryAt<A extends Q.ZM> implements Q.ZM {
-    _0: A;
+    readonly _0: A;
     constructor(_0: A);
     toString(): string;
     toStr(nested?: boolean): string;

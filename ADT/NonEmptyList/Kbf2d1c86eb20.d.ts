@@ -7,7 +7,7 @@ export declare const $NonEmptyList: <A extends Q.ZM>(t0: Q.zmFold<A>) => Q.zmFol
 export declare const ___: Q.zmTypeInfo;
 export declare type NonEmptyList<A extends Q.ZM> = Elem<A> | Cons<A>;
 export declare class Elem<A extends Q.ZM> implements Q.ZM {
-    _0: A;
+    readonly _0: A;
     constructor(_0: A);
     toString(): string;
     toStr(nested?: boolean): string;
@@ -20,8 +20,8 @@ export declare class Elem<A extends Q.ZM> implements Q.ZM {
     flatEncode(st: Q.EncoderState): void;
 }
 export declare class Cons<A extends Q.ZM> implements Q.ZM {
-    _0: A;
-    _1: NonEmptyList<A>;
+    readonly _0: A;
+    readonly _1: NonEmptyList<A>;
     constructor(_0: A, _1: NonEmptyList<A>);
     toString(): string;
     toStr(nested?: boolean): string;

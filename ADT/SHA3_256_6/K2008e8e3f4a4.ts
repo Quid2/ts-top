@@ -1,7 +1,10 @@
 /** ZM Type:
 SHA3_256_6 a ≡   SHA3_256_6 Kb1f46a49c8f8
                             Kb1f46a49c8f8
-                
+                            Kb1f46a49c8f8
+                            Kb1f46a49c8f8
+                            Kb1f46a49c8f8
+                            Kb1f46a49c8f8
 */
 
 import * as Q from '../.././lib/core'
@@ -19,12 +22,12 @@ export const ___ : Q.zmTypeInfo = {
 
 export class SHA3_256_6 <A extends Q.ZM> implements Q.ZM {
   constructor(
-    public _0: Kb1f46a49c8f8.Word8,
-    public _1: Kb1f46a49c8f8.Word8,
-    public _2: Kb1f46a49c8f8.Word8,
-    public _3: Kb1f46a49c8f8.Word8,
-    public _4: Kb1f46a49c8f8.Word8,
-    public _5: Kb1f46a49c8f8.Word8,
+    public readonly _0: Kb1f46a49c8f8.Word8,
+    public readonly _1: Kb1f46a49c8f8.Word8,
+    public readonly _2: Kb1f46a49c8f8.Word8,
+    public readonly _3: Kb1f46a49c8f8.Word8,
+    public readonly _4: Kb1f46a49c8f8.Word8,
+    public readonly _5: Kb1f46a49c8f8.Word8,
 
   ) { }
 

@@ -1,6 +1,7 @@
 /** ZM Type:
 WebSocketAddress a ≡   WebSocketAddress {secure :: K306f1981b41c,
-                                  
+                                         host :: Ke5d02571ce7b a,
+                                         path :: Kb8cd13187198 K066db52af145}
 */
 
 import * as Q from '../.././lib/core'
@@ -21,9 +22,9 @@ export const ___ : Q.zmTypeInfo = {
 
 export class WebSocketAddress <A extends Q.ZM> implements Q.ZM {
   constructor(
-    public secure: K306f1981b41c.Bool,
-    public host: Ke5d02571ce7b.SocketAddress<A>,
-    public path: Kb8cd13187198.List<K066db52af145.Char>,
+    public readonly secure: K306f1981b41c.Bool,
+    public readonly host: Ke5d02571ce7b.SocketAddress<A>,
+    public readonly path: Kb8cd13187198.List<K066db52af145.Char>,
 
   ) { }
 

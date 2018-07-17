@@ -2,7 +2,28 @@
 /** ZM Type:
 Bits52 ≡   Bits52 {bit0 :: K65149ce3b366,
                    bit1 :: K65149ce3b366,
-                
+                   bit2 :: K65149ce3b366,
+                   bit3 :: K65149ce3b366,
+                   bit4 :: K65149ce3b366,
+                   bit5 :: K65149ce3b366,
+                   bit6 :: K65149ce3b366,
+                   bit7 :: K65149ce3b366,
+                   bit8 :: K65149ce3b366,
+                   bit9 :: K65149ce3b366,
+                   bit10 :: K65149ce3b366,
+                   bit11 :: K65149ce3b366,
+                   bit12 :: K65149ce3b366,
+                   bit13 :: K65149ce3b366,
+                   bit14 :: K65149ce3b366,
+                   bit15 :: K65149ce3b366,
+                   bit16 :: K65149ce3b366,
+                   bit17 :: K65149ce3b366,
+                   bit18 :: K65149ce3b366,
+                   bit19 :: K65149ce3b366,
+                   bit20 :: K65149ce3b366,
+                   bit21 :: K65149ce3b366,
+                   bit22 :: K65149ce3b366,
+                   bi
 */
 Object.defineProperty(exports, "__esModule", { value: true });
 const Q = require("../.././lib/core");

@@ -1,7 +1,10 @@
 "use strict";
 /** ZM Type:
 ConTree a b ≡   Con {constrName :: a,
-                     constrFields :: K6260e465ae74 (Kb8cd13187
+                     constrFields :: K6260e465ae74 (Kb8cd13187198 (K7028aa556ebc b))
+                                                   (Kb8cd13187198 (Ka5583bf3ad34 a
+                                                                                 (K7028aa556ebc b)))}
+              | ConTree (↫ a b) (↫ a b)
 */
 exports.__esModule = true;
 var Q = require("../.././lib/core");
