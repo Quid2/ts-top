@@ -1,12 +1,10 @@
+import { Promise } from 'es6-promise';
+import { Observable } from 'rxjs/Observable';
 import { zmFold, ZM } from "./api";
 import { TypedBLOB } from '../ADT/TypedBLOB/K614edd84c8bd';
 import { BLOB } from '../ADT/BLOB/Kf139d4751fda';
 import { FlatEncoding } from '../ADT/FlatEncoding/K982148c09ddb';
 import { QueueingSubject } from 'queueing-subject';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/share';
-import 'rxjs/add/operator/filter';
 export declare const promiseTimeout: <A>(ms: Number, promise: Promise<A>) => Promise<{} | A>;
 export declare const promiseWithTimeout: <A>(ms: Number, f: (resolve: (value: A) => void, reject: (reason?: any) => void) => void) => Promise<A>;
 export declare function flatBLOB(v: any): BLOB<FlatEncoding>;

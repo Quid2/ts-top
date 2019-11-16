@@ -92,12 +92,21 @@ function prettyFields(ts: List<Tuple2<Identifier, Type<AbsRef>>>) {
     return asArray(ts).map(prettyField).join(", ")
 }
 
+// declare global {
+
+//     interface Array<T,A> extends Pretty<A>
+
+// }
+
+// Array.prototype.pretty = function (nested: false) { return asArray(this).toString(); }
+
 Nil.prototype.pretty = () => "[]"
 
 Cons.prototype.pretty = function (nested: false) { return prettyList(this); }
+//Cons.prototype.pretty = function (nested: false) { return asArray(this).toString(); }
 
-TypeApp.prototype.pretty = function () {
-    return this._0.pretty() + "(" + this._1.pretty() + ")";
+TypeApp.prototype.pretty = function (nested = false) {
+    return Q.nestedPars(nested, this._0.pretty(true) + " " + this._1.pretty(true));
 }
 
 TypeCon.prototype.pretty = function () {
@@ -112,8 +121,29 @@ Var.prototype.pretty = function () {
     return varName(this._0.value);
 }
 
-Rec.prototype.pretty = () => '\x21AB'
+Rec.prototype.pretty = () => '\u21AB'
 
+//Rec.prototype.pretty = (currADTName = '\u21AB') => currADTName
+
+// class InEnv<A> implements Q.AsString {
+//     //env: string[];
+//     //obj: A;
+//     constructor(private env: [string],private obj: A) {} //  this.env = env; this.obj = obj }
+
+//     pretty() { return this.env["_"];}
+
+//     toStr() { return "" }
+// }
+
+// interface TypeEnv {
+//     env : 
+// }
+
+// var env : [string] : string = new Array();
+// env["11234"]="Bool"
+// const s = new InEnv(env, new Rec).pretty()
+
+//InNamed<Rec<A>>.prototype.pretty = () => '\u21AB'
 
 Con.prototype.pretty = function () {
     return this.constrName.pretty() + " " + this.constrFields.match({

@@ -5,13 +5,14 @@ import { Type, TypeApp, TypeCon } from '../ADT/Type/K7028aa556ebc'
 import { AbsRef } from '../ADT/AbsRef/K4bbd38587b9e'
 import { SHAKE128_48 } from '../ADT/SHAKE128_48/K9f214799149b'
 import { Word8 as W } from '../ADT/Word8/Kb1f46a49c8f8'
-export * from './iterator' // Not working?
+//export * from './iterator' // Not working?
 import './pretty'
 import './iterator'
+import './functor'
 
 //var x = console.log(ADD.dummy)
 
-export { flat, zmType, zmId, zmFold, unflat, Decoder, flatDecoder, Flat, AsString, ZM };
+export { flat, zmType, zmId, zmFold, unflat, Decoder, flatDecoder, Flat, AsString, ZM, EncoderState };
 
 /**
  *  Encode a value in the [Flat](http://quid2.org) binary format. 

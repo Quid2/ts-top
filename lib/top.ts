@@ -1,5 +1,12 @@
+
+import { Promise } from 'es6-promise'
+import { map, filter, share } from 'rxjs/operators';
+import { Observable } from 'rxjs/Observable';
+import { Observer } from 'rxjs/Observer';
+import { Unsubscribable as AnonymousSubscription } from 'rxjs';
 import { flat, zmType, zmFold, flatDecoder, unflat, ZM } from "./api";
 //import {arraySize,zmId} from "./core";
+//import { Promise } from 'es6-promise';
 
 import { ByType, $ByType } from '../ADT/ByType/K87f090a54ea3'
 //import { Bit, V0, V1, $Bit } from '../ADT/Bit/K65149ce3b366'
@@ -32,14 +39,7 @@ import { $ZM, ZM as ZML } from '../ADT/ZM/Kb3a40bdda26f'
 import { $List, List as ZList } from '../ADT/List/Kb8cd13187198'
 import { $Note, Note } from '../ADT/Note/K21b7bfc3d09c'
 
-//import Rx from 'rxjs/Rx';
 import { QueueingSubject } from 'queueing-subject'
-import { Observable, Subscribable } from 'rxjs/Observable'
-import { AnonymousSubscription } from 'rxjs/Subscription'
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/share';
-import 'rxjs/add/operator/filter';
-import { Observer } from "rxjs/Observer";
 import { assert } from "chai";
 //import "chai-as-promised" as CAP;
 //chai.use(chaiAsPromised);
@@ -140,6 +140,7 @@ export class Channel<A> {
 }
 
 // NOTE: code adapted from https://github.com/ohjames/rxjs-websockets
+//TODO explain why not using directly the lib
 /*
 Each invocation causes a new connection to the specified Top channel to be established.
 Return a couple of input and output,  they are related as values queued on the outChan won't be observed on the inChan.
@@ -212,7 +213,7 @@ export function channel<A>(t: zmFold<A>): [Observable<A>, QueueingSubject<A>] {
             if (outSubscription) outSubscription.unsubscribe()
             socket.close()
         }
-    }).share();
+    }).pipe(share());
 
     return [inChan, outChan];
 }
@@ -267,9 +268,9 @@ export class CallChannel<I extends ZM, R extends ZM> {
         this.outChan = cs[1];
         this.timeoutInMs = ms;
 
-        this.inChan.filter(v => v instanceof Reply)
+        this.inChan.pipe(filter(v => v instanceof Reply),
             //.map(v => v as Reply<I, SHAKE128_48<I>, R>)
-            .map(v => v as Reply<I, R>)
+            map(v => v as Reply<I, R>), )
             .subscribe(function (r) {
                 //console.log("CALLS",self.calls,"REPLY",prettyShake48(r._0),self.calls.values(prettyShake48(r._0)),r.toString());
                 const key = r._0.pretty();

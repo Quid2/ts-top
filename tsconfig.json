@@ -10,7 +10,6 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
-    //"target": "ESNext",
     "target": "es2015",
     "downlevelIteration": true,
     "module": "commonjs",
