@@ -1,6 +1,6 @@
 {
   "name": "@quid2/ts",
-  "version": "0.1.45",
+  "version": "0.1.46",
   "description": "TypeScript API for Quid2",
   "main": "index.js",
   "scripts": {
@@ -45,7 +45,7 @@
     "doctest": "^0.13.0",
     "js-sha3": "^0.7.0",
     "queueing-subject": "^0.2.0",
-    "rxjs": "^5.5.11",
+    "rxjs": "^6.2.2",
     "ws": "^4.1.0"
   }
 }
