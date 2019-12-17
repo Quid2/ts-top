@@ -34,6 +34,12 @@ export declare class DecoderState {
      * @param buffer The flat-encoded binary value
      */
     constructor(buffer: Uint8Array);
+    dFiller(): boolean | null;
+    dBit(): boolean | null;
+    dBits8(numBits: number): number | null;
+    isEnd(): boolean;
+    hasBit(): boolean;
+    hasBits(requiredBits: number): boolean;
     /** Decode a Filler, a special value that is used to byte align values.
       */
     zmFiller(decoders?: Decoder[]): string;

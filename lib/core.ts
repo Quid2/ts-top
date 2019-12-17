@@ -70,6 +70,52 @@ export class DecoderState {
     this.usedBits = 0;
   }
 
+  // should return unit
+  dFiller(): boolean | null {
+    const b = this.dBit();
+    if (b == null) { return null; }
+    if (b) { return true; }
+    return this.dFiller();
+  }
+
+  dBit(): boolean | null {
+    if (!this.hasBit()) return null;
+    const b = this.buffer[this.currPtr] & (128 >>> this.usedBits);
+    //console.log("BIT",this.buffer,this.currPtr,this.buffer[this.currPtr],128 >>> this.usedBits,(this.buffer[this.currPtr] & (128 >>> this.usedBits)),b);
+    if (this.usedBits == 7) { this.currPtr++; this.usedBits = 0; }
+    else this.usedBits++;
+    return ! !b;
+  }
+
+  dBits8(numBits: number): number | null {
+    if (!this.hasBits(numBits) || numBits < 0 || numBits > 8) return null;
+
+    // usedBits=1 numBits=8 unusedBits=7 leadingZeros=0 unusedBits+leadingZeros=7
+    const unusedBits = 8 - this.usedBits;
+    const leadingZeros = 8 - numBits;
+    var r = ((this.buffer[this.currPtr] << this.usedBits) & 255) >>> leadingZeros;
+
+    if (numBits > unusedBits) { r |= (this.buffer[this.currPtr + 1] >>> (unusedBits + leadingZeros)) }
+
+    this.dropBits(numBits);
+
+    return r;
+  }
+
+  isEnd(): boolean {
+    return this.availableBits() == 0;
+  }
+
+  // Is this required? Or we can rely on build in js checks?
+  hasBit(): boolean {
+    return this.currPtr < this.buffer.byteLength;
+  }
+
+  hasBits(requiredBits: number): boolean {
+    return requiredBits > this.availableBits();
+  }
+
+
   /** Decode a Filler, a special value that is used to byte align values. 
     */
   zmFiller(decoders?: Decoder[]): string {
@@ -185,7 +231,7 @@ export class DecoderState {
     return b;
   }
 
-  // Is this required? Or we can rely on build in js checks?
+
   ensureBit(): void {
     if (this.currPtr >= this.buffer.byteLength) { throw Error("DecoderState: Not enough data available: " + JSON.stringify(this)) };
   }

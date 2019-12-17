@@ -94,7 +94,7 @@ export function typedBLOB(v: any, t: zmFold<any>): TypedBLOB {
 export interface Client<A> {
     onOpen: (send: (v: A) => void, close: () => void) => void // channel successfully established, we can now start sending and eventually close the channel
     onError: () => void                    // channel opening failed 
-    onValue: (v: A) => void                // vaulue received from the channel
+    onValue: (v: A) => void                // value received from the channel
 }
 
 export class Channel<A> {

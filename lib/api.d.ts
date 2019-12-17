@@ -1,10 +1,10 @@
-import { EncoderState, zmId, zmFold, zmTypeInfo, Decoder, flatDecoder, Flat, AsString, ZM } from './core';
+import { EncoderState, zmId, zmFold, zmTypeInfo, Decoder, DecoderState, flatDecoder, Flat, AsString, ZM } from './core';
 import { Type } from '../ADT/Type/K7028aa556ebc';
 import { AbsRef } from '../ADT/AbsRef/K4bbd38587b9e';
 import './pretty';
 import './iterator';
 import './functor';
-export { flat, zmType, zmId, zmFold, unflat, Decoder, flatDecoder, Flat, AsString, ZM, EncoderState };
+export { flat, zmType, zmId, zmFold, unflat, Decoder, flatDecoder, Flat, AsString, ZM, EncoderState, DecoderState };
 /**
  *  Encode a value in the [Flat](http://quid2.org) binary format.
  *  > flat(true)

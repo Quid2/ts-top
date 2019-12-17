@@ -12,7 +12,7 @@ import './functor'
 
 //var x = console.log(ADD.dummy)
 
-export { flat, zmType, zmId, zmFold, unflat, Decoder, flatDecoder, Flat, AsString, ZM, EncoderState };
+export { flat, zmType, zmId, zmFold, unflat, Decoder, flatDecoder, Flat, AsString, ZM, EncoderState, DecoderState };
 
 /**
  *  Encode a value in the [Flat](http://quid2.org) binary format. 
