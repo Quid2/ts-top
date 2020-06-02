@@ -14,6 +14,7 @@
     "doc": "typedoc --out doc *.ts;open doc/index.html",
     "doctest": "npx typescript-doctest --help",
     "adt": "cd ~/workspace/top-apps;stack install :zm;zm ts --srcDir \"/Users/titto/workspace/ts\""
+    "clean":"rm test/*.js test/*.map test/*.d.ts"
   },
   "repository": {
     "type": "git",
