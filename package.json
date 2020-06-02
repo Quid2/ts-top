@@ -2,10 +2,12 @@
   "name": "@quid2/ts",
   "version": "0.1.47",
   "description": "TypeScript API for Quid2",
-  "main": "index.js",
+  "main": "./js/index.js",
+  "typings": "./js/index.d.ts",
   "scripts": {
     "build": "tsc",
     "release": "npm run build;npm run test;standard-version;maker;git commit -am \"release\";git push --follow-tags origin master;git status",
+    "get-deps": "npm update",
     "test0": "tsc;tsc test/test-list;node test/test-list",
     "test": "tsc;tsc test/test-list;node test/test-list;tsc test/test-flat;node test/test-flat;tsc test/test-util;node test/test-util",
     "test-top": "parcel -p 2345 test/index.html",
@@ -25,27 +27,27 @@
   },
   "homepage": "https://github.com/Quid2/ts#readme",
   "devDependencies": {
-    "@types/chai": "^4.1.4",
+    "@types/chai": "^4.2.11",
     "@types/es6-promise": "^3.3.0",
-    "@types/mocha": "^2.2.48",
+    "@types/mocha": "^7.0.2",
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
-    "chai": "^4.1.2",
-    "es6-promise": "^4.2.4",
-    "mocha": "^5.2.0",
-    "nyc": "^11.9.0",
-    "standard-version": "^4.4.0",
-    "tap": "^11.1.5",
-    "ts-node": "^5.0.1",
-    "typedoc": "^0.10.0",
-    "typescript": "^2.9.2"
+    "chai": "^4.2.0",
+    "es6-promise": "^4.2.8",
+    "mocha": "^7.2.0",
+    "nyc": "^15.1.0",
+    "tap": "^14.10.7",
+    "ts-node": "^8.10.2",
+    "typedoc": "^0.17.7",
+    "typescript": "^3.8.0"
   },
   "dependencies": {
+    "@quid2/ts-core": "git+https://github.com/Quid2/ts-core.git",
     "chai-as-promised": "^7.1.1",
-    "doctest": "^0.13.0",
-    "js-sha3": "^0.7.0",
-    "queueing-subject": "^0.2.0",
-    "rxjs": "^6.2.2",
-    "ws": "^4.1.0"
+    "doctest": "^0.17.1",
+    "js-sha3": "^0.8.0",
+    "queueing-subject": "^0.3.4",
+    "rxjs": "^6.5.5",
+    "ws": "^7.3.0"
   }
 }
