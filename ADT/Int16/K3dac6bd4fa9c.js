@@ -3,6 +3,7 @@
 Int16 ≡   Int16 (K03226796ede4 K295e24d62fac)
 */
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Int16 = exports.___ = exports.$Int16 = void 0;
 const Q = require("../.././lib/core");
 const K03226796ede4 = require("../ZigZag/K03226796ede4");
 const K295e24d62fac = require("../Word16/K295e24d62fac");

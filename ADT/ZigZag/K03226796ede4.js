@@ -3,6 +3,7 @@
 ZigZag a ≡   ZigZag a
 */
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.ZigZag = exports.___ = exports.$ZigZag = void 0;
 const Q = require("../.././lib/core");
 exports.$ZigZag = function (t1) { return function (f) { return f(exports.___, [t1(f)]); }; };
 exports.___ = {

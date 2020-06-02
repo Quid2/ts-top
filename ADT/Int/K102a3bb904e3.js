@@ -3,6 +3,7 @@
 Int ≡   Int (K03226796ede4 Kf92e8339908a)
 */
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Int = exports.___ = exports.$Int = void 0;
 const Q = require("../.././lib/core");
 const K03226796ede4 = require("../ZigZag/K03226796ede4");
 const Kf92e8339908a = require("../Word/Kf92e8339908a");

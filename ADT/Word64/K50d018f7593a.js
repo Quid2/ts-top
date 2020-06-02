@@ -3,6 +3,7 @@
 Word64 ≡   Word64 Kf92e8339908a
 */
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Word64 = exports.___ = exports.$Word64 = void 0;
 const Q = require("../.././lib/core");
 const Kf92e8339908a = require("../Word/Kf92e8339908a");
 exports.$Word64 = function (f) { return f(exports.___, []); };

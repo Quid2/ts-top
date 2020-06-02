@@ -5,6 +5,7 @@ StoreProtocol a ≡   Save a
                   | Solved (K9f214799149b a) a
 */
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Solved = exports.Solve = exports.Save = exports.___ = exports.$StoreProtocol = void 0;
 const Q = require("../.././lib/core");
 const K9f214799149b = require("../SHAKE128_48/K9f214799149b");
 exports.$StoreProtocol = function (t1) { return function (f) { return f(exports.___, [t1(f)]); }; };

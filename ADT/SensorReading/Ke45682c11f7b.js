@@ -3,6 +3,7 @@
 SensorReading a b ≡   SensorReading {reading :: a, location :: b}
 */
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.SensorReading = exports.___ = exports.$SensorReading = void 0;
 const Q = require("../.././lib/core");
 exports.$SensorReading = function (t1, t2) { return function (f) { return f(exports.___, [t1(f), t2(f)]); }; };
 exports.___ = {

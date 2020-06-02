@@ -18,6 +18,7 @@ RepoProtocol ≡   Record (K3e8257255cbf Kdc26e9d90047
                                                              
 */
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.KnownDataTypesRefs = exports.AskDataTypesRefs = exports.KnownDataTypes = exports.AskDataTypes = exports.Solved = exports.Solve = exports.Record = exports.___ = exports.$RepoProtocol = void 0;
 const Q = require("../.././lib/core");
 const K3e8257255cbf = require("../ADT/K3e8257255cbf");
 const Kdc26e9d90047 = require("../Identifier/Kdc26e9d90047");

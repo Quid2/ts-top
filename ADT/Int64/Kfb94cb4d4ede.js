@@ -3,6 +3,7 @@
 Int64 ≡   Int64 (K03226796ede4 K50d018f7593a)
 */
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Int64 = exports.___ = exports.$Int64 = void 0;
 const Q = require("../.././lib/core");
 const K03226796ede4 = require("../ZigZag/K03226796ede4");
 const K50d018f7593a = require("../Word64/K50d018f7593a");

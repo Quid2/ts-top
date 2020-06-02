@@ -3,6 +3,7 @@
 Time ≡   Time {utcDay :: K102a3bb904e3, utcSecs :: K2412799c99f1}
 */
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Time = exports.___ = exports.$Time = void 0;
 const Q = require("../.././lib/core");
 const K102a3bb904e3 = require("../Int/K102a3bb904e3");
 const K2412799c99f1 = require("../Word32/K2412799c99f1");

@@ -5,6 +5,7 @@ IEEE_754_binary32 ≡   IEEE_754_binary32 {sign :: K549f91f3b0ec,
                                          fraction :: K74e2b3b89941 K338888222364}
 */
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.IEEE_754_binary32 = exports.___ = exports.$IEEE_754_binary32 = void 0;
 const Q = require("../.././lib/core");
 const K549f91f3b0ec = require("../Sign/K549f91f3b0ec");
 const K74e2b3b89941 = require("../MostSignificantFirst/K74e2b3b89941");

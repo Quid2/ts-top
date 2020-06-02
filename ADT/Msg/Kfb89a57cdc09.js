@@ -5,6 +5,7 @@ Msg ≡   Msg {fromUser :: Kb8cd13187198 K066db52af145,
              content :: K1ba230d92eb8}
 */
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Msg = exports.___ = exports.$Msg = void 0;
 const Q = require("../.././lib/core");
 const Kb8cd13187198 = require("../List/Kb8cd13187198");
 const K066db52af145 = require("../Char/K066db52af145");

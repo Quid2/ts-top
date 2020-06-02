@@ -3,6 +3,7 @@
 UTF8Encoding ≡   UTF8Encoding
 */
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.UTF8Encoding = exports.___ = exports.$UTF8Encoding = void 0;
 exports.$UTF8Encoding = function (f) { return f(exports.___, []); };
 exports.___ = {
     zid: [0x0f, 0x44, 0x8b, 0xe8, 0x05, 0x80],

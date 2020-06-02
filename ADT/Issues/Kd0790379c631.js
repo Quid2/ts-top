@@ -4,6 +4,7 @@ Issues a b ≡   Issues {errors :: Kb8cd13187198 a,
                        warnings :: Kb8cd13187198 b}
 */
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Issues = exports.___ = exports.$Issues = void 0;
 const Q = require("../.././lib/core");
 const Kb8cd13187198 = require("../List/Kb8cd13187198");
 exports.$Issues = function (t1, t2) { return function (f) { return f(exports.___, [t1(f), t2(f)]); }; };

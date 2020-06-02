@@ -73,15 +73,16 @@ Word8 ≡   V0
         | V71
   
 */
-import * as Q from '../.././lib/core';
+import * as Q from "@quid2/ts-core";
 export declare const $Word8: Q.zmFold<Word8>;
 export declare const ___: Q.zmTypeInfo;
 export declare class Word8 implements Q.ZM {
-    readonly value: number;
-    constructor(value: number);
-    flatMaxSize(): number;
-    flatEncode(st: Q.EncoderState): void;
-    toString(): string;
-    toStr(nested?: boolean): string;
-    pretty(nested?: boolean): string;
+  readonly value: number;
+  constructor(value: number);
+  flatMaxSize(): number;
+  flatEncode(st: Q.EncoderState): void;
+  toString(): string;
+  toStr(nested?: boolean): string;
+  pretty(nested?: boolean): string;
 }
+//# sourceMappingURL=Kb1f46a49c8f8.d.ts.map

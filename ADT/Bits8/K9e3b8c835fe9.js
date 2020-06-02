@@ -10,6 +10,7 @@ Bits8 ≡   Bits8 {bit0 :: K65149ce3b366,
                  bit7 :: K65149ce3b366}
 */
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Bits8 = exports.___ = exports.$Bits8 = void 0;
 const Q = require("../.././lib/core");
 const K65149ce3b366 = require("../Bit/K65149ce3b366");
 exports.$Bits8 = function (f) { return f(exports.___, []); };

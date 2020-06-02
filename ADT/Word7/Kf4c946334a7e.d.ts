@@ -73,15 +73,16 @@ Word7 ≡   V0
         | V71
   
 */
-import * as Q from '../.././lib/core';
+import * as Q from "@quid2/ts-core";
 export declare const $Word7: Q.zmFold<Word7>;
 export declare const ___: Q.zmTypeInfo;
 export declare class Word7 implements Q.ZM {
-    readonly value: number;
-    constructor(value: number);
-    flatMaxSize(): number;
-    flatEncode(st: Q.EncoderState): void;
-    toString(): string;
-    toStr(nested?: boolean): string;
-    pretty(nested?: boolean): string;
+  readonly value: number;
+  constructor(value: number);
+  flatMaxSize(): number;
+  flatEncode(st: Q.EncoderState): void;
+  toString(): string;
+  toStr(nested?: boolean): string;
+  pretty(nested?: boolean): string;
 }
+//# sourceMappingURL=Kf4c946334a7e.d.ts.map

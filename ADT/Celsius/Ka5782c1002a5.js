@@ -3,6 +3,7 @@
 Celsius ≡   Celsius Kb53bec846608
 */
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Celsius = exports.___ = exports.$Celsius = void 0;
 const Q = require("../.././lib/core");
 const Kb53bec846608 = require("../IEEE_754_binary32/Kb53bec846608");
 exports.$Celsius = function (f) { return f(exports.___, []); };

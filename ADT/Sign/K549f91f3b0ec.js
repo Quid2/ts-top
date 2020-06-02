@@ -4,6 +4,7 @@ Sign ≡   Positive
        | Negative
 */
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Negative = exports.Positive = exports.___ = exports.$Sign = void 0;
 exports.$Sign = function (f) { return f(exports.___, []); };
 exports.___ = {
     zid: [0x54, 0x9f, 0x91, 0xf3, 0xb0, 0xec],

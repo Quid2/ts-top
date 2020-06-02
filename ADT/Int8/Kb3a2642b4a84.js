@@ -3,6 +3,7 @@
 Int8 ≡   Int8 (K03226796ede4 Kb1f46a49c8f8)
 */
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Int8 = exports.___ = exports.$Int8 = void 0;
 const Q = require("../.././lib/core");
 const K03226796ede4 = require("../ZigZag/K03226796ede4");
 const Kb1f46a49c8f8 = require("../Word8/Kb1f46a49c8f8");

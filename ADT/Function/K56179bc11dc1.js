@@ -4,6 +4,7 @@ Function a b c ≡   Call a
                  | Reply b c
 */
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Reply = exports.Call = exports.___ = exports.$Function = void 0;
 const Q = require("../.././lib/core");
 exports.$Function = function (t1, t2, t3) { return function (f) { return f(exports.___, [t1(f), t2(f), t3(f)]); }; };
 exports.___ = {

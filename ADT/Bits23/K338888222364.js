@@ -25,6 +25,7 @@ Bits23 ≡   Bits23 {bit0 :: K65149ce3b366,
                    bit22 :: K65149ce3b366}
 */
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Bits23 = exports.___ = exports.$Bits23 = void 0;
 const Q = require("../.././lib/core");
 const K65149ce3b366 = require("../Bit/K65149ce3b366");
 exports.$Bits23 = function (f) { return f(exports.___, []); };
