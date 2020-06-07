@@ -1,8 +1,8 @@
-import { ZM } from "./api";
-import { List, Nil, Cons } from "../ADT/List/Kb8cd13187198";
+import { ZM } from "@quid2/prim";
+import { List, Nil, Cons } from "@quid2/adt/List/Kb8cd13187198";
 
 // Error: All declarations must have identical type parameters. ts(2428)
-// declare module '../ADT/List/Kb8cd13187198' {
+// declare module '@quid2/adt/List/Kb8cd13187198' {
 
 //     interface Nil<A extends ZM> extends Iterable<A> { }
 

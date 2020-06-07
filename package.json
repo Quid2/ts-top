@@ -1,5 +1,5 @@
 {
-  "name": "@quid2/ts",
+  "name": "@quid2/top",
   "version": "0.1.47",
   "description": "TypeScript API for Quid2",
   "main": "./js/index.js",
@@ -11,10 +11,16 @@
     "test0": "tsc;tsc test/test-list;node test/test-list",
     "test": "tsc;tsc test/test-list;node test/test-list;tsc test/test-flat;node test/test-flat;tsc test/test-util;node test/test-util",
     "test-top": "parcel -p 2345 test/index.html",
-    "doc": "typedoc --out doc *.ts;open doc/index.html",
-    "doctest": "npx typescript-doctest --help",
-    "adt": "cd ~/workspace/top-apps;stack install :zm;zm ts --srcDir \"/Users/titto/workspace/ts\""
-    "clean":"rm test/*.js test/*.map test/*.d.ts"
+    "open-test-top": "open http://localhost:2345",
+    "doc": "typedoc ts/**.ts --out doc && open doc/index.html",
+    "dev": "doctest-ts --tape -watch ts/*.ts | while read file; do echo running tape on $file; tap -Rterse --no-cov $file;done",
+    "doctest": "doctest-ts --tape -watch ts/*.ts | while read file; do echo running tape on $file; tap -Rterse --no-cov $file; done",
+    "doctest-diff": "doctest-ts --tape -watch ts/*.ts | while read file; do echo running tape on $file; ts-node $file | tap-diff ; done",
+    "doctest-update": "cd ../EXTERNAL/doctest-ts;npm run build;cd -;npm install ../EXTERNAL/doctest-ts/",
+    "d": "doctest-ts --tape -watch ts/*.ts",
+    "adt": "cd ~/workspace/top-apps;stack install :zm;zm ts --srcDir \"/Users/titto/workspace/ts\"",
+    "clean": "cd ADT;rm **/*.js **/*.map **/*.d.ts",
+    "x": "ls -la `which doctest-ts`"
   },
   "repository": {
     "type": "git",
@@ -34,16 +40,22 @@
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
     "chai": "^4.2.0",
+    "doctest-ts": "file:../../EXTERNAL/doctest-ts",
     "es6-promise": "^4.2.8",
     "mocha": "^7.2.0",
     "nyc": "^15.1.0",
     "tap": "^14.10.7",
+    "tap-diff": "^0.1.1",
+    "tape": "^5.0.1",
+    "ts-doctest": "0.0.40",
     "ts-node": "^8.10.2",
     "typedoc": "^0.17.7",
-    "typescript": "^3.8.0"
+    "typescript": "^3.8.0",
+    "typescript-doctest": "^1.1.0"
   },
   "dependencies": {
-    "@quid2/ts-core": "git+https://github.com/Quid2/ts-core.git",
+    "@quid2/adt": "file:../adt",
+    "@quid2/prim": "file:../prim",
     "chai-as-promised": "^7.1.1",
     "doctest": "^0.17.1",
     "js-sha3": "^0.8.0",

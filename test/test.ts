@@ -1,1 +1,1 @@
-import * as ZM from "./zm";
+import { ZM, flat } from "@quid2/ts";

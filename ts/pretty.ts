@@ -1,17 +1,17 @@
-import { UnicodeLetterOrNumberOrLine } from "../ADT/UnicodeLetterOrNumberOrLine/K33445520c45a";
-import { UnicodeLetter } from "../ADT/UnicodeLetter/K3878b3580fc5";
-import { AbsRef } from "../ADT/AbsRef/K4bbd38587b9e";
-import { Word8 } from "../ADT/Word8/Kb1f46a49c8f8";
-import { SHAKE128_48 } from "../ADT/SHAKE128_48/K9f214799149b";
-import { Char } from "../ADT/Char/K066db52af145";
-import { Identifier, Name } from "../ADT/Identifier/Kdc26e9d90047";
-import { Con, _ConTree } from "../ADT/ConTree/K86653e040025";
-import * as Q from "@quid2/ts-core";
-import { ADT } from "../ADT/ADT/K3e8257255cbf";
-import { Tuple2 } from "../ADT/Tuple2/Ka5583bf3ad34";
-import { Type, TypeApp, TypeCon } from "../ADT/Type/K7028aa556ebc";
-import { Var, Ext, Rec } from "../ADT/ADTRef/K07b1b045ac3c";
-import { List, Nil, Cons } from "../ADT/List/Kb8cd13187198";
+import { UnicodeLetterOrNumberOrLine } from "@quid2/adt/UnicodeLetterOrNumberOrLine/K33445520c45a";
+import { UnicodeLetter } from "@quid2/adt/UnicodeLetter/K3878b3580fc5";
+import { AbsRef } from "@quid2/adt/AbsRef/K4bbd38587b9e";
+import { Word8 } from "@quid2/adt/Word8/Kb1f46a49c8f8";
+import { SHAKE128_48 } from "@quid2/adt/SHAKE128_48/K9f214799149b";
+import { Char } from "@quid2/adt/Char/K066db52af145";
+import { Identifier, Name } from "@quid2/adt/Identifier/Kdc26e9d90047";
+import { Con, _ConTree } from "@quid2/adt/ConTree/K86653e040025";
+import * as Q from "@quid2/prim";
+import { ADT } from "@quid2/adt/ADT/K3e8257255cbf";
+import { Tuple2 } from "@quid2/adt/Tuple2/Ka5583bf3ad34";
+import { Type, TypeApp, TypeCon } from "@quid2/adt/Type/K7028aa556ebc";
+import { Var, Ext, Rec } from "@quid2/adt/ADTRef/K07b1b045ac3c";
+import { List, Nil, Cons } from "@quid2/adt/List/Kb8cd13187198";
 
 //import {Name}
 
@@ -21,7 +21,7 @@ import { List, Nil, Cons } from "../ADT/List/Kb8cd13187198";
 //     pretty<A>(v: A): string
 // }
 
-// declare module '../ADT/AbsRef/K4bbd38587b9e' {
+// declare module '@quid2/adt/AbsRef/K4bbd38587b9e' {
 //     // interface Flat {
 //     //     pretty(): string
 //     // }

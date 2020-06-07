@@ -1,18 +1,16 @@
 import {
+  flat,
+  unflat,
   Flat,
-  zmId,
-  zmFold,
   flatDecoder,
   Decoder,
-  ZM,
   EncoderState,
   DecoderState,
-} from "@quid2/ts-core";
+} from "./flat";
 
-import { flat, zmType, unflat } from "./api";
+import { zmType, zmId, ZM, zmFold } from "./zm";
 
 import {
-  typedBLOB,
   Channel,
   Client,
   channel,
@@ -20,19 +18,19 @@ import {
   //promiseTimeout,
 } from "./top";
 
-import { parseShake48, parseAbsRef } from "./util";
+import { parseShake48, parseAbsRef, typedBLOB } from "./util";
 
 import "./pretty";
 
 export {
   ZM,
-  Flat,
-  flat,
-  EncoderState,
   zmType,
   zmId,
   zmFold,
+  flat,
   unflat,
+  Flat,
+  EncoderState,
   flatDecoder,
   Decoder,
   typedBLOB,

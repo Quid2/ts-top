@@ -1,18 +1,18 @@
-import { $ADT, ADT } from "../ADT/ADT/K3e8257255cbf";
+import { $ADT, ADT } from "@quid2/adt/ADT/K3e8257255cbf";
 
-import { AbsRef } from "../ADT/AbsRef/K4bbd38587b9e";
-import { $Identifier, Identifier } from "../ADT/Identifier/Kdc26e9d90047";
-import { $String, String } from "../ADT/String/K2f006595638c";
-import { $Solve, Solve as CallSolve } from "../ADT/Solve/K3ecc38406f4b";
-import { Type, TypeApp, TypeCon } from "../ADT/Type/K7028aa556ebc";
-import { Con, _ConTree } from "../ADT/ConTree/K86653e040025";
-import { Tuple2 } from "../ADT/Tuple2/Ka5583bf3ad34";
-import { Left, Right } from "../ADT/Either/K6260e465ae74";
-import { ZM } from "@quid2/ts-core";
-import { Nil, Cons } from "../ADT/List/Kb8cd13187198";
-import { Nothing, Just } from "../ADT/Maybe/Kda6836778fd4";
+import { AbsRef } from "@quid2/adt/AbsRef/K4bbd38587b9e";
+import { $Identifier, Identifier } from "@quid2/adt/Identifier/Kdc26e9d90047";
+import { $String, String } from "@quid2/adt/String/K2f006595638c";
+import { $Solve, Solve as CallSolve } from "@quid2/adt/Solve/K3ecc38406f4b";
+import { Type, TypeApp, TypeCon } from "@quid2/adt/Type/K7028aa556ebc";
+import { Con, _ConTree } from "@quid2/adt/ConTree/K86653e040025";
+import { Tuple2 } from "@quid2/adt/Tuple2/Ka5583bf3ad34";
+import { Left, Right } from "@quid2/adt/Either/K6260e465ae74";
+import { ZM } from "@quid2/prim";
+import { Nil, Cons } from "@quid2/adt/List/Kb8cd13187198";
+import { Nothing, Just } from "@quid2/adt/Maybe/Kda6836778fd4";
 
-declare module "../ADT/ADT/K3e8257255cbf" {
+declare module "@quid2/adt/ADT/K3e8257255cbf" {
   interface ADT<A extends ZM, B extends ZM, C extends ZM> {
     map<T extends ZM>(f: (x: C) => T): ADT<A, B, T>;
   }
@@ -21,7 +21,7 @@ declare module "../ADT/ADT/K3e8257255cbf" {
 // TO DFIX
 // ADT.prototype.map = function (f) { return new ADT(this.declName, this.declNumParameters, this.declCons.map(f)) }
 
-declare module "../ADT/Type/K7028aa556ebc" {
+declare module "@quid2/adt/Type/K7028aa556ebc" {
   interface TypeCon<A extends ZM> {
     map<B extends ZM>(f: (x: A) => B): Type<B>;
   }
@@ -39,7 +39,7 @@ TypeApp.prototype.map = function (f) {
   return new TypeApp(this._0.map(f), this._1.map(f));
 };
 
-declare module "../ADT/ConTree/K86653e040025" {
+declare module "@quid2/adt/ConTree/K86653e040025" {
   interface Con<A extends ZM, B extends ZM> {
     map<T extends ZM>(f: (x: B) => T): ConTree<A, T>;
   }
@@ -49,7 +49,7 @@ declare module "../ADT/ConTree/K86653e040025" {
   }
 }
 
-declare module "../ADT/List/Kb8cd13187198" {
+declare module "@quid2/adt/List/Kb8cd13187198" {
   // Return type must be the same
   interface Nil<A extends ZM> {
     map<B extends ZM>(f: (x: A) => B): List<B>;
@@ -68,7 +68,7 @@ Cons.prototype.map = function (f) {
   return new Cons(this._0.map(f), this._1.map(f));
 };
 
-declare module "../ADT/Maybe/Kda6836778fd4" {
+declare module "@quid2/adt/Maybe/Kda6836778fd4" {
   interface Nothing<A extends ZM> {
     map<B extends ZM>(f: (x: A) => B): Maybe<B>;
   }
@@ -86,7 +86,7 @@ Just.prototype.map = function (f) {
   return new Just(this._0.map(f));
 };
 
-declare module "../ADT/Either/K6260e465ae74" {
+declare module "@quid2/adt/Either/K6260e465ae74" {
   interface Left<A extends ZM, B extends ZM> {
     map<T extends ZM>(f: (x: B) => T): Either<A, T>;
   }
@@ -104,7 +104,7 @@ Right.prototype.map = function (f) {
   return new Right(this._0.map(f));
 };
 
-declare module "../ADT/Tuple2/Ka5583bf3ad34" {
+declare module "@quid2/adt/Tuple2/Ka5583bf3ad34" {
   interface Tuple2<A extends ZM, B extends ZM> {
     map<T extends ZM>(f: (x: B) => T): Tuple2<A, T>;
   }
