@@ -1,0 +1,38 @@
+{
+  "name": "test",
+  "version": "0.1.1",
+  "description": "TypeScript API for Quid2 - Tests",
+  "main": "./js/test.js",
+  "typings": "./js/test.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "release": "npm run build;npm run test;standard-version;maker;git commit -am \"release\";git push --follow-tags origin master;git status",
+    "get-deps": "npm update",
+    "test0": "tsc test-list;node test-list",
+    "test": "tsc;tsc test/test-list;node test/test-list;tsc test/test-flat;node test/test-flat;tsc test/test-util;node test/test-util",
+    "test-top": "parcel -p 2345 test/index.html",
+    "open-test-top": "open http://localhost:2345",
+    "doc": "typedoc ts/**.ts --out doc && open doc/index.html",
+    "dev": "doctest-ts --tape -watch ts/*.ts | while read file; do echo running tape on $file; tap -Rterse --no-cov $file;done",
+    "doctest": "doctest-ts --tape -watch ts/*.ts | while read file; do echo running tape on $file; tap -Rterse --no-cov $file; done",
+    "doctest-diff": "doctest-ts --tape -watch ts/*.ts | while read file; do echo running tape on $file; ts-node $file | tap-diff ; done",
+    "doctest-update": "cd ../EXTERNAL/doctest-ts;npm run build;cd -;npm install ../EXTERNAL/doctest-ts/",
+    "d": "doctest-ts --tape -watch ts/*.ts",
+    "adt": "cd ~/workspace/top-apps;stack install :zm;zm ts --srcDir \"/Users/titto/workspace/ts\"",
+    "clean": "cd test;rm *.js *.map *.d.ts",
+    "x": "ls -la `which doctest-ts`"
+  },
+  "devDependencies": {
+    "tap": "^14.10.7",
+    "tap-diff": "^0.1.1",
+    "tape": "^5.0.1",
+    "ts-node": "^8.10.2",
+    "typedoc": "^0.17.7",
+    "typescript": "^3.8.0",
+    "typescript-doctest": "^1.1.0"
+  },
+  "dependencies": {
+    "@quid2/top": "file:..",
+    "@quid2/prim": "git+https://github.com/Quid2/ts-core.git"
+  }
+}
